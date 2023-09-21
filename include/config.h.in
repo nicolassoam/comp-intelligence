@@ -1,0 +1,4 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+#cmakedefine PROJECT_DIR "@PROJECT_DIR@"
+#endif // CONFIG_H
