@@ -12,7 +12,7 @@ namespace util{
     k_int read_instance(std::string filename){
         int n_vertices, nextra_hotels, trips;
         double tmax;
-        double t_lenght
+        double t_lenght;
     };
 }
 
