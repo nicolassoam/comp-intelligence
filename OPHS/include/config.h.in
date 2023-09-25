@@ -1,4 +1,5 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 #cmakedefine PROJECT_DIR "@PROJECT_DIR@"
+#cmakedefine INPUT "@INPUT@"
 #endif // CONFIG_H
