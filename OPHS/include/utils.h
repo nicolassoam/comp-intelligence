@@ -29,10 +29,8 @@ namespace Util{
         int n_vertices, nextra_hotels, trips;
         double tmax;
 
-        k_double t_lenght;
+        k_double t_length;
         k_int info(4);
-
-
 
         std::ifstream file;
 
@@ -45,10 +43,10 @@ namespace Util{
         info[2] = trips;
         info[3] = tmax;
 
-        t_lenght.resize(trips);
+        t_length.resize(trips);
 
         for(int i = 0; i < trips; i++){
-            file >> t_lenght[i];
+            file >> t_length[i];
         }
 
         string line;
@@ -72,7 +70,7 @@ namespace Util{
 
         file.close();
         
-        return {info,t_lenght};
+        return {info,t_length};
     };
 }
 
