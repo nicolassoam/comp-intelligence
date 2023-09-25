@@ -18,16 +18,20 @@ int main(int argc, char const **argv)
     std::cout << "trips: " << info[2] << std::endl;
     std::cout << "tmax: " << info[3] << std::endl;
     std::cout << "t_lenght: " << std::endl;
+
     for(auto i : t_lenght){
         std::cout << i << " ";
     }
+
     std::cout << std::endl;
     std::cout << "tour: " << std::endl;
+
     for(auto i : tour){
         for(auto j : i){
             std::cout << j << " ";
         }
         std::cout << std::endl;
-    }   
+    } 
+      
     return 0;
 }
