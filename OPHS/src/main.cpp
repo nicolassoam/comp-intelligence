@@ -8,8 +8,11 @@ int main(int argc, char const **argv)
     std::string aux = "SET1 1-2/64-45-1-2.ophs";
     std::string filename = INPUT + aux;
     std::cout << filename << std::endl;
+    
     trip_matrix tour;
-    [[maybe_unused]] auto [info, t_lenght] = Util::readInstance(filename, tour);
+
+    auto [info, t_lenght] = Util::readInstance(filename, tour);
+
     std::cout << "n_vertices: " << info[0] << std::endl;
     std::cout << "nextra_hotels: " << info[1] << std::endl;
     std::cout << "trips: " << info[2] << std::endl;

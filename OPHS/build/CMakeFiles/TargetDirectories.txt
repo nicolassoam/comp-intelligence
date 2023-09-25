@@ -1,3 +1,0 @@
-/c/Users/nsm44/Desktop/comp-intelligence/OPHS/build/CMakeFiles/main.dir
-/c/Users/nsm44/Desktop/comp-intelligence/OPHS/build/CMakeFiles/edit_cache.dir
-/c/Users/nsm44/Desktop/comp-intelligence/OPHS/build/CMakeFiles/rebuild_cache.dir
