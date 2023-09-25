@@ -8,14 +8,14 @@
 #include <sstream>
 #include <cstring>
 
-using trip_matrix = std::vector<std::vector<double>>;
+using trip_matrix   = std::vector<std::vector<double>>;
 
 namespace Util{
-    using k_int = std::vector<int>;
-    using k_double = std::vector<double>;
-    using sstream = std::stringstream;
-    using string = std::string;
-    using return_t = std::pair<k_int,k_double>;
+    using k_int     = std::vector<int>;
+    using k_double  = std::vector<double>;
+    using sstream   = std::stringstream;
+    using string    = std::string;
+    using return_t  = std::pair<k_int,k_double>;
 
     /*
         Retorna informações sobre número de vértices, número de hotéis extras,
@@ -55,11 +55,11 @@ namespace Util{
             k_double aux;
             sstream ss(line);
             string value = " ";
-            // std::cout << line << std::endl;
+       
             while(ss >> value){
                 if(strcmp(value.c_str(), "---------------------------------------------------") == 0)
                     continue;
-                // std::cout << value << std::endl;
+    
                 aux.push_back(std::stod(value));
             }
 
