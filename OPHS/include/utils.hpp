@@ -7,15 +7,19 @@
 #include <string>
 #include <sstream>
 #include <cstring>
+#include <algorithm>
+#include <cmath>
+#include "types_inc.hpp"
+#include "graph.hpp"
+
 
 // Estrutura temporária de matriz de viagens
-using trip_matrix   = std::vector<std::vector<double>>;
+
 
 namespace Util{
 
     // Atalhos de tipos
     using k_int     = std::vector<int>;
-    using k_double  = std::vector<double>;
     using sstream   = std::stringstream;
     using string    = std::string;
     using return_t  = std::pair<k_int,k_double>;
@@ -25,7 +29,7 @@ namespace Util{
         número de viagens e tempo máximo de viagem no primeiro vetor
         enquanto o segundo vetor contém o tempo de cada viagem.
     */
-    return_t readInstance(std::string filename, trip_matrix& tour){
+    Graph* readInstance(std::string filename, trip_matrix& tour){
         int n_vertices, nextra_hotels, trips;
         double tmax;
 
@@ -70,8 +74,14 @@ namespace Util{
 
         file.close();
         
-        return {info,t_length};
+        Graph *graph = new Graph(n_vertices, nextra_hotels, trips, tmax, t_length, tour); 
+
+        return graph;
     };
+
+    double euclidianDistance(double x1, double y1, double x2, double y2){
+        return sqrt(std::pow(x1 - x2, 2) + std::pow(y1 - y2, 2));
+    }
 }
 
 #endif

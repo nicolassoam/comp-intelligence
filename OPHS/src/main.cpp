@@ -1,6 +1,6 @@
-#include "../include/utils.h"
+#include "../include/utils.hpp"
 #include "../include/config.h"
-#include "../include/graph.h"
+#include "../include/graph.hpp"
 
 
 int main(int argc, char const **argv)
@@ -11,15 +11,15 @@ int main(int argc, char const **argv)
     
     trip_matrix tour;
 
-    auto [info, t_lenght] = Util::readInstance(filename, tour);
+    Graph* graph = Util::readInstance(filename, tour);
 
-    std::cout << "n_vertices: " << info[0] << std::endl;
-    std::cout << "nextra_hotels: " << info[1] << std::endl;
-    std::cout << "trips: " << info[2] << std::endl;
-    std::cout << "tmax: " << info[3] << std::endl;
-    std::cout << "t_lenght: " << std::endl;
+    std::cout << "n_vertices: " << graph->getNVertices() << std::endl;
+    std::cout << "nextra_hotels: " << graph->getNExtraHotels() << std::endl;
+    std::cout << "trips: " << graph->getNumTrips() << std::endl;
+    std::cout << "tmax: " << graph->getTourLength() << std::endl;
+    std::cout << "t_length: " << std::endl;
 
-    for(auto i : t_lenght){
+    for(auto i : graph->getTripLenghts()){
         std::cout << i << " ";
     }
 
