@@ -15,8 +15,6 @@ class Graph {
                 k_double getTripLenghts();
                 trip_matrix getTour();
 
-
-    
     private:    int nVertices;
                 int nExtraHotels;
                 int numTrips;
