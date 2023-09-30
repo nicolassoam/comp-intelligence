@@ -3,10 +3,15 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <unordered_set>
 #include "types_inc.hpp"
 #include "graph.hpp"
 
 namespace Search{
+
+    // a ideia é que cada set no vetor seja uma "trip"
+    using solution_t = std::vector<std::unordered_set<int>>;
+    
     class Constructive{
         public:     Constructive(Graph* graph, int iterations);
                     ~Constructive();
@@ -14,7 +19,7 @@ namespace Search{
                     tour_t greedySolution();
 
         private:    Graph* graph;
-                    tour_t solution;
+                    solution_t solution;
                     int iterations;
                     int heuristic();
     };

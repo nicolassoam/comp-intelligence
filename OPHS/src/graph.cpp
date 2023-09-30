@@ -1,4 +1,5 @@
 #include "../include/graph.hpp"
+#include "../include/types_inc.hpp"
 #include <cmath>
 #include <iostream>
 #include <algorithm>
@@ -43,28 +44,35 @@ double Graph::euclideanDistance(double x1, double y1, double x2, double y2){
 void Graph::printGraph(){
     for(auto i : this->adjMatrix){
         for(auto j : i){
-            std::cout << j.first << " ";
+            std::cout << j.dist << " ";
         }
         std::cout << std::endl;
     }
+    // std::cout << this->adjMatrix.size() << std::endl;
 }
 
 void Graph::toGraphMatrix(matrix_t& tour){
        
         //  calculates the euclidean distance between hotels and stores it in a matrix
         for(int i = 0; i < tour.size(); i++){
-            auto &hotel = tour[i];
-            std::vector<std::pair<double,int>> aux;
+            k_double &location = tour[i];
+            std::vector<Node> aux;
             for(int j = 0; j < tour.size(); j++){
-                auto & other_hotel = tour[j];
-                if(i == j){
-                    aux.push_back(std::make_pair(0,0));
-                }else{
-                    aux.push_back(std::make_pair(Graph::euclideanDistance(hotel[0], hotel[1], other_hotel[0], other_hotel[1]), hotel[2]));
-                }
-                this->adjMatrix.push_back(aux);
-            }
+                k_double & other_location = tour[j];
+
+                Node aux_;
             
+                if(i == j){
+                    aux_.dist = 0;
+                    aux_.score = 0;
+                    aux.push_back(aux_);
+                }else{
+                    aux_.dist = Graph::euclideanDistance(location[0], location[1], other_location[0], other_location[1]);
+                    aux_.score = location[2];
+                    aux.push_back(aux_);
+                }
+            }
+            this->adjMatrix.push_back(aux);
         }
     }
 
