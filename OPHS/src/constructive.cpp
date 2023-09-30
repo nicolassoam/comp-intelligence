@@ -10,7 +10,7 @@ namespace Search {
         this->solution.push_back(aux);
     }
 
-    int Constructive::heuristic(){
+    unordered Constructive::heuristic(){
         //OPHS PROBLEM HEURISTIC
 
     }

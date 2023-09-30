@@ -6,7 +6,7 @@ include_directories(include)
 set(PROJECT_DIR ${PROJECT_SOURCE_DIR}/)
 set (INPUT ${PROJECT_DIR}input/)
 
-configure_file(${PROJECT_DIR}/include/config.h.in ${PROJECT_DIR}/include/config.h)
+configure_file(${PROJECT_DIR}/include/config.h.in ${PROJECT_DIR}/include/config.hpp)
 
 file(GLOB SOURCES src/*.cpp include/*.hpp) 
 

@@ -11,7 +11,7 @@ namespace Search{
 
     // a ideia é que cada set no vetor seja uma "trip"
     using solution_t = std::vector<std::unordered_set<int>>;
-    
+    using unordered  = std::unordered_set<int>;
     class Constructive{
         public:     Constructive(Graph* graph, int iterations);
                     ~Constructive();
@@ -21,7 +21,7 @@ namespace Search{
         private:    Graph* graph;
                     solution_t solution;
                     int iterations;
-                    int heuristic();
+                    unordered heuristic();
     };
 }
 

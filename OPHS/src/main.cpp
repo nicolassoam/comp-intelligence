@@ -1,5 +1,5 @@
 #include "../include/utils.hpp"
-#include "../include/config.h"
+#include "../include/config.hpp"
 #include "../include/graph.hpp"
 
 
