@@ -6,15 +6,16 @@
 #include "types_inc.hpp"
 #include "graph.hpp"
 
-namespace Constructive{
+namespace Search{
     class Constructive{
-        public:     Constructive(Graph* graph);
+        public:     Constructive(Graph* graph, int iterations);
                     ~Constructive();
                     Graph* getGraph();
                     tour_t greedySolution();
 
         private:    Graph* graph;
                     tour_t solution;
+                    int iterations;
                     int heuristic();
     };
 }
