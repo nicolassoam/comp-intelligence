@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.rmd": "markdown",
         "atomic": "cpp",
         "bit": "cpp",
         "cctype": "cpp",
@@ -45,6 +46,8 @@
         "xstddef": "cpp",
         "xstring": "cpp",
         "xtr1common": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "algorithm": "cpp",
+        "unordered_set": "cpp"
     }
 }

@@ -4,9 +4,15 @@
 #include <vector>
 #include <string>
 
+enum type_{
+    HOTEL,
+    LOCAL,
+    NULLTYPE = -1
+};
 struct Node{
     double dist;
     int score;
+    type_ type;
 };
 
 using trip_matrix   = std::vector<std::vector<Node>>;

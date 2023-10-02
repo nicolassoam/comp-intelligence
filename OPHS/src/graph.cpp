@@ -65,10 +65,15 @@ void Graph::toGraphMatrix(matrix_t& tour){
                 if(i == j){
                     aux_.dist = 0;
                     aux_.score = 0;
+                    aux_.type = type_::NULLTYPE;
                     aux.push_back(aux_);
                 }else{
                     aux_.dist = Graph::euclideanDistance(location[0], location[1], other_location[0], other_location[1]);
                     aux_.score = location[2];
+                    if(aux_.score == 0) 
+                        aux_.type = type_::HOTEL;
+                    else 
+                        aux_.type = type_::LOCAL;
                     aux.push_back(aux_);
                 }
             }
