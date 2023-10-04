@@ -10,7 +10,7 @@ Graph::Graph(int nVertices, int nExtraHotels, int numTrips, double tourLength, k
     this->numTrips = numTrips;
     this->tripLenghts = tripLenghts;
     this->tourLength = tourLength;
-    this->adjMatrix.resize(nVertices + nExtraHotels);
+    // this->adjMatrix.resize(nVertices + nExtraHotels);
 }
 
 int Graph::getNVertices(){
