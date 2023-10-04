@@ -48,7 +48,6 @@ void Graph::printGraph(){
         }
         std::cout << std::endl;
     }
-    // std::cout << this->adjMatrix.size() << std::endl;
 }
 
 void Graph::toGraphMatrix(matrix_t& tour){
@@ -56,24 +55,29 @@ void Graph::toGraphMatrix(matrix_t& tour){
         //  calculates the euclidean distance between hotels and stores it in a matrix
         for(int i = 0; i < tour.size(); i++){
             k_double &location = tour[i];
+
             std::vector<Node> aux;
+
             for(int j = 0; j < tour.size(); j++){
                 k_double & other_location = tour[j];
 
                 Node aux_;
-            
+
                 if(i == j){
                     aux_.dist = 0;
                     aux_.score = 0;
                     aux_.type = type_::NULLTYPE;
+
                     aux.push_back(aux_);
                 }else{
                     aux_.dist = Graph::euclideanDistance(location[0], location[1], other_location[0], other_location[1]);
                     aux_.score = location[2];
+
                     if(aux_.score == 0) 
                         aux_.type = type_::HOTEL;
                     else 
                         aux_.type = type_::LOCAL;
+                        
                     aux.push_back(aux_);
                 }
             }

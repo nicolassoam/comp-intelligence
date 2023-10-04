@@ -26,7 +26,7 @@ namespace Search {
         int nVertices = this->graph->getNVertices();
 
         while(trip_length > 0){
-            int min = INT_MAX;
+            int min = BIG;
             int min_index = -1;
 
             for(int i = 0; i < nVertices; i++){

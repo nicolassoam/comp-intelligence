@@ -20,6 +20,7 @@ using matrix_t      = std::vector<std::vector<double>>;
 using k_double      = std::vector<double>;
 using tour_t        = std::vector<int>;
 
+static const unsigned int BIG = 99999;
 
 
 #endif // TYPES_H_

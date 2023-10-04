@@ -34,7 +34,5 @@ int main(int argc, char const **argv)
     std::cout << std::endl;
     std::cout << "tour: " << std::endl;
     graph->printGraph();
-    
-      
     return 0;
 }
