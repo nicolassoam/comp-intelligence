@@ -5,7 +5,7 @@
 
 int main(int argc, char const **argv)
 {   
-    std::string aux = "SET1 1-2/64-45-1-2.ophs";
+    std::string aux = "TEST SET/test_instance.ophs";
     std::string filename = INPUT + aux;
     std::cout << filename << std::endl;
     

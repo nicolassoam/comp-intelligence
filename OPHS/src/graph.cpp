@@ -44,7 +44,7 @@ double Graph::euclideanDistance(double x1, double y1, double x2, double y2){
 void Graph::printGraph(){
     for(auto i : this->adjMatrix){
         for(auto j : i){
-            std::cout << j.dist << " ";
+            std::cout << j.dist << "\t";
         }
         std::cout << std::endl;
     }
