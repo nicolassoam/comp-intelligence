@@ -19,34 +19,34 @@ namespace Search {
         }
     }
 
-    tour_t Constructive::heuristic(tour_t &tour, unordered &visited, double trip_length){
+    tour_t Constructive::heuristic(tour_t &tour, unordered &visited){
         //OPHS PROBLEM HEURISTIC
         trip_matrix adjMatrix = this->graph->getAdjMatrix();
-        double tmax = this->graph->getTourLength();
+       
         int nVertices = this->graph->getNVertices();
 
-        while(trip_length > 0){
-            int min = BIG;
-            int min_index = -1;
-
+        double best_score = 0;
+        int best_node = -1;
+        
+        if(tour.size() == 0){
             for(int i = 0; i < nVertices; i++){
                 if(visited.find(i) == visited.end()){
-                    if(adjMatrix[tour.back()][i].dist < min){
-                        min = adjMatrix[tour.back()][i].dist;
-                        min_index = i;
+                    if(adjMatrix[0][i].score/adjMatrix[0][i].dist > best_score){
+                        best_score = adjMatrix[0][i].score/adjMatrix[0][i].dist;
+                        best_node = i;
                     }
                 }
             }
-
-            if(min_index == -1){
-                break;
+        }else{
+            for(int i = 0; i < nVertices; i++){
+                if(visited.find(i) == visited.end()){
+                    if(adjMatrix[tour.back()][i].score/adjMatrix[tour.back()][i].dist > best_score){
+                        best_score = adjMatrix[tour.back()][i].score/adjMatrix[tour.back()][i].dist;
+                        best_node = i;
+                    }
+                }
             }
-
-            tour.push_back(min_index);
-            visited.insert(min_index);
-            trip_length -= min;
         }
-
     }
 
     tour_t Constructive::greedySolution(){
@@ -57,7 +57,7 @@ namespace Search {
         for (int i = 0; i < iterations; i++)
         {
             unordered visited;
-            this->heuristic(this->solution[aux_trip], visited, tripLengths[aux_trip]);
+            this->heuristic(this->solution[aux_trip], visited);
         }
         
     }

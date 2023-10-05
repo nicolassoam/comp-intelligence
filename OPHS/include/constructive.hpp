@@ -21,7 +21,7 @@ namespace Search{
         private:    Graph* graph;
                     solution_t solution;
                     int iterations;
-                    tour_t heuristic(tour_t &tour, unordered &visited, double trip_length);
+                    tour_t heuristic(tour_t &tour, unordered &visited);
     };
 }
 
