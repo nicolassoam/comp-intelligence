@@ -5,59 +5,43 @@ namespace Search {
     Constructive::Constructive(Graph* graph, int iterations){
         this->graph = graph;
         this->iterations = iterations;
-        this->solution.resize(graph->getNumTrips());
-
-        tour_t aux;
-
-        aux.push_back(0);
-
-        this->solution.push_back(aux);
-
-        for(int i = 1; i < graph->getNumTrips(); i++){
-            tour_t aux;
-            this->solution.push_back(aux);
-        }
+        this->solution.push_back(0);
     }
 
-    tour_t Constructive::heuristic(tour_t &tour, unordered &visited){
+    tour_t Constructive::heuristic(unordered &visited){
         //OPHS PROBLEM HEURISTIC
         trip_matrix adjMatrix = this->graph->getAdjMatrix();
-       
-        int nVertices = this->graph->getNVertices();
+        double heuristic = 0;
+        int n_vertices = this->graph->getNVertices();
 
-        double best_score = 0;
-        int best_node = -1;
-        
-        if(tour.size() == 0){
-            for(int i = 0; i < nVertices; i++){
-                if(visited.find(i) == visited.end()){
-                    if(adjMatrix[0][i].score/adjMatrix[0][i].dist > best_score){
-                        best_score = adjMatrix[0][i].score/adjMatrix[0][i].dist;
-                        best_node = i;
+
+        for (int i = 0; i < n_vertices; i++)
+        {
+            if(visited.find(i) == visited.end()){
+                double min = 9999999;
+                int min_index = -1;
+                for (int j = 0; j < n_vertices; j++)
+                {
+                    if(visited.find(j) == visited.end()){
+                        if(adjMatrix[i][j].dist < min){
+                            min = adjMatrix[i][j].dist;
+                            min_index = j;
+                        }
                     }
                 }
-            }
-        }else{
-            for(int i = 0; i < nVertices; i++){
-                if(visited.find(i) == visited.end()){
-                    if(adjMatrix[tour.back()][i].score/adjMatrix[tour.back()][i].dist > best_score){
-                        best_score = adjMatrix[tour.back()][i].score/adjMatrix[tour.back()][i].dist;
-                        best_node = i;
-                    }
-                }
+                visited.insert(min_index);
+                this->solution.push_back(min_index);
+                heuristic += min;
             }
         }
     }
 
     tour_t Constructive::greedySolution(){
-        int trips = this->graph->getNumTrips();
-        k_double tripLengths = this->graph->getTripLenghts();
-        int aux_trip = 0;
-
+    
+        unordered visited;
         for (int i = 0; i < iterations; i++)
         {
-            unordered visited;
-            this->heuristic(this->solution[aux_trip], visited);
+            this->heuristic(visited);
         }
         
     }

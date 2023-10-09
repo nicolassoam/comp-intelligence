@@ -10,7 +10,7 @@
 namespace Search{
 
     // a ideia é que cada set no vetor seja uma "trip"
-    using solution_t = std::vector<tour_t>;
+    using solution_t = std::vector<int>;
     using unordered  = std::unordered_set<int>;
     class Constructive{
         public:     Constructive(Graph* graph, int iterations);
@@ -21,7 +21,7 @@ namespace Search{
         private:    Graph* graph;
                     solution_t solution;
                     int iterations;
-                    tour_t heuristic(tour_t &tour, unordered &visited);
+                    tour_t heuristic(unordered& visited);
     };
 }
 
