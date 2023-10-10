@@ -15,10 +15,17 @@ struct Node{
     type_ type;
 };
 
+using tour_t        = std::vector<int>;
+
+struct Trip{
+    tour_t locations;
+    double tripLength;
+};
+
 using trip_matrix   = std::vector<std::vector<Node>>;
 using matrix_t      = std::vector<std::vector<double>>;
 using k_double      = std::vector<double>;
-using tour_t        = std::vector<int>;
+
 
 static const unsigned int BIG = 99999;
 
