@@ -69,6 +69,10 @@ namespace Search {
             if(this->solution[aux_trip].tripLength <= 0){
                 aux_trip++;
             }
+
+            if(aux_trip == trips){
+                break;
+            }
         }
         
     }
