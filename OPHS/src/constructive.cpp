@@ -18,7 +18,7 @@ namespace Search {
         }
     }
 
-    tour_t Constructive::heuristic(tour_t &tour, unordered &visited){
+    tour_t Constructive::heuristic(tour_t &tour, unordered &availableLocations){
         //OPHS PROBLEM HEURISTIC
         trip_matrix adjMatrix = this->graph->getAdjMatrix();
        
@@ -27,24 +27,19 @@ namespace Search {
         double best_score = 0;
         int best_node = -1;
         
-        if(tour.size() == 0){
-            for(int i = 0; i < nVertices; i++){
-                if(visited.find(i) == visited.end()){
-                    if(adjMatrix[0][i].score/adjMatrix[0][i].dist > best_score){
-                        best_score = adjMatrix[0][i].score/adjMatrix[0][i].dist;
-                        best_node = i;
-                    }
-                }
+        for(auto i : availableLocations){
+            double score = 0;
+            for(auto j : tour){
+                score += adjMatrix[i][j].score;
             }
-        }else{
-            for(int i = 0; i < nVertices; i++){
-                if(visited.find(i) == visited.end()){
-                    if(adjMatrix[tour.back()][i].score/adjMatrix[tour.back()][i].dist > best_score){
-                        best_score = adjMatrix[tour.back()][i].score/adjMatrix[tour.back()][i].dist;
-                        best_node = i;
-                    }
-                }
+
+            if(score > best_score){
+                best_score = score;
+                best_node = i;
             }
+
+            tour.push_back(best_node);
+            availableLocations.erase(best_node);
         }
     }
 
@@ -52,11 +47,16 @@ namespace Search {
         int trips = this->graph->getNumTrips();
         k_double tripLengths = this->graph->getTripLenghts();
         int aux_trip = 0;
+        unordered availableLocations;
+        availableLocations.reserve(this->graph->getNVertices());
+
+        for(int i = 0; i < this->graph->getNVertices(); i++){
+            availableLocations.insert(i);
+        }
 
         for (int i = 0; i < iterations; i++)
         {
-            unordered visited;
-            this->heuristic(this->solution[aux_trip], visited);
+            this->heuristic(this->solution[aux_trip], availableLocations);
         }
         
     }
