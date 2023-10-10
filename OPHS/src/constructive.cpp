@@ -27,29 +27,35 @@ namespace Search {
        
         int nVertices = this->graph->getNVertices();
 
-        double best_score = 0;
         int best_node = -1;
+
+        //heuristic is score/distance
+        double best_heuristic = 0;
+
         
         for(auto i : availableLocations){
-            double score = 0;
-            for(auto j : t.locations){
-                score += adjMatrix[i][j].score;
-            }
 
-            if(score > best_score){
-                best_score = score;
+            double heuristic = 0;
+
+            heuristic = adjMatrix[t.locations.back()][i].score / adjMatrix[t.locations.back()][i].dist;
+
+            if(heuristic > best_heuristic){
+                best_heuristic = heuristic;
                 best_node = i;
             }
 
-            t.locations.push_back(best_node);
-            availableLocations.erase(best_node);
         }
+
+        t.locations.push_back(best_node);
+        t.tripLength -= adjMatrix[t.locations.back()][best_node].dist;
+        availableLocations.erase(best_node);
     }
 
     tour_t Constructive::greedySolution(){
         int trips = this->graph->getNumTrips();
-        k_double tripLengths = this->graph->getTripLenghts();
+ 
         int aux_trip = 0;
+
         unordered availableLocations;
         availableLocations.reserve(this->graph->getNVertices());
 
@@ -60,6 +66,9 @@ namespace Search {
         for (int i = 0; i < iterations; i++)
         {
             this->heuristic(this->solution[aux_trip], availableLocations);
+            if(this->solution[aux_trip].tripLength <= 0){
+                aux_trip++;
+            }
         }
         
     }
