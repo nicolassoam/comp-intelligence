@@ -21,7 +21,7 @@ namespace Search {
         }
     }
 
-    tour_t Constructive::heuristic(Trip &t, unordered &availableLocations){
+    void Constructive::heuristic(Trip &t, unordered &availableLocations){
         //OPHS PROBLEM HEURISTIC
         trip_matrix adjMatrix = this->graph->getAdjMatrix();
        
@@ -31,12 +31,15 @@ namespace Search {
 
         //heuristic is score/distance
         double best_heuristic = 0;
-
         
         for(auto i : availableLocations){
 
             double heuristic = 0;
 
+            if(adjMatrix[t.locations.back()][i].score == 0){
+                continue;
+            }
+            
             heuristic = adjMatrix[t.locations.back()][i].score / adjMatrix[t.locations.back()][i].dist;
 
             if(heuristic > best_heuristic){
@@ -51,7 +54,7 @@ namespace Search {
         availableLocations.erase(best_node);
     }
 
-    tour_t Constructive::greedySolution(){
+    solution_t Constructive::greedySolution(){
         int trips = this->graph->getNumTrips();
  
         int aux_trip = 0;
@@ -74,6 +77,8 @@ namespace Search {
                 break;
             }
         }
+
+        return this->solution;
         
     }
 

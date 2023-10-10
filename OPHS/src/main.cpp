@@ -1,11 +1,11 @@
 #include "../include/utils.hpp"
 #include "../include/config.hpp"
 #include "../include/graph.hpp"
-
+#include "../include/constructive.hpp"
 
 int main(int argc, char const **argv)
 {   
-    std::string aux = "TEST SET/test_instance.ophs";
+    std::string aux = "SET1 1-2/T1-65-1-2.ophs";
     std::string filename = INPUT + aux;
     std::cout << filename << std::endl;
     
@@ -34,5 +34,17 @@ int main(int argc, char const **argv)
     std::cout << std::endl;
     std::cout << "tour: " << std::endl;
     graph->printGraph();
+
+    Search::Constructive* constructive = new Search::Constructive(graph, 10);
+
+    auto solution = constructive->greedySolution();
+
+    std::cout << "solution: " << std::endl;
+    for(auto i : solution){
+        for(auto j : i.locations){
+            std::cout << j << " ";
+        }
+    }
+
     return 0;
 }
