@@ -5,7 +5,6 @@ namespace Search {
     Constructive::Constructive(Graph* graph, int iterations){
         this->graph = graph;
         this->iterations = iterations;
-        this->solution.resize(graph->getNumTrips());
 
         tour_t aux;
 
