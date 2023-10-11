@@ -16,12 +16,12 @@ namespace Search{
         public:     Constructive(Graph* graph, int iterations);
                     ~Constructive();
                     Graph* getGraph();
-                    tour_t greedySolution();
+                    solution_t greedySolution();
 
         private:    Graph* graph;
                     solution_t solution;
                     int iterations;
-                    tour_t heuristic(Trip &t, unordered &availableLocations);
+                    void heuristic(Trip &t, unordered &availableLocations);
     };
 }
 
