@@ -52,10 +52,12 @@ namespace Util{
         info[2] = trips;
         info[3] = tmax;
 
-        t_length.resize(trips);
+        double aux = 0;
+        // t_length.resize(trips);
 
         for(int i = 0; i < trips; i++){
-            file >> t_length[i];
+            file >> aux;
+            t_length.push_back(aux);
         }
 
         string line;
