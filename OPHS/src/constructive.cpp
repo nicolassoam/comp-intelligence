@@ -57,20 +57,19 @@ namespace Search {
         
         t.tripLength -= adjMatrix[t.locations.back()][best_node].dist;
 
-        t.locations.push_back(best_node);
-
         double previous_length = t.tripLength;
+        std::cout << availableLocations.size() << std::endl;
 
         if(t.tripLength <= 0){
             t.tripLength = previous_length;
-            t.locations.pop_back();
+        
             std::cout << "entrou aqui" << std::endl;
             //find nearest hotel
             int nearest_hotel = -1;
 
             double best_dist = BIG;
 
-            for(int i = 0; i < this->graph->getNExtraHotels(); i++){
+            for(int i = 0; i < this->graph->getNExtraHotels() + 2; i++){
                 if(adjMatrix[t.locations.back()][i].dist < best_dist){
                     best_dist = adjMatrix[t.locations.back()][i].dist;
                     nearest_hotel = i;
@@ -83,6 +82,8 @@ namespace Search {
             return;
         }
 
+        t.locations.push_back(best_node);
+
         availableLocations.erase(best_node);
     }
 
@@ -94,27 +95,26 @@ namespace Search {
         set availableLocations;
        
 
-        for(int i = 1 + this->graph->getNExtraHotels(); i < this->graph->getNVertices(); i++){
+        for(int i = 2 + this->graph->getNExtraHotels(); i < this->graph->getNVertices(); i++){
             availableLocations.insert(i);
         }
 
         for (int i = 0; i < iterations; i++)
         {
-            if(availableLocations.size() == 0){
-                break;
-            }
+            if(availableLocations.size() == 0) break;
 
             this->heuristic(this->solution[aux_trip], availableLocations);
             
             // std::cout << this->solution[aux_trip].tripLength << std::endl;
-            if(this->solution[aux_trip].tripLength <= 0 && available_trips > 0){
+            if((this->solution[aux_trip].tripLength <= 0) && (available_trips > 0)){
                 aux_trip++;
                 this->solution[aux_trip].locations.push_back(this->solution[aux_trip-1].locations.back());
                 available_trips--;
             }
-
             
         }
+
+        
 
         return this->solution;
         
