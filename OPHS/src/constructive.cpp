@@ -55,10 +55,9 @@ namespace Search {
             return;
         }
         
-        t.tripLength -= adjMatrix[t.locations.back()][best_node].dist;
-
         double previous_length = t.tripLength;
-        std::cout << availableLocations.size() << std::endl;
+
+        t.tripLength -= adjMatrix[t.locations.back()][best_node].dist;
 
         if(t.tripLength <= 0){
             t.tripLength = previous_length;
@@ -92,6 +91,7 @@ namespace Search {
  
         int aux_trip = 0;
         int available_trips = trips;
+        
         set availableLocations;
        
 
