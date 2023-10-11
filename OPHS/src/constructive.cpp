@@ -21,7 +21,7 @@ namespace Search {
         }
     }
 
-    void Constructive::heuristic(Trip &t, unordered &availableLocations){
+    void Constructive::heuristic(Trip &t, set &availableLocations){
         //OPHS PROBLEM HEURISTIC
         trip_matrix adjMatrix = this->graph->getAdjMatrix();
        
@@ -31,26 +31,58 @@ namespace Search {
 
         //heuristic is score/distance
         double best_heuristic = 0;
-        
+
+        //trip must end in a hotel
         for(auto i : availableLocations){
 
             double heuristic = 0;
-
+            
             if(adjMatrix[t.locations.back()][i].score == 0){
                 continue;
             }
             
             heuristic = adjMatrix[t.locations.back()][i].score / adjMatrix[t.locations.back()][i].dist;
-
+           
             if(heuristic > best_heuristic){
                 best_heuristic = heuristic;
                 best_node = i;
+                
             }
 
         }
+        
+        if(best_node == -1){
+            return;
+        }
+        
+        t.tripLength -= adjMatrix[t.locations.back()][best_node].dist;
 
         t.locations.push_back(best_node);
-        t.tripLength -= adjMatrix[t.locations.back()][best_node].dist;
+
+        double previous_length = t.tripLength;
+
+        if(t.tripLength <= 0){
+            t.tripLength = previous_length;
+            t.locations.pop_back();
+            std::cout << "entrou aqui" << std::endl;
+            //find nearest hotel
+            int nearest_hotel = -1;
+
+            double best_dist = BIG;
+
+            for(int i = 0; i < this->graph->getNExtraHotels(); i++){
+                if(adjMatrix[t.locations.back()][i].dist < best_dist){
+                    best_dist = adjMatrix[t.locations.back()][i].dist;
+                    nearest_hotel = i;
+                }
+            }
+
+            t.locations.push_back(nearest_hotel);
+            t.tripLength -= adjMatrix[t.locations.back()][nearest_hotel].dist;
+
+            return;
+        }
+
         availableLocations.erase(best_node);
     }
 
@@ -58,24 +90,30 @@ namespace Search {
         int trips = this->graph->getNumTrips();
  
         int aux_trip = 0;
+        int available_trips = trips;
+        set availableLocations;
+       
 
-        unordered availableLocations;
-        availableLocations.reserve(this->graph->getNVertices());
-
-        for(int i = 0; i < this->graph->getNVertices(); i++){
+        for(int i = 1 + this->graph->getNExtraHotels(); i < this->graph->getNVertices(); i++){
             availableLocations.insert(i);
         }
 
         for (int i = 0; i < iterations; i++)
         {
-            this->heuristic(this->solution[aux_trip], availableLocations);
-            if(this->solution[aux_trip].tripLength <= 0){
-                aux_trip++;
-            }
-
-            if(aux_trip == trips){
+            if(availableLocations.size() == 0){
                 break;
             }
+
+            this->heuristic(this->solution[aux_trip], availableLocations);
+            
+            // std::cout << this->solution[aux_trip].tripLength << std::endl;
+            if(this->solution[aux_trip].tripLength <= 0 && available_trips > 0){
+                aux_trip++;
+                this->solution[aux_trip].locations.push_back(this->solution[aux_trip-1].locations.back());
+                available_trips--;
+            }
+
+            
         }
 
         return this->solution;

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <unordered_set>
+#include <set>
 #include "types_inc.hpp"
 #include "graph.hpp"
 
@@ -11,7 +11,7 @@ namespace Search{
 
     // a ideia é que cada set no vetor seja uma "trip"
     using solution_t = std::vector<Trip>;
-    using unordered  = std::unordered_set<int>;
+    using set  = std::set<int>;
     class Constructive{
         public:     Constructive(Graph* graph, int iterations);
                     ~Constructive();
@@ -21,7 +21,7 @@ namespace Search{
         private:    Graph* graph;
                     solution_t solution;
                     int iterations;
-                    void heuristic(Trip &t, unordered &availableLocations);
+                    void heuristic(Trip &t, set &availableLocations);
     };
 }
 

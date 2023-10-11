@@ -71,7 +71,7 @@ void Graph::toGraphMatrix(matrix_t& tour){
                     aux.push_back(aux_);
                 }else{
                     aux_.dist = Graph::euclideanDistance(location[0], location[1], other_location[0], other_location[1]);
-                    aux_.score = location[2];
+                    aux_.score = other_location[2];
 
                     if(aux_.score == 0) 
                         aux_.type = type_::HOTEL;

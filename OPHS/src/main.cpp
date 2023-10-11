@@ -33,17 +33,19 @@ int main(int argc, char const **argv)
 
     std::cout << std::endl;
     std::cout << "tour: " << std::endl;
-    graph->printGraph();
+    // graph->printGraph();
 
-    Search::Constructive* constructive = new Search::Constructive(graph, 10);
+    Search::Constructive* constructive = new Search::Constructive(graph, 200);
 
     auto solution = constructive->greedySolution();
 
     std::cout << "solution: " << std::endl;
     for(auto i : solution){
+        std::cout <<"trip " << i.tripLength << std::endl; 
         for(auto j : i.locations){
             std::cout << j << " ";
         }
+        std::cout << std::endl;
     }
 
     return 0;
