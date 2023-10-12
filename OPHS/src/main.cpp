@@ -41,7 +41,7 @@ int main(int argc, char const **argv)
 
     std::cout << "solution: " << std::endl;
     for(auto i : solution){
-        std::cout <<"trip " << i.tripLength << std::endl; 
+        std::cout <<"trip: " << i.tripLength << std::endl; 
         for(auto j : i.locations){
             std::cout << j << " ";
         }

@@ -188,9 +188,10 @@ namespace Search {
         return false;
     }
 
-    void Constructive::updateCandidateList(list_t &candidateList, trip_matrix &adjMatrix, int kNode, tour_t &locations){
+    void Constructive::updateCandidateList(list_t &candidateList, trip_matrix &adjMatrix, int kNode, Trip* lastTrip){
         double heuristic;
         std::tuple<double, int, int, int> aux;
+        tour_t locations = lastTrip->locations;
 
         // remove kNode from candidate list
         candidateList.erase(candidateList.begin());
@@ -232,6 +233,22 @@ namespace Search {
         sortCandidateList(candidateList);
     }
 
+    void retryHeuristic(tuple &candidate, trip_matrix &adjMatrix, tour_t &locations) {
+        double heuristic = BIG;
+        int iNode = std::get<2>(candidate), jNode = std::get<3>(candidate);
+        for (int i = 0; i < locations.size(); i++) {
+            double newHeuristic = adjMatrix[locations[i]][std::get<1>(candidate)].dist / adjMatrix[locations[i]][std::get<1>(candidate)].score;
+            if (newHeuristic < heuristic) {
+                heuristic = newHeuristic;
+                iNode = locations[i];
+                jNode = locations[i+1];
+            }
+        }
+        std::get<0>(candidate) = heuristic;
+        std::get<2>(candidate) = iNode;
+        std::get<3>(candidate) = jNode;
+    }
+
     void Constructive::lastTripConstructor(int iter, trip_matrix &adjMatrix, double avTourLength) {
         Trip* lastTrip = &this->solution.back();
         list_t candidateList;
@@ -269,14 +286,22 @@ namespace Search {
                 std::cout << "Node " << kNode << " added between " << iNode << " and " << jNode << std::endl;
 
                 // updates candidate list
-                this->updateCandidateList(candidateList, adjMatrix, kNode, lastTrip->locations);
+                this->updateCandidateList(candidateList, adjMatrix, kNode, lastTrip);
                 printCandidateList(candidateList);
                 std::cout << std::endl;
                 printTrip(lastTrip);
+
+            } else {
+                std::cout << "não dá pra remover (" << iNode << "," << jNode << ") para inserir " << kNode << std::endl;
+                candidateList.erase(candidateList.begin());
+                retryHeuristic(candidateList.front(), adjMatrix, lastTrip->locations);
+                sortCandidateList(candidateList);
             }
 
-            if(lastTrip->tripLength <= 0 || candidateList.empty())
+            if(lastTrip->tripLength <= 0 || candidateList.empty()) {
+                std::cout << "Last trip finished" << std::endl;
                 break;
+            }
         }
     }
 }
