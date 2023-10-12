@@ -14,23 +14,78 @@ namespace Search {
     Constructive::Constructive(Graph* graph, int iterations){
         this->graph = graph;
         this->iterations = iterations;
-        k_double tripLengths = this->graph->getTripLenghts();
-        double trip_0 = tripLengths[0];
-        Trip aux;
-
-        aux.locations.push_back(0);
-        aux.tripLength = trip_0;
-
-        this->solution.push_back(aux);
-
-        for(int i = 1; i < graph->getNumTrips(); i++){
-            Trip aux;
-            aux.tripLength = tripLengths[i];
-            this->solution.push_back(aux);
-        }
-
+        
+        this->initialHotelSelection();
         std::cout << "Constructive created" << std::endl;
     }
+
+    int nearestHotelToAllLocations(trip_matrix &adj, int nLocations, int nHotels){
+        int nearest_hotel = -1;
+        k_double hotel_dist(nHotels, 0);
+
+        //starting from the last hotel inserted, calculate which hotel is closest to all locations
+        for(int i = 0; i < nHotels; i++){
+            double h_dist = 0;
+
+            for(int j = nHotels; j < nLocations; j++){
+                h_dist += adj[i][j].dist;
+            }
+            hotel_dist[i] = h_dist;
+            if(hotel_dist[i] < hotel_dist[nearest_hotel]){
+                nearest_hotel = i;
+            }
+        }
+
+        return nearest_hotel;
+    }
+
+    void Constructive::initialHotelSelection(){
+        trip_matrix adjMatrix = this->graph->getAdjMatrix();
+        k_double tripLengths = this->graph->getTripLenghts();
+
+        double firstTripLength = tripLengths[0];
+
+        int hotelNum = 2 + this->graph->getNExtraHotels();
+
+        int numLocations = this->graph->getNVertices() - hotelNum;
+
+        int trips = this->graph->getNumTrips() - 1;
+
+        Trip firstTrip;
+
+        firstTrip.locations.push_back(0);
+        firstTrip.tripLength = firstTripLength;
+
+        int nearest_hotel = nearestHotelToAllLocations(adjMatrix, numLocations, hotelNum);
+
+        firstTrip.locations.push_back(nearest_hotel);
+
+        this->solution.push_back(firstTrip);
+
+        for(int i = 1; i < trips-1; i++){
+            Trip intermediateTrip;
+
+            intermediateTrip.locations.push_back(this->solution.back().locations.back());
+            intermediateTrip.tripLength = tripLengths[i];
+
+            nearest_hotel = nearestHotelToAllLocations(adjMatrix, numLocations, hotelNum);
+
+            intermediateTrip.locations.push_back(nearest_hotel);
+            this->solution.push_back(firstTrip);
+        }
+
+        Trip lastTrip;
+        lastTrip.locations.push_back(this->solution.back().locations.back());
+        lastTrip.tripLength = tripLengths[trips-1];
+
+        lastTrip.locations.push_back(1);
+
+        this->solution.push_back(lastTrip);
+
+
+    }
+
+   
 
     int Constructive::heuristic(Trip &t, trip_matrix &adjMatrix){
         

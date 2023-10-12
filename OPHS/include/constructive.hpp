@@ -9,6 +9,7 @@
 #include <queue>
 #include <algorithm>
 #include <tuple>
+#include <random>
 namespace Search{
 
     // a ideia é que cada set no vetor seja uma "trip"
@@ -30,7 +31,7 @@ namespace Search{
                     int             findNearestHotel(trip_matrix &adjMatrix, int lastLocation);
                     void            lastTripConstructor(int iter, trip_matrix &adjMatrix, double avTourLength);
                     void            setToCandidateList(list_t &candidateList, trip_matrix& adjMatrix);
-
+                    void            initialHotelSelection();
     };
 }
 
