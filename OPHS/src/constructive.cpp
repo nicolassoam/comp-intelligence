@@ -61,12 +61,6 @@ namespace Search {
         return best_node;
     }
 
-    tour_t setToVector() {
-        
-    }
-
-    
-
     int Constructive::findNearestHotel(trip_matrix &adjMatrix, int lastLocation){
         double best_dist = BIG;
         int nearest_hotel = -1;
@@ -149,13 +143,24 @@ namespace Search {
         return this->solution;
     }
 
+    void Constructive::setToCandidateList(queue_t &candidateList, trip_matrix& adjMatrix){
+        double heuristic = 0;
+
+        for(auto i : this->availableLocations){
+            heuristic = adjMatrix[1][i].score / adjMatrix[1][i].dist;
+            candidateList.push(std::make_tuple(heuristic, i, 1));
+        }
+    }
+
     void Constructive::lastTripConstructor(int iter, trip_matrix &adjMatrix, double avTourLength) {
         Trip* lastTrip = &this->solution.back();
         lastTrip->locations.push_back(1);           // add hotel 1 (last hotel) to the last trip
+        queue_t candidateList;
 
-        
+        this->setToCandidateList(candidateList, adjMatrix);
+
         for (iter = iter; iter < this->iterations; iter++) {
-
+            
         }
     }
 }
