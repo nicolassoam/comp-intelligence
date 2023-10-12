@@ -205,7 +205,7 @@ namespace Search {
 
             // if current best insertion is on the edge last location was inserted, it is not possible anymore
             if (!verifyNeighbor(i, j, locations))
-                heuristic = BIG;
+                heuristic = -1;
 
             // calculates heuristic for candidate c being inserted between (i,kNode)
             double deltaDist = adjMatrix[i][c].dist + adjMatrix[c][kNode].dist - adjMatrix[i][kNode].dist;
@@ -234,11 +234,11 @@ namespace Search {
     }
 
     void retryHeuristic(tuple &candidate, trip_matrix &adjMatrix, tour_t &locations) {
-        double heuristic = BIG;
+        double heuristic = -1;
         int iNode = std::get<2>(candidate), jNode = std::get<3>(candidate);
         for (int i = 0; i < locations.size(); i++) {
             double newHeuristic = adjMatrix[locations[i]][std::get<1>(candidate)].dist / adjMatrix[locations[i]][std::get<1>(candidate)].score;
-            if (newHeuristic < heuristic) {
+            if (newHeuristic > heuristic) {
                 heuristic = newHeuristic;
                 iNode = locations[i];
                 jNode = locations[i+1];
