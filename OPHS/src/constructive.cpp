@@ -143,21 +143,27 @@ namespace Search {
         return this->solution;
     }
 
-    void Constructive::setToCandidateList(queue_t &candidateList, trip_matrix& adjMatrix){
+    void Constructive::setToCandidateList(list_t &candidateList, trip_matrix& adjMatrix){
         double heuristic = 0;
 
         for(auto i : this->availableLocations){
             heuristic = adjMatrix[1][i].score / adjMatrix[1][i].dist;
-            candidateList.push(std::make_tuple(heuristic, i, 1));
+            candidateList.push_back(std::make_tuple(heuristic, i, 1));
         }
     }
 
     void Constructive::lastTripConstructor(int iter, trip_matrix &adjMatrix, double avTourLength) {
         Trip* lastTrip = &this->solution.back();
         lastTrip->locations.push_back(1);           // add hotel 1 (last hotel) to the last trip
-        queue_t candidateList;
+        list_t candidateList;
 
         this->setToCandidateList(candidateList, adjMatrix);
+
+        // std::cout << "Candidate list: " << std::endl;
+
+        std::sort(candidateList.begin(), candidateList.end(), [](auto &left, auto &right) {
+            return std::get<0>(left) > std::get<0>(right);
+        });
 
         for (iter = iter; iter < this->iterations; iter++) {
             
