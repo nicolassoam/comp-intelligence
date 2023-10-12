@@ -24,7 +24,6 @@ class Graph {
                 double tourLength;
                 k_double tripLenghts;
                 trip_matrix adjMatrix;
-                
 };
 
 #endif  // GRAPH_H_
