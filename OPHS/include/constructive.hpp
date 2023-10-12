@@ -26,13 +26,11 @@ namespace Search{
         private:    Graph*          graph;
                     solution_t      solution;
                     int             iterations;
-                    set             availableLocations;
-                    int             heuristic(Trip &t, trip_matrix &adjMatrix);
-                    void            updateAvailableLocation(Trip &t, trip_matrix &adjMatrix, double &avTourLength);
-                    int             findNearestHotel(trip_matrix &adjMatrix, int lastLocation);
+                    list_t          candidateList;
                     void            lastTripConstructor(int iter, trip_matrix &adjMatrix, double avTourLength);
                     void            setToCandidateList(list_t &candidateList, trip_matrix& adjMatrix, int firstHotel);
                     void            updateCandidateList(list_t &candidateList, trip_matrix &adjMatrix, int kNode, Trip* lastTrip);
+                    void            updateCandListForNewTrip(trip_matrix &adjMatrix, Trip* lastTrip);
                     void            initialHotelSelection();
     };
 }

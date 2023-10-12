@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <random>
 
 enum type_{
     HOTEL,
@@ -14,6 +15,7 @@ struct Node{
     int score;
     type_ type;
 };
+
 
 using tour_t        = std::vector<int>;
 
