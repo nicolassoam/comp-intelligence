@@ -15,13 +15,18 @@ namespace Search{
     class Constructive{
         public:     Constructive(Graph* graph, int iterations);
                     ~Constructive();
-                    Graph* getGraph();
-                    solution_t greedySolution();
+                    Graph*          getGraph();
+                    solution_t      greedySolution();
 
-        private:    Graph* graph;
-                    solution_t solution;
-                    int iterations;
-                    void heuristic(Trip &t, set &availableLocations);
+        private:    Graph*          graph;
+                    solution_t      solution;
+                    int             iterations;
+                    set             availableLocations;
+                    int             heuristic(Trip &t, trip_matrix &adjMatrix);
+                    void            updateAvailableLocation(Trip &t, trip_matrix &adjMatrix, double &avTourLength);
+                    int             findNearestHotel(trip_matrix &adjMatrix, int lastLocation);
+                    void            lastTripConstructor(int iter, trip_matrix &adjMatrix, double avTourLength);
+
     };
 }
 

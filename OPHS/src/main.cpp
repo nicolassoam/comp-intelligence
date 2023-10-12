@@ -36,7 +36,7 @@ int main(int argc, char const **argv)
     // graph->printGraph();
 
     Search::Constructive* constructive = new Search::Constructive(graph, 200);
-
+    
     auto solution = constructive->greedySolution();
 
     std::cout << "solution: " << std::endl;

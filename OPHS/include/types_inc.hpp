@@ -18,8 +18,9 @@ struct Node{
 using tour_t        = std::vector<int>;
 
 struct Trip{
-    tour_t locations;
-    double tripLength;
+    tour_t  locations;
+    double  tripLength;
+    bool    finished = false;
 };
 
 using trip_matrix   = std::vector<std::vector<Node>>;
