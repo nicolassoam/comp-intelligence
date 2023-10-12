@@ -212,7 +212,7 @@ namespace Search {
             double deltaScore = adjMatrix[i][c].score + adjMatrix[c][kNode].score - adjMatrix[i][kNode].score;
             double newHeuristic = deltaDist / deltaScore;
 
-            if (newHeuristic < heuristic)
+            if (newHeuristic > heuristic)
                 heuristic = newHeuristic;
 
             // calculates heuristic for candidate c being inserted between (kNode,j)
@@ -220,7 +220,7 @@ namespace Search {
             deltaScore = adjMatrix[kNode][c].score + adjMatrix[c][j].score - adjMatrix[kNode][j].score;
             newHeuristic = deltaDist / deltaScore;
 
-            if (newHeuristic < heuristic)
+            if (newHeuristic > heuristic)
                 heuristic = newHeuristic;
 
             std::get<0>(aux) = heuristic;
