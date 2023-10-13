@@ -5,7 +5,7 @@
 
 int main(int argc, char const **argv)
 {   
-    std::string aux = "SET1 1-2/100-35-1-2.ophs";
+    std::string aux = "SET1 1-2/64-45-1-2.ophs";
     std::string filename = INPUT + aux;
     std::cout << filename << std::endl;
     
@@ -39,14 +39,7 @@ int main(int argc, char const **argv)
     
     auto solution = constructive->greedySolution();
 
-    std::cout << "solution: " << std::endl;
-    for(auto i : solution){
-        std::cout <<"trip: " << i.tripLength << std::endl; 
-        for(auto j : i.locations){
-            std::cout << j << " ";
-        }
-        std::cout << std::endl;
-    }
+    trip_matrix adjMatrix = graph->getAdjMatrix();
 
     return 0;
 }

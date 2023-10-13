@@ -2,9 +2,24 @@
 
 // OPHS Constructive greedy
 namespace Search {
-    static const int seed = 49;
+    static const int seed = 44;
 
     std::mt19937 gen_(seed);
+
+    void calculateTourScore(trip_matrix& adjMatrix, solution_t &solution) {
+        double score = 0;
+        std::cout << "Solution: " << std::endl;
+        for (auto i : solution) {
+            std::cout << "Trip: ";
+            for (int j = 0; j < i.locations.size()-1; j++) {
+                score += adjMatrix[i.locations[j]][i.locations[j+1]].score;
+                std::cout << i.locations[j] << " ";
+            }
+            std::cout << i.locations.back() << std::endl;
+        }
+   
+        std:: cout << "Tour Score: " << score << std::endl;
+    }
 
     void printCandidateList(list_t &candidateList) {
         std::cout << "Candidate List: " << std::endl;
@@ -99,7 +114,7 @@ namespace Search {
 
     void sortCandidateList(list_t &candidateList){
         std::sort(candidateList.begin(), candidateList.end(), [](auto &left, auto &right) {
-            return std::get<0>(left) > std::get<0>(right);
+            return std::get<0>(left) < std::get<0>(right);
         });
     }
     
@@ -259,6 +274,8 @@ namespace Search {
             }
 
         }
+
+        calculateTourScore(adjMatrix, this->solution);
 
         return this->solution;
     }
