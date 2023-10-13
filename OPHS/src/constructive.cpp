@@ -2,7 +2,7 @@
 
 // OPHS Constructive greedy
 namespace Search {
-    static const int seed = 44;
+    static const int seed = 91;
 
     std::mt19937 gen_(seed);
 
@@ -129,11 +129,11 @@ namespace Search {
     }
 
     void retryHeuristic(tuple &candidate, trip_matrix &adjMatrix, tour_t &locations) {
-        double heuristic = -1;
+        double heuristic = BIG;
         int iNode = std::get<2>(candidate), jNode = std::get<3>(candidate);
         for (int i = 0; i < locations.size()-1; i++) {
             double newHeuristic = adjMatrix[locations[i]][std::get<1>(candidate)].dist / adjMatrix[locations[i]][std::get<1>(candidate)].score;
-            if (newHeuristic > heuristic) {
+            if (newHeuristic < heuristic) {
                 heuristic = newHeuristic;
                 iNode = locations[i];
                 jNode = locations[i+1];
@@ -268,8 +268,7 @@ namespace Search {
                 removedLocations.push_back(kNode);
                 
                 // retryHeuristic(this->candidateList.front(), adjMatrix, lastTrip->locations);
-            
-                
+        
                 sortCandidateList(candidateList);
             }
 
@@ -297,14 +296,14 @@ namespace Search {
 
             // if current best insertion is on the edge last location was inserted, it is not possible anymore
             if (!verifyNeighbor(i, j, locations))
-                heuristic = -1;
+                heuristic = BIG;
 
             // calculates heuristic for candidate c being inserted between (i,kNode)
             double deltaDist = adjMatrix[i][c].dist + adjMatrix[c][kNode].dist - adjMatrix[i][kNode].dist;
             double deltaScore = adjMatrix[i][c].score + adjMatrix[c][kNode].score - adjMatrix[i][kNode].score;
             double newHeuristic = deltaDist / deltaScore;
 
-            if (newHeuristic > heuristic)
+            if (newHeuristic < heuristic)
                 heuristic = newHeuristic;
 
             // calculates heuristic for candidate c being inserted between (kNode,j)
@@ -312,7 +311,7 @@ namespace Search {
             deltaScore = adjMatrix[kNode][c].score + adjMatrix[c][j].score - adjMatrix[kNode][j].score;
             newHeuristic = deltaDist / deltaScore;
 
-            if (newHeuristic > heuristic)
+            if (newHeuristic < heuristic)
                 heuristic = newHeuristic;
 
             std::get<0>(aux) = heuristic;

@@ -5,7 +5,7 @@
 
 int main(int argc, char const **argv)
 {   
-    std::string aux = "SET1 1-2/64-45-1-2.ophs";
+    std::string aux = "SET1 2-3/66-125-2-3.ophs";
     std::string filename = INPUT + aux;
     std::cout << filename << std::endl;
     
@@ -38,8 +38,6 @@ int main(int argc, char const **argv)
     Search::Constructive* constructive = new Search::Constructive(graph, 200);
     
     auto solution = constructive->greedySolution();
-
-    trip_matrix adjMatrix = graph->getAdjMatrix();
 
     return 0;
 }
