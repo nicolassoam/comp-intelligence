@@ -147,7 +147,7 @@ namespace Search {
         sortCandidateList(candidateList);
     }
 
-    void Constructive::updateCandListForNewTrip(trip_matrix &adjMatrix, Trip* lastTrip){
+    void Constructive::updateCandListForNewTrip(trip_matrix &adjMatrix, Trip* lastTrip, tour_t& removedLocations){
         double heuristic = 0;
         std::tuple<double, int, int, int> candidate;
         tour_t locations = lastTrip->locations;
@@ -157,7 +157,13 @@ namespace Search {
         for(auto cand : this->candidateList){
             availableLocations.push_back(std::get<1>(cand));
         }
+
+        for(auto loc : removedLocations){
+            availableLocations.push_back(loc);
+        }
+
         this->candidateList.clear();
+        removedLocations.clear();
 
         for(int i = 0; i < locations.size()-1; i++){
             int iNode = locations[i];
@@ -186,39 +192,44 @@ namespace Search {
         int nHotels = this->graph->getNExtraHotels() + 2;
 
         initCandidateList(this->candidateList, this->solution[0], adjMatrix, this->graph->getNVertices(), nHotels);
-
+        tour_t removedLocations;
         // goes through candidate list and adds best location to best position in last trip
         for(int i = 0; i < this->iterations; i++){
-
 
             Trip* lastTrip = &this->solution[aux_trip];
 
             if(lastTrip->tripLength >= 0 && lastTrip->tripLength <= 1){
-                    aux_trip++;
-                     
-                    if(available_trips > 0)
-                        available_trips--;
+                aux_trip++;
                     
-                    if(aux_trip > trips){
-                        std::cout << "No more trips" << std::endl;
-                        break;
-                    }
+                if(available_trips > 0)
+                    available_trips--;
+                
+                if(aux_trip > trips){
+                    std::cout << "No more trips" << std::endl;
+                    break;
+                }
 
-                    updateCandListForNewTrip(adjMatrix, &this->solution[aux_trip]);
-                    printCandidateList(this->candidateList);
+                updateCandListForNewTrip(adjMatrix, &this->solution[aux_trip], removedLocations);
+                printCandidateList(this->candidateList);
+            }
+
+            if(candidateList.empty()) {
+                std::cout << "No more candidates" << std::endl;
+                break;
             } 
 
             // node k is added between node i and node j
-            int kNode = std::get<1>(this->candidateList.front());
-            int iNode = std::get<2>(this->candidateList.front());
-            int jNode = std::get<3>(this->candidateList.front());
+            std::tuple<double,int,int,int> candidate = this->candidateList.front();
+            int kNode = std::get<1>(candidate);
+            int iNode = std::get<2>(candidate);
+            int jNode = std::get<3>(candidate);
 
 
             // verify if edge (i,j) can be removed to add edges (i,k) and (k,j)
             double prevLength = adjMatrix[iNode][jNode].dist;
             double newLength = adjMatrix[iNode][kNode].dist + adjMatrix[kNode][jNode].dist;
 
-            if (lastTrip->tripLength + prevLength - newLength >= 0) {
+            if (lastTrip->tripLength + prevLength >= newLength) {
                 std::cout << "Trip num: " << aux_trip << std::endl; 
                 lastTrip->tripLength += prevLength;
                 lastTrip->tripLength -= newLength;
@@ -237,8 +248,9 @@ namespace Search {
 
             } else {
 
-                // std::cout << "não dá pra remover (" << iNode << "," << jNode << ") para inserir " << kNode << std::endl;
+                std::cout << "não dá pra remover (" << iNode << "," << jNode << ") para inserir " << kNode << std::endl;
                 this->candidateList.erase(this->candidateList.begin());
+                removedLocations.push_back(kNode);
                 
                 // retryHeuristic(this->candidateList.front(), adjMatrix, lastTrip->locations);
             
@@ -246,10 +258,6 @@ namespace Search {
                 sortCandidateList(candidateList);
             }
 
-            if(candidateList.empty()) {
-                std::cout << "No more candidates" << std::endl;
-                break;
-            }
         }
 
         return this->solution;
