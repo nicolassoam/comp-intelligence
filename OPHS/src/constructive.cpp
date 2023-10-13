@@ -2,7 +2,7 @@
 
 // OPHS Constructive greedy
 namespace Search {
-    static const int seed = 42;
+    static const int seed = 49;
 
     std::mt19937 gen_(seed);
 
@@ -97,7 +97,7 @@ namespace Search {
 
     }
 
-        void sortCandidateList(list_t &candidateList){
+    void sortCandidateList(list_t &candidateList){
         std::sort(candidateList.begin(), candidateList.end(), [](auto &left, auto &right) {
             return std::get<0>(left) > std::get<0>(right);
         });
@@ -116,7 +116,7 @@ namespace Search {
     void retryHeuristic(tuple &candidate, trip_matrix &adjMatrix, tour_t &locations) {
         double heuristic = -1;
         int iNode = std::get<2>(candidate), jNode = std::get<3>(candidate);
-        for (int i = 0; i < locations.size(); i++) {
+        for (int i = 0; i < locations.size()-1; i++) {
             double newHeuristic = adjMatrix[locations[i]][std::get<1>(candidate)].dist / adjMatrix[locations[i]][std::get<1>(candidate)].score;
             if (newHeuristic > heuristic) {
                 heuristic = newHeuristic;
@@ -193,7 +193,7 @@ namespace Search {
 
             Trip* lastTrip = &this->solution[aux_trip];
 
-            if(lastTrip->tripLength >= 0 && lastTrip->tripLength < 1){
+            if(lastTrip->tripLength >= 0 && lastTrip->tripLength <= 1){
                     aux_trip++;
                      
                     if(available_trips > 0)
@@ -213,9 +213,6 @@ namespace Search {
             int iNode = std::get<2>(this->candidateList.front());
             int jNode = std::get<3>(this->candidateList.front());
 
-            if(aux_trip == trips){
-                std::cout << "Knode: " << jNode << std::endl;
-            }
 
             // verify if edge (i,j) can be removed to add edges (i,k) and (k,j)
             double prevLength = adjMatrix[iNode][jNode].dist;
@@ -240,12 +237,10 @@ namespace Search {
 
             } else {
 
-              
-
-                std::cout << "não dá pra remover (" << iNode << "," << jNode << ") para inserir " << kNode << std::endl;
+                // std::cout << "não dá pra remover (" << iNode << "," << jNode << ") para inserir " << kNode << std::endl;
                 this->candidateList.erase(this->candidateList.begin());
                 
-                retryHeuristic(this->candidateList.front(), adjMatrix, lastTrip->locations);
+                // retryHeuristic(this->candidateList.front(), adjMatrix, lastTrip->locations);
             
                 
                 sortCandidateList(candidateList);
