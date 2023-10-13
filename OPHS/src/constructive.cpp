@@ -3,6 +3,16 @@
 // OPHS Constructive greedy
 namespace Search {
 
+    void calculateTourScore(trip_matrix& adjMatrix, solution_t &solution) {
+        double score = 0;
+        for (auto i : solution) {
+            for (int j = 0; j < i.locations.size()-1; j++) {
+                score += adjMatrix[i.locations[j]][i.locations[j+1]].score;
+            }
+        }
+        std:: cout << "Tour Score: " << score << std::endl;
+    }
+
     void printAvailableLocations(set &availableLocations){
         std::cout << "AL: ";
         for(auto i : availableLocations){
@@ -11,7 +21,7 @@ namespace Search {
         std::cout << std::endl;
     }
 
-        void printCandidateList(list_t &candidateList) {
+    void printCandidateList(list_t &candidateList) {
         std::cout << "Candidate List: " << std::endl;
         for (auto i : candidateList) {
             std::cout << std::get<0>(i) << " " << std::get<1>(i) << " " << std::get<2>(i) << " " << std::get<3>(i) << std::endl;
@@ -100,7 +110,7 @@ namespace Search {
         double additionalTripLength = adjMatrix[t.locations.back()][best_node].dist;
         t.tripLength -= additionalTripLength;
 
-        if(t.tripLength >= 0 && t.tripLength <= 5){
+        if(t.tripLength <= 4){
             t.tripLength = previous_length;
         
             int nearest_hotel = this->findNearestHotel(adjMatrix, t.locations.back());
@@ -156,6 +166,17 @@ namespace Search {
         }
 
         this->lastTripConstructor(iter, adjMatrix, availableTourLength);
+
+        std::cout << "solution: " << std::endl;
+        for(auto i : solution){
+            std::cout <<"trip: " << i.tripLength << std::endl; 
+            for(auto j : i.locations){
+                std::cout << j << " ";
+            }
+            std::cout << std::endl;
+        }
+
+        calculateTourScore(adjMatrix, this->solution);
 
         return this->solution;
     }
