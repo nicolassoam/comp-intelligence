@@ -5,11 +5,20 @@ namespace Search {
 
     void calculateTourScore(trip_matrix& adjMatrix, solution_t &solution) {
         double score = 0;
+        int t = 1;
+        std::cout << "Solution: " << std::endl;
         for (auto i : solution) {
+            std::cout << "Trip " << t;
+            std::cout << " | Length: " << i.tripLength << " | ";
+
             for (int j = 0; j < i.locations.size()-1; j++) {
                 score += adjMatrix[i.locations[j]][i.locations[j+1]].score;
+                std::cout << i.locations[j] << " ";
             }
+            t++;
+            std::cout << i.locations.back() << std::endl;
         }
+   
         std:: cout << "Tour Score: " << score << std::endl;
     }
 
@@ -75,7 +84,6 @@ namespace Search {
             }
             
             heuristic = adjMatrix[t.locations.back()][i].score / adjMatrix[t.locations.back()][i].dist;
-           
             if(heuristic > best_heuristic){
                 best_heuristic = heuristic;
                 best_node = i;
@@ -110,7 +118,7 @@ namespace Search {
         double additionalTripLength = adjMatrix[t.locations.back()][best_node].dist;
         t.tripLength -= additionalTripLength;
 
-        if(t.tripLength <= 4){
+        if(t.tripLength <= 5){
             t.tripLength = previous_length;
         
             int nearest_hotel = this->findNearestHotel(adjMatrix, t.locations.back());
@@ -167,15 +175,6 @@ namespace Search {
 
         this->lastTripConstructor(iter, adjMatrix, availableTourLength);
 
-        std::cout << "solution: " << std::endl;
-        for(auto i : solution){
-            std::cout <<"trip: " << i.tripLength << std::endl; 
-            for(auto j : i.locations){
-                std::cout << j << " ";
-            }
-            std::cout << std::endl;
-        }
-
         calculateTourScore(adjMatrix, this->solution);
 
         return this->solution;
@@ -183,7 +182,7 @@ namespace Search {
 
     void sortCandidateList(list_t &candidateList){
         std::sort(candidateList.begin(), candidateList.end(), [](auto &left, auto &right) {
-            return std::get<0>(left) > std::get<0>(right);
+            return std::get<0>(left) < std::get<0>(right);
         });
     }
 
@@ -273,7 +272,7 @@ namespace Search {
     void Constructive::lastTripConstructor(int iter, trip_matrix &adjMatrix, double avTourLength) {
         Trip* lastTrip = &this->solution.back();
         list_t candidateList;
-
+        
         int tripIndex = this->solution.size() - 1;
         int firstHotel = lastTrip->locations.back();                 
         
