@@ -100,7 +100,7 @@ namespace Search {
         double additionalTripLength = adjMatrix[t.locations.back()][best_node].dist;
         t.tripLength -= additionalTripLength;
 
-        if(t.tripLength <= 0){
+        if(t.tripLength >= 0 && t.tripLength <= 5){
             t.tripLength = previous_length;
         
             int nearest_hotel = this->findNearestHotel(adjMatrix, t.locations.back());
@@ -236,7 +236,7 @@ namespace Search {
     void retryHeuristic(tuple &candidate, trip_matrix &adjMatrix, tour_t &locations) {
         double heuristic = -1;
         int iNode = std::get<2>(candidate), jNode = std::get<3>(candidate);
-        for (int i = 0; i < locations.size(); i++) {
+        for (int i = 0; i < locations.size()-1; i++) {
             double newHeuristic = adjMatrix[locations[i]][std::get<1>(candidate)].dist / adjMatrix[locations[i]][std::get<1>(candidate)].score;
             if (newHeuristic > heuristic) {
                 heuristic = newHeuristic;
