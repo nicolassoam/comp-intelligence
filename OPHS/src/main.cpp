@@ -6,7 +6,7 @@
 
 int main(int argc, char const **argv)
 {   
-    std::string aux = "SET1 3-4/100-40-3-4.ophs";
+    std::string aux = "SET5 15-10/100-150-15-10.ophs";
     std::string filename = INPUT + aux;
     std::cout << filename << std::endl;
     
@@ -33,10 +33,33 @@ int main(int argc, char const **argv)
     Search::Constructive* constructive = new Search::Constructive(graph, 500);
     
     solution_t solution = constructive->greedySolution();
+    std::set<int> unused;
+    tour_t fullTour;
+    for(auto i : solution){
+        for(auto j : i.locations){
+            fullTour.push_back(j);
+        }
+    }
+    
+    for(int i = 2 + graph->getNExtraHotels(); i < graph->getNVertices() + graph->getNExtraHotels(); i++){
+        if(std::find(fullTour.begin(), fullTour.end(), i) == fullTour.end()){
+            unused.insert(i);
+        }
+    }
+
+    std::cout << "unused locations: " << std::endl;
+    for(auto i : unused){
+        std::cout << i << " ";
+    }
+
+    tour_t unusedLocations;
+    unusedLocations.assign(unused.begin(), unused.end());
 
     // graph->printGraph();
 
     SA* sa = new SA(graph->getAdjMatrix(), 0.9999, 0.0001, 0.90, 3000, 2+ graph->getNExtraHotels());
-    sa->run(solution);
+
+    sa->run(solution, unusedLocations);
+    
     return 0;
 }

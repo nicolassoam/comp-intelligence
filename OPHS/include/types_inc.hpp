@@ -30,7 +30,7 @@ using k_double      = std::vector<double>;
 
 struct Neighbor{
     std::vector<Trip> trips;
-    double fitness;
+    double cost;
 };
 
 
