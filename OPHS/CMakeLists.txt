@@ -14,7 +14,7 @@ add_library(CI SHARED ${SOURCES})
 
 target_include_directories(CI PUBLIC ${PROJECT_DIR}/include)
 
-add_compile_options(-std=c++20 -Ofast -fPIC -march=native -Wall -Wpedantic -Wextra)
+add_compile_options(-std=c++20 -Ofast -ltbb -fPIC -march=native -Wall -Wpedantic -Wextra)
 
 add_executable(main src/main.cpp)
 

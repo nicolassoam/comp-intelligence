@@ -9,6 +9,7 @@
 #include <queue>
 #include <algorithm>
 #include <tuple>
+#include <execution>
 #include <random>
 namespace Search{
 

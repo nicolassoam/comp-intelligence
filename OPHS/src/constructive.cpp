@@ -2,7 +2,7 @@
 
 // OPHS Constructive greedy
 namespace Search {
-    static const int seed = 94;
+    static const int seed = 30;
 
     std::mt19937 gen_(seed);
 
@@ -116,7 +116,7 @@ namespace Search {
     }
 
     void sortCandidateList(list_t &candidateList){
-        std::sort(candidateList.begin(), candidateList.end(), [](auto &left, auto &right) {
+        std::sort(std::execution::par_unseq,candidateList.begin(), candidateList.end(), [](auto &left, auto &right) {
             return std::get<0>(left) < std::get<0>(right);
         });
     }
