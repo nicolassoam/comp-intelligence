@@ -94,6 +94,33 @@ namespace Util{
 
         return graph;
     };
+
+    /*
+        Salva a solução em um arquivo de texto para ser plotada posteriormente
+    */
+
+   void saveSolution(std::string instance, solution_t solution, Graph *g){
+        std::cout << "Saving solution..." << std::endl;
+        std::cout << "Instance: " << instance << std::endl;
+
+        string instancePath = "./../input/" + instance;
+        string filename = "./../output/" + instance.erase(0,10) + ".txt";
+        
+        std::cout << "Filename: " << filename << std::endl;
+        std::ofstream output_file(filename);
+        
+        for (auto trip : solution) {
+            for (auto location : trip.locations) {
+                output_file << location << " ";
+            }
+            output_file << std::endl;
+        }
+
+        output_file.close();
+
+        string command = "python ./../include/plotSolution.py " + instancePath + " " + filename;
+        int aux = system(command.c_str());
+   }
     
 }
 
