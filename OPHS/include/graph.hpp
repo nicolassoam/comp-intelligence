@@ -6,23 +6,24 @@
 #include "types_inc.hpp"
 
 class Graph {
-    public:     Graph(int nVertices, int nExtraHotels, int numTrips, double tourLength, k_double tripLenghts, trip_matrix tour);
+    public:     Graph(int nVertices, int nExtraHotels, int numTrips, double tourLength, k_double tripLenghts);
                 ~Graph();
                 int getNVertices();
                 int getNExtraHotels();
                 int getNumTrips();
                 double getTourLength();
                 k_double getTripLenghts();
-                trip_matrix getTour();
+                trip_matrix getAdjMatrix();
+                static double euclideanDistance(double x1, double y1, double x2, double y2);
+                void toGraphMatrix(matrix_t& tour);
+                void printGraph();
 
-
-    
     private:    int nVertices;
                 int nExtraHotels;
                 int numTrips;
                 double tourLength;
                 k_double tripLenghts;
-                trip_matrix tour;
+                trip_matrix adjMatrix;
 };
 
 #endif  // GRAPH_H_

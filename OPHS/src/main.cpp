@@ -1,5 +1,5 @@
 #include "../include/utils.hpp"
-#include "../include/config.h"
+#include "../include/config.hpp"
 #include "../include/graph.hpp"
 
 
@@ -9,9 +9,10 @@ int main(int argc, char const **argv)
     std::string filename = INPUT + aux;
     std::cout << filename << std::endl;
     
-    trip_matrix tour;
+    matrix_t tour;
 
     Graph* graph = Util::readInstance(filename, tour);
+    graph->toGraphMatrix(tour);
 
     std::cout << "n_vertices: " << graph->getNVertices() << std::endl;
     std::cout << "nextra_hotels: " << graph->getNExtraHotels() << std::endl;
@@ -26,6 +27,8 @@ int main(int argc, char const **argv)
     std::cout << std::endl;
     std::cout << "tour: " << std::endl;
 
+    trip_matrix adjMatrix = graph->getAdjMatrix();
+    
     for(auto i : tour){
         for(auto j : i){
             std::cout << j << " ";
