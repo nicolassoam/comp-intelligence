@@ -44,12 +44,12 @@ void SA::swapBetweenTrips(solution_t& solution){
 
     //cant swap if a hotel is selected
     for(int i = 0; i < this->nHotels; i++){
-        if(location1 == i){
+        if(solution[trip1].locations[location1] == i){
             location1 = rand() % solution[trip1].locations.size();
             i = 0;
         }
 
-        if(location2 == i){
+        if(solution[trip2].locations[location2] == i){
             location2 = rand() % solution[trip2].locations.size();
             i = 0;
         }
@@ -68,12 +68,12 @@ void SA::swapInTrip(solution_t& solution){
 
     //cant swap if a hotel is selected
     for(int i = 0; i < this->nHotels; i++){
-        if(location1 == i){
+        if(solution[trip].locations[location1] == i){
             location1 = rand() % solution[trip].locations.size();
             i = 0;
         }
 
-        if(location2 == i){
+        if(solution[trip].locations[location2] == i){
             location2 = rand() % solution[trip].locations.size();
             i = 0;
         }
