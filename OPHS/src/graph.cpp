@@ -1,4 +1,5 @@
 #include "../include/graph.hpp"
+#include "../include/types_inc.hpp"
 #include <cmath>
 #include <iostream>
 #include <algorithm>

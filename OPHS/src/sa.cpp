@@ -3,7 +3,11 @@
 // constructor
 SA::SA(trip_matrix adjMatrix,double initialTemperature, double finalTemperature, double coolingFactor, int iterationsPerTemperature, int nHotels) {
     // initialize random seed
-    srand(time(NULL));
+    unsigned int seed = 40;
+    srand(seed);
+
+    this->rng = rand_gen(seed);
+
     this->initialTemperature = initialTemperature;
     this->finalTemperature = finalTemperature;
     this->coolingFactor = coolingFactor;
@@ -32,6 +36,27 @@ double SA::objectiveFunction(solution_t& solution) {
 }
 
 void SA::swapBetweenTrips(solution_t& solution){
+
+    int trip1 = rand() % solution.size();
+    int trip2 = rand() % solution.size();
+
+    while(trip1 == trip2){
+        trip2 = rand() % solution.size();
+    }
+    
+    std::uniform_int_distribution<int> dist(1, solution[trip1].locations.size() - 2);
+    int location1 = dist(rng);
+
+    dist = std::uniform_int_distribution<int>(1, solution[trip2].locations.size() - 2);
+    int location2 = dist(rng);
+
+    int aux = solution[trip1].locations[location1];
+    solution[trip1].locations[location1] = solution[trip2].locations[location2];
+    solution[trip2].locations[location2] = aux;
+}
+
+void SA::swapBetweenTrips2(solution_t& solution){
+
     int trip1 = rand() % solution.size();
     int trip2 = rand() % solution.size();
 
@@ -39,44 +64,43 @@ void SA::swapBetweenTrips(solution_t& solution){
         trip2 = rand() % solution.size();
     }
 
-    int location1 = rand() % solution[trip1].locations.size();
-    int location2 = rand() % solution[trip2].locations.size();
-
-    //cant swap if a hotel is selected
-    for(int i = 0; i < this->nHotels; i++){
-        if(solution[trip1].locations[location1] == i){
-            location1 = rand() % solution[trip1].locations.size();
-            i = 0;
-        }
-
-        if(solution[trip2].locations[location2] == i){
-            location2 = rand() % solution[trip2].locations.size();
-            i = 0;
-        }
+    while(solution[trip1].locations.size() <= 3 || solution[trip2].locations.size() <=3){
+        trip1 = rand() % solution.size();
+        trip2 = rand() % solution.size();
     }
+
+    std::uniform_int_distribution<int> dist(1, solution[trip1].locations.size() - 2);
+    int location1 = dist(rng);
+
+    dist = std::uniform_int_distribution<int>(1, solution[trip2].locations.size() - 2);
+    int location2 = dist(rng);
+
+    while(solution[trip1].locations[location1 + 1] == solution[trip1].locations.back())
+        location1--;
+    
+    while(solution[trip2].locations[location2 + 1] == solution[trip2].locations.back())
+        location2--;
 
     int aux = solution[trip1].locations[location1];
     solution[trip1].locations[location1] = solution[trip2].locations[location2];
     solution[trip2].locations[location2] = aux;
+
+    aux = solution[trip1].locations[location1 + 1];
+    solution[trip1].locations[location1 + 1] = solution[trip2].locations[location2 + 1];
+    solution[trip2].locations[location2 + 1] = aux;
 }
+
 
 void SA::swapInTrip(solution_t& solution){
     int trip = rand() % solution.size();
 
-    int location1 = rand() % solution[trip].locations.size();
-    int location2 = rand() % solution[trip].locations.size();
+    std::uniform_int_distribution<int> dist(1, solution[trip].locations.size() - 2);
 
-    //cant swap if a hotel is selected
-    for(int i = 0; i < this->nHotels; i++){
-        if(solution[trip].locations[location1] == i){
-            location1 = rand() % solution[trip].locations.size();
-            i = 0;
-        }
+    int location1 = dist(rng);
+    int location2 = dist(rng);
 
-        if(solution[trip].locations[location2] == i){
-            location2 = rand() % solution[trip].locations.size();
-            i = 0;
-        }
+    while(location1 == location2){
+        location2 = dist(rng);
     }
 
     int aux = solution[trip].locations[location1];
@@ -91,7 +115,7 @@ Neighbor SA::generateNeighbor(solution_t currentSolution) {
     if(swapBetween){
         swapBetweenTrips(currentSolution);
     } else {
-        swapInTrip(currentSolution);
+        swapBetweenTrips2(currentSolution);
     }
 
     // create and return the new neighbor
@@ -120,8 +144,10 @@ void SA::printSolution() {
         for (auto location : trip.locations) {
             std::cout << location << " ";
         }
+        
         std::cout << std::endl;
     }
+    std::cout << "Total Cost: " << totalCost << std::endl;
 }
 
 // implementation of simulated annealing algorithm
@@ -133,32 +159,32 @@ void SA::run(solution_t& initialSolution) {
     // initialize best solution
     bestSolution = currentSolution;
 
+    std::cout << "Optimizing solution..." << std::endl;
+
+    std::cout << "Initial solution: " << currentSolution.fitness << std::endl;
+
     // initialize temperature
-    double temperature = initialTemperature;
+    double temperature = this->initialTemperature;
 
     // loop until stopping criterion is met
-    while (temperature > finalTemperature) {
+    while (temperature > this->finalTemperature) {
         // loop for a certain number of iterations at each temperature
-        for (int i = 0; i < iterationsPerTemperature; i++) {
+        for (int i = 0; i < this->iterationsPerTemperature; i++) {
             // generate a new candidate solution
-            Neighbor candidateSolution = generateNeighbor(currentSolution.trips);
-
-            // calculate the cost of the candidate solution
-            double candidateFitness = this->objectiveFunction(candidateSolution.trips);
+            Neighbor candidateSolution = generateNeighbor(this->currentSolution.trips);
 
             // calculate the acceptance probability
-            double acceptanceProbability = exp((currentSolution.fitness - candidateFitness) / temperature);
+            double acceptanceProbability = std::exp((this->currentSolution.fitness - candidateSolution.fitness) / temperature);
 
             // determine whether to accept the candidate solution
-            if (candidateFitness < currentSolution.fitness || acceptanceProbability > ((double) rand() / RAND_MAX)) {
-                currentSolution = candidateSolution;
-                currentSolution.fitness = candidateFitness;
+            if (candidateSolution.fitness < this->currentSolution.fitness || acceptanceProbability > ((double) rand() / RAND_MAX)) {
+                this->currentSolution = candidateSolution;
+                this->currentSolution.fitness = candidateSolution.fitness;
             }
 
             // update best solution if necessary
-            if (currentSolution.fitness < bestSolution.fitness) {
-                bestSolution = currentSolution;
-                bestSolution.fitness = currentSolution.fitness;
+            if (this->currentSolution.fitness < this->bestSolution.fitness) {
+                this->bestSolution = this->currentSolution;
             }
         }
 

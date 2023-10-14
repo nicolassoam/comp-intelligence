@@ -13,15 +13,16 @@
 
 using nH = std::vector<Neighbor>;
 using solution_t = std::vector<Trip>;
+using rand_gen = std::mt19937;
 class SA {
     public:     SA(trip_matrix adjMatrix,double initialTemperature, double finalTemperature, double coolingFactor, int iterationsPerTemperature, int nHotels);
                 ~SA();
                 void run(solution_t& initialSolution);
                 void printSolution();
                 
-    private:    nH neighborhood;
-                Neighbor bestSolution;
+    private:    Neighbor bestSolution;
                 Neighbor currentSolution;
+                rand_gen rng;
                 trip_matrix adjMatrix;
                 double initialTemperature;
                 double finalTemperature;
@@ -31,7 +32,9 @@ class SA {
                 double objectiveFunction(solution_t& solution);
                 Neighbor generateNeighbor(solution_t currentSolution);
                 void swapInTrip(solution_t& solution);
+                void swapHotels(solution_t& solution);
                 void swapBetweenTrips(solution_t& solution);
+                void swapBetweenTrips2(solution_t& solution);
 };
 
 
