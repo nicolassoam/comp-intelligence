@@ -2,7 +2,7 @@
 
 // OPHS Constructive greedy
 namespace Search {
-    static const int seed = 91;
+    static const int seed = 94;
 
     std::mt19937 gen_(seed);
 
@@ -89,7 +89,7 @@ namespace Search {
 
         this->solution.push_back(firstTrip);
 
-        for(int i = 1; i < trips-1; i++){
+        for(int i = 1; i < trips; i++){
             Trip intermediateTrip;
 
             intermediateTrip.locations.push_back(this->solution.back().locations.back());
@@ -163,28 +163,29 @@ namespace Search {
     }
 
     void Constructive::updateCandListForNewTrip(trip_matrix &adjMatrix, Trip* lastTrip, tour_t& removedLocations){
+  
         double heuristic = 0;
         std::tuple<double, int, int, int> candidate;
-        tour_t locations = lastTrip->locations;
+        tour_t& locations = lastTrip->locations;
         std::vector<int> availableLocations;
         int candidateListSize = this->candidateList.size();
         
         for(auto cand : this->candidateList){
             availableLocations.push_back(std::get<1>(cand));
         }
-
-        for(auto loc : removedLocations){
-            availableLocations.push_back(loc);
+        if(removedLocations.size() > 0){
+            for(auto loc : removedLocations){
+                availableLocations.push_back(loc);
+            }
+            removedLocations.clear();
         }
-
+        
         this->candidateList.clear();
-        removedLocations.clear();
+        
 
         for(int i = 0; i < locations.size()-1; i++){
             int iNode = locations[i];
             int jNode = locations[i+1];
-            std::cout << "iNode: " << iNode << std::endl;
-            std::cout << "jNode: " << jNode << std::endl;
             for(int i = 0; i < availableLocations.size(); i++){
                 int kNode = availableLocations[i];
 
@@ -213,9 +214,9 @@ namespace Search {
 
             Trip* lastTrip = &this->solution[aux_trip];
 
-            if(lastTrip->tripLength >= 0 && lastTrip->tripLength <= 1){
+            if(lastTrip->tripLength >= 0 && lastTrip->tripLength <= 3.5){
                 aux_trip++;
-                    
+                  
                 if(available_trips > 0)
                     available_trips--;
                 
