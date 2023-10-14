@@ -101,6 +101,29 @@ Neighbor SA::generateNeighbor(solution_t currentSolution) {
     return neighbor;
 }
 
+void SA::printSolution() {
+    double totalCost = 0.0;
+    std::cout << "Best solution: " << bestSolution.fitness << std::endl;
+    std::cout << "Trips: " << std::endl;
+    for (auto trip : bestSolution.trips) {
+        double tripCost = 0.0;
+
+        for (int i = 0; i < trip.locations.size() - 1; i++) {
+            int from = trip.locations[i];
+            int to = trip.locations[i + 1];
+            tripCost += adjMatrix[from][to].score;
+        }
+        
+        totalCost += tripCost;
+        std::cout << "Trip cost: " << tripCost << std::endl;
+        std::cout << "Trip: ";
+        for (auto location : trip.locations) {
+            std::cout << location << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
 // implementation of simulated annealing algorithm
 void SA::run(solution_t& initialSolution) {
     // initialize current solution
@@ -142,4 +165,6 @@ void SA::run(solution_t& initialSolution) {
         // decrease the temperature
         temperature *= coolingFactor;
     }
+
+    printSolution();
 }

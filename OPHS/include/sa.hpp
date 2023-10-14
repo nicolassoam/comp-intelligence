@@ -18,6 +18,7 @@ class SA {
                 ~SA();
                 void run(solution_t& initialSolution);
                 void printSolution();
+                
     private:    nH neighborhood;
                 Neighbor bestSolution;
                 Neighbor currentSolution;
