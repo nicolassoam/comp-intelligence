@@ -8,16 +8,19 @@ namespace Search {
 
     void calculateTourScore(trip_matrix& adjMatrix, solution_t &solution) {
         double score = 0;
+        int t = 1;
         std::cout << "Solution: " << std::endl;
         for (auto i : solution) {
-            std::cout << "Trip: ";
+            std::cout << "Trip " << t;
+            std::cout << " | Length: " << i.tripLength << " | ";
+
             for (int j = 0; j < i.locations.size()-1; j++) {
                 score += adjMatrix[i.locations[j]][i.locations[j+1]].score;
                 std::cout << i.locations[j] << " ";
             }
+            t++;
             std::cout << i.locations.back() << std::endl;
         }
-   
         std:: cout << "Tour Score: " << score << std::endl;
     }
 
