@@ -28,6 +28,11 @@ using trip_matrix   = std::vector<std::vector<Node>>;
 using matrix_t      = std::vector<std::vector<double>>;
 using k_double      = std::vector<double>;
 
+struct Neighbor{
+    std::vector<Trip> trips;
+    double fitness;
+};
+
 
 static const unsigned int BIG = 99999;
 
