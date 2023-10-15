@@ -8,6 +8,7 @@
 #include "graph.hpp"
 #include <queue>
 #include <algorithm>
+#include <execution>
 #include <tuple>
 namespace Search{
 

@@ -93,7 +93,6 @@ void SA::swapBetweenTrips(solution_t& solution){
     
     while(solution[trip1].locations.size() <= 3){
         trip1 = rand() % solution.size();
-        
     }
 
     while(solution[trip2].locations.size() <= 3){
