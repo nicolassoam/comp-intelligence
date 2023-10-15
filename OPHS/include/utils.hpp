@@ -12,10 +12,6 @@
 #include "types_inc.hpp"
 #include "graph.hpp"
 
-
-// Estrutura temporária de matriz de viagens
-
-
 namespace Util{
 
     // Atalhos de tipos
@@ -104,7 +100,7 @@ namespace Util{
         //std::cout << "Instance: " << instance << std::endl;
 
         string instancePath = "./../input/" + instance;
-        string filename = "./../output/" + instance.erase(0,10) + ".txt";
+        string filename = "./../output/" + instance.erase(0,11) + ".txt";
         
         //std::cout << "Filename: " << filename << std::endl;
         std::ofstream output_file(filename);

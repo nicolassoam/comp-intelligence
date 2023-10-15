@@ -89,20 +89,20 @@ solution_t SA::insertIfFeasible(solution_t solution, tour_t& unvisitedLocations)
 
 void SA::swapBetweenTrips(solution_t& solution){
 
+    // escolhe duas trips aleatoriamente 
+
     int trip1 = rand() % solution.size();
     int trip2 = rand() % solution.size();
 
-    while(trip1 == trip2){
-        trip2 = rand() % solution.size();
-    }
-    
     while(solution[trip1].locations.size() <= 3){
         trip1 = rand() % solution.size();
     }
 
-    while(solution[trip2].locations.size() <= 3){
-        trip2 = rand() % solution.size(); 
+    while(trip1 == trip2 || solution[trip2].locations.size() <= 3){
+        trip2 = rand() % solution.size();
     }
+
+    // escolhe duas localidades aleatoriamente, exceto os hotéis
 
     std::uniform_int_distribution<int> dist(1, solution[trip1].locations.size() - 2);
     int location1 = dist(rng);
@@ -110,25 +110,43 @@ void SA::swapBetweenTrips(solution_t& solution){
     dist = std::uniform_int_distribution<int>(1, solution[trip2].locations.size() - 2);
     int location2 = dist(rng);
 
-    int aux = solution[trip1].locations[location1];
-    solution[trip1].locations[location1] = solution[trip2].locations[location2];
-    solution[trip2].locations[location2] = aux;
+    //std::cout << "trocando " << solution[trip1].locations[location1] << " com " << solution[trip2].locations[location2] << std::endl;
+
+    // calcula distância percorrida no segmento anterior na trip 1
+    double prevLength1 = adjMatrix[solution[trip1].locations[location1 - 1]][solution[trip1].locations[location1]].dist + adjMatrix[solution[trip1].locations[location1]][solution[trip1].locations[location1 + 1]].dist;
+
+    // calcula distância percorrida no segmento anterior na trip 2
+    double prevLength2 = adjMatrix[solution[trip2].locations[location2 - 1]][solution[trip2].locations[location2]].dist + adjMatrix[solution[trip2].locations[location2]][solution[trip2].locations[location2 + 1]].dist;
+
+    // calcula distância percorrida no segmento posterior na trip 1
+    double newLength1 = adjMatrix[solution[trip1].locations[location1 - 1]][solution[trip2].locations[location2]].dist + adjMatrix[solution[trip2].locations[location2]][solution[trip1].locations[location1 + 1]].dist;
+
+    // calcula distância percorrida no segmento posterior na trip 2
+    double newLength2 = adjMatrix[solution[trip2].locations[location2 - 1]][solution[trip1].locations[location1]].dist + adjMatrix[solution[trip1].locations[location1]][solution[trip2].locations[location2 + 1]].dist;
+
+    // atualiza distância das trips, se o movimento for possível
+    if (solution[trip1].tripLength + prevLength1 - newLength1 >= 0 && solution[trip2].tripLength + prevLength2 - newLength2 >= 0) {
+        solution[trip1].tripLength += prevLength1 - newLength1;
+        solution[trip2].tripLength += prevLength2 - newLength2;
+
+        std::swap(solution[trip1].locations[location1], solution[trip2].locations[location2]);
+
+        //std::cout << "Movimento realizado" << std::endl;
+    }
 }
 
 void SA::swapBetweenTrips2(solution_t& solution){
 
+    // escolhe duas trips diferentes com pelo menos duas localidades além dos hotéis
     int trip1 = rand() % solution.size();
     int trip2 = rand() % solution.size();
-
-    while(trip1 == trip2){
-        trip2 = rand() % solution.size();
-    }
 
     while(solution[trip1].locations.size() <= 3)
         trip1 = rand() % solution.size();
 
-    while(solution[trip2].locations.size() <= 3)
+    while(trip1 == trip2 || solution[trip2].locations.size() <= 3){
         trip2 = rand() % solution.size();
+    }
 
     std::uniform_int_distribution<int> dist(1, solution[trip1].locations.size() - 3);
     int location1 = dist(rng);
@@ -136,27 +154,44 @@ void SA::swapBetweenTrips2(solution_t& solution){
     dist = std::uniform_int_distribution<int>(1, solution[trip2].locations.size() - 3);
     int location2 = dist(rng);
 
+    // seleciona um local, seu vizinho e o sucessor do vizinho da primeira trip
     int swap11 = solution[trip1].locations[location1];
     int swap12 = solution[trip1].locations[location1 + 1];
     int sucessor1 = solution[trip1].locations[location1 + 2];
+    int predecessor1 = solution[trip1].locations[location1 - 1];
 
+    // seleciona um local, seu vizinho, o antecessor do local e o sucessor do vizinho da segunda trip
     int swap21 = solution[trip2].locations[location2];
     int swap22 = solution[trip2].locations[location2 + 1];
     int sucessor2 = solution[trip2].locations[location2 + 2];
+    int predecessor2 = solution[trip2].locations[location2 - 1];
 
-    double prevLength1 = adjMatrix[swap11][swap12].dist;
-    double prevLength2 = adjMatrix[swap21][swap22].dist;
-    double prevSucessorLength1 = adjMatrix[swap12][sucessor1].dist;
-    double prevSucessorLength2 = adjMatrix[swap22][sucessor2].dist;
+    //std::cout << "trocando (" << swap11 << "," << swap12 << ") com (" << swap21 << "," << swap22 << ")" << std::endl;
 
-    double newLength1 = adjMatrix[swap11][swap21].dist;
-    double newLength2 = adjMatrix[swap12][swap22].dist;
-    double sucessorLength1 = adjMatrix[swap21][sucessor1].dist;
-    double sucessorLength2 = adjMatrix[swap12][sucessor2].dist;
+    // calcula distancia do segmento (antecessor1-dupla1-sucessor1) anterior na trip 1
+    double pair1 = adjMatrix[swap11][swap12].dist;
+    double prevLength1 = adjMatrix[predecessor1][swap11].dist + pair1 + adjMatrix[swap12][sucessor1].dist;
 
+    // calcula distancia do segmento (antecessor2-dupla2-sucessor2) anterior na trip 2
+    double pair2 = adjMatrix[swap21][swap22].dist;
+    double prevLength2 = adjMatrix[predecessor2][swap21].dist + pair2 + adjMatrix[swap22][sucessor2].dist;
 
-    std::swap(solution[trip1].locations[location1], solution[trip2].locations[location2]);
-    std::swap(solution[trip1].locations[location1 + 1], solution[trip2].locations[location2 + 1]);
+    // calcula distancia do segmento (antecessor1-dupla2-sucessor1) posterior na trip 1
+    double newLength1 = adjMatrix[predecessor1][swap21].dist + pair2 + adjMatrix[swap22][sucessor1].dist;
+
+    // calcula distancia do segmento (antecessor2-dupla1-sucessor2) posterior na trip 2
+    double newLength2 = adjMatrix[predecessor2][swap11].dist + pair1 + adjMatrix[swap12][sucessor2].dist;
+
+    // atualiza distancia das trips, se o movimento for possível
+    if (solution[trip1].tripLength + prevLength1 - newLength1 >= 0 && solution[trip2].tripLength + prevLength2 - newLength2 >= 0) {
+        solution[trip1].tripLength += prevLength1 - newLength1;
+        solution[trip2].tripLength += prevLength2 - newLength2;
+
+        std::swap(solution[trip1].locations[location1], solution[trip2].locations[location2]);
+        std::swap(solution[trip1].locations[location1 + 1], solution[trip2].locations[location2 + 1]);
+
+        //std::cout << "Movimento realizado" << std::endl;
+    }
 }
 
 void SA::swapInTrip(solution_t& solution){
@@ -174,32 +209,83 @@ void SA::swapInTrip(solution_t& solution){
     std::swap(solution[trip].locations[location1], solution[trip].locations[location2]);
 }
 
+void SA::twoOpt(solution_t& solution){
+    for (auto trip : solution) {
+        int n = trip.locations.size();
+        bool movement = false;
+
+        // verifica se a distância da trip pode ser reduzida pelo movimento
+        for (int i = 0; i <= n - 2; i++) {
+			for (int j = i + 1; j <= n - 1; j++) {
+
+                double trecho1 = adjMatrix[trip.locations[i]][trip.locations[(i + 1) % n]].dist;
+                double trecho2 = adjMatrix[trip.locations[j]][trip.locations[(j + 1) % n]].dist;
+                double trecho3 = adjMatrix[trip.locations[i]][trip.locations[j]].dist;
+                double trecho4 = adjMatrix[trip.locations[(i + 1) % n]][trip.locations[(j + 1) % n]].dist;
+
+                double delta = -trecho1 - trecho2 + trecho3 + trecho4;
+
+				if (delta < 0) {
+					// realiza o movimento
+                    //std::cout << "Movimento realizado" << std::endl;
+                    std::reverse(std::begin(trip.locations) + i + 1, std::begin(trip.locations) + j + 1);
+                    movement = true;
+
+					// atualiza a distância da trip
+                    trip.tripLength += delta;
+
+                    break;
+				}
+			}
+
+            if(movement)
+                break;
+		}
+    }
+}
+
 Neighbor SA::generateNeighbor(solution_t currentSolution, tour_t& unvisitedLocations) {
-    // select the movement
+    // faz movimentos
+
     Neighbor newSolution;
     newSolution.trips = currentSolution;
-    swapBetweenTrips(newSolution.trips);
-    newSolution.cost = objectiveFunction(newSolution.trips);
-    
-    if(newSolution.cost > this->currentSolution.cost){
-        return newSolution;
-    }
 
-    newSolution.trips = currentSolution;
-    swapBetweenTrips2(newSolution.trips);
-    newSolution.cost = objectiveFunction(newSolution.trips);
-
-    if(newSolution.cost > this->currentSolution.cost){
-        return newSolution;
-    }
-
-    newSolution.trips = currentSolution;
+    //INSERT IF FEASIBLE
+    //std::cout << std::endl << "INSERT IF FEASIBLE" << std::endl;
     newSolution.trips = insertIfFeasible(currentSolution, unvisitedLocations);
     newSolution.cost = objectiveFunction(newSolution.trips);
 
-    if(newSolution.cost > this->currentSolution.cost){
+    if(newSolution.cost > this->currentSolution.cost)
         return newSolution;
-    }
+
+    // SWAP IN TRIP
+    // std::cout << std::endl << "SWAP IN TRIP" << std::endl;
+    // swapInTrip(newSolution.trips);
+    // newSolution.cost = objectiveFunction(newSolution.trips);
+    
+    // if(newSolution.cost > this->currentSolution.cost)
+    //     return newSolution;
+
+    // SWAP(1,1)
+    //std::cout << std::endl << "SWAP(1,1)" << std::endl;
+    swapBetweenTrips(newSolution.trips);
+    newSolution.cost = objectiveFunction(newSolution.trips);
+
+    if(newSolution.cost > this->currentSolution.cost)
+        return newSolution;
+
+    // SWAP(2,2)
+    //std::cout << std::endl << "SWAP(2,2)" << std::endl;
+    swapBetweenTrips2(newSolution.trips);
+    newSolution.cost = objectiveFunction(newSolution.trips);
+
+    if(newSolution.cost > this->currentSolution.cost)
+        return newSolution;
+
+    // 2-OPT 
+    //std::cout << "2-OPT" << std::endl;
+    twoOpt(newSolution.trips);
+    newSolution.cost = objectiveFunction(newSolution.trips);
 
     return newSolution;
 }
@@ -210,6 +296,36 @@ void SA::printSolution() {
     std::cout << "TRIPS: " << std::endl;
     int t = 1;
     for (auto trip : bestSolution.trips) {
+        double tripScore = 0.0;
+
+        for (int i = 0; i < trip.locations.size() - 1; i++) {
+            int from = trip.locations[i];
+            int to = trip.locations[i + 1];
+            tripScore += adjMatrix[from][to].score;
+        }
+        
+        tourScore += tripScore;
+        std::cout << "Trip " << t++;
+        std::cout << " | Length: " << trip.tripLength << " | Score: " << tripScore << " | ";
+
+        for (auto location : trip.locations) {
+            std::cout << location << " ";
+        }
+        
+        std::cout << std::endl;
+    }
+
+    std::cout << "-----------------" << std::endl;
+    std::cout << "Tour Score: " << tourScore << std::endl;
+}
+
+void SA::printSolution(Neighbor solution) {
+    double tourScore = 0.0;
+    
+    std::cout << "New solution: " << solution.cost << std::endl << std::endl;
+    std::cout << "TRIPS: " << std::endl;
+    int t = 1;
+    for (auto trip : solution.trips) {
         double tripScore = 0.0;
 
         for (int i = 0; i < trip.locations.size() - 1; i++) {

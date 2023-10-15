@@ -20,6 +20,7 @@ class SA {
                 void run(solution_t& initialSolution, tour_t& unvisitedLocations);
                 solution_t getBestSolution() { return bestSolution.trips; };
                 void printSolution();
+                void printSolution(Neighbor solution);
                 
     private:    Neighbor bestSolution;
                 Neighbor currentSolution;
@@ -33,10 +34,12 @@ class SA {
                 
                 double objectiveFunction(solution_t& solution);
                 Neighbor generateNeighbor(solution_t currentSolution, tour_t& unvisitedLocations);
-                void swapInTrip(solution_t& solution);
-                void swapHotels(solution_t& solution);
-                void swapBetweenTrips(solution_t& solution);
-                void swapBetweenTrips2(solution_t& solution);
+
+                void twoOpt(solution_t& solution);                  // 2-opt
+                void swapInTrip(solution_t& solution);              // troca dois locais da mesma trip
+                void swapBetweenTrips(solution_t& solution);        // troca dois locais de trips diferentes
+                void swapBetweenTrips2(solution_t& solution);       // troca dois vizinhos de trips diferentes => swap(2,2)
+
                 solution_t insertIfFeasible(solution_t solution, tour_t& unvisitedLocations);
 };
 

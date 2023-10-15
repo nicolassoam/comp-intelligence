@@ -6,12 +6,12 @@
 
 int main(int argc, char const **argv)
 {   
-    std::string aux = "SET5-10-6/66-129-10-6.ophs";
+    std::string aux = "SET5-10-06/66-129-10-6.ophs";
     std::string filename = INPUT + aux;
     std::cout << filename << std::endl;
     
     matrix_t tour;
-    
+
     // leitura da instância
     Graph* graph = Util::readInstance(filename, tour);
     graph->toGraphMatrix(tour);
@@ -26,7 +26,7 @@ int main(int argc, char const **argv)
     tour_t unusedLocations;
     unusedLocations.assign(unused.begin(), unused.end());
 
-    SA* sa = new SA(graph->getAdjMatrix(), 0.9999, 0.0001, 0.90, 3000, 2+graph->getNExtraHotels());
+    SA* sa = new SA(graph->getAdjMatrix(), 0.9999, 0.0001, 0.90, 100, 2+graph->getNExtraHotels());
     sa->run(solution, unusedLocations);
     Util::saveSolution(aux, sa->getBestSolution(), graph);
 
