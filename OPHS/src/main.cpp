@@ -6,7 +6,7 @@
 
 int main(int argc, char const **argv)
 {   
-    std::string aux = "SET5-10-06/66-129-10-6.ophs";
+    std::string aux = "SET5-15-10/100-150-15-10.ophs";
     std::string filename = INPUT + aux;
     std::cout << filename << std::endl;
     
@@ -26,7 +26,11 @@ int main(int argc, char const **argv)
     tour_t unusedLocations;
     unusedLocations.assign(unused.begin(), unused.end());
 
+<<<<<<< HEAD
     SA* sa = new SA(graph->getAdjMatrix(), 0.9999, 0.0001, 0.90, 5000, 2+graph->getNExtraHotels());
+=======
+    SA* sa = new SA(graph->getAdjMatrix(), 0.9999, 0.0001, 0.90, 3000, 2+graph->getNExtraHotels());
+>>>>>>> 8531bf0856b2b9bd2fe4cf65180198105e729a51
     sa->run(solution, unusedLocations);
     Util::saveSolution(aux, sa->getBestSolution(), graph);
 

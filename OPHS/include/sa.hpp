@@ -41,6 +41,7 @@ class SA {
                 void swapBetweenTrips2(solution_t& solution);       // troca dois vizinhos de trips diferentes => swap(2,2)
 
                 solution_t insertIfFeasible(solution_t solution, tour_t& unvisitedLocations);
+                void       insertIfFits(solution_t& solution, tour_t& unvisitedLocations);
 };
 
 

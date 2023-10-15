@@ -40,6 +40,37 @@ double SA::objectiveFunction(solution_t& solution) {
     return tourScore;
 }
 
+void SA::insertIfFits(solution_t& solution, tour_t& unvisitedLocations){
+    if(unvisitedLocations.size() == 0)
+        return;
+    
+    int tries = 0;
+    while(tries < 500){
+        for(int trip = 0; trip < solution.size(); trip++){
+            for(int location = 0; location < solution[trip].locations.size()-1; location++){
+                int from = solution[trip].locations[location];
+                int to = solution[trip].locations[location + 1];
+
+                for(int added = 0; added < unvisitedLocations.size(); added++){
+                    int sucessor = unvisitedLocations[added];
+                    double prevLength = adjMatrix[from][to].dist;
+                    double newLength = adjMatrix[from][sucessor].dist + adjMatrix[sucessor][to].dist;
+
+                    if(solution[trip].tripLength + prevLength >= newLength){
+                        //delete the edge between from and to and add the edge between from and addedLocation and addedLocation and to
+                        solution[trip].locations.insert(solution[trip].locations.begin() + location + 1, sucessor);
+                        solution[trip].tripLength += prevLength;
+                        solution[trip].tripLength -= newLength;
+                        unvisitedLocations.erase(unvisitedLocations.begin() + added);
+                    }
+                }
+
+            }
+        }
+        tries++;
+    }
+}
+
 solution_t SA::insertIfFeasible(solution_t solution, tour_t& unvisitedLocations){
     
     //iterates over the trip to find the best location to insert
@@ -392,9 +423,6 @@ void SA::run(solution_t& initialSolution, tour_t& unvisitedLocations) {
         // decrease the temperature
         temperature *= coolingFactor;
     }
-
-    // roda 2-opt na melhor solução
-    twoOpt(bestSolution.trips);
-    bestSolution.cost = objectiveFunction(bestSolution.trips);
+    insertIfFits(bestSolution.trips, unvisitedLocations);
     printSolution();
 }
