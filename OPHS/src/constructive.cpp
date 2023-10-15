@@ -90,7 +90,7 @@ namespace Search {
             }
         }
 
-        std::cout << "Best node: " << best_node << std::endl;
+        //std::cout << "Best node: " << best_node << std::endl;
 
         return best_node;
     }
@@ -106,7 +106,7 @@ namespace Search {
             }
         }
 
-        std::cout << "Nearest hotel: " << nearest_hotel << std::endl;
+        //std::cout << "Nearest hotel: " << nearest_hotel << std::endl;
         return nearest_hotel;
     }
 
@@ -135,7 +135,7 @@ namespace Search {
 
         t.locations.push_back(best_node);
         avTourLength -= additionalTripLength;
-        std::cout << "Node " << best_node << " added to trip." << std::endl;
+        //std::cout << "Node " << best_node << " added to trip." << std::endl;
         this->availableLocations.erase(best_node);
     }
 
@@ -160,14 +160,14 @@ namespace Search {
                 break;
 
             this->updateAvailableLocation(this->solution[aux_trip], adjMatrix, availableTourLength);
-            printAvailableLocations(this->availableLocations);
-            printTrip(&this->solution[aux_trip]);
+            //printAvailableLocations(this->availableLocations);
+            //printTrip(&this->solution[aux_trip]);
             
             
             if((this->solution[aux_trip].finished) && (available_trips > 0)){
                 aux_trip++;
-                std::cout << "----------------------------" << std::endl << "Available trips: " << available_trips << std::endl;
-                std::cout << "New trip created" << std::endl;
+                //std::cout << "----------------------------" << std::endl << "Available trips: " << available_trips << std::endl;
+                //std::cout << "New trip created" << std::endl;
                 this->solution[aux_trip].locations.push_back(this->solution[aux_trip-1].locations.back());
                 available_trips--;
             }
@@ -280,7 +280,7 @@ namespace Search {
         lastTrip->locations.push_back(1);  
 
         this->setToCandidateList(candidateList, adjMatrix, firstHotel);
-        printCandidateList(candidateList);
+        //printCandidateList(candidateList);
 
         // goes through candidates list and adds best location to best position in last trip
         for (iter = iter; iter < this->iterations; iter++) {
@@ -303,25 +303,46 @@ namespace Search {
                 std::vector<int>::iterator it = std::find(lastTrip->locations.begin(), lastTrip->locations.end(), iNode);
 
                 lastTrip->locations.insert(it + 1, kNode);
-                std::cout << "Node " << kNode << " added between " << iNode << " and " << jNode << std::endl;
+                //std::cout << "Node " << kNode << " added between " << iNode << " and " << jNode << std::endl;
 
                 // updates candidate list
                 this->updateCandidateList(candidateList, adjMatrix, kNode, lastTrip);
-                printCandidateList(candidateList);
-                std::cout << std::endl;
-                printTrip(lastTrip);
+                //printCandidateList(candidateList);
+                //std::cout << std::endl;
+                //printTrip(lastTrip);
 
             } else {
-                std::cout << "não dá pra remover (" << iNode << "," << jNode << ") para inserir " << kNode << std::endl;
+                //std::cout << "não dá pra remover (" << iNode << "," << jNode << ") para inserir " << kNode << std::endl;
                 candidateList.erase(candidateList.begin());
                 retryHeuristic(candidateList.front(), adjMatrix, lastTrip->locations);
                 sortCandidateList(candidateList);
             }
 
             if(lastTrip->tripLength <= 0 || candidateList.empty()) {
-                std::cout << "Last trip finished" << std::endl;
+                //std::cout << "Last trip finished" << std::endl;
                 break;
             }
         }
+    }
+
+    tour_t Constructive::getFullTour() {
+        tour_t fullTour;
+        for (auto i : this->solution) {
+            for (auto j : i.locations) {
+                fullTour.push_back(j);
+            }
+        }
+        return fullTour;
+    }
+
+    std::set<int> Constructive::getUnusedLocations() {
+        std::set<int> unused;
+        tour_t fullTour = this->getFullTour();
+        for(int i = 2 + graph->getNExtraHotels(); i < graph->getNVertices() + graph->getNExtraHotels(); i++){
+            if(std::find(fullTour.begin(), fullTour.end(), i) == fullTour.end()) {
+                unused.insert(i);
+            }
+        }
+        return unused;
     }
 }

@@ -38,7 +38,7 @@ def plotSolution(inst, sol):
     
     f.readline()
     
-    for i in range(numVertex):
+    for i in range(numVertex+numExtraHotels):
         line = f.readline().rstrip("\n").split("\t")
         id.append(i)
         x.append(float(line[0]))
@@ -63,7 +63,7 @@ def plotSolution(inst, sol):
         plt.ylim([min(y)-5, max(y)+5])
         plt.xlim([min(x)-space/2 - 5, max(x)+space/2 + 5])
     
-    for location in range(numExtraHotels+2, numVertex-1):
+    for location in range(numExtraHotels+2, numVertex+numExtraHotels-1):
         plt.plot(x[location], y[location], 'o', color='pink')
         
     for hotel in range(0, numExtraHotels+1):

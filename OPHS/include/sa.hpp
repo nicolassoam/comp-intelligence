@@ -18,6 +18,7 @@ class SA {
     public:     SA(trip_matrix adjMatrix,double initialTemperature, double finalTemperature, double coolingFactor, int iterationsPerTemperature, int nHotels);
                 ~SA();
                 void run(solution_t& initialSolution, tour_t& unvisitedLocations);
+                solution_t getBestSolution() { return bestSolution.trips; };
                 void printSolution();
                 
     private:    Neighbor bestSolution;
@@ -29,6 +30,7 @@ class SA {
                 double coolingFactor;
                 int iterationsPerTemperature;
                 int nHotels;
+                
                 double objectiveFunction(solution_t& solution);
                 Neighbor generateNeighbor(solution_t currentSolution, tour_t& unvisitedLocations);
                 void swapInTrip(solution_t& solution);

@@ -101,12 +101,12 @@ namespace Util{
 
    void saveSolution(std::string instance, solution_t solution, Graph *g){
         std::cout << "Saving solution..." << std::endl;
-        std::cout << "Instance: " << instance << std::endl;
+        //std::cout << "Instance: " << instance << std::endl;
 
         string instancePath = "./../input/" + instance;
         string filename = "./../output/" + instance.erase(0,10) + ".txt";
         
-        std::cout << "Filename: " << filename << std::endl;
+        //std::cout << "Filename: " << filename << std::endl;
         std::ofstream output_file(filename);
         
         for (auto trip : solution) {

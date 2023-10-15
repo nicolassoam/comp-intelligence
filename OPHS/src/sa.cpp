@@ -3,7 +3,12 @@
 // constructor
 SA::SA(trip_matrix adjMatrix,double initialTemperature, double finalTemperature, double coolingFactor, int iterationsPerTemperature, int nHotels) {
     // initialize random seed
-    unsigned int seed = 42;
+
+    std::cout << "-------------------" << std::endl;
+    std::cout << "Simulated Annealing" << std::endl;
+
+    unsigned int seed = time(0);
+    std::cout << "Seed: " << seed << std::endl;
     srand(seed);
 
     this->rng = rand_gen(seed);
@@ -17,22 +22,22 @@ SA::SA(trip_matrix adjMatrix,double initialTemperature, double finalTemperature,
 }
 
 double SA::objectiveFunction(solution_t& solution) {
-    double totalCost = 0.0;
+    double tourScore = 0.0;
 
     // iterate over all trips in the solution
     for (int i = 0; i < solution.size(); i++) {
         // calculate the cost of the current trip
-        double tripCost = 0.0;
+        double tripScore = 0.0;
         for (int j = 0; j < solution[i].locations.size() - 1; j++) {
             int from = solution[i].locations[j];
             int to = solution[i].locations[j + 1];
-            tripCost += adjMatrix[from][to].score;
+            tripScore += adjMatrix[from][to].score;
         }
-        // add the cost of the current trip to the total cost
-        totalCost += tripCost;
+        // add the score of current trip to total score
+        tourScore += tripScore;
     }
 
-    return totalCost;
+    return tourScore;
 }
 
 solution_t SA::insertIfFeasible(solution_t solution, tour_t& unvisitedLocations){
@@ -140,7 +145,6 @@ void SA::swapBetweenTrips2(solution_t& solution){
     std::swap(solution[trip1].locations[location1 + 1], solution[trip2].locations[location2 + 1]);
 }
 
-
 void SA::swapInTrip(solution_t& solution){
     int trip = rand() % solution.size();
 
@@ -187,38 +191,40 @@ Neighbor SA::generateNeighbor(solution_t currentSolution, tour_t& unvisitedLocat
 }
 
 void SA::printSolution() {
-    double totalCost = 0.0;
-    std::cout << "Best solution: " << bestSolution.cost << std::endl;
-    std::cout << "Trips: " << std::endl;
+    double tourScore = 0.0;
+    std::cout << "Best solution: " << bestSolution.cost << std::endl << std::endl;
+    std::cout << "TRIPS: " << std::endl;
     int t = 1;
     for (auto trip : bestSolution.trips) {
-        double tripCost = 0.0;
+        double tripScore = 0.0;
 
         for (int i = 0; i < trip.locations.size() - 1; i++) {
             int from = trip.locations[i];
             int to = trip.locations[i + 1];
-            tripCost += adjMatrix[from][to].score;
+            tripScore += adjMatrix[from][to].score;
         }
         
-        totalCost += tripCost;
-        std::cout << "Trip cost: " << tripCost << std::endl;
+        tourScore += tripScore;
         std::cout << "Trip " << t++;
-        std::cout << " | Length: " << trip.tripLength << " | ";
+        std::cout << " | Length: " << trip.tripLength << " | Score: " << tripScore << " | ";
+
         for (auto location : trip.locations) {
             std::cout << location << " ";
         }
         
         std::cout << std::endl;
     }
-    std::cout << "Total Cost: " << totalCost << std::endl;
+
+    std::cout << "-----------------" << std::endl;
+    std::cout << "Tour Score: " << tourScore << std::endl;
 }
 
 // implementation of simulated annealing algorithm
 void SA::run(solution_t& initialSolution, tour_t& unvisitedLocations) {
     // initialize current solution
-
     this->currentSolution.trips = initialSolution;
     this->currentSolution.cost = this->objectiveFunction(initialSolution);
+
     // initialize best solution
     bestSolution = currentSolution;
 
@@ -231,8 +237,10 @@ void SA::run(solution_t& initialSolution, tour_t& unvisitedLocations) {
 
     // loop until stopping criterion is met
     while (temperature > this->finalTemperature) {
+        
         // loop for a certain number of iterations at each temperature
         for (int i = 0; i < this->iterationsPerTemperature; i++) {
+
             // generate a new candidate solution
             Neighbor candidateSolution = generateNeighbor(this->currentSolution.trips, unvisitedLocations);
 

@@ -22,6 +22,7 @@ namespace Search{
                     ~Constructive();
                     Graph*          getGraph();
                     solution_t      greedySolution();
+                    std::set<int>   getUnusedLocations();
 
         private:    Graph*          graph;
                     solution_t      solution;
@@ -33,7 +34,7 @@ namespace Search{
                     void            lastTripConstructor(int iter, trip_matrix &adjMatrix, double avTourLength);
                     void            setToCandidateList(list_t &candidateList, trip_matrix& adjMatrix, int firstHotel);
                     void            updateCandidateList(list_t &candidateList, trip_matrix &adjMatrix, int kNode, Trip* lastTrip);
-
+                    tour_t          getFullTour();
     };
 }
 
