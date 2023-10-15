@@ -45,11 +45,14 @@ void SA::insertIfFits(solution_t& solution, tour_t& unvisitedLocations){
         return;
     
     int tries = 0;
-    while(tries < 500){
+    while(tries < 1000){
         for(int trip = 0; trip < solution.size(); trip++){
             for(int location = 0; location < solution[trip].locations.size()-1; location++){
                 int from = solution[trip].locations[location];
                 int to = solution[trip].locations[location + 1];
+
+                if(unvisitedLocations.size() == 0)
+                    return;
 
                 for(int added = 0; added < unvisitedLocations.size(); added++){
                     int sucessor = unvisitedLocations[added];

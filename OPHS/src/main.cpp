@@ -6,7 +6,7 @@
 
 int main(int argc, char const **argv)
 {   
-    std::string aux = "SET5-15-10/100-150-15-10.ophs";
+    std::string aux = "SET1-01-02/64-45-1-2.ophs";
     std::string filename = INPUT + aux;
     std::cout << filename << std::endl;
     
@@ -29,6 +29,6 @@ int main(int argc, char const **argv)
     SA* sa = new SA(graph->getAdjMatrix(), 0.9999, 0.0001, 0.90, 3000, 2+graph->getNExtraHotels());
     sa->run(solution, unusedLocations);
     Util::saveSolution(aux, sa->getBestSolution(), graph);
-    
+
     return 0;
 }
