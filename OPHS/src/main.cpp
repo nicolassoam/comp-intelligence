@@ -5,7 +5,7 @@
 
 int main(int argc, char const **argv)
 {   
-    std::string aux = "SET5 10-6/66-129-10-6.ophs";
+    std::string aux = "SET5-10-6/66-129-10-6.ophs";
     std::string filename = INPUT + aux;
     std::cout << filename << std::endl;
     
@@ -32,6 +32,7 @@ int main(int argc, char const **argv)
     Search::Constructive* constructive = new Search::Constructive(graph, 500);
     
     auto solution = constructive->greedySolution();
+    Util::saveSolution(aux, solution, graph);
 
     // graph->printGraph();
 
