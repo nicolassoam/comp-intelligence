@@ -29,6 +29,6 @@ int main(int argc, char const **argv)
     SA* sa = new SA(graph->getAdjMatrix(), 0.9999, 0.0001, 0.90, 3000, 2+graph->getNExtraHotels());
     sa->run(solution, unusedLocations);
     Util::saveSolution(aux, sa->getBestSolution(), graph);
-
+    
     return 0;
 }

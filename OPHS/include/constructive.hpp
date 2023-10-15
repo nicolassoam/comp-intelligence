@@ -10,6 +10,8 @@
 #include <algorithm>
 #include <execution>
 #include <tuple>
+#include <execution>
+#include <random>
 namespace Search{
 
     // a ideia é que cada set no vetor seja uma "trip"
@@ -27,14 +29,12 @@ namespace Search{
         private:    Graph*          graph;
                     solution_t      solution;
                     int             iterations;
-                    set             availableLocations;
-                    int             heuristic(Trip &t, trip_matrix &adjMatrix);
-                    void            updateAvailableLocation(Trip &t, trip_matrix &adjMatrix, double &avTourLength);
-                    int             findNearestHotel(trip_matrix &adjMatrix, int lastLocation);
+                    list_t          candidateList;
                     void            lastTripConstructor(int iter, trip_matrix &adjMatrix, double avTourLength);
                     void            setToCandidateList(list_t &candidateList, trip_matrix& adjMatrix, int firstHotel);
                     void            updateCandidateList(list_t &candidateList, trip_matrix &adjMatrix, int kNode, Trip* lastTrip);
-                    tour_t          getFullTour();
+                    void            updateCandListForNewTrip(trip_matrix &adjMatrix, Trip* lastTrip, tour_t & removedLocations);
+                    void            initialHotelSelection();                    tour_t          getFullTour();
     };
 }
 
