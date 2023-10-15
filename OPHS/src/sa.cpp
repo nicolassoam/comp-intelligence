@@ -119,22 +119,36 @@ void SA::swapBetweenTrips2(solution_t& solution){
         trip2 = rand() % solution.size();
     }
 
-    while(solution[trip1].locations.size() <= 3 || solution[trip2].locations.size() <=3){
+    while(solution[trip1].locations.size() <= 3)
         trip1 = rand() % solution.size();
-        trip2 = rand() % solution.size();
-    }
 
-    std::uniform_int_distribution<int> dist(1, solution[trip1].locations.size() - 2);
+    while(solution[trip2].locations.size() <= 3)
+        trip2 = rand() % solution.size();
+
+    std::uniform_int_distribution<int> dist(1, solution[trip1].locations.size() - 3);
     int location1 = dist(rng);
 
-    dist = std::uniform_int_distribution<int>(1, solution[trip2].locations.size() - 2);
+    dist = std::uniform_int_distribution<int>(1, solution[trip2].locations.size() - 3);
     int location2 = dist(rng);
 
-    while(solution[trip1].locations[location1 + 1] == solution[trip1].locations.back())
-        location1--;
-    
-    while(solution[trip2].locations[location2 + 1] == solution[trip2].locations.back())
-        location2--;
+    int swap11 = solution[trip1].locations[location1];
+    int swap12 = solution[trip1].locations[location1 + 1];
+    int sucessor1 = solution[trip1].locations[location1 + 2];
+
+    int swap21 = solution[trip2].locations[location2];
+    int swap22 = solution[trip2].locations[location2 + 1];
+    int sucessor2 = solution[trip2].locations[location2 + 2];
+
+    double prevLength1 = adjMatrix[swap11][swap12].dist;
+    double prevLength2 = adjMatrix[swap21][swap22].dist;
+    double prevSucessorLength1 = adjMatrix[swap12][sucessor1].dist;
+    double prevSucessorLength2 = adjMatrix[swap22][sucessor2].dist;
+
+    double newLength1 = adjMatrix[swap11][swap21].dist;
+    double newLength2 = adjMatrix[swap12][swap22].dist;
+    double sucessorLength1 = adjMatrix[swap21][sucessor1].dist;
+    double sucessorLength2 = adjMatrix[swap12][sucessor2].dist;
+
 
     std::swap(solution[trip1].locations[location1], solution[trip2].locations[location2]);
     std::swap(solution[trip1].locations[location1 + 1], solution[trip2].locations[location2 + 1]);
