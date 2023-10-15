@@ -26,7 +26,7 @@ int main(int argc, char const **argv)
     tour_t unusedLocations;
     unusedLocations.assign(unused.begin(), unused.end());
 
-    SA* sa = new SA(graph->getAdjMatrix(), 0.9999, 0.0001, 0.90, 100, 2+graph->getNExtraHotels());
+    SA* sa = new SA(graph->getAdjMatrix(), 0.9999, 0.0001, 0.90, 5000, 2+graph->getNExtraHotels());
     sa->run(solution, unusedLocations);
     Util::saveSolution(aux, sa->getBestSolution(), graph);
 

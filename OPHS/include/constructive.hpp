@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <execution>
 #include <tuple>
+#include <random>
 namespace Search{
 
     // a ideia é que cada set no vetor seja uma "trip"
@@ -17,6 +18,7 @@ namespace Search{
     using set  = std::set<int>;
     using list_t = std::vector<std::tuple<double,int,int, int>>;     // <heuristic, kNode, iNode, jNode> -> kNode being inserted in (iNode, jNode)
     using tuple = std::tuple<double,int,int, int>;
+    using rand_gen = std::mt19937;
     class Constructive{
         public:     Constructive(Graph* graph, int iterations);
                     ~Constructive();
@@ -28,7 +30,9 @@ namespace Search{
                     solution_t      solution;
                     int             iterations;
                     set             availableLocations;
+                    rand_gen        rng;
                     int             heuristic(Trip &t, trip_matrix &adjMatrix);
+                    int             randomHeuristic(Trip &t, trip_matrix &adjMatrix);
                     void            updateAvailableLocation(Trip &t, trip_matrix &adjMatrix, double &avTourLength);
                     int             findNearestHotel(trip_matrix &adjMatrix, int lastLocation);
                     void            lastTripConstructor(int iter, trip_matrix &adjMatrix, double avTourLength);

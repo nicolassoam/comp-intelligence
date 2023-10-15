@@ -223,7 +223,7 @@ void SA::twoOpt(solution_t& solution){
                 double trecho3 = adjMatrix[trip.locations[i]][trip.locations[j]].dist;
                 double trecho4 = adjMatrix[trip.locations[(i + 1) % n]][trip.locations[(j + 1) % n]].dist;
 
-                double delta = -trecho1 - trecho2 + trecho3 + trecho4;
+                double delta = trecho1 + trecho2 - trecho3 - trecho4;
 
 				if (delta < 0) {
 					// realiza o movimento
@@ -393,5 +393,8 @@ void SA::run(solution_t& initialSolution, tour_t& unvisitedLocations) {
         temperature *= coolingFactor;
     }
 
+    // roda 2-opt na melhor solução
+    twoOpt(bestSolution.trips);
+    bestSolution.cost = objectiveFunction(bestSolution.trips);
     printSolution();
 }

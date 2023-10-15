@@ -64,33 +64,69 @@ namespace Search {
             this->solution.push_back(aux);
         }
 
+        unsigned int seed = time(0);
+        std::cout << "Seed: " << seed << std::endl;
+        srand(seed);
+
+        this->rng = rand_gen(seed);
+
         std::cout << "Constructive created" << std::endl;
     }
 
     int Constructive::heuristic(Trip &t, trip_matrix &adjMatrix){
-        
-        //heuristic is score/distance
         double best_heuristic = 0;
-
         int best_node = -1;
-
+        
         //trip must end in a hotel
         for(auto i : this->availableLocations){
 
             double heuristic = 0;
             
-            if(adjMatrix[t.locations.back()][i].score == 0){
+            if(adjMatrix[t.locations.back()][i].score == 0)
                 continue;
-            }
             
             heuristic = adjMatrix[t.locations.back()][i].score / adjMatrix[t.locations.back()][i].dist;
+            
             if(heuristic > best_heuristic){
                 best_heuristic = heuristic;
                 best_node = i;
             }
         }
 
-        //std::cout << "Best node: " << best_node << std::endl;
+        return best_node;
+    }
+
+    int Constructive::randomHeuristic(Trip &t, trip_matrix &adjMatrix){
+        
+        // inicializa vetor com três itens
+        std::vector<std::pair<double, int>> nodes;
+        nodes.push_back(std::make_pair(0, -1));
+        
+        //trip must end in a hotel
+        for(auto i : this->availableLocations){
+
+            double heuristic = 0;
+            
+            if(adjMatrix[t.locations.back()][i].score == 0)
+                continue;
+            
+            heuristic = adjMatrix[t.locations.back()][i].score / adjMatrix[t.locations.back()][i].dist;
+            
+            if(heuristic > nodes.back().first){
+                nodes.push_back(std::make_pair(heuristic, i));
+                std::sort(nodes.begin(), nodes.end(), std::greater<std::pair<double, int>>());
+            }
+        }
+
+        // retorna aleatoriamente um dos três melhores nós
+        std::uniform_int_distribution<int> dist(0, 2);
+        int random = dist(this->rng);
+        int best_node;
+
+        if (nodes[random].first > 0)
+            best_node = nodes[random].second;
+        else
+            best_node = nodes[0].second;
 
         return best_node;
     }
@@ -280,7 +316,27 @@ namespace Search {
         lastTrip->locations.push_back(1);  
 
         this->setToCandidateList(candidateList, adjMatrix, firstHotel);
-        //printCandidateList(candidateList);
+
+        // add random location to the last trip
+        bool missingFirstLocation = true;
+        while (missingFirstLocation) {
+            std::uniform_int_distribution<int> dist(0, candidateList.size()-1);
+            int random = dist(this->rng);
+            int randomLocation = std::get<1>(candidateList[random]);
+            
+            double prevLength = adjMatrix[lastTrip->locations.front()][firstHotel].dist;
+            double newLength = adjMatrix[lastTrip->locations.front()][randomLocation].dist + adjMatrix[randomLocation][firstHotel].dist;
+
+            if (lastTrip->tripLength + prevLength - newLength >= 0) {
+                lastTrip->tripLength += prevLength;
+                lastTrip->tripLength -= newLength;
+
+                lastTrip->locations.insert(lastTrip->locations.begin()+1, randomLocation);
+                this->availableLocations.erase(randomLocation);
+                updateCandidateList(candidateList, adjMatrix, randomLocation, lastTrip);
+                missingFirstLocation = false;
+            } 
+        }
 
         // goes through candidates list and adds best location to best position in last trip
         for (iter = iter; iter < this->iterations; iter++) {
