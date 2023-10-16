@@ -95,12 +95,12 @@ namespace Util{
         Salva a solução em um arquivo de texto para ser plotada posteriormente
     */
 
-   void saveSolution(std::string instance, solution_t solution, Graph *g){
+   void saveSolution(std::string instance, solution_t solution, Graph *g, int num, double time){
         std::cout << "Saving solution..." << std::endl;
         //std::cout << "Instance: " << instance << std::endl;
 
         string instancePath = "./../input/" + instance;
-        string filename = "./../output/" + instance.erase(0,11) + ".txt";
+        string filename = "./../output/" + instance + std::to_string(num) +".txt";
         
         //std::cout << "Filename: " << filename << std::endl;
         std::ofstream output_file(filename);
@@ -111,11 +111,35 @@ namespace Util{
             }
             output_file << std::endl;
         }
-
+        output_file << time;
         output_file.close();
 
         string command = "python ./../include/plotSolution.py " + instancePath + " " + filename;
         int aux = system(command.c_str());
+   }
+
+   void saveResult(std::string instance, double avgCost, double avgTime, double bestCost, solution_t solution){
+        string instancePath = "./../input/" + instance;
+        string filename = "./../output/" + instance + "avg.txt";
+
+        std::ofstream output_file(filename);
+
+        for (auto trip : solution) {
+            for (auto location : trip.locations) {
+                output_file << location << " ";
+            }
+            output_file << std::endl;
+        }
+
+        output_file << bestCost << std::endl;
+        output_file << avgCost << std::endl;
+        output_file << avgTime << std::endl;
+        
+        output_file.close();
+
+        string command = "python ./../include/plotSolution.py " + instancePath + " " + filename;
+        int aux = system(command.c_str());
+        
    }
     
 }

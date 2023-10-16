@@ -117,11 +117,11 @@ if __name__ == '__main__':
     
     plotSolution(instance, solution)
     fig = plt.gcf()
-    plt.show()
-    plt.draw()
+    # plt.show()
+    # plt.draw()
     
-    # path = solution.split("./../output/")[1]
-    # path = path.split(".txt")[0]
-    # path = "./../plots/" + path + ".png"
+    path = solution.split("./../output/")[1]
+    path = path.split(".txt")[0]
+    path = "./../plots/" + path + ".png"
         
-    # fig.savefig(path)
+    fig.savefig(path)

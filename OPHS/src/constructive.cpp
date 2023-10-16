@@ -178,7 +178,7 @@ namespace Search {
     solution_t Constructive::greedySolution(){
         trip_matrix adjMatrix = this->graph->getAdjMatrix();
         int trips = this->graph->getNumTrips() - 1;
- 
+
         int aux_trip = 0;
         int available_trips = trips;
         double availableTourLength = this->graph->getTourLength();

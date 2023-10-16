@@ -19,6 +19,7 @@ class SA {
                 ~SA();
                 void run(solution_t& initialSolution, tour_t& unvisitedLocations);
                 solution_t getBestSolution() { return bestSolution.trips; };
+                double getBestCost() { return bestSolution.cost; };
                 void printSolution();
                 void printSolution(Neighbor solution);
                 
