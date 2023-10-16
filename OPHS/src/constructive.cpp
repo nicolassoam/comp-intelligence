@@ -315,14 +315,14 @@ namespace Search {
         // add hotel 1 (last hotel) to the last trip
         lastTrip->locations.push_back(1);  
 
-        this->setToCandidateList(candidateList, adjMatrix, firstHotel);
-
         // add random location to the last trip
         bool missingFirstLocation = true;
         while (missingFirstLocation) {
-            std::uniform_int_distribution<int> dist(0, candidateList.size()-1);
+            std::uniform_int_distribution<int> dist(0, this->availableLocations.size()-1);
             int random = dist(this->rng);
-            int randomLocation = std::get<1>(candidateList[random]);
+            auto r = this->availableLocations.begin();
+            std::advance(r, random);
+            int randomLocation = std::distance(this->availableLocations.begin(), r);
             double prevLength = adjMatrix[lastTrip->locations.front()][firstHotel].dist;
             double newLength = adjMatrix[lastTrip->locations.front()][randomLocation].dist + adjMatrix[randomLocation][firstHotel].dist;
 
@@ -332,11 +332,12 @@ namespace Search {
 
                 lastTrip->locations.insert(lastTrip->locations.begin()+1, randomLocation);
                 this->availableLocations.erase(randomLocation);
-                candidateList.erase(candidateList.begin()+random);
                 // updateCandidateList(candidateList, adjMatrix, randomLocation, lastTrip);
                 missingFirstLocation = false;
             } 
         }
+
+        this->setToCandidateList(candidateList, adjMatrix, firstHotel);
 
         // goes through candidates list and adds best location to best position in last trip
         for (iter = iter; iter < this->iterations; iter++) {
