@@ -323,7 +323,6 @@ namespace Search {
             std::uniform_int_distribution<int> dist(0, candidateList.size()-1);
             int random = dist(this->rng);
             int randomLocation = std::get<1>(candidateList[random]);
-            
             double prevLength = adjMatrix[lastTrip->locations.front()][firstHotel].dist;
             double newLength = adjMatrix[lastTrip->locations.front()][randomLocation].dist + adjMatrix[randomLocation][firstHotel].dist;
 
@@ -333,7 +332,8 @@ namespace Search {
 
                 lastTrip->locations.insert(lastTrip->locations.begin()+1, randomLocation);
                 this->availableLocations.erase(randomLocation);
-                updateCandidateList(candidateList, adjMatrix, randomLocation, lastTrip);
+                candidateList.erase(candidateList.begin()+random);
+                // updateCandidateList(candidateList, adjMatrix, randomLocation, lastTrip);
                 missingFirstLocation = false;
             } 
         }

@@ -423,6 +423,6 @@ void SA::run(solution_t& initialSolution, tour_t& unvisitedLocations) {
         // decrease the temperature
         temperature *= coolingFactor;
     }
-    insertIfFits(bestSolution.trips, unvisitedLocations);
+    // insertIfFits(bestSolution.trips, unvisitedLocations);
     printSolution();
 }
