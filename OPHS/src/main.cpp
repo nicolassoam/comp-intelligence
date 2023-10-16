@@ -6,7 +6,7 @@
 
 int main(int argc, char const **argv)
 {   
-    std::string aux = "SET1-01-02/64-45-1-2.ophs";
+    std::string aux = "SET3-10-04/100-200-10-4.ophs";
     std::string filename = INPUT + aux;
     std::cout << filename << std::endl;
     

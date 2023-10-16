@@ -27,7 +27,7 @@ namespace Search {
     void printCandidateList(list_t &candidateList) {
         std::cout << "Candidate List: " << std::endl;
         for (auto i : candidateList) {
-            std::cout << std::get<0>(i) << " " << std::get<1>(i) << " " << std::get<2>(i) << " " << std::get<3>(i) << std::endl;
+            std::cout << std::get<0>(i) << " " << std::get<1>(i) << " " << std::get<2>(i) << "/";
         }
         std::cout << std::endl;
     }
@@ -191,11 +191,11 @@ namespace Search {
         }
         
         this->candidateList.clear();
-        
 
         for(int i = 0; i < locations.size()-1; i++){
             int iNode = locations[i];
             int jNode = locations[i+1];
+
             for(int i = 0; i < availableLocations.size(); i++){
                 int kNode = availableLocations[i];
 
@@ -241,6 +241,11 @@ namespace Search {
     }
 
     solution_t Constructive::greedySolution(){
+        
+        for (auto i : this->solution) {
+            printTrip(&i);
+        }
+
         trip_matrix adjMatrix = this->graph->getAdjMatrix();
         int trips = this->graph->getNumTrips() - 1;
  
@@ -262,7 +267,7 @@ namespace Search {
             Trip* lastTrip = &this->solution[aux_trip];
             
             // end of current trip
-            if(lastTrip->tripLength >= 0 && lastTrip->tripLength <= 3.5){
+            if(lastTrip->tripLength >= 0 && lastTrip->tripLength <= 5 ){
                 aux_trip++;
                   
                 if(available_trips > 0)
@@ -312,13 +317,10 @@ namespace Search {
                 printTrip(lastTrip);
 
             } else {
-
-                //std::cout << "não dá pra remover (" << iNode << "," << jNode << ") para inserir " << kNode << std::endl;
+                // remove candidatw from list
                 this->candidateList.erase(this->candidateList.begin());
                 removedLocations.push_back(kNode);
                 
-                // retryHeuristic(this->candidateList.front(), adjMatrix, lastTrip->locations);
-        
                 sortCandidateList(candidateList);
             }
 
