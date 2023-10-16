@@ -59,7 +59,9 @@ namespace Search {
             for(int j = nHotels; j < nLocations; j++){
                 h_dist += adj[i][j].dist;
             }
+
             hotel_dist[i] = h_dist;
+
             if(hotel_dist[i] < hotel_dist[nearest_hotel]){
                 nearest_hotel = i;
             }
@@ -82,16 +84,18 @@ namespace Search {
 
         Trip firstTrip;
 
+        // inserts H0 as start of first trip
         firstTrip.locations.push_back(0);
         firstTrip.tripLength = firstTripLength;
 
-        // int nearest_hotel = nearestHotelToAllLocations(adjMatrix, numLocations, hotelNum);
+        // inserts random hotel as end of first trip
         std::uniform_int_distribution<int> dist(0, hotelNum-1);
         int random_hotel = dist(gen_);
         firstTrip.locations.push_back(random_hotel);
 
         this->solution.push_back(firstTrip);
 
+        // inserts random hotels to the other trips
         for(int i = 1; i < trips; i++){
             Trip intermediateTrip;
 
@@ -101,18 +105,18 @@ namespace Search {
             // nearest_hotel = nearestHotelToAllLocations(adjMatrix, numLocations, hotelNum);
             random_hotel = dist(gen_);
             intermediateTrip.locations.push_back(random_hotel);
-            this->solution.push_back(firstTrip);
+            this->solution.push_back(intermediateTrip);
         }
 
+        // inserts end hotel of second to last trip as start of last trip
         Trip lastTrip;
         lastTrip.locations.push_back(this->solution.back().locations.back());
         lastTrip.tripLength = tripLengths[trips-1];
 
+        // inserts H1 as end of last trip
         lastTrip.locations.push_back(1);
 
         this->solution.push_back(lastTrip);
-
-
     }
 
     void sortCandidateList(list_t &candidateList){
@@ -147,8 +151,7 @@ namespace Search {
         std::get<3>(candidate) = jNode;
     }
 
-
-    void initCandidateList(list_t& candidateList,Trip& solution, trip_matrix& adjMatrix, int nLocations, int nHotels){
+    void initCandidateList(list_t& candidateList,Trip& solution, trip_matrix& adjMatrix, int nLocations, int nHotels, set& firstLocations){
         int initialTripSize = solution.locations.size()-1;
 
         for(int i = 0; i < initialTripSize; i++){
@@ -156,11 +159,14 @@ namespace Search {
             int jNode = solution.locations[i+1];
 
             for(int k = nHotels; k < nLocations; k++){
-                double heuristic = adjMatrix[iNode][k].dist / adjMatrix[iNode][k].score;
-                candidateList.push_back(std::make_tuple(heuristic, k, iNode, jNode));
+                if(firstLocations.find(k) == firstLocations.end()){
+                    double deltaDist = adjMatrix[iNode][k].dist + adjMatrix[k][jNode].dist - adjMatrix[iNode][jNode].dist;
+                    double heuristic = deltaDist / adjMatrix[iNode][k].score;
+
+                    candidateList.push_back(std::make_tuple(heuristic, k, iNode, jNode));
+                }
             }
         }
-
 
         sortCandidateList(candidateList);
     }
@@ -176,6 +182,7 @@ namespace Search {
         for(auto cand : this->candidateList){
             availableLocations.push_back(std::get<1>(cand));
         }
+
         if(removedLocations.size() > 0){
             for(auto loc : removedLocations){
                 availableLocations.push_back(loc);
@@ -200,6 +207,39 @@ namespace Search {
         sortCandidateList(this->candidateList);
     }
 
+    set Constructive::insertFirstLocations(solution_t &solution, trip_matrix &adjMatrix, int nHotels){
+        std::set<int> firstLocations;
+
+        int trips = this->graph->getNumTrips() - 1;
+        int nLocations = this->graph->getNVertices() - nHotels;
+
+        std::uniform_int_distribution<int> dist(nHotels-1, nLocations-1);
+
+        for(int i = 0; i < trips; i++){
+            bool inserted = false;
+
+            while (!inserted) {
+                int random_location = dist(gen_);
+
+                // checks if length of trip is enough to add location
+                double prevLength = adjMatrix[solution[i].locations.front()][solution[i].locations.back()].dist;
+                double newLength = adjMatrix[solution[i].locations.front()][random_location].dist + adjMatrix[random_location][solution[i].locations.back()].dist;
+
+                if (solution[i].tripLength + prevLength - newLength >= 0 && firstLocations.find(random_location) == firstLocations.end()) {
+
+                    solution[i].tripLength += prevLength;
+                    solution[i].tripLength -= newLength;
+                    firstLocations.insert(random_location);
+                    solution[i].locations.insert(solution[i].locations.begin() + 1, random_location);
+                    inserted = true;
+
+                }
+            }
+        }
+
+        return firstLocations;
+    }
+
     solution_t Constructive::greedySolution(){
         trip_matrix adjMatrix = this->graph->getAdjMatrix();
         int trips = this->graph->getNumTrips() - 1;
@@ -210,21 +250,27 @@ namespace Search {
 
         int nHotels = this->graph->getNExtraHotels() + 2;
 
-        initCandidateList(this->candidateList, this->solution[0], adjMatrix, this->graph->getNVertices(), nHotels);
+        // insert random first location for all trips
+        set firstLocations = insertFirstLocations(this->solution, adjMatrix, nHotels);
+
+        initCandidateList(this->candidateList, this->solution[0], adjMatrix, this->graph->getNVertices(), nHotels, firstLocations);        
+
         tour_t removedLocations;
-        // goes through candidate list and adds best location to best position in last trip
+
         for(int i = 0; i < this->iterations; i++){
 
             Trip* lastTrip = &this->solution[aux_trip];
-
+            
+            // end of current trip
             if(lastTrip->tripLength >= 0 && lastTrip->tripLength <= 3.5){
                 aux_trip++;
                   
                 if(available_trips > 0)
                     available_trips--;
                 
+                // end of tour
                 if(aux_trip > trips){
-                    std::cout << "No more trips" << std::endl;
+                    //std::cout << "No more trips" << std::endl;
                     break;
                 }
 
@@ -233,7 +279,7 @@ namespace Search {
             }
 
             if(candidateList.empty()) {
-                std::cout << "No more candidates" << std::endl;
+                //std::cout << "No more candidates" << std::endl;
                 break;
             } 
 
@@ -242,7 +288,6 @@ namespace Search {
             int kNode = std::get<1>(candidate);
             int iNode = std::get<2>(candidate);
             int jNode = std::get<3>(candidate);
-
 
             // verify if edge (i,j) can be removed to add edges (i,k) and (k,j)
             double prevLength = adjMatrix[iNode][jNode].dist;
@@ -256,18 +301,19 @@ namespace Search {
                 // find iNode index in lastTrip
                 std::vector<int>::iterator it = std::find(lastTrip->locations.begin(), lastTrip->locations.end(), iNode);
 
-                lastTrip->locations.insert(it + 1, kNode);
-                std::cout << "Node " << kNode << " added between " << iNode << " and " << jNode << std::endl;
+                lastTrip->locations.insert(it+1, kNode);
+                //std::cout << "Node " << kNode << " added between " << iNode << " and " << jNode << std::endl;
 
                 // updates candidate list
                 this->updateCandidateList(this->candidateList, adjMatrix, kNode, lastTrip);
+
                 // printCandidateList(this->candidateList);
                 std::cout << std::endl;
                 printTrip(lastTrip);
 
             } else {
 
-                std::cout << "não dá pra remover (" << iNode << "," << jNode << ") para inserir " << kNode << std::endl;
+                //std::cout << "não dá pra remover (" << iNode << "," << jNode << ") para inserir " << kNode << std::endl;
                 this->candidateList.erase(this->candidateList.begin());
                 removedLocations.push_back(kNode);
                 
@@ -288,8 +334,19 @@ namespace Search {
         std::tuple<double, int, int, int> aux;
         tour_t locations = lastTrip->locations;
 
+        set candidateIndexes;
+
         // remove kNode from candidate list
-        candidateList.erase(this->candidateList.begin());
+
+        for (int i = 0; i < candidateList.size(); i++) {
+            if (std::get<1>(candidateList[i]) == kNode) {
+                candidateIndexes.insert(i);
+            }
+        }
+
+        for (auto i : candidateIndexes) {
+            candidateList.erase(candidateList.begin() + i);
+        }
 
         for (int n = 0; n < this->candidateList.size(); n++) {
             aux = this->candidateList[n];
