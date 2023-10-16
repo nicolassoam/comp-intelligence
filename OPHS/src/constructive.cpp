@@ -227,7 +227,7 @@ namespace Search {
 
         // first candidate will be location closest to hotel 1 (last hotel)
         for(auto i : this->availableLocations){
-            heuristic = adjMatrix[1][i].score / adjMatrix[1][i].dist;
+            heuristic = adjMatrix[firstHotel][i].dist / adjMatrix[firstHotel][i].score + adjMatrix[i][1].dist / adjMatrix[i][1].score;
             candidateList.push_back(std::make_tuple(heuristic, i, firstHotel, 1));
         }
 
@@ -311,7 +311,7 @@ namespace Search {
         
         int tripIndex = this->solution.size() - 1;
         int firstHotel = lastTrip->locations.back();                 
-        
+        int randomLocation = 0;
         // add hotel 1 (last hotel) to the last trip
         lastTrip->locations.push_back(1);  
 
@@ -322,7 +322,7 @@ namespace Search {
             int random = dist(this->rng);
             auto r = this->availableLocations.begin();
             std::advance(r, random);
-            int randomLocation = std::distance(this->availableLocations.begin(), r);
+            randomLocation = std::distance(this->availableLocations.begin(), r);
             double prevLength = adjMatrix[lastTrip->locations.front()][firstHotel].dist;
             double newLength = adjMatrix[lastTrip->locations.front()][randomLocation].dist + adjMatrix[randomLocation][firstHotel].dist;
 
@@ -337,7 +337,7 @@ namespace Search {
             } 
         }
 
-        this->setToCandidateList(candidateList, adjMatrix, firstHotel);
+        this->setToCandidateList(candidateList, adjMatrix, randomLocation);
 
         // goes through candidates list and adds best location to best position in last trip
         for (iter = iter; iter < this->iterations; iter++) {

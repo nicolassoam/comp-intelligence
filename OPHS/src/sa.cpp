@@ -50,22 +50,22 @@ void SA::insertIfFits(solution_t& solution, tour_t& unvisitedLocations){
             for(int location = 0; location < solution[trip].locations.size()-1; location++){
                 int from = solution[trip].locations[location];
                 int to = solution[trip].locations[location + 1];
+                if(solution[trip].tripLength > 4){
+                    for(int added = 0; added < unvisitedLocations.size(); added++){
+                        int sucessor = unvisitedLocations[added];
+                        double prevLength = adjMatrix[from][to].dist;
+                        double newLength = adjMatrix[from][sucessor].dist + adjMatrix[sucessor][to].dist;
 
-                for(int added = 0; added < unvisitedLocations.size(); added++){
-                    int sucessor = unvisitedLocations[added];
-                    double prevLength = adjMatrix[from][to].dist;
-                    double newLength = adjMatrix[from][sucessor].dist + adjMatrix[sucessor][to].dist;
-
-                    if(solution[trip].tripLength + prevLength >= newLength){
-                        //delete the edge between from and to and add the edge between from and addedLocation and addedLocation and to
-                        solution[trip].locations.insert(solution[trip].locations.begin() + location + 1, sucessor);
-                        solution[trip].tripLength += prevLength;
-                        solution[trip].tripLength -= newLength;
-                        unvisitedLocations.erase(unvisitedLocations.begin() + added);
+                        if(solution[trip].tripLength + prevLength >= newLength){
+                            //delete the edge between from and to and add the edge between from and addedLocation and addedLocation and to
+                            solution[trip].locations.insert(solution[trip].locations.begin() + location + 1, sucessor);
+                            solution[trip].tripLength += prevLength;
+                            solution[trip].tripLength -= newLength;
+                            unvisitedLocations.erase(unvisitedLocations.begin() + added);
+                        }
                     }
                 }
-
-            }
+            }   
         }
         tries++;
     }
@@ -423,6 +423,6 @@ void SA::run(solution_t& initialSolution, tour_t& unvisitedLocations) {
         // decrease the temperature
         temperature *= coolingFactor;
     }
-    // insertIfFits(bestSolution.trips, unvisitedLocations);
+    insertIfFits(bestSolution.trips, unvisitedLocations);
     printSolution();
 }
