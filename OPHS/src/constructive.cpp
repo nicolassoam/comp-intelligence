@@ -265,7 +265,7 @@ namespace Search {
 
             // calculates heuristic for candidate c being inserted between (i,kNode)
             double deltaDist = adjMatrix[i][c].dist + adjMatrix[c][kNode].dist - adjMatrix[i][kNode].dist;
-            double deltaScore = adjMatrix[i][c].score + adjMatrix[c][kNode].score - adjMatrix[i][kNode].score;
+            double deltaScore = adjMatrix[i][c].score  - adjMatrix[i][kNode].score;
             double newHeuristic = deltaDist / deltaScore;
 
             if (newHeuristic > heuristic)
@@ -273,7 +273,7 @@ namespace Search {
 
             // calculates heuristic for candidate c being inserted between (kNode,j)
             deltaDist = adjMatrix[kNode][c].dist + adjMatrix[c][j].dist - adjMatrix[kNode][j].dist;
-            deltaScore = adjMatrix[kNode][c].score + adjMatrix[c][j].score - adjMatrix[kNode][j].score;
+            deltaScore = adjMatrix[kNode][c].score - adjMatrix[kNode][j].score;
             newHeuristic = deltaDist / deltaScore;
 
             if (newHeuristic > heuristic)
