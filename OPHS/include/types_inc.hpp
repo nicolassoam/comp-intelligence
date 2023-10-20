@@ -29,6 +29,12 @@ using matrix_t      = std::vector<std::vector<double>>;
 using k_double      = std::vector<double>;
 using solution_t    = std::vector<Trip>;
 
+struct Neighbor{
+    std::vector<Trip> trips;
+    double cost;
+};
+
+
 static const unsigned int BIG = 99999;
 
 
