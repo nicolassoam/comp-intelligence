@@ -1,7 +1,7 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#define PROJECT_DIR "/mnt/c/Users/maria/OneDrive/Documentos/UFJF/comp-intelligence/ophs/"
-#define INPUT "/mnt/c/Users/maria/OneDrive/Documentos/UFJF/comp-intelligence/ophs/input/"
+#define PROJECT_DIR "/c/Users/nsm44/Desktop/comp-intelligence/OPHS/"
+#define INPUT "/c/Users/nsm44/Desktop/comp-intelligence/OPHS/input/"
 
 #endif // CONFIG_H

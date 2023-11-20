@@ -84,6 +84,12 @@ namespace Search {
 
         Trip firstTrip;
 
+        tour_t availableLocations;
+
+        for(int i = hotelNum; i < numLocations + hotelNum; i++){
+            availableLocations.push_back(i);
+        }
+
         // inserts H0 as start of first trip
         firstTrip.locations.push_back(0);
         firstTrip.tripLength = firstTripLength;
@@ -93,6 +99,8 @@ namespace Search {
         int random_hotel = dist(gen_);
         firstTrip.locations.push_back(random_hotel);
 
+        firstTrip.tripLength -= adjMatrix[0][random_hotel].dist;
+        
         this->solution.push_back(firstTrip);
 
         // inserts random hotels to the other trips
@@ -105,6 +113,7 @@ namespace Search {
             // nearest_hotel = nearestHotelToAllLocations(adjMatrix, numLocations, hotelNum);
             random_hotel = dist(gen_);
             intermediateTrip.locations.push_back(random_hotel);
+            intermediateTrip.tripLength -= adjMatrix[intermediateTrip.locations.front()][random_hotel].dist;
             this->solution.push_back(intermediateTrip);
         }
 
