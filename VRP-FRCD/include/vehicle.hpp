@@ -13,21 +13,19 @@ enum TYPE{
 };
 
 class Vehicle {
-    public:
-        Vehicle(TYPE type, int cost, double capacity) 
-        : id(globalId++), type(type), COST(cost), capacity(capacity) {};
-        int getId();
-        int getCost();
-        double getCapacity();
-        void setCapacity(double capacity);
-        std::ostream& operator<<(std::ostream& os);
+    public:     friend std::ostream& operator<<(std::ostream& os, const Vehicle& v);
+                Vehicle(TYPE type, int cost, double capacity) 
+                : id(globalId++), type(type), COST(cost), capacity(capacity) {};
+                int getId();
+                int getCost();
+                double getCapacity();
+                void setCapacity(double capacity);
 
-    private:
-        TYPE type;
-        static int globalId;
-        int id;
-        const int COST;
-        double capacity;
+    private:    TYPE type;
+                static int globalId;
+                int id;
+                const int COST;
+                double capacity;
 };
 
 #endif // VEHICLE_HPP_
