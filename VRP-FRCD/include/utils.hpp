@@ -42,6 +42,7 @@ namespace Util{
         catch(const std::exception& e)
         {
             std::cerr << e.what() << '\n';
+            exit(1);
         }
 
         int nSuppliers, nRetailers, nOutlets, nVehicles, tMax, COST, capacity = 0;
@@ -78,6 +79,9 @@ namespace Util{
 
         //p[k]
         vector<double>defectiveProduct;
+
+        string line;
+
     }
 }
 
