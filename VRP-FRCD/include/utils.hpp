@@ -24,7 +24,8 @@ namespace Util{
         }
 
         sort(files.begin(), files.end(),[](const string& a, const string& b){
-            return a.length() < b.length();});
+            return a < b;
+        });
 
         return files;
     }
@@ -45,7 +46,7 @@ namespace Util{
             exit(1);
         }
 
-        int nSuppliers, nRetailers, nOutlets, nVehicles, tMax, COST, capacity = 0;
+        int nSuppliers, nRetailers, nOutlets, nVehicles, tMax, COST, capacity, c = 0;
 
         //e'[i][j]
         vector<vector<double>>supplierCrossDockDist;
@@ -82,6 +83,42 @@ namespace Util{
 
         string line;
 
+        //first 8 lines
+        int i = 0;
+
+        while(getline(instance, line) && i<8){
+            string value = " ";
+            value = line.substr(line.find("=")+1, line.length());
+
+            switch(i){
+                case 0:
+                    nSuppliers = stoi(value);
+                    break;
+                case 1:
+                    nRetailers = stoi(value);
+                    break;
+                case 2:
+                    nOutlets = stoi(value);
+                    break;
+                case 3:
+                    nVehicles = stoi(value);
+                    break;
+                case 4:
+                    capacity = stoi(value);
+                    break;
+                case 5:
+                    c = stoi(value);
+                    break;
+                case 6:
+                    tMax = stoi(value);
+                    break;
+                case 7:
+                    COST = stoi(value);
+                    break;
+            }
+
+            i++;
+        }
     }
 }
 
