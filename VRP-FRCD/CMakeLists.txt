@@ -5,6 +5,7 @@ include_directories(include)
 
 set(PROJECT_DIR ${PROJECT_SOURCE_DIR}/)
 set (INPUT ${PROJECT_DIR}input/)
+set (OUTPUT ${PROJECT_DIR}output/)
 
 configure_file(${PROJECT_DIR}/include/config.h.in ${PROJECT_DIR}/include/config.hpp)
 
