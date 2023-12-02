@@ -133,12 +133,12 @@ namespace Util
         supplierCrossDockTime.resize(nSuppliers + 1, vector<double>(nSuppliers + 1));
         retailerCrossDockDist.resize(nRetailers + 1, vector<double>(nRetailers + 1));
         retailerCrossDockTime.resize(nRetailers + 1, vector<double>(nRetailers + 1));
-        retailerProductDemand.resize(nRetailers + 1, vector<double>(nSuppliers + 1));
-        returnedProductRetailer.resize(nRetailers + 1, vector<double>(nSuppliers + 1));
+        retailerProductDemand.resize(nRetailers, vector<double>(nSuppliers));
+        returnedProductRetailer.resize(nRetailers, vector<double>(nSuppliers));
         outletCrossDockDist.resize(nOutlets + 1, vector<double>(nOutlets + 1));
         outletCrossDockTime.resize(nOutlets + 1, vector<double>(nOutlets + 1));
-        outletProductDemand.resize(nOutlets + 1, vector<double>(nRetailers + 1));
-        returnedProductOutlet.resize(nOutlets + 1, vector<double>(nRetailers + 1));
+        outletProductDemand.resize(nOutlets, vector<double>(nSuppliers));
+        returnedProductOutlet.resize(nOutlets, vector<double>(nSuppliers));
         defectiveProduct.resize(nSuppliers);
         std::vector<vector<double>> tempVec;
         while (getline(instance, line))
@@ -242,21 +242,21 @@ namespace Util
         lim = lim+ nOutlets+1;
         k = 0;
         //d''[i][k]
-        for (int i = lim; i < nRetailers+1 + lim; i++)
+        for (int i = lim; i < nRetailers + lim; i++)
         {
-            for (int j = 0; j < nRetailers+1; j++)
+            for (int j = 0; j < nSuppliers; j++)
             {
-                retailerProductDemand[k][j] = tempVec[i][j ];
+                retailerProductDemand[k][j] = tempVec[i][j];
             }
             k++;
         }
 
-        lim = lim + nRetailers+1;
+        lim = lim + nRetailers;
         k = 0;
         //r''[i][k]
-        for (int i = lim; i < nRetailers+1 + lim; i++)
+        for (int i = lim; i < nRetailers + lim; i++)
         {
-            for (int j = 0; j < nRetailers+1; j++)
+            for (int j = 0; j < nSuppliers; j++)
             {
                 returnedProductRetailer[k][j] = tempVec[i][j];
             }
@@ -264,11 +264,11 @@ namespace Util
         }
 
         //p[k]
-        lim = lim + nRetailers+1;
+        lim = lim + nRetailers;
         
         for (int i = lim; i < lim +1; i++)
         {
-            for(int j = 0; j < nSuppliers+1; j++)
+            for(int j = 0; j < nSuppliers; j++)
             {
                 defectiveProduct[j] = tempVec[i][j];
             }
@@ -277,9 +277,9 @@ namespace Util
         //d'''[i][k]
         lim = lim +1;
         k = 0;
-        for (int i = lim; i < nOutlets+1 + lim; i++)
+        for (int i = lim; i < nOutlets + lim; i++)
         {
-            for(int j = 0; j < nRetailers; j++)
+            for(int j = 0; j < nSuppliers; j++)
             {
                 outletProductDemand[k][j] = tempVec[i][j];
             }
@@ -287,17 +287,18 @@ namespace Util
         }
 
         //r'''[i][k]
-        lim = lim + nOutlets+1;
+        lim = lim + nOutlets;
         k = 0;
-        for (int i = lim; i < nOutlets+1; i++)
+        for (int i = lim; i < nOutlets + lim; i++)
         {
-            for(int j = 0; j < nRetailers; j++)
+            for(int j = 0; j < nSuppliers; j++)
             {
                 returnedProductOutlet[k][j] = tempVec[i][j];
             }
+            k++;
         }
 
-        for(auto i : returnedProductRetailer){
+        for(auto i : returnedProductOutlet){
             for(auto j : i){
                 cout << j << " ";
             }
