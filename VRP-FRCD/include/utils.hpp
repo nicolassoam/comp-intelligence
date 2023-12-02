@@ -129,73 +129,188 @@ namespace Util
         i = 0;
         int j = 0;
 
-        supplierCrossDockDist.resize(nSuppliers+1, vector<double>(nSuppliers+1));
-        supplierCrossDockTime.resize(nSuppliers+1, vector<double>(nSuppliers+1));
-        retailerCrossDockDist.resize(nRetailers+1), vector<double>(nRetailers+1);
-        retailerCrossDockTime.resize(nRetailers+1, vector<double>(nRetailers+1));
-        retailerProductDemand.resize(nRetailers+1, vector<double>(nSuppliers+1));
-        returnedProductRetailer.resize(nRetailers+1, vector<double>(nSuppliers+1));
-        outletCrossDockDist.resize(nOutlets+1, vector<double>(nOutlets+1));
+        supplierCrossDockDist.resize(nSuppliers + 1, vector<double>(nSuppliers + 1));
+        supplierCrossDockTime.resize(nSuppliers + 1, vector<double>(nSuppliers + 1));
+        retailerCrossDockDist.resize(nRetailers + 1, vector<double>(nRetailers + 1));
+        retailerCrossDockTime.resize(nRetailers + 1, vector<double>(nRetailers + 1));
+        retailerProductDemand.resize(nRetailers + 1, vector<double>(nSuppliers + 1));
+        returnedProductRetailer.resize(nRetailers + 1, vector<double>(nSuppliers + 1));
+        outletCrossDockDist.resize(nOutlets + 1, vector<double>(nOutlets + 1));
         outletCrossDockTime.resize(nOutlets + 1, vector<double>(nOutlets + 1));
         outletProductDemand.resize(nOutlets + 1, vector<double>(nRetailers + 1));
         returnedProductOutlet.resize(nOutlets + 1, vector<double>(nRetailers + 1));
         defectiveProduct.resize(nSuppliers);
+        std::vector<vector<double>> tempVec;
+        while (getline(instance, line))
+        {
+            if (line.empty())
+                continue;
+            if (line.find("=") != string::npos) // Skip lines with matrix names
+            {
+                getline(instance, line); // Move to the next line for matrix values
+            }
+            vector<double> aux;
+            // Create a stringstream from the line
+            std::istringstream ss(line);
 
-        while(getline(instance,line)){
-            if(line == "e'[i][j]"){
-                getline(instance,line);
-                stringstream ss(line);
-                string token;
-                j == 0;
-                while(getline(ss,token,' ')){
-                    supplierCrossDockDist[i][j] = stod(token);
-                    j++;
-                }
-                i++;
+            // Read the values from the stringstream into a temporary vector
+
+            double val;
+            while (ss >> val)
+            {
+                aux.push_back(val);
+            }
+
+            tempVec.push_back(aux);
+        }
+
+        //transfer values to the correct matrix
+        int lim = 0;
+        int k =0 ;
+
+        //e'[i][j]
+        for (int i = lim; i < nSuppliers+1; i++)
+        {
+            for (int j = 0; j < nSuppliers+1; j++)
+            {
+                supplierCrossDockDist[i][j] = tempVec[i][j];
             }
         }
 
-        // // 2D matrices
-        // vector<vector<double>> matrices[] = {
-        //     supplierCrossDockDist,
-        //     supplierCrossDockTime,
-        //     retailerCrossDockDist,
-        //     retailerCrossDockTime,
-        //     retailerProductDemand,
-        //     returnedProductRetailer,
-        //     outletCrossDockDist,
-        //     outletCrossDockTime,
-        //     outletProductDemand,
-        //     returnedProductOutlet};
+        lim = nSuppliers+1;
+        k = 0;
 
-        // for (auto &matrix : matrices)
-        // {
-        //     getline(instance, line); // skip the line with the matrix name
-        //     cout << line << endl;
-        //     for (int i = 0; i < matrix.size(); ++i)
-        //     {
-        //         for (int j = 0; j < matrix[i].size(); ++j)
-        //         {
-        //             if (!(instance >> matrix[i][j]))
-        //             {
-        //                 throw runtime_error("Error reading matrix data");
-        //             }
-        //         }
-        //     }
+        //e''[i][j]
+        for (int i = lim; i < nRetailers+1 + lim; i++)
+        {
+            for (int j = 0; j < nRetailers+1; j++)
+            {
+                retailerCrossDockDist[k][j] = tempVec[i][j];
+                
+            }
+            k++;
+        }
+
+        lim = lim +nRetailers+1;
+        k= 0;
+        //e'''[i][j]
+        for (int i = lim; i < nOutlets+1 + lim; i++)
+        {
+            for (int j = 0; j < nOutlets+1; j++)
+            {
+                outletCrossDockDist[k][j] = tempVec[i][j];
+            }
+            k++;
+        }
+
+        lim =lim + nOutlets+1;
+        k= 0;
+        //t'[i][j]
+        for (int i = lim; i < nSuppliers+1 + lim; i++)
+        {
+            for (int j = 0; j < nSuppliers+1; j++)
+            {
+                supplierCrossDockTime[k][j] = tempVec[i][j];
+            }
+            k++;
+        }
+
+        lim = lim + nSuppliers+1;
+        k = 0;
+        //t''[i][j]
+        for (int i = lim; i < nRetailers+1 + lim; i++)
+        {
+            for (int j = 0; j < nRetailers+1; j++)
+            {
+                retailerCrossDockTime[k][j] = tempVec[i][j];
+            }
+            k++;
+        }
+
+        lim = lim + nRetailers+1;
+        k = 0;
+        //t'''[i][j]
+        for (int i = lim; i < nOutlets+1 + lim; i++)
+        {
+            for (int j = 0; j < nOutlets+1; j++)
+            {
+                outletCrossDockTime[k][j] = tempVec[i][j];
+            }
+            k++;
+        }
+
+        lim = lim+ nOutlets+1;
+        k = 0;
+        //d''[i][k]
+        for (int i = lim; i < nRetailers+1 + lim; i++)
+        {
+            for (int j = 0; j < nRetailers+1; j++)
+            {
+                retailerProductDemand[k][j] = tempVec[i][j ];
+            }
+            k++;
+        }
+
+        lim = lim + nRetailers+1;
+        k = 0;
+        //r''[i][k]
+        for (int i = lim; i < nRetailers+1 + lim; i++)
+        {
+            for (int j = 0; j < nRetailers+1; j++)
+            {
+                returnedProductRetailer[k][j] = tempVec[i][j];
+            }
+            k++;
+        }
+
+        //p[k]
+        lim = lim + nRetailers+1;
+        
+        for (int i = lim; i < lim +1; i++)
+        {
+            for(int j = 0; j < nSuppliers+1; j++)
+            {
+                defectiveProduct[j] = tempVec[i][j];
+            }
+        }
+
+        //d'''[i][k]
+        lim = lim +1;
+        k = 0;
+        for (int i = lim; i < nOutlets+1 + lim; i++)
+        {
+            for(int j = 0; j < nRetailers; j++)
+            {
+                outletProductDemand[k][j] = tempVec[i][j];
+            }
+            k++;
+        }
+
+        //r'''[i][k]
+        lim = lim + nOutlets+1;
+        k = 0;
+        for (int i = lim; i < nOutlets+1; i++)
+        {
+            for(int j = 0; j < nRetailers; j++)
+            {
+                returnedProductOutlet[k][j] = tempVec[i][j];
+            }
+        }
+
+        for(auto i : returnedProductRetailer){
+            for(auto j : i){
+                cout << j << " ";
+            }
+            cout << endl;
+        }
+
+        // for(auto i: defectiveProduct){
+        //     cout << i << " ";
         // }
 
-        // // vector for defective products
-        // getline(instance, line); // skip the line with the vector name
-        // // cout << line << endl;
-        // for (int i = 0; i < defectiveProduct.size(); ++i)
-        // {
-        //     if (!(instance >> defectiveProduct[i]))
-        //     {
-        //         throw runtime_error("Error reading vector data");
-        //     }
-        // }
-        // cout << matrices[0][0][0]   << endl;
+
     }
+
 }
 
 #endif // UTILS_HPP_
