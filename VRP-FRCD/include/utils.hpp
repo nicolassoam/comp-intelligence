@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <cmath>
 #include <filesystem>
+#include "instance.hpp"
 
 namespace fs = std::filesystem;
 
@@ -17,6 +18,39 @@ namespace Util
 {
 
     using namespace std;
+
+    bool compareNat(const std::string& a, const std::string& b)
+    {
+        if (a.empty())
+            return true;
+        if (b.empty())
+            return false;
+        if (std::isdigit(a[0]) && !std::isdigit(b[0]))
+            return true;
+        if (!std::isdigit(a[0]) && std::isdigit(b[0]))
+            return false;
+        if (!std::isdigit(a[0]) && !std::isdigit(b[0]))
+        {
+            if (std::toupper(a[0]) == std::toupper(b[0]))
+                return compareNat(a.substr(1), b.substr(1));
+            return (std::toupper(a[0]) < std::toupper(b[0]));
+        }
+
+        // Both strings begin with digit --> parse both numbers
+        std::istringstream issa(a);
+        std::istringstream issb(b);
+        int ia, ib;
+        issa >> ia;
+        issb >> ib;
+        if (ia != ib)
+            return ia < ib;
+
+        // Numbers are the same --> remove numbers and recurse
+        std::string anew, bnew;
+        std::getline(issa, anew);
+        std::getline(issb, bnew);
+        return (compareNat(anew, bnew));
+    }
 
     vector<string> readDirectory(string path)
     {
@@ -26,13 +60,12 @@ namespace Util
             files.push_back(entry.path().string());
         }
 
-        sort(files.begin(), files.end(), [](const string &a, const string &b)
-             { return a < b; });
+        sort(files.begin(), files.end(), compareNat);
 
         return files;
     }
 
-    void readInstance(string file)
+    Instance* readInstance(string file)
     {
 
         ifstream instance;
@@ -49,7 +82,8 @@ namespace Util
             exit(1);
         }
 
-        int nSuppliers, nRetailers, nOutlets, nVehicles, tMax, COST, capacity, c = 0;
+        int nSuppliers, nRetailers, nOutlets, nVehicles, tMax, COST, capacity, c;
+        nSuppliers = nRetailers = nOutlets = nVehicles = tMax = COST = capacity = c = 0;
 
         // e'[i][j]
         vector<vector<double>> supplierCrossDockDist;
@@ -140,7 +174,9 @@ namespace Util
         outletProductDemand.resize(nOutlets, vector<double>(nSuppliers));
         returnedProductOutlet.resize(nOutlets, vector<double>(nSuppliers));
         defectiveProduct.resize(nSuppliers);
+
         std::vector<vector<double>> tempVec;
+        
         while (getline(instance, line))
         {
             if (line.empty())
@@ -298,18 +334,15 @@ namespace Util
             k++;
         }
 
-        for(auto i : returnedProductOutlet){
-            for(auto j : i){
-                cout << j << " ";
-            }
-            cout << endl;
-        }
-
-        // for(auto i: defectiveProduct){
-        //     cout << i << " ";
-        // }
-
-
+        instance.close();
+        Instance* inst = new Instance(nSuppliers, nRetailers, nOutlets, nVehicles, tMax, COST, capacity, c,
+                                     supplierCrossDockDist, supplierCrossDockTime,
+                                     retailerCrossDockDist, retailerCrossDockTime,
+                                     outletCrossDockDist, outletCrossDockTime,
+                                     retailerProductDemand, returnedProductRetailer,
+                                     outletProductDemand, returnedProductOutlet,
+                                     defectiveProduct);
+        return inst;
     }
 
 }

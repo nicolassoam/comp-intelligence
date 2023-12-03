@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project(CI) 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 include_directories(include)
 
 set(PROJECT_DIR ${PROJECT_SOURCE_DIR}/)
