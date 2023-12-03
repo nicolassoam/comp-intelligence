@@ -26,7 +26,7 @@ cuckoo MCS::newCuckoo (int nest){
     std::normal_distribution<double> u_n(0, sigma);
     std::normal_distribution<double> v_n(0, 1.0);
 
-    for(int i = 0; i < newCuckoo.solution.size(); i++){
+    for(int i = 0; i < nEggs; i++){
         double u = u_n(gen);
         double v = v_n(gen);
         double step = u / std::pow(std::abs(v), (1 / lambda));
@@ -36,13 +36,18 @@ cuckoo MCS::newCuckoo (int nest){
     return newCuckoo;
 }
 
-//rastringin function
+//griewank function
 double MCS::fitness(solution_t solution){
     double fitness = 0;
-    
-    for(int i = 0; i < solution.size(); i++){
-        fitness += std::pow(solution[i], 2) - 10 * std::cos(2 * std::numbers::pi * solution[i]) + 10;
+
+    double sum = 0;
+    double prod = 1;
+    for(int i = 0; i < nEggs; i++){
+        sum += std::pow(solution[i], 2);
+        prod *= std::cos(solution[i]/std::sqrt(i + 1));
     }
+    fitness = (1/4000) * sum - prod + 1;
+
     return fitness;
 }
 
@@ -83,7 +88,7 @@ void MCS::search(){
         //choose a random nest
         generation++;
         std::sort(nests.begin(), nests.end(), [](cuckoo &a, cuckoo &b) {return a.fitness < b.fitness;});
-        std::cout << "Generation: " << generation << " Best Fitness: " << nests[0].fitness << std::endl;
+        std::cout << "Iteration: " << i + 1 << " Best Fitness: " << nests[0].fitness << std::endl;
 
         int s = (int) (pa * nNests);
         
@@ -117,7 +122,7 @@ void MCS::search(){
                 double dx = 0;
                 cuckoo cuckooK;
                 
-                for(int k = 0; k < nests[j].solution.size(); k++){
+                for(int k = 0; k < nEggs; k++){
                     cuckooK.solution.push_back((std::abs(nests[j].solution[k] - nests[randomNest].solution[k]))/phi);
                     
                 }
@@ -135,7 +140,7 @@ void MCS::search(){
 
     std::cout << "Search Finished" << std::endl;
     std::cout << "Best Solution: " << std::endl;
-    for(int i = 0; i < nests[0].solution.size(); i++){
+    for(int i = 0; i < nEggs; i++){
         std::cout << nests[0].solution[i] << " ";
     }
     return;
