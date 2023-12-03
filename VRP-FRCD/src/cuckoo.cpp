@@ -36,17 +36,15 @@ cuckoo MCS::newCuckoo (int nest){
     return newCuckoo;
 }
 
-//griewank function
+//eason's 2d function
 double MCS::fitness(solution_t solution){
     double fitness = 0;
 
-    double sum = 0;
-    double prod = 1;
-    for(int i = 0; i < nEggs; i++){
-        sum += std::pow(solution[i], 2);
-        prod *= std::cos(solution[i]/std::sqrt(i + 1));
+    for(int i = 0; i < nEggs - 1; i++){
+        double xi = solution[i];
+        double xi1 = solution[i + 1];
+        fitness += -1 * (10 * std::cos(2 * std::numbers::pi * xi) + 10 * std::cos(2 * std::numbers::pi * xi1));
     }
-    fitness = (1/4000) * sum - prod + 1;
 
     return fitness;
 }
@@ -98,10 +96,10 @@ void MCS::search(){
            
             cuckoo newCuckoo = this->newCuckoo(j);
             double newFitness = fitness(newCuckoo.solution);
-            if(newFitness < nests[j].fitness){
-                nests[j].solution = newCuckoo.solution;
-                nests[j].fitness = newFitness;
-            }
+            
+            nests[j].solution = newCuckoo.solution;
+            nests[j].fitness = newFitness;
+            
         }
         
         for(int j = 0; j < nNests - s; j++){

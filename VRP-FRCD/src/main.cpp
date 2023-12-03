@@ -8,11 +8,11 @@ int main(int argc, char** arvv){
     std::cout << files[0] << std::endl;
     Instance *inst = Util::readInstance(files[1]);
 
-    int nEggs = 100;
+    int nEggs = 2;
     int nNests = 100;
     int nIterations = 1000;
-    std::vector<double> lowerBound(nEggs, -600);
-    std::vector<double> upperBound(nEggs, 600);
+    std::vector<double> lowerBound(nEggs, -100);
+    std::vector<double> upperBound(nEggs, 100);
     MCS* mcs = new MCS(nNests, nEggs, nIterations, lowerBound , upperBound);
     mcs->search();
 
