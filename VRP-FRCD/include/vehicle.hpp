@@ -9,23 +9,25 @@
 enum TYPE{
     RETAILER,
     SUPPLIER,
-    OUTLETS
+    OUTLETS,
+    VEHICLE
 };
 
 class Vehicle {
     public:     friend std::ostream& operator<<(std::ostream& os, const Vehicle& v);
-                Vehicle(TYPE type, int cost, double capacity) 
-                : id(globalId++), type(type), COST(cost), capacity(capacity) {};
+                Vehicle(TYPE type, int cost, double capacity);
                 int getId();
                 int getCost();
                 double getCapacity();
+                void setType(TYPE type);
                 void setCapacity(double capacity);
+                static std::vector<Vehicle> instantiateVehicles(int nVehicles, int COST, double capacity);
 
     private:    TYPE type;
-                static int globalId;
                 int id;
-                const int COST;
+                int COST;
                 double capacity;
+                static int globalId;
 };
 
 #endif // VEHICLE_HPP_
