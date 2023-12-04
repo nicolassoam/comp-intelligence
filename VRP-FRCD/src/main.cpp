@@ -8,10 +8,10 @@ int main(int argc, char** argv){
     std::vector<std::string> files = Util::readDirectory(INPUT);
     std::cout << files[0] << std::endl;
     Instance *inst = Util::readInstance(files[1]);
-    std::vector<Vehicle> vehicles = Vehicle::instantiateVehicles(inst->nVehicles, inst->COST, inst->capacity);
+    std::vector<Vehicle> availableVehicles = Vehicle::instantiateVehicles(inst->nVehicles, inst->COST, inst->capacity);
 
-    std::cout << vehicles[9] << std::endl;
-
+    std::cout << availableVehicles[9] << std::endl;
+    std::cout << inst << std::endl;
     int nEggs = 10;
     int nNests = 100;
     int nIterations = 1000;

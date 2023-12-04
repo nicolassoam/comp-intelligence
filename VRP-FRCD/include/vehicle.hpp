@@ -22,6 +22,7 @@ class Vehicle {
                 void setType(TYPE type);
                 void setCapacity(double capacity);
                 static std::vector<Vehicle> instantiateVehicles(int nVehicles, int COST, double capacity);
+                ~Vehicle();
 
     private:    TYPE type;
                 int id;

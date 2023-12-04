@@ -8,11 +8,15 @@
 #include <cmath>
 #include <numbers>  //defines phi
 
-using solution_t = std::vector<double>;
+
 /*
     Modified cuckoo search algorithm for the VRP-FRCD problem
 */
+//TODO: adapt the cuckoo struct to the VRP-FRCD problem
+//TODO: adapt the MCS class to the VRP-FRCD problem
+//TODO: adapt the solution_t type to the VRP-FRCD problem
 
+using solution_t = std::vector<double>;
 struct cuckoo{
     double  fitness;
     solution_t solution;
@@ -25,6 +29,7 @@ class MCS{
                 double  fitness(solution_t solution);  
                 void    search();
                 void    printSolution();
+                ~MCS();
 
     private:    double phi = std::numbers::phi;
                 int nNests;
@@ -38,7 +43,7 @@ class MCS{
                 nest_t nests;
                 // choose a random cuckoo via levy flight
                 cuckoo newCuckoo(int nest);
-                void    initPopulation();
+                void initPopulation();
 
 };
 

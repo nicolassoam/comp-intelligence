@@ -51,4 +51,8 @@ std::ostream& operator<<(std::ostream& os, const Vehicle& v) {
     return os;
 }
 
+Vehicle::~Vehicle() {
+    route.clear();
+}
+
 

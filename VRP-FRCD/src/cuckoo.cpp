@@ -135,9 +135,21 @@ void MCS::search(){
     }
 
     std::cout << "Search Finished" << std::endl;
+    
+    printSolution();
+
+    return;
+}
+
+void MCS::printSolution(){
     std::cout << "Best Solution: " << std::endl;
     for(int i = 0; i < nEggs; i++){
         std::cout << nests[0].solution[i] << " ";
     }
+    return;
+}
+
+MCS::~MCS(){
+    nests.clear();
     return;
 }
