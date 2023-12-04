@@ -7,6 +7,7 @@ Vehicle::Vehicle(TYPE type, int COST, double capacity) {
     this->id = Vehicle::globalId++;
     this->COST = COST;
     this->capacity = capacity;
+    this->route = std::vector<int>(1, 0);
 }
 
 int Vehicle::getId() {
@@ -39,8 +40,14 @@ std::vector<Vehicle> Vehicle::instantiateVehicles(int nVehicles, int COST, doubl
 
 std::ostream& operator<<(std::ostream& os, const Vehicle& v) {
     os << "Vehicle: " << v.id << std::endl;
+    os << "id: " << v.id << std::endl;
+    os << "type: " << v.type << std::endl;
     os << "COST: " << v.COST << std::endl;
-    os << "capacity: " << v.capacity;
+    os << "capacity: " << v.capacity << std::endl;
+    os << "route: ";
+    for (int i = 0; i < v.route.size(); i++) {
+        os << v.route[i] << " ";
+    }
     return os;
 }
 

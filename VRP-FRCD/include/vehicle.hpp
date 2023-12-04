@@ -4,7 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <random>
-
+#include <vector>
 
 enum TYPE{
     RETAILER,
@@ -28,6 +28,7 @@ class Vehicle {
                 int COST;
                 double capacity;
                 static int globalId;
+                std::vector<int> route;
 };
 
 #endif // VEHICLE_HPP_

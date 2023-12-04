@@ -36,14 +36,12 @@ cuckoo MCS::newCuckoo (int nest){
     return newCuckoo;
 }
 
-//eason's 2d function
+//rosenbrock function
 double MCS::fitness(solution_t solution){
     double fitness = 0;
 
     for(int i = 0; i < nEggs - 1; i++){
-        double xi = solution[i];
-        double xi1 = solution[i + 1];
-        fitness += -1 * (10 * std::cos(2 * std::numbers::pi * xi) + 10 * std::cos(2 * std::numbers::pi * xi1));
+        fitness += 100 * std::pow((solution[i + 1] - std::pow(solution[i], 2)), 2) + std::pow((solution[i] - 1), 2);
     }
 
     return fitness;

@@ -12,7 +12,7 @@ int main(int argc, char** argv){
 
     std::cout << vehicles[9] << std::endl;
 
-    int nEggs = 2;
+    int nEggs = 10;
     int nNests = 100;
     int nIterations = 1000;
 
