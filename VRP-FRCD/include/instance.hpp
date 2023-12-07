@@ -44,6 +44,9 @@ struct Instance {
     // p[k]
     vector_d defectiveProduct;
 
+    //demandPerRetailer
+    vector_d demandPerRetailer;
+
     // Default constructor
     Instance();
 
@@ -64,6 +67,8 @@ struct Instance {
     void printSupplierInfo();
     void printRetailerInfo();
     void printOutletInfo();
+    void calculateDemandPerRetailer();
+
 
     ~Instance();
 

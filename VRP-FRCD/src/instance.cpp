@@ -59,6 +59,16 @@ Instance::Instance(int nSuppliers, int nRetailers, int nOutlets, int nVehicles,
     this->defectiveProduct = defectiveProduct;
 }
 
+void Instance::calculateDemandPerRetailer(){
+    for(int i =0; i < nRetailers; i++){
+        int sum = 0;
+        for(int j = 0; j < nRetailers; j++){
+               sum += retailerProductDemand[i][j];
+        }
+        this->demandPerRetailer.push_back(sum);
+    }
+}
+
 void Instance::printBasicInfo(){
     std::cout << "nSuppliers: " << nSuppliers << std::endl;
     std::cout << "nRetailers: " << nRetailers << std::endl;

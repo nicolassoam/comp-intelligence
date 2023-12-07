@@ -14,19 +14,24 @@ enum TYPE{
 };
 
 class Vehicle {
+
     public:     friend std::ostream& operator<<(std::ostream& os, const Vehicle& v);
                 Vehicle(TYPE type, int cost, double capacity);
                 int getId();
                 int getCost();
                 double getCapacity();
+                TYPE getType();
                 void setType(TYPE type);
                 void setCapacity(double capacity);
                 static std::vector<Vehicle> instantiateVehicles(int nVehicles, int COST, double capacity);
+                std::vector<int> getRoutes();
+                void addNode(int node);
                 ~Vehicle();
 
     private:    TYPE type;
                 int id;
                 int COST;
+                int coveredDist = 0;
                 double capacity;
                 static int globalId;
                 std::vector<int> route;
