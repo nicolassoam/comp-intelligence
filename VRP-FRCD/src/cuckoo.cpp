@@ -103,19 +103,20 @@ list_t constructSupplierCandidateList(Instance* inst, v& vehicles, int usedVehic
 
     list_t candidateList;
     double heuristic = 0;
-    for(int i = 0; i < usedVehicles; i++){
-        std::vector<int> route = vehicles[i].getRoutes();
 
-        if(inst->demandPerRetailer.size()>0){
-            vehicles[i].setType(SUPPLIER);
-        }
+    //ranking candidate node k to be inserted between nodes i and j
+    // delta dist = dist(i,k) + dist(k,j) - dist(i,j)
+    double deltaDist = 0;
+    double deltaCost = 0;
 
-        for(int i = 0; i < inst->supplierCrossDockDist.size(); i++){
-            for(int j = 0; j < inst->supplierCrossDockDist[i].size(); j++){
-                if(i != j){
-                    heuristic = inst->supplierCrossDockDist[i][j] + inst->supplierCrossDockDist[j][0];
-                    candidateList.push_back(std::make_tuple(heuristic, i, j, 0));
-                }
+    //at maximum, should use demandPerRetailer.size() vehicles
+    for(int i = 0; i < inst->demandPerRetailer.size();i++){
+        std::vector<int>routes = vehicles[i].getRoutes();
+        for(int j = 0; j < inst->supplierCrossDockDist.size(); j++){
+            for(int k = 0; k < inst->supplierCrossDockDist.size(); k++){
+                deltaDist = inst->supplierCrossDockDist[routes[j]][j] + inst->supplierCrossDockDist[j][k] - inst->supplierCrossDockDist[routes[j]][k];
+                deltaCost = inst->c * deltaDist + inst->COST * usedVehicles;
+                candidateList.push_back(std::make_tuple(deltaCost, i, j, k));
             }
         }
     }
