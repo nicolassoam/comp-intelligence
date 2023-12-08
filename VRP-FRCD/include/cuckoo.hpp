@@ -57,6 +57,7 @@ class MCS{
                 cuckoo newCuckoo(int nest);
                 void initPopulation();
                 void initPopulation2();
+                void supplierInit(cuckoo& cuckoo);
 
 
 };
