@@ -70,7 +70,7 @@ void Instance::calculateDemandPerRetailer(){
             sum += retailerProductDemand[j][i];
         }
 
-        this->demandPerRetailer.push_back(sum);
+        this->demandPerRetailer.push_back({sum,false});
     }
 }
 
@@ -87,15 +87,15 @@ void Instance::printBasicInfo(){
 
 void Instance::printSupplierInfo(){
     std::cout << "supplierCrossDockDist: " << std::endl;
-    for(int i = 0; i < nSuppliers; i++){
-        for(int j = 0; j < nSuppliers; j++){
+    for(int i = 0; i < nSuppliers+1; i++){
+        for(int j = 0; j < nSuppliers+1; j++){
             std::cout << supplierCrossDockDist[i][j] << " ";
         }
         std::cout << std::endl;
     }
     std::cout << "supplierCrossDockTime: " << std::endl;
-    for(int i = 0; i < nSuppliers; i++){
-        for(int j = 0; j < nSuppliers; j++){
+    for(int i = 0; i < nSuppliers+1; i++){
+        for(int j = 0; j < nSuppliers+1; j++){
             std::cout << supplierCrossDockTime[i][j] << " ";
         }
         std::cout << std::endl;
@@ -104,15 +104,15 @@ void Instance::printSupplierInfo(){
 
 void Instance::printRetailerInfo(){
     std::cout << "retailerCrossDockDist: " << std::endl;
-    for(int i = 0; i < nRetailers; i++){
-        for(int j = 0; j < nRetailers; j++){
+    for(int i = 0; i < nRetailers+1; i++){
+        for(int j = 0; j < nRetailers+1; j++){
             std::cout << retailerCrossDockDist[i][j] << " ";
         }
         std::cout << std::endl;
     }
     std::cout << "retailerCrossDockTime: " << std::endl;
-    for(int i = 0; i < nRetailers; i++){
-        for(int j = 0; j < nRetailers; j++){
+    for(int i = 0; i < nRetailers+1; i++){
+        for(int j = 0; j < nRetailers+1; j++){
             std::cout << retailerCrossDockTime[i][j] << " ";
         }
         std::cout << std::endl;
@@ -135,15 +135,15 @@ void Instance::printRetailerInfo(){
 
 void Instance::printOutletInfo(){
     std::cout << "outletCrossDockDist: " << std::endl;
-    for(int i = 0; i < nOutlets; i++){
-        for(int j = 0; j < nOutlets; j++){
+    for(int i = 0; i < nOutlets+1; i++){
+        for(int j = 0; j < nOutlets+1; j++){
             std::cout << outletCrossDockDist[i][j] << " ";
         }
         std::cout << std::endl;
     }
     std::cout << "outletCrossDockTime: " << std::endl;
-    for(int i = 0; i < nOutlets; i++){
-        for(int j = 0; j < nOutlets; j++){
+    for(int i = 0; i < nOutlets+1; i++){
+        for(int j = 0; j < nOutlets+1; j++){
             std::cout << outletCrossDockTime[i][j] << " ";
         }
         std::cout << std::endl;

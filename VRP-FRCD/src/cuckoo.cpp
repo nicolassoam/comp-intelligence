@@ -136,16 +136,16 @@ void MCS::initPopulation2(){
     for(int i = 0; i < nNests; i++){
         std::vector<int>availableSuppliers;
         // copy vector
-        std::vector<double> demandPerRetailer = this->inst->demandPerRetailer;
+        std::vector<std::pair<double, bool>> demandPerRetailer = this->inst->demandPerRetailer;
         for(int i = 1; i < this->inst->nSuppliers+1; i++){
             availableSuppliers.push_back(i);
         }
 
         int k = 0;
-
+        int attended = 0;
         while(nests[i].usedVehicles <= this->nEggs){
-
-            if(demandPerRetailer.size() == 0){
+            
+            if(demandPerRetailer.size() == attended){
                 break;
             }
 
@@ -154,28 +154,33 @@ void MCS::initPopulation2(){
 
             nests[i].vehicles[k].setType(SUPPLIER);
 
-            for(double demand : demandPerRetailer){
+            for(std::pair<double,bool> &demand : demandPerRetailer){
+                
+                if(demand.second){
+                    continue;
+                }
 
                 int l = std::get<1>(candidateList[k]);
                 int m = std::get<2>(candidateList[k]);
                 int o = std::get<3>(candidateList[k]);
-                std::cout << "Inserting between " << m << " and " << o << " supplier " << l << std::endl;
-                nests[i].vehicles[k].insertBetween(m,o,l);
                 
-                double capacity = nests[i].vehicles[k].getCapacity() - demand;
+                double capacity = nests[i].vehicles[k].getCapacity() - demand.first;
 
-                if(capacity < 0 && demand == inst->demandPerRetailer.back()){
+                if(capacity < 0 && demand.first == inst->demandPerRetailer.back().first){
                     capacity = 0;
                     break;
                 } else if(capacity < 0){
                     continue;
                 }
-
-                candidateList.erase(candidateList.begin());
+                std::cout << "Inserting between " << m << " and " << o << " supplier " << l << std::endl;
+                nests[i].vehicles[k].insertBetween(m,o,l);
+                // candidateList.erase(candidateList.begin());
                 nests[i].vehicles[k].setCapacity(capacity);
-                std::vector<double>::iterator it = std::find(demandPerRetailer.begin(), demandPerRetailer.end(), demand);
-                demandPerRetailer.erase(it);
-                if(demandPerRetailer.size() == 0){
+
+                demand.second = true;
+                attended++;
+                
+                if(demandPerRetailer.size() == attended){
                     break;
                 }
                 if(candidateList.size() == 0){
@@ -184,8 +189,10 @@ void MCS::initPopulation2(){
                 if(nests[i].vehicles[k].getCapacity() == 0){
                     break;
                 }
-                list_t candidateList = constructSupplierCandidateList(this->inst, nests[i].vehicles[k], availableSuppliers, l);
+                std::cout <<"Removing supplier " << l << " from available suppliers" << std::endl;
+                candidateList = constructSupplierCandidateList(this->inst, nests[i].vehicles[k], availableSuppliers, l);
                 std::sort(candidateList.begin(), candidateList.end(), [](candidate &a, candidate &b) {return std::get<0>(a) < std::get<0>(b);});
+                
             }
         
             nests[i].usedVehicles++;

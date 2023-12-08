@@ -45,7 +45,7 @@ struct Instance {
     vector_d defectiveProduct;
 
     //demandPerRetailer
-    vector_d demandPerRetailer;
+    std::vector<std::pair<double,bool>> demandPerRetailer;
 
     // Default constructor
     Instance();

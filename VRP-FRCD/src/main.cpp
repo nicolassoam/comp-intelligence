@@ -6,12 +6,12 @@
 
 int main(int argc, char** argv){
     std::vector<std::string> files = Util::readDirectory(INPUT);
-    std::cout << files[0] << std::endl;
+    std::cout << files[30] << std::endl;
     
-    Instance *inst = Util::readInstance(files[0]);
-
-    int nEggs = 10;
-    int nNests = 3;
+    Instance *inst = Util::readInstance(files[30]);
+    
+    int nEggs = inst->nVehicles;
+    int nNests = 2;
     int nIterations = 1000;
 
     std::vector<double> lowerBound(nEggs, -5.12);

@@ -210,7 +210,9 @@ namespace Util
             for (int j = 0; j < nSuppliers+1; j++)
             {
                 supplierCrossDockDist[i][j] = tempVec[i][j];
+                
             }
+            
         }
 
         lim = nSuppliers+1;
