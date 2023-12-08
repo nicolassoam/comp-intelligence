@@ -38,6 +38,12 @@ std::vector<Vehicle> Vehicle::instantiateVehicles(int nVehicles, int COST, doubl
     return vehicles;
 }
 
+void Vehicle::insertBetween(int i, int j, int k) {
+    std::vector<int>::iterator it = std::find(this->route.begin(), this->route.end(), i);
+
+    this->route.insert(it + 1, k);
+}
+
 std::vector<int> Vehicle::getRoutes() {
     return this->route;
 }

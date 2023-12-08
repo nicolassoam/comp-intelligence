@@ -8,13 +8,10 @@ int main(int argc, char** argv){
     std::vector<std::string> files = Util::readDirectory(INPUT);
     std::cout << files[0] << std::endl;
     
-    Instance *inst = Util::readInstance(files[1]);
-    std::vector<Vehicle> availableVehicles = Vehicle::instantiateVehicles(inst->nVehicles, inst->COST, inst->capacity);
+    Instance *inst = Util::readInstance(files[0]);
 
-    std::cout << availableVehicles[9] << std::endl;
-
-    int nEggs = 50;
-    int nNests = 100;
+    int nEggs = 10;
+    int nNests = 3;
     int nIterations = 1000;
 
     std::vector<double> lowerBound(nEggs, -5.12);

@@ -91,15 +91,7 @@ void MCS::initPopulation(){
     return;
 }
 
-double heuristicSupplier(Vehicle v, std::vector<double>demandPerRetailer, Instance* inst){
-
-    for(int i = 0; i< demandPerRetailer.size();i++){
-        //get closest supplier
-
-    }
-}
-
-list_t constructSupplierCandidateList(Instance* inst, v& vehicles, int usedVehicles){
+list_t constructSupplierCandidateList(Instance* inst, Vehicle v, std::vector<int>& availableSuppliers, int removedSupplier = -1){
 
     list_t candidateList;
     double heuristic = 0;
@@ -110,23 +102,29 @@ list_t constructSupplierCandidateList(Instance* inst, v& vehicles, int usedVehic
     double deltaCost = 0;
 
     //at maximum, should use demandPerRetailer.size() vehicles
-    for(int i = 0; i < inst->demandPerRetailer.size();i++){
-        std::vector<int>routes = vehicles[i].getRoutes();
-        for(int j = 0; j < inst->supplierCrossDockDist.size(); j++){
-            for(int k = 0; k < inst->supplierCrossDockDist.size(); k++){
-                deltaDist = inst->supplierCrossDockDist[routes[j]][j] + inst->supplierCrossDockDist[j][k] - inst->supplierCrossDockDist[routes[j]][k];
-                deltaCost = inst->c * deltaDist + inst->COST * usedVehicles;
-                candidateList.push_back(std::make_tuple(deltaCost, i, j, k));
-            }
+    
+    if(removedSupplier != -1){
+        std::vector<int>::iterator it = std::find(availableSuppliers.begin(), availableSuppliers.end(), removedSupplier);
+        availableSuppliers.erase(it);
+    }
+
+    std::vector<int>routes = v.getRoutes();
+    for(int i = 0; i< availableSuppliers.size();i++){
+        for(int j = 0; j < routes.size()-1;j++){
+            deltaDist = inst->retailerCrossDockDist[routes[j]][availableSuppliers[i]] + inst->retailerCrossDockDist[availableSuppliers[i]][routes[j+1]] - inst->retailerCrossDockDist[routes[j]][routes[j+1]];
+            deltaCost = inst->c * deltaDist + inst->COST;
+            heuristic = deltaCost/deltaDist;
+            candidateList.push_back(std::make_tuple(heuristic, availableSuppliers[i], routes[j], routes[j+1]));
         }
     }
+    
     return candidateList;
 
 }
 
 void MCS::initPopulation2(){
 
-    for(int i = 0; i < nEggs; i++){
+    for(int i = 0; i < nNests; i++){
         cuckoo newCuckoo;
         
         newCuckoo.vehicles = Vehicle::instantiateVehicles(nEggs, this->inst->COST, this->inst->capacity);
@@ -134,28 +132,82 @@ void MCS::initPopulation2(){
         nests.push_back(newCuckoo);
     } 
 
-    for(int i = 0; i < nEggs; i++){
-        list_t candidateList = constructSupplierCandidateList(this->inst, nests[i].vehicles, nests[i].usedVehicles);
-        std::sort(candidateList.begin(), candidateList.end(), [](candidate &a, candidate &b) {return std::get<0>(a) < std::get<0>(b);});
+
+    for(int i = 0; i < nNests; i++){
+        std::vector<int>availableSuppliers;
+        // copy vector
+        std::vector<double> demandPerRetailer = this->inst->demandPerRetailer;
+        for(int i = 1; i < this->inst->nSuppliers+1; i++){
+            availableSuppliers.push_back(i);
+        }
+
         int k = 0;
-        while(nests[i].usedVehicles < this->inst->nVehicles){
-            int j = std::get<1>(candidateList[k]);
-            int l = std::get<2>(candidateList[k]);
-            int m = std::get<3>(candidateList[k]);
-            nests[i].vehicles[j].addNode(l);
-            nests[i].vehicles[j].addNode(m);
+
+        while(nests[i].usedVehicles <= this->nEggs){
+
+            if(demandPerRetailer.size() == 0){
+                break;
+            }
+
+            list_t candidateList = constructSupplierCandidateList(this->inst, nests[i].vehicles[k], availableSuppliers);
+            std::sort(candidateList.begin(), candidateList.end(), [](candidate &a, candidate &b) {return std::get<0>(a) < std::get<0>(b);});
+
+            nests[i].vehicles[k].setType(SUPPLIER);
+
+            for(double demand : demandPerRetailer){
+
+                int l = std::get<1>(candidateList[k]);
+                int m = std::get<2>(candidateList[k]);
+                int o = std::get<3>(candidateList[k]);
+                std::cout << "Inserting between " << m << " and " << o << " supplier " << l << std::endl;
+                nests[i].vehicles[k].insertBetween(m,o,l);
+                
+                double capacity = nests[i].vehicles[k].getCapacity() - demand;
+
+                if(capacity < 0 && demand == inst->demandPerRetailer.back()){
+                    capacity = 0;
+                    break;
+                } else if(capacity < 0){
+                    continue;
+                }
+
+                candidateList.erase(candidateList.begin());
+                nests[i].vehicles[k].setCapacity(capacity);
+                std::vector<double>::iterator it = std::find(demandPerRetailer.begin(), demandPerRetailer.end(), demand);
+                demandPerRetailer.erase(it);
+                if(demandPerRetailer.size() == 0){
+                    break;
+                }
+                if(candidateList.size() == 0){
+                    break;
+                }
+                if(nests[i].vehicles[k].getCapacity() == 0){
+                    break;
+                }
+                list_t candidateList = constructSupplierCandidateList(this->inst, nests[i].vehicles[k], availableSuppliers, l);
+                std::sort(candidateList.begin(), candidateList.end(), [](candidate &a, candidate &b) {return std::get<0>(a) < std::get<0>(b);});
+            }
+        
             nests[i].usedVehicles++;
             k++;
         }
     }
 
+    for(auto nest : nests){
+        for(auto vehicle : nest.vehicles){
+            std::cout << vehicle << std::endl;
+        }
+    }
+
+    exit(1);
 }
 
 void MCS::search(){
 
     std::cout << "Initializing Search" << std::endl;
 
-    initPopulation();
+    // initPopulation();
+    initPopulation2();
     std::random_device rd;
     //initial fitness
     std::cout << "Calculating initial fitness" << std::endl;

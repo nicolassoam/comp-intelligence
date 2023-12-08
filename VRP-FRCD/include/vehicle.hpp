@@ -5,6 +5,7 @@
 #include <fstream>
 #include <random>
 #include <vector>
+#include <algorithm>
 
 enum TYPE{
     RETAILER,
@@ -24,6 +25,7 @@ class Vehicle {
                 void setType(TYPE type);
                 void setCapacity(double capacity);
                 static std::vector<Vehicle> instantiateVehicles(int nVehicles, int COST, double capacity);
+                void insertBetween(int i, int j, int k);
                 std::vector<int> getRoutes();
                 void addNode(int node);
                 ~Vehicle();
