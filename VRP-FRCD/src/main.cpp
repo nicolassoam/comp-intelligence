@@ -6,9 +6,9 @@
 
 int main(int argc, char** argv){
     std::vector<std::string> files = Util::readDirectory(INPUT);
-    std::cout << files[30] << std::endl;
+    std::cout << files[5] << std::endl;
     
-    Instance *inst = Util::readInstance(files[30]);
+    Instance *inst = Util::readInstance(files[2]);
     
     int nEggs = inst->nVehicles;
     int nNests = 2;

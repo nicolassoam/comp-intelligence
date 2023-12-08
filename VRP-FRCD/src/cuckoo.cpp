@@ -143,6 +143,7 @@ void MCS::initPopulation2(){
 
         int k = 0;
         int attended = 0;
+        int l = 0, m = 0, o = 0;
         while(nests[i].usedVehicles <= this->nEggs){
             
             if(demandPerRetailer.size() == attended){
@@ -160,9 +161,9 @@ void MCS::initPopulation2(){
                     continue;
                 }
 
-                int l = std::get<1>(candidateList[k]);
-                int m = std::get<2>(candidateList[k]);
-                int o = std::get<3>(candidateList[k]);
+                l = std::get<1>(candidateList.front());
+                m = std::get<2>(candidateList.front());
+                o = std::get<3>(candidateList.front());
                 
                 double capacity = nests[i].vehicles[k].getCapacity() - demand.first;
 
@@ -180,10 +181,10 @@ void MCS::initPopulation2(){
                 demand.second = true;
                 attended++;
                 
+                std::cout << "Attended: " << attended << std::endl;
+                std::cout << "Demand size: " << demandPerRetailer.size() << std::endl;
+
                 if(demandPerRetailer.size() == attended){
-                    break;
-                }
-                if(candidateList.size() == 0){
                     break;
                 }
                 if(nests[i].vehicles[k].getCapacity() == 0){
