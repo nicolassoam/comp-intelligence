@@ -12,7 +12,6 @@
 #include "instance.hpp"
 #include "vehicle.hpp"
 
-
 /*
     Modified cuckoo search algorithm for the VRP-FRCD problem
 */
@@ -22,20 +21,20 @@
 
 using solution_t = std::vector<double>;
 using v = std::vector<Vehicle>;
+
 struct cuckoo{
-    double  fitness;
-    solution_t solution;
-    v vehicles;
-    int usedVehicles=0;
+    double      fitness;
+    solution_t  solution;
+    v           vehicles;
+    int         usedVehicles = 0;
 };
 
-using nest_t = std::vector<cuckoo>;
-//heuristic, k,i,j
-using candidate = std::tuple<double,int,int,int>;
-using list_t = std::vector<candidate>;
+using nest_t = std::vector<cuckoo>;                  // population of cuckoos (one per nest)
+using candidate = std::tuple<double,int,int,int>;    // heuristic, k, i, j  
+using list_t = std::vector<candidate>;               // list of candidates (heuristic, k, i, j)
 
 class MCS{
-    public:     MCS(int nNests, int nEggs, int nIterations,solution_t lowerBound, solution_t upperBound, Instance* inst);
+    public:     MCS(int nNests, int nVehicles, int nIterations,solution_t lowerBound, solution_t upperBound, Instance* inst);
                 double  fitness(solution_t solution);  
                 void    search();
                 void    printSolution();
@@ -47,7 +46,7 @@ class MCS{
                 solution_t lowerBound;
                 solution_t upperBound;
                 Instance* inst;
-                int nEggs;
+                int nVehicles;
                 int nIterations;
                 double maxLevyStepSize = 1;
                 double levyStepSize;
@@ -58,8 +57,7 @@ class MCS{
                 void initPopulation();
                 void initPopulation2();
                 void supplierInit(cuckoo& cuckoo);
-
-
+                void retailerInit(cuckoo& cuckoo);
 };
 
 

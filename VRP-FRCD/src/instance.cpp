@@ -57,20 +57,47 @@ Instance::Instance(int nSuppliers, int nRetailers, int nOutlets, int nVehicles,
     this->outletProductDemand = outletProductDemand;
     this->returnedProductOutlet = returnedProductOutlet;
     this->defectiveProduct = defectiveProduct;
-    calculateDemandPerRetailer();
+    calculateProductDemand();
+    calculateTotalDemandPerRetailer();
+    calculateReturnedProductsPerRetailer();
 }
 
-void Instance::calculateDemandPerRetailer(){
-    //sum collumns of retailerProductDemand
+void Instance::calculateProductDemand(){
     
-    for(int i =0; i < nSuppliers; i++){
+    for (int i = 0; i < nSuppliers; i++){
         int sum = 0;
 
         for(int j = 0; j < nRetailers; j++){
             sum += retailerProductDemand[j][i];
         }
 
+        this->demandPerProduct.push_back({sum,false});
+    }
+}
+
+void Instance::calculateTotalDemandPerRetailer(){
+    
+    for(int i = 0; i < nRetailers; i++){
+        int sum = 0;
+
+        for (int j = 0; j < nSuppliers; j++){
+            sum += retailerProductDemand[i][j];
+        }
+
         this->demandPerRetailer.push_back({sum,false});
+    }
+}
+
+void Instance::calculateReturnedProductsPerRetailer(){
+    
+    for(int i = 0; i < nRetailers; i++){
+        double sum = 0;
+
+        for (int j = 0; j < nSuppliers; j++){
+            sum += returnedProductRetailer[i][j];
+        }
+
+        this->returnedPerRetailer.push_back({sum,false});
     }
 }
 

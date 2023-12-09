@@ -1,9 +1,9 @@
 #include "../include/cuckoo.hpp"
 
 
-MCS::MCS( int nNests, int nEggs, int nIterations, solution_t lowerBound, solution_t upperBound, Instance* inst){
+MCS::MCS( int nNests, int nVehicles, int nIterations, solution_t lowerBound, solution_t upperBound, Instance* inst){
     this->nNests = nNests;
-    this->nEggs = nEggs;
+    this->nVehicles = nVehicles;
     this->nIterations = nIterations;
     this->lowerBound = lowerBound;
     this->upperBound = upperBound;
@@ -27,7 +27,7 @@ cuckoo MCS::newCuckoo (int nest){
     std::normal_distribution<double> u_n(0, sigma);
     std::normal_distribution<double> v_n(0, 1.0);
 
-    for(int i = 0; i < nEggs; i++){
+    for(int i = 0; i < nVehicles; i++){
         double u = u_n(gen);
         double v = v_n(gen);
         double step = u / std::pow(std::abs(v), (1 / lambda));
@@ -48,9 +48,8 @@ double MCS::fitness(solution_t solution){
     return fitness;
 }
 
-
 // custo de transporte por unidade de distancia, multiplicado pela distancia
-// c * dist+ H*Vutil
+// c * dist + H * V_utilizados
 double MCS::fitness2(v vehicles, int usedVehicles){
     double fitness = 0;
     for(int i = 0; i< usedVehicles; i++){
@@ -79,10 +78,10 @@ void MCS::initPopulation(){
     std::uniform_real_distribution<> dis(0, 1);
     std::cout << "Initializing Population" << std::endl;
 
-    for(int i = 0; i < nNests; i++){
+    for (int i = 0; i < nNests; i++){
         cuckoo newCuckoo;
-        // newCuckoo.vehicles = Vehicle::instantiateVehicles(nEggs, 1, 100);
-        for(int j = 0; j < nEggs; j++){
+        // newCuckoo.vehicles = Vehicle::instantiateVehicles(nVehicles, 1, 100);
+        for(int j = 0; j < nVehicles; j++){
             newCuckoo.solution.push_back(lowerBound[j] + (upperBound[j] - lowerBound[j]) * dis(gen));
         }
         nests.push_back(newCuckoo);
@@ -122,20 +121,51 @@ list_t constructSupplierCandidateList(Instance* inst, Vehicle v, std::vector<int
 
 }
 
+list_t constructRetailerCandidateList(Instance* inst, Vehicle v, std::vector<int>& availableRetailers, int removedRetailer = -1){
+
+    list_t candidateList;
+    double heuristic = 0;
+
+    // ranking candidate node k to be inserted between nodes i and j
+    // delta dist = dist(i,k) + dist(k,j) - dist(i,j)
+    double deltaDist = 0;
+    double deltaCost = 0;
+    
+    if(removedRetailer != -1){
+        std::vector<int>::iterator it = std::find(availableRetailers.begin(), availableRetailers.end(), removedRetailer);
+        availableRetailers.erase(it);
+    }
+
+    std::vector<int>routes = v.getRoutes();
+    for(int i = 0; i< availableRetailers.size();i++){
+        for(int j = 0; j < routes.size()-1;j++){
+            deltaDist = inst->retailerCrossDockDist[routes[j]][availableRetailers[i]] + inst->retailerCrossDockDist[availableRetailers[i]][routes[j+1]] - inst->retailerCrossDockDist[routes[j]][routes[j+1]];
+            deltaCost = inst->c * deltaDist + inst->COST;
+            heuristic = deltaCost/deltaDist;
+            candidateList.push_back(std::make_tuple(heuristic, availableRetailers[i], routes[j], routes[j+1]));
+        }
+    }
+    
+    return candidateList;
+
+}
+
 void MCS::supplierInit(cuckoo& cuckoo){
     std::vector<int>availableSuppliers;
-    // copy vector
-    std::vector<std::pair<double, bool>> demandPerRetailer = this->inst->demandPerRetailer;
-    for(int i = 1; i < this->inst->nSuppliers+1; i++){
+    
+    std::vector<std::pair<double, bool>> demandPerProduct = this->inst->demandPerProduct;
+
+    for (int i = 1; i <= this->inst->nSuppliers; i++){
         availableSuppliers.push_back(i);
     }
 
     int k = 0;
     int attended = 0;
     int l = 0, m = 0, o = 0;
-    while(cuckoo.usedVehicles <= this->nEggs){
+
+    while (cuckoo.usedVehicles <= this->nVehicles){
         
-        if(demandPerRetailer.size() == attended){
+        if(demandPerProduct.size() == attended){
             break;
         }
 
@@ -144,7 +174,7 @@ void MCS::supplierInit(cuckoo& cuckoo){
 
         cuckoo.vehicles[k].setType(SUPPLIER);
 
-        for(std::pair<double,bool> &demand : demandPerRetailer){
+        for(std::pair<double,bool> &demand : demandPerProduct){
             
             if(demand.second){
                 continue;
@@ -156,7 +186,7 @@ void MCS::supplierInit(cuckoo& cuckoo){
             
             double capacity = cuckoo.vehicles[k].getCapacity() - demand.first;
 
-            if(capacity < 0 && demand.first == inst->demandPerRetailer.back().first){
+            if(capacity < 0 && demand.first == inst->demandPerProduct.back().first){
                 capacity = 0;
                 break;
             } else if(capacity < 0){
@@ -171,9 +201,9 @@ void MCS::supplierInit(cuckoo& cuckoo){
             attended++;
             
             std::cout << "Attended: " << attended << std::endl;
-            std::cout << "Demand size: " << demandPerRetailer.size() << std::endl;
+            std::cout << "Demand size: " << demandPerProduct.size() << std::endl;
 
-            if(demandPerRetailer.size() == attended){
+            if(demandPerProduct.size() == attended){
                 break;
             }
             if(cuckoo.vehicles[k].getCapacity() == 0){
@@ -190,20 +220,123 @@ void MCS::supplierInit(cuckoo& cuckoo){
     }
 }
 
+void MCS::retailerInit(cuckoo& cuckoo){
+    std::vector<int>availableRetailers;
+    
+    std::vector<std::pair<double, bool>> demandPerRetailer = this->inst->demandPerRetailer;
+    std::vector<std::pair<double,bool>> returnedPerRetailer = this->inst->returnedPerRetailer;
+
+    for(int i = 1; i <= this->inst->nRetailers; i++){
+        availableRetailers.push_back(i);
+    }
+
+    // print available retailers
+    std::cout << "Available retailers: ";
+    for(int i = 0; i < availableRetailers.size(); i++){
+        std::cout << availableRetailers[i] << " ";
+    }
+
+    for (int i = 0; i < this->inst->nRetailers; i++) {
+        demandPerRetailer[i].second = false;
+    }
+
+    // print demand per retailer
+    std::cout << std::endl << "Demand per retailer: ";
+    for(int i = 0; i < demandPerRetailer.size(); i++){
+        std::cout << demandPerRetailer[i].first << " ";
+    }
+
+    // print returned per retailer
+    std::cout << std::endl << "Returned per retailer: ";
+    for(int i = 0; i < returnedPerRetailer.size(); i++){
+        std::cout << returnedPerRetailer[i].first << " ";
+    }
+
+    int k = cuckoo.usedVehicles;
+    int attended = 0;
+    int l = 0, m = 0, o = 0;
+
+    while(k <= this->nVehicles){
+        
+        if(demandPerRetailer.size() == attended && returnedPerRetailer.size() == attended){
+            break;
+        }
+
+        list_t candidateList = constructRetailerCandidateList(this->inst, cuckoo.vehicles[k], availableRetailers);
+
+        std::sort(candidateList.begin(), candidateList.end(), [](candidate &a, candidate &b) {return std::get<0>(a) < std::get<0>(b);});
+
+        cuckoo.vehicles[k].setType(RETAILER);
+
+        for (std::pair<double,bool> &demand : demandPerRetailer){
+            
+            if (demand.second) continue;
+
+            l = std::get<1>(candidateList.front());
+            m = std::get<2>(candidateList.front());
+            o = std::get<3>(candidateList.front());
+            
+            double capacity = cuckoo.vehicles[k].getCapacity() - demand.first + returnedPerRetailer[attended].first;
+
+            if(capacity < 0 && demand.first == inst->demandPerRetailer.back().first){
+                capacity = 0;
+                break;
+            } else if(capacity < 0){
+                continue;
+            }
+
+            std::cout << "Inserting between " << m << " and " << o << " retailer " << l << std::endl;
+
+            cuckoo.vehicles[k].insertBetween(m,o,l);
+            cuckoo.vehicles[k].setCapacity(capacity);
+
+            demand.second = true;
+            returnedPerRetailer[attended].second = true;
+            attended++;
+            
+            std::cout << "Attended: " << attended << std::endl;
+            std::cout << "Demand size: " << demandPerRetailer.size() << std::endl;
+            std::cout << "Returned size: " << returnedPerRetailer.size() << std::endl;
+
+            if(demandPerRetailer.size() == attended && returnedPerRetailer.size() == attended){
+                break;
+            }
+
+            if(cuckoo.vehicles[k].getCapacity() == 0){
+                break;
+            }
+
+            std::cout <<"Removing retailer " << l << " from available retailers" << std::endl;
+
+            candidateList = constructSupplierCandidateList(this->inst, cuckoo.vehicles[k], availableRetailers, l);
+            std::sort(candidateList.begin(), candidateList.end(), [](candidate &a, candidate &b) {return std::get<0>(a) < std::get<0>(b);});
+            
+        }
+    
+        cuckoo.usedVehicles++;
+        k++;
+    }
+}
+
 void MCS::initPopulation2(){
 
-    for(int i = 0; i < nNests; i++){
+    // generate initial nNests solutions with nVehicles vehicles
+    for (int i = 0; i < nNests; i++){
         cuckoo newCuckoo;
-        
-        newCuckoo.vehicles = Vehicle::instantiateVehicles(nEggs, this->inst->COST, this->inst->capacity);
-        newCuckoo.usedVehicles = 1;
+        newCuckoo.vehicles = Vehicle::instantiateVehicles(nVehicles, this->inst->COST, this->inst->capacity);
+
+        // init suppliers routes
+        supplierInit(newCuckoo);
+
+        std::cout << std::endl << "---------------------------" << std::endl;
+        std::cout << "Vehicles used for suppliers: " << newCuckoo.usedVehicles << std::endl;
+        std::cout << "---------------------------" << std::endl << std::endl;
+
+        // init retailers routes
+        retailerInit(newCuckoo);
+
         nests.push_back(newCuckoo);
     } 
-
-
-    for(int i = 0; i < nNests; i++){
-        supplierInit(nests[i]);
-    }
 
     for(auto nest : nests){
         for(auto vehicle : nest.vehicles){
@@ -268,7 +401,7 @@ void MCS::search(){
             } else {
                 cuckoo cuckooK;
                 
-                for(int k = 0; k < nEggs; k++){
+                for(int k = 0; k < nVehicles; k++){
                     cuckooK.solution.push_back((std::abs(nests[j].solution[k] - nests[randomNest].solution[k]))/phi);
                 }
                 cuckooK.fitness = fitness(cuckooK.solution);
@@ -292,7 +425,7 @@ void MCS::search(){
 
 void MCS::printSolution(){
     std::cout << "Best Solution: " << std::endl;
-    for(int i = 0; i < nEggs; i++){
+    for(int i = 0; i < nVehicles; i++){
         std::cout << nests[0].solution[i] << " ";
     }
     return;

@@ -57,6 +57,7 @@ TYPE Vehicle::getType() {
 }
 
 std::ostream& operator<<(std::ostream& os, const Vehicle& v) {
+    os << "----------" << std::endl;
     os << "Vehicle: " << v.id << std::endl;
     os << "id: " << v.id << std::endl;
     os << "type: " << v.type << std::endl;
@@ -66,6 +67,8 @@ std::ostream& operator<<(std::ostream& os, const Vehicle& v) {
     for (int i = 0; i < v.route.size(); i++) {
         os << v.route[i] << " ";
     }
+    os << std::endl;
+    os << "----------" << std::endl;
     return os;
 }
 

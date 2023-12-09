@@ -10,13 +10,13 @@ int main(int argc, char** argv){
     
     Instance *inst = Util::readInstance(files[15]);
     
-    int nEggs = inst->nVehicles;
-    int nNests = 2;
+    int nVehicles = inst->nVehicles;
+    int nNests = 1;
     int nIterations = 1000;
 
-    std::vector<double> lowerBound(nEggs, -5.12);
-    std::vector<double> upperBound(nEggs, 5.12);
-    MCS* mcs = new MCS(nNests, nEggs, nIterations, lowerBound , upperBound, inst);
+    std::vector<double> lowerBound(nVehicles, -5.12);
+    std::vector<double> upperBound(nVehicles, 5.12);
+    MCS* mcs = new MCS(nNests, nVehicles, nIterations, lowerBound , upperBound, inst);
     mcs->search();
 
     return 0;
