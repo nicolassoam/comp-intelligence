@@ -65,6 +65,12 @@ namespace Util
         return files;
     }
 
+    void initVectors(int num, vector<vector<double>> &vec) {
+        for (auto& inner : vec) {
+            inner.resize(num, 0);
+        }
+    }
+
     Instance* readInstance(string file)
     {
 
@@ -82,8 +88,7 @@ namespace Util
             exit(1);
         }
 
-        int nSuppliers, nRetailers, nOutlets, nVehicles, tMax, COST, capacity, c;
-        nSuppliers = nRetailers = nOutlets = nVehicles = tMax = COST = capacity = c = 0;
+        int nSuppliers = 0, nRetailers = 0, nOutlets = 0, nVehicles = 0, tMax = 0, COST = 0, capacity = 0, c = 0;
 
         // e'[i][j]
         vector<vector<double>> supplierCrossDockDist;
@@ -161,19 +166,38 @@ namespace Util
 
         line = " ";
         i = 0;
-        int j = 0;
 
-        supplierCrossDockDist.resize(nSuppliers + 1, vector<double>(nSuppliers + 1));
+        supplierCrossDockDist.resize(nSuppliers + 1);
+        initVectors(nSuppliers, supplierCrossDockDist);
+
         supplierCrossDockTime.resize(nSuppliers + 1, vector<double>(nSuppliers + 1));
-        retailerCrossDockDist.resize(nRetailers + 1, vector<double>(nRetailers + 1));
+        initVectors(nSuppliers+1, supplierCrossDockTime);
+        
+        retailerCrossDockDist.resize(nRetailers + 1, vector<double>(nRetailers + 1)); 
+        initVectors(nRetailers+1, retailerCrossDockDist);
+        
         retailerCrossDockTime.resize(nRetailers + 1, vector<double>(nRetailers + 1));
+        initVectors(nRetailers+1, retailerCrossDockTime);
+        
         retailerProductDemand.resize(nRetailers, vector<double>(nSuppliers));
+        initVectors(nSuppliers, retailerProductDemand);
+        
         returnedProductRetailer.resize(nRetailers, vector<double>(nSuppliers));
+        initVectors(nSuppliers, returnedProductRetailer);
+        
         outletCrossDockDist.resize(nOutlets + 1, vector<double>(nOutlets + 1));
+        initVectors(nOutlets+1, outletCrossDockDist);
+        
         outletCrossDockTime.resize(nOutlets + 1, vector<double>(nOutlets + 1));
+        initVectors(nOutlets+1, outletCrossDockTime);
+        
         outletProductDemand.resize(nOutlets, vector<double>(nSuppliers));
+        initVectors(nSuppliers, outletProductDemand);
+        
         returnedProductOutlet.resize(nOutlets, vector<double>(nSuppliers));
-        defectiveProduct.resize(nSuppliers);
+        initVectors(nSuppliers, returnedProductOutlet);
+        
+        defectiveProduct.resize(nSuppliers,0);
 
         std::vector<vector<double>> tempVec;
         
@@ -181,10 +205,12 @@ namespace Util
         {
             if (line.empty())
                 continue;
+
             if (line.find("=") != string::npos) // Skip lines with matrix names
             {
                 getline(instance, line); // Move to the next line for matrix values
             }
+
             vector<double> aux;
             // Create a stringstream from the line
             std::istringstream ss(line);
@@ -196,13 +222,12 @@ namespace Util
             {
                 aux.push_back(val);
             }
-
             tempVec.push_back(aux);
         }
 
         //transfer values to the correct matrix
         int lim = 0;
-        int k =0 ;
+        int k = 0 ;
 
         //e'[i][j]
         for (int i = lim; i < nSuppliers+1; i++)
@@ -210,12 +235,10 @@ namespace Util
             for (int j = 0; j < nSuppliers+1; j++)
             {
                 supplierCrossDockDist[i][j] = tempVec[i][j];
-                
             }
-            
         }
 
-        lim = nSuppliers+1;
+        lim = nSuppliers+2;
         k = 0;
 
         //e''[i][j]
@@ -224,13 +247,13 @@ namespace Util
             for (int j = 0; j < nRetailers+1; j++)
             {
                 retailerCrossDockDist[k][j] = tempVec[i][j];
-                
             }
             k++;
         }
 
-        lim = lim +nRetailers+1;
-        k= 0;
+        lim = lim +nRetailers+2;
+        k = 0;
+
         //e'''[i][j]
         for (int i = lim; i < nOutlets+1 + lim; i++)
         {
@@ -241,8 +264,9 @@ namespace Util
             k++;
         }
 
-        lim =lim + nOutlets+1;
-        k= 0;
+        lim = lim + nOutlets+2;
+        k = 0;
+
         //t'[i][j]
         for (int i = lim; i < nSuppliers+1 + lim; i++)
         {
@@ -253,7 +277,7 @@ namespace Util
             k++;
         }
 
-        lim = lim + nSuppliers+1;
+        lim = lim + nSuppliers+2;
         k = 0;
         //t''[i][j]
         for (int i = lim; i < nRetailers+1 + lim; i++)
@@ -265,7 +289,7 @@ namespace Util
             k++;
         }
 
-        lim = lim + nRetailers+1;
+        lim = lim + nRetailers+2;
         k = 0;
         //t'''[i][j]
         for (int i = lim; i < nOutlets+1 + lim; i++)
@@ -277,7 +301,7 @@ namespace Util
             k++;
         }
 
-        lim = lim+ nOutlets+1;
+        lim = lim+ nOutlets+2;
         k = 0;
         //d''[i][k]
         for (int i = lim; i < nRetailers + lim; i++)
@@ -289,7 +313,7 @@ namespace Util
             k++;
         }
 
-        lim = lim + nRetailers;
+        lim = lim + nRetailers+1;
         k = 0;
         //r''[i][k]
         for (int i = lim; i < nRetailers + lim; i++)
@@ -302,7 +326,7 @@ namespace Util
         }
 
         //p[k]
-        lim = lim + nRetailers;
+        lim = lim + nRetailers+1;
         
         for (int i = lim; i < lim +1; i++)
         {
@@ -313,7 +337,7 @@ namespace Util
         }
 
         //d'''[i][k]
-        lim = lim +1;
+        lim = lim +2;
         k = 0;
         for (int i = lim; i < nOutlets + lim; i++)
         {
@@ -325,7 +349,7 @@ namespace Util
         }
 
         //r'''[i][k]
-        lim = lim + nOutlets;
+        lim = lim + nOutlets+1;
         k = 0;
         for (int i = lim; i < nOutlets + lim; i++)
         {
