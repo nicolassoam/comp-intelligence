@@ -27,6 +27,7 @@ class Vehicle {
                 static std::vector<Vehicle> instantiateVehicles(int nVehicles, int COST, double capacity);
                 void insertBetween(int i, int j, int k);
                 std::vector<int> getRoutes();
+                void setRoutes(std::vector<int> routes) { this->route = routes; }
                 void addNode(int node);
                 void shuffle();
                 ~Vehicle();

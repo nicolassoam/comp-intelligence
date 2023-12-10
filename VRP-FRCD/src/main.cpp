@@ -9,8 +9,8 @@ int main(int argc, char** argv){
     
     Instance *inst = Util::readInstance(files[0]);
     int nVehicles = inst->nVehicles;
-    int nNests = 10;
-    int nIterations = 40;
+    int nNests = 5;
+    int nIterations = 20;
 
     MCS* mcs = new MCS(nNests, nVehicles, nIterations, inst);
     mcs->search();

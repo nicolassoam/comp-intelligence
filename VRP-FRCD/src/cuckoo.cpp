@@ -332,12 +332,15 @@ cuckoo MCS::applyMovement(cuckoo c, std::vector<double>iteratorVector){
             }
         }
 
-        for (int j = 0; j < iteratorVector.size()-1; j++){
-            if (flight >= iteratorVector[j] && flight < iteratorVector[j+1]){
-                // apply appropriate moviment
-                Neighborhood::shift1_0(newCuckoo.vehicles[randomRoute1], newCuckoo.vehicles[randomRoute2]);
-                break;
-            }
+        for (int j = 0; j < iteratorVector.size(); j++){
+
+            Neighborhood::shift1_0(newCuckoo.vehicles[randomRoute1], newCuckoo.vehicles[randomRoute2]);
+
+            // if (flight >= iteratorVector[j] && flight < iteratorVector[j+1]){
+            //     // apply appropriate moviment
+            //     Neighborhood::shift1_0(newCuckoo.vehicles[randomRoute1], newCuckoo.vehicles[randomRoute2]);
+            //     break;
+            // }
         }
     }
 
@@ -426,7 +429,7 @@ void MCS::search(){
 
     std::cout << "Search Finished" << std::endl;
     
-    printSolution();
+    //printSolution();
 
     return;
 }
