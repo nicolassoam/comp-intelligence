@@ -106,6 +106,7 @@ list_t constructSupplierCandidateList(Instance* inst, Vehicle v, std::vector<std
     candidateList.clear();
 
     for (int i = 0; i < availableSuppliers.size(); i++){
+
         if (availableSuppliers[i].second != AVAILABLE) continue;
 
         for (int j = 0; j < routes.size()-1; j++){
@@ -162,11 +163,12 @@ void MCS::supplierInit(cuckoo& cuckoo){
     int kSup = 0, iSup = 0, jSup = 0;
 
     // print demands 
-    for (auto demand : demandPerProduct)
+    for (auto& demand : demandPerProduct)
         std::cout << demand.first << " " << demand.second << std::endl;
     std::cout << std::endl;
 
     while (cuckoo.usedVehicles <= this->nVehicles){
+        
         if (demandPerProduct.size() == attended) break;
 
         cuckoo.vehicles[k].setType(SUPPLIER);
@@ -196,23 +198,35 @@ void MCS::supplierInit(cuckoo& cuckoo){
                     break;
                 } 
                 
-                std::cout << "out of capacity for node " << kSup-1 << std::endl;
+                std::cout << "out of capacity for node " << kSup << std::endl;
                 continue;
             } 
             
             cuckoo.vehicles[k].insertBetween(iSup, jSup, kSup);
-
             demandPerProduct[kSup-1].second = VISITED;
             cuckoo.vehicles[k].setCapacity(capacity);
 
             attended++;
 
+            // print candidate list
+            std::cout << "vehicle " << k << std::endl;
+            
+            for (auto demand : demandPerProduct)
+                std::cout << demand.first << " " << demand.second << std::endl;
+
+            if (demandPerProduct.size() == attended) break;
+
         } while (!candidateList.empty());
         
-        for (auto demand : demandPerProduct) {
-            if (demand.second == UNAVAILABLE)
+        for (auto& demand : demandPerProduct) {
+            if (demand.second == UNAVAILABLE) {
+                std::cout << "ending vehicle " << k << std::endl;
+                std::cout << "changing availability of node " << demand.first << std::endl;
                 demand.second = AVAILABLE;
+            }
         }
+
+        std::cout << demandPerProduct[0].second << std::endl;
 
         cuckoo.usedVehicles++;
         k++;
