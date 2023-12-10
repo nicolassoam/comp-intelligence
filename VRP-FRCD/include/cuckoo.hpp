@@ -25,7 +25,6 @@ using v_int = std::vector<int>;
 
 struct cuckoo{
     double      fitness;
-    solution_t  solution;
     v           vehicles;
     int         usedVehicles = 0;
     v_int       vehicleTypes = {0,0,0};              // retailer, supplier, outlet
@@ -36,17 +35,14 @@ using candidate = std::tuple<double,int,int,int>;    // heuristic, k, i, j
 using list_t = std::vector<candidate>;               // list of candidates (heuristic, k, i, j)
 
 class MCS{
-    public:     MCS(int nNests, int nVehicles, int nIterations,solution_t lowerBound, solution_t upperBound, Instance* inst);
-                double  fitness(solution_t solution);  
+    public:     MCS(int nNests, int nVehicles, int nIterations, Instance* inst); 
                 void    search();
                 void    printSolution();
-                double  fitness2(v vehicles, int usedVehicles);
+                double  fitness(v vehicles, int usedVehicles);
                 ~MCS();
 
     private:    double phi = std::numbers::phi;
                 int nNests;
-                solution_t lowerBound;
-                solution_t upperBound;
                 Instance* inst;
                 int nVehicles;
                 int nIterations;
@@ -59,7 +55,6 @@ class MCS{
                 double levyFlight();
                 cuckoo applyMovement(cuckoo c, std::vector<double>iteratorVector);
                 void initPopulation();
-                void initPopulation2();
                 void supplierInit(cuckoo& cuckoo);
                 void retailerInit(cuckoo& cuckoo);
                 void outletInit(cuckoo& cuckoo);

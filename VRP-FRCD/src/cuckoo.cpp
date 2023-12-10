@@ -2,12 +2,10 @@
 #include "../include/neighborhood.hpp"
 
 
-MCS::MCS( int nNests, int nVehicles, int nIterations, solution_t lowerBound, solution_t upperBound, Instance* inst){
+MCS::MCS( int nNests, int nVehicles, int nIterations, Instance* inst){
     this->nNests = nNests;
     this->nVehicles = nVehicles;
     this->nIterations = nIterations;
-    this->lowerBound = lowerBound;
-    this->upperBound = upperBound;
     this->levyStepSize = maxLevyStepSize;
     this->inst = inst;
 }
@@ -33,20 +31,10 @@ double MCS::levyFlight(){
     return levyStepSize * step;
 }
 
-//de jong function
-double MCS::fitness(solution_t solution){
-    double fitness = 0;
-
-    for(int i = 0; i < solution.size(); i++){
-        fitness += std::pow(solution[i], 2);
-    }
-
-    return fitness;
-}
 
 // custo de transporte por unidade de distancia, multiplicado pela distancia
 // c * dist + H * V_utilizados
-double MCS::fitness2(v vehicles, int usedVehicles){
+double MCS::fitness(v vehicles, int usedVehicles){
     double fitness = 0;
     for(int i = 0; i< usedVehicles; i++){
         std::vector<int>route = vehicles[i].getRoutes();
@@ -66,24 +54,6 @@ double MCS::fitness2(v vehicles, int usedVehicles){
     }
     return fitness + this->inst->COST * usedVehicles;
 
-}
-
-void MCS::initPopulation(){
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<> dis(0, 1);
-    std::cout << "Initializing Population" << std::endl;
-
-    for (int i = 0; i < nNests; i++){
-        cuckoo newCuckoo;
-        // newCuckoo.vehicles = Vehicle::instantiateVehicles(nVehicles, 1, 100);
-        for(int j = 0; j < nVehicles; j++){
-            newCuckoo.solution.push_back(lowerBound[j] + (upperBound[j] - lowerBound[j]) * dis(gen));
-        }
-        nests.push_back(newCuckoo);
-    }
-    std::cout << "Population Initialized" << std::endl;
-    return;
 }
 
 list_t constructCandidateList(Instance* inst, Vehicle v, std::vector<std::pair<double, availability>>& availableSuppliers, list_t& candidateList, TYPE type){
@@ -292,7 +262,7 @@ void MCS::retailerInit(cuckoo& cuckoo){
     }
 }
 
-void MCS::initPopulation2(){
+void MCS::initPopulation(){
 
     // generate initial nNests solutions with nVehicles vehicles
     for (int i = 0; i < nNests; i++){
@@ -389,8 +359,7 @@ void MCS::search(){
 
     std::cout << "Initializing Search" << std::endl;
 
-    // initPopulation();
-    initPopulation2();
+    initPopulation();
 
     std::random_device rd;
     
@@ -398,7 +367,7 @@ void MCS::search(){
     std::cout << "Calculating initial fitness" << std::endl;
     for (int i = 0; i < nNests; i++)
     {
-        nests[i].fitness = fitness(nests[i].solution);
+        nests[i].fitness = fitness(nests[i].vehicles, nests[i].usedVehicles);
     }
 
     int generation = 1;
@@ -418,7 +387,7 @@ void MCS::search(){
            
             nests[j] = applyMovement(nests[j], iteratorVector);
             
-            nests[j].fitness = fitness(nests[j].solution);
+            nests[j].fitness = fitness(nests[j].vehicles, nests[j].usedVehicles);
         }
 
         std::uniform_int_distribution<> dis(0, nNests - s);
@@ -432,9 +401,10 @@ void MCS::search(){
                 cuckoo newCuckoo = applyMovement(nests[j], iteratorVector);
 
                 int randomNest2 = dis(rd);
-                double newFitness = fitness(newCuckoo.solution);
+                double newFitness = fitness(newCuckoo.vehicles, newCuckoo.usedVehicles);
                 if(newFitness < nests[randomNest2].fitness){
-                    nests[randomNest2].solution = newCuckoo.solution;
+                    nests[randomNest2].vehicles = newCuckoo.vehicles;
+                    nests[randomNest2].usedVehicles = newCuckoo.usedVehicles;
                     nests[randomNest2].fitness = newFitness;
                 }
             } else {
@@ -442,11 +412,12 @@ void MCS::search(){
                 
                 // apply big movement
                 
-                cuckooK.fitness = fitness(cuckooK.solution);
+                cuckooK.fitness = fitness(cuckooK.vehicles, cuckooK.usedVehicles);
                 int randomNest2 = dis(rd);
 
                 if(cuckooK.fitness < nests[randomNest2].fitness){
-                    nests[randomNest2].solution = cuckooK.solution;
+                    nests[randomNest2].vehicles = cuckooK.vehicles;
+                    nests[randomNest2].usedVehicles = cuckooK.usedVehicles;
                     nests[randomNest2].fitness = cuckooK.fitness;
                 }
             }
@@ -463,7 +434,7 @@ void MCS::search(){
 void MCS::printSolution(){
     std::cout << "Best Solution: " << std::endl;
     for(int i = 0; i < nVehicles; i++){
-        std::cout << nests[0].solution[i] << " ";
+        std::cout << nests[0].vehicles[i] << " ";
     }
     return;
 }

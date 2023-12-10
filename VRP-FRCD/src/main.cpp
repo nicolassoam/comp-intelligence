@@ -10,11 +10,9 @@ int main(int argc, char** argv){
     Instance *inst = Util::readInstance(files[0]);
     int nVehicles = inst->nVehicles;
     int nNests = 10;
-    int nIterations = 1000;
+    int nIterations = 40;
 
-    std::vector<double> lowerBound(nVehicles, -5.12);
-    std::vector<double> upperBound(nVehicles, 5.12);
-    MCS* mcs = new MCS(nNests, nVehicles, nIterations, lowerBound , upperBound, inst);
+    MCS* mcs = new MCS(nNests, nVehicles, nIterations, inst);
     mcs->search();
 
     return 0;
