@@ -123,35 +123,39 @@ list_t constructSupplierCandidateList(Instance* inst, Vehicle v, std::vector<std
     return candidateList;
 }
 
-// list_t constructRetailerCandidateList(Instance* inst, Vehicle v, std::vector<std::pair<double, availability>>& availableRetailers, int removedRetailer = -1){
+list_t constructRetailerCandidateList(Instance* inst, Vehicle v, std::vector<std::pair<double, availability>>& availableRetailers, list_t& candidateList){
 
-//     list_t candidateList;
-//     double heuristic = 0;
+    double heuristic = 0;
 
-//     // ranking candidate node k to be inserted between nodes i and j
-//     // delta dist = dist(i,k) + dist(k,j) - dist(i,j)
+    // ranking candidate node k to be inserted between nodes i and j
+    // delta dist = dist(i,k) + dist(k,j) - dist(i,j)
+    double deltaDist = 0;
+    double deltaCost = 0;
 
-//     double deltaDist = 0;
-//     double deltaCost = 0;
+    // at maximum, should use n vehicles, n as number of retailers
+
+    std::vector<int>routes = v.getRoutes();
+
+    candidateList.clear();
+
+    for (int i = 0; i < availableRetailers.size(); i++){
+
+        if (availableRetailers[i].second != AVAILABLE) continue;
+
+        for (int j = 0; j < routes.size()-1; j++){
+            deltaDist = inst->retailerCrossDockDist[routes[j]][i+1] + inst->retailerCrossDockDist[i+1][routes[j+1]] - inst->retailerCrossDockDist[routes[j]][routes[j+1]];
+            deltaCost = inst->c * deltaDist + inst->COST;
+            heuristic = deltaCost/deltaDist;
+
+            if (heuristic < 0) continue;
+            
+            candidateList.push_back(std::make_tuple(heuristic, i+1, routes[j], routes[j+1]));
+        }
+    }
     
-//     if(removedRetailer != -1){
-//         std::vector<int>::iterator it = std::find(availableRetailers.begin(), availableRetailers.end(), removedRetailer);
-//         availableRetailers.erase(it);
-//     }
+    return candidateList;
 
-//     std::vector<int>routes = v.getRoutes();
-//     for(int i = 0; i< availableRetailers.size();i++){
-//         for(int j = 0; j < routes.size()-1;j++){
-//             deltaDist = inst->retailerCrossDockDist[routes[j]][availableRetailers[i]] + inst->retailerCrossDockDist[availableRetailers[i]][routes[j+1]] - inst->retailerCrossDockDist[routes[j]][routes[j+1]];
-//             deltaCost = inst->c * deltaDist + inst->COST;
-//             heuristic = deltaCost/deltaDist;
-//             candidateList.push_back(std::make_tuple(heuristic, availableRetailers[i], routes[j], routes[j+1]));
-//         }
-//     }
-    
-//     return candidateList;
-
-// }
+}
 
 void MCS::supplierInit(cuckoo& cuckoo){
    
@@ -208,77 +212,59 @@ void MCS::supplierInit(cuckoo& cuckoo){
     }
 }
 
-// void MCS::retailerInit(cuckoo& cuckoo){
-//     std::vector<int>availableRetailers;
-    
-//     std::vector<std::pair<double, availability>> demandPerRetailer = this->inst->demandPerRetailer;
-//     std::vector<std::pair<double,availability>> returnedPerRetailer = this->inst->returnedPerRetailer;
+void MCS::retailerInit(cuckoo& cuckoo){
+    std::vector<std::pair<double, availability>> demandPerRetailer = this->inst->demandPerRetailer;
+    list_t candidateList;
 
-//     for(int i = 1; i <= this->inst->nRetailers; i++){
-//         availableRetailers.push_back(i);
-//     }
+    int k = cuckoo.usedVehicles;
+    int attended = 0;
+    int kSup = 0, iSup = 0, jSup = 0;
 
-//     for (int i = 0; i < this->inst->nRetailers; i++) {
-//         demandPerRetailer[i].second = AVAILABLE;
-//     }
-
-//     int k = cuckoo.usedVehicles;
-//     int attended = 0;
-//     int l = 0, m = 0, o = 0;
-
-//     while(k <= this->nVehicles){
+    while (cuckoo.usedVehicles <= this->nVehicles){
         
-//         if(demandPerRetailer.size() == attended && returnedPerRetailer.size() == attended){
-//             break;
-//         }
+        if (demandPerRetailer.size() == attended) break;
 
-//         list_t candidateList = constructRetailerCandidateList(this->inst, cuckoo.vehicles[k], availableRetailers);
+        cuckoo.vehicles[k].setType(RETAILER);
 
-//         std::sort(candidateList.begin(), candidateList.end(), [](candidate &a, candidate &b) {return std::get<0>(a) < std::get<0>(b);});
+        do {
+            constructRetailerCandidateList(this->inst, cuckoo.vehicles[k], demandPerRetailer, candidateList);
+            std::sort(candidateList.begin(), candidateList.end(), [](candidate &a, candidate &b) {return std::get<0>(a) < std::get<0>(b);});
 
-//         cuckoo.vehicles[k].setType(RETAILER);
+            if (candidateList.empty()) break;
 
-//         for (std::pair<double,availability> &demand : demandPerRetailer){
+            kSup = std::get<1>(candidateList.front());
+            iSup = std::get<2>(candidateList.front());
+            jSup = std::get<3>(candidateList.front());
+
+            double capacity = cuckoo.vehicles[k].getCapacity() - demandPerRetailer[kSup-1].first;
+
+            if (capacity < 0) {
+
+                demandPerRetailer[kSup-1].second = UNAVAILABLE;
+                if (attended == demandPerRetailer.size()) break;
+
+                continue;
+            } 
             
-//             if (demand.second != AVAILABLE) continue;
+            cuckoo.vehicles[k].insertBetween(iSup, jSup, kSup);
+            demandPerRetailer[kSup-1].second = VISITED;
+            cuckoo.vehicles[k].setCapacity(capacity);
 
-//             l = std::get<1>(candidateList.front());
-//             m = std::get<2>(candidateList.front());
-//             o = std::get<3>(candidateList.front());
-            
-//             double capacity = cuckoo.vehicles[k].getCapacity() - demand.first + returnedPerRetailer[attended].first;
+            attended++;
 
-//             if(capacity < 0 && demand.first == inst->demandPerRetailer.back().first){
-//                 capacity = 0;
-//                 break;
-//             } else if(capacity < 0){
-//                 continue;
-//             }
+            if (demandPerRetailer.size()-1 == attended) break;
 
-//             cuckoo.vehicles[k].insertBetween(m,o,l);
-//             cuckoo.vehicles[k].setCapacity(capacity);
+        } while (!candidateList.empty());
+        
+        for (auto& demand : demandPerRetailer) {
+            if (demand.second == UNAVAILABLE)
+                demand.second = AVAILABLE;
+        }
 
-//             demand.second = VISITED;
-//             returnedPerRetailer[attended].second = VISITED;
-//             attended++;
-
-//             if(demandPerRetailer.size() == attended && returnedPerRetailer.size() == attended){
-//                 break;
-//             }
-
-//             if(cuckoo.vehicles[k].getCapacity() == 0){
-//                 break;
-//             }
-
-//             candidateList = constructRetailerCandidateList(this->inst, cuckoo.vehicles[k], availableRetailers, l);
-//             std::sort(candidateList.begin(), candidateList.end(), [](candidate &a, candidate &b) {return std::get<0>(a) < std::get<0>(b);});
-            
-//         }
-    
-//         cuckoo.usedVehicles++;
-//         k++;
-//     }
-// }
+        cuckoo.usedVehicles++;
+        k++;
+    }
+}
 
 void MCS::initPopulation2(){
 
@@ -291,7 +277,7 @@ void MCS::initPopulation2(){
         supplierInit(newCuckoo);
 
         // init retailers routes
-        //retailerInit(newCuckoo);
+        retailerInit(newCuckoo);
 
         nests.push_back(newCuckoo);
     } 
