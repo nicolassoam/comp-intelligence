@@ -192,13 +192,8 @@ void MCS::supplierInit(cuckoo& cuckoo){
                 constructSupplierCandidateList(this->inst, cuckoo.vehicles[k], demandPerProduct, candidateList);
                 std::sort(candidateList.begin(), candidateList.end(), [](candidate &a, candidate &b) {return std::get<0>(a) < std::get<0>(b);});
 
-                if (attended == demandPerProduct.size() - 1) {
-                    capacity = 0;
-                    std::cout << "last demand" << std::endl;
-                    break;
-                } 
+                if (attended == demandPerProduct.size() - 1) break;
                 
-                std::cout << "out of capacity for node " << kSup << std::endl;
                 continue;
             } 
             
