@@ -7,8 +7,7 @@
 int main(int argc, char** argv){
     std::vector<std::string> files = Util::readDirectory(INPUT);
     
-    Instance *inst = Util::readInstance(files[1]);
-    
+    Instance *inst = Util::readInstance(files[0]);
     int nVehicles = inst->nVehicles;
     int nNests = 1;
     int nIterations = 1000;

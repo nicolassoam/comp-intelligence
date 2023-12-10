@@ -59,6 +59,14 @@ struct Instance {
     // demandPerRetailer
     std::vector<std::pair<double,availability>> returnedPerRetailer;
 
+    // outletDemand
+    std::vector<std::pair<double,availability>> outletDemand;
+
+    // returnedOutlet
+    std::vector<std::pair<double,availability>> returnedOutlet;
+
+    vector_d supplierReturnedProducts;
+
     // Default constructor
     Instance();
 
@@ -82,7 +90,9 @@ struct Instance {
     void calculateProductDemand();                  // returns total quantity of each product
     void calculateTotalDemandPerRetailer();         // returns total demand of each retailer
     void calculateReturnedProductsPerRetailer();    // returns quantity of returned products per retailer
-
+    void calculateOutletDemand();                   // returns total demand of each outlet
+    void calculateReturnedProductsPerOutlet();      // returns quantity of returned products per outlet
+    void calculateReturnedSupplierProducts();       // returns quantity of returned products per supplier
     ~Instance();
 
 };

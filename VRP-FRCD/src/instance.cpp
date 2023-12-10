@@ -60,6 +60,51 @@ Instance::Instance(int nSuppliers, int nRetailers, int nOutlets, int nVehicles,
     calculateProductDemand();
     calculateTotalDemandPerRetailer();
     calculateReturnedProductsPerRetailer();
+    calculateOutletDemand();
+    calculateReturnedProductsPerOutlet();
+    calculateReturnedSupplierProducts();
+}
+
+void Instance::calculateReturnedSupplierProducts(){
+    //defectives from returned retailer product + outlet returned product
+    for(int i = 0; i < nSuppliers; i++){
+        double sum = 0;
+
+        for (int j = 0; j < nRetailers; j++){
+            sum += returnedProductRetailer[j][i] * defectiveProduct[i];
+        }
+
+        for (int j = 0; j < nOutlets; j++){
+            sum += returnedProductOutlet[j][i];
+        }
+
+        this->supplierReturnedProducts.push_back(sum);
+    }
+}
+
+void Instance::calculateOutletDemand(){
+    for(int i = 0; i < nSuppliers; i++){
+        double sum = 0;
+
+        for (int j = 0; j < nRetailers; j++){
+            sum += returnedProductRetailer[j][i] * (1 - defectiveProduct[i]);
+        }
+
+        this->outletDemand.push_back({sum,AVAILABLE});
+    }
+}
+
+void Instance::calculateReturnedProductsPerOutlet(){
+        
+        for(int i = 0; i < nOutlets; i++){
+            double sum = 0;
+    
+            for (int j = 0; j < nSuppliers; j++){
+                sum += returnedProductOutlet[i][j];
+            }
+    
+            this->returnedOutlet.push_back({sum,AVAILABLE});
+        }
 }
 
 void Instance::calculateProductDemand(){
@@ -127,6 +172,17 @@ void Instance::printSupplierInfo(){
         }
         std::cout << std::endl;
     }
+
+    //productDemand
+    for(auto i : demandPerProduct){
+        std::cout << i.first << " ";
+    }
+    std::cout << std::endl;
+    //returnedSupplierProduct
+    for(auto i:supplierReturnedProducts){
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
 }
 
 void Instance::printRetailerInfo(){
@@ -189,5 +245,13 @@ void Instance::printOutletInfo(){
         }
         std::cout << std::endl;
     }
+
+    //true outlet demand
+    std::cout << "outletDemand: " << std::endl;
+    for(auto i : outletDemand){
+        std::cout << i.first << " ";
+    }
+
+    std::cout << std::endl;
 }
 

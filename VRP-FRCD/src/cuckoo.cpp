@@ -123,6 +123,39 @@ list_t constructSupplierCandidateList(Instance* inst, Vehicle v, std::vector<std
     return candidateList;
 }
 
+list_t constructOutletsCandidateList(Instance* instance, Vehicle v, std::vector<std::pair<double,availability>>&availableOutlets, list_t& candidateList){
+
+    double heuristic = 0;
+
+    // ranking candidate node k to be inserted between nodes i and j
+    // delta dist = dist(i,k) + dist(k,j) - dist(i,j)
+    double deltaDist = 0;
+    double deltaCost = 0;
+
+    // at maximum, should use n vehicles, n as number of outlets
+
+    std::vector<int>routes = v.getRoutes();
+
+    candidateList.clear();
+
+    for (int i = 0; i < availableOutlets.size(); i++){
+
+        if (availableOutlets[i].second != AVAILABLE) continue;
+
+        for (int j = 0; j < routes.size()-1; j++){
+            deltaDist = instance->outletCrossDockDist[routes[j]][i+1] + instance->outletCrossDockDist[i+1][routes[j+1]] - instance->outletCrossDockDist[routes[j]][routes[j+1]];
+            deltaCost = instance->c * deltaDist + instance->COST;
+            heuristic = deltaCost/deltaDist;
+
+            if (heuristic < 0) continue;
+            
+            candidateList.push_back(std::make_tuple(heuristic, i+1, routes[j], routes[j+1]));
+        }
+    }
+    
+    return candidateList;
+}
+
 list_t constructRetailerCandidateList(Instance* inst, Vehicle v, std::vector<std::pair<double, availability>>& availableRetailers, list_t& candidateList){
 
     double heuristic = 0;
@@ -162,7 +195,7 @@ void MCS::supplierInit(cuckoo& cuckoo){
     std::vector<std::pair<double, availability>> demandPerProduct = this->inst->demandPerProduct;
     list_t candidateList;
 
-    int k = 0;
+    int k = cuckoo.usedVehicles;
     int attended = 0;
     int kSup = 0, iSup = 0, jSup = 0;
 
@@ -204,6 +237,57 @@ void MCS::supplierInit(cuckoo& cuckoo){
         
         for (auto& demand : demandPerProduct) {
             if (demand.second == UNAVAILABLE)
+                demand.second = AVAILABLE;
+        }
+
+        cuckoo.usedVehicles++;
+        k++;
+    }
+}
+
+void MCS::outletInit(cuckoo& cuckoo){
+    std::vector<std::pair<double,availability>>demandPerOutlet = this->inst->outletDemand;
+    list_t candidateList;
+
+    int k = cuckoo.usedVehicles;
+    int attended = 0;
+    int kSup = 0, iSup = 0, jSup = 0;
+
+    while(cuckoo.usedVehicles <= this->nVehicles){
+        
+        if(demandPerOutlet.size() == attended) break;
+        cuckoo.vehicles[k].setType(OUTLETS);
+
+        do{
+            constructOutletsCandidateList(this->inst, cuckoo.vehicles[k], demandPerOutlet, candidateList);
+            std::sort(candidateList.begin(), candidateList.end(), [](candidate &a, candidate &b) {return std::get<0>(a) < std::get<0>(b);});
+
+            if(candidateList.empty()) break;
+
+            kSup = std::get<1>(candidateList.front());
+            iSup = std::get<2>(candidateList.front());
+            jSup = std::get<3>(candidateList.front());
+
+            double capacity = cuckoo.vehicles[k].getCapacity() - demandPerOutlet[kSup-1].first;
+
+            if(capacity < 0){
+                demandPerOutlet[kSup-1].second = UNAVAILABLE;
+                if(attended == demandPerOutlet.size()) break;
+                continue;
+            }
+
+            cuckoo.vehicles[k].insertBetween(iSup, jSup, kSup);
+            demandPerOutlet[kSup-1].second = VISITED;
+            cuckoo.vehicles[k].setCapacity(capacity);
+
+            attended++;
+
+            if(demandPerOutlet.size()-1 == attended) break;
+
+        }while(!candidateList.empty());
+
+        for(auto& demand : demandPerOutlet){
+            if(demand.second == UNAVAILABLE)
                 demand.second = AVAILABLE;
         }
 
@@ -273,11 +357,14 @@ void MCS::initPopulation2(){
         cuckoo newCuckoo;
         newCuckoo.vehicles = Vehicle::instantiateVehicles(nVehicles, this->inst->COST, this->inst->capacity);
 
-        // init suppliers routes
-        supplierInit(newCuckoo);
-
         // init retailers routes
         retailerInit(newCuckoo);
+
+        // init outlets routes
+        outletInit(newCuckoo);
+
+        // init suppliers routes
+        supplierInit(newCuckoo);
 
         nests.push_back(newCuckoo);
     } 

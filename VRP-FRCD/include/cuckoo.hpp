@@ -58,6 +58,7 @@ class MCS{
                 void initPopulation2();
                 void supplierInit(cuckoo& cuckoo);
                 void retailerInit(cuckoo& cuckoo);
+                void outletInit(cuckoo& cuckoo);
 };
 
 
