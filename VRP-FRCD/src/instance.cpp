@@ -71,7 +71,7 @@ void Instance::calculateProductDemand(){
             sum += retailerProductDemand[j][i];
         }
 
-        this->demandPerProduct.push_back({sum,false});
+        this->demandPerProduct.push_back({sum,AVAILABLE});
     }
 }
 
@@ -84,7 +84,7 @@ void Instance::calculateTotalDemandPerRetailer(){
             sum += retailerProductDemand[i][j];
         }
 
-        this->demandPerRetailer.push_back({sum,false});
+        this->demandPerRetailer.push_back({sum,AVAILABLE});
     }
 }
 
@@ -97,7 +97,7 @@ void Instance::calculateReturnedProductsPerRetailer(){
             sum += returnedProductRetailer[i][j];
         }
 
-        this->returnedPerRetailer.push_back({sum,false});
+        this->returnedPerRetailer.push_back({sum,AVAILABLE});
     }
 }
 

@@ -60,7 +60,23 @@ std::ostream& operator<<(std::ostream& os, const Vehicle& v) {
     os << "----------" << std::endl;
     os << "Vehicle: " << v.id << std::endl;
     os << "id: " << v.id << std::endl;
-    os << "type: " << v.type << std::endl;
+    os << "type: ";
+    
+    switch (v.type) {
+        case VEHICLE:
+            os << "VEHICLE"<< std::endl;
+            break;
+        case SUPPLIER:
+            os << "SUPPLIER" << std::endl;
+            break;
+        case RETAILER:
+            os << "RETAILER" << std::endl;
+            break;
+        case OUTLETS:
+            os << "OUTLET" << std::endl;
+            break;
+    }
+    
     os << "COST: " << v.COST << std::endl;
     os << "capacity: " << v.capacity << std::endl;
     os << "route: ";

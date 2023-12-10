@@ -7,6 +7,12 @@
 using matrix = std::vector<std::vector<double>>;
 using vector_d = std::vector<double>;
 
+enum availability {
+    AVAILABLE,
+    UNAVAILABLE,
+    VISITED
+};
+
 struct Instance {
 
     int nSuppliers, nRetailers, nOutlets, nVehicles, tMax, COST, capacity, c;
@@ -45,13 +51,13 @@ struct Instance {
     vector_d defectiveProduct;
 
     // demandPerRetailer
-    std::vector<std::pair<double,bool>> demandPerRetailer;
+    std::vector<std::pair<double,availability>> demandPerRetailer;
 
     // demandPerProduct
-    std::vector<std::pair<double,bool>> demandPerProduct;
+    std::vector<std::pair<double,availability>> demandPerProduct;
 
     // demandPerRetailer
-    std::vector<std::pair<double,bool>> returnedPerRetailer;
+    std::vector<std::pair<double,availability>> returnedPerRetailer;
 
     // Default constructor
     Instance();

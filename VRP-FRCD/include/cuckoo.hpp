@@ -30,7 +30,7 @@ struct cuckoo{
 };
 
 using nest_t = std::vector<cuckoo>;                  // population of cuckoos (one per nest)
-using candidate = std::tuple<double,int,int,int>;    // heuristic, k, i, j  
+using candidate = std::tuple<double,int,int,int>;    // heuristic, k, i, j
 using list_t = std::vector<candidate>;               // list of candidates (heuristic, k, i, j)
 
 class MCS{
