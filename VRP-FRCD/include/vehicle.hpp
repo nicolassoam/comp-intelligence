@@ -28,6 +28,7 @@ class Vehicle {
                 void insertBetween(int i, int j, int k);
                 std::vector<int> getRoutes();
                 void addNode(int node);
+                void shuffle();
                 ~Vehicle();
 
     private:    TYPE type;

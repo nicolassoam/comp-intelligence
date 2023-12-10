@@ -56,6 +56,13 @@ TYPE Vehicle::getType() {
     return this->type;
 }
 
+void Vehicle::shuffle() {
+    std::random_device rd;
+    std::mt19937 g(rd());
+    if(this->route.size() > 3)
+        std::shuffle(this->route.begin()+1, this->route.end()-1, g);
+}
+
 std::ostream& operator<<(std::ostream& os, const Vehicle& v) {
     os << "----------" << std::endl;
     os << "Vehicle: " << v.id << std::endl;
