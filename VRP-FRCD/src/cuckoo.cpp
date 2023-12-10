@@ -320,12 +320,15 @@ cuckoo MCS::applyMovement(cuckoo c, std::vector<double>iteratorVector){
 
             switch (i) {
                 case RETAILER:
+                    std::cout << "RETAILER" << std::endl;
                     break;
                 case OUTLETS:
+                    std::cout << "OUTLETS" << std::endl;
                     randomRoute1 = randomRoute1 + newCuckoo.vehicleTypes[RETAILER];
                     randomRoute2 = randomRoute2 + newCuckoo.vehicleTypes[RETAILER];
                     break;
                 case SUPPLIER:
+                    std::cout << "SUPPLIER" << std::endl;
                     randomRoute1 = randomRoute1 + newCuckoo.vehicleTypes[RETAILER] + newCuckoo.vehicleTypes[OUTLETS];
                     randomRoute2 = randomRoute2 + newCuckoo.vehicleTypes[RETAILER] + newCuckoo.vehicleTypes[OUTLETS];
                     break;
@@ -333,7 +336,7 @@ cuckoo MCS::applyMovement(cuckoo c, std::vector<double>iteratorVector){
         }
 
         for (int j = 0; j < iteratorVector.size(); j++){
-
+            std::cout << "random routes: " << randomRoute1 << " " << randomRoute2 << std::endl;
             Neighborhood::shift1_0(newCuckoo.vehicles[randomRoute1], newCuckoo.vehicles[randomRoute2]);
 
             // if (flight >= iteratorVector[j] && flight < iteratorVector[j+1]){

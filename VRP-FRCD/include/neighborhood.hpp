@@ -24,6 +24,8 @@ namespace Neighborhood
         std::vector<int> r1Routes = r1.getRoutes();
         std::vector<int> r2Routes = r2.getRoutes();
 
+        if (r1Routes.size() < 3 || r2Routes.size() < 3) return;
+
         // print routes before shift
         std::cout << "Before shift: " << std::endl;
         std::cout << "r1: ";
