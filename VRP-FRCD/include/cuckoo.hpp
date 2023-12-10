@@ -21,12 +21,14 @@
 
 using solution_t = std::vector<double>;
 using v = std::vector<Vehicle>;
+using v_int = std::vector<int>;
 
 struct cuckoo{
     double      fitness;
     solution_t  solution;
     v           vehicles;
     int         usedVehicles = 0;
+    v_int       vehicleTypes = {0,0,0};              // retailer, supplier, outlet
 };
 
 using nest_t = std::vector<cuckoo>;                  // population of cuckoos (one per nest)
@@ -52,9 +54,10 @@ class MCS{
                 double levyStepSize;
                 double pa = 0.25;
                 nest_t nests;
+
                 // choose a random cuckoo via levy flight
                 double levyFlight();
-                cuckoo applyMoviment(cuckoo c, std::vector<double>iteratorVector);
+                cuckoo applyMovement(cuckoo c, std::vector<double>iteratorVector);
                 void initPopulation();
                 void initPopulation2();
                 void supplierInit(cuckoo& cuckoo);

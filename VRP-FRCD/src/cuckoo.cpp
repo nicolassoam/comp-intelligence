@@ -1,4 +1,5 @@
 #include "../include/cuckoo.hpp"
+#include "../include/neighborhood.hpp"
 
 
 MCS::MCS( int nNests, int nVehicles, int nIterations, solution_t lowerBound, solution_t upperBound, Instance* inst){
@@ -128,7 +129,6 @@ list_t constructCandidateList(Instance* inst, Vehicle v, std::vector<std::pair<d
     return candidateList;
 }
 
-
 void MCS::supplierInit(cuckoo& cuckoo){
    
     std::vector<std::pair<double, availability>> demandPerProduct = this->inst->demandPerProduct;
@@ -143,6 +143,7 @@ void MCS::supplierInit(cuckoo& cuckoo){
         if (demandPerProduct.size() == attended) break;
 
         cuckoo.vehicles[k].setType(SUPPLIER);
+        cuckoo.vehicleTypes[SUPPLIER]++;
 
         do {
             constructCandidateList(this->inst, cuckoo.vehicles[k], demandPerProduct, candidateList, SUPPLIER);
@@ -196,6 +197,7 @@ void MCS::outletInit(cuckoo& cuckoo){
         
         if(demandPerOutlet.size() == attended) break;
         cuckoo.vehicles[k].setType(OUTLETS);
+        cuckoo.vehicleTypes[OUTLETS]++;
 
         do{
             constructCandidateList(this->inst, cuckoo.vehicles[k], demandPerOutlet, candidateList, OUTLETS);
@@ -248,6 +250,7 @@ void MCS::retailerInit(cuckoo& cuckoo){
         if (demandPerRetailer.size() == attended) break;
 
         cuckoo.vehicles[k].setType(RETAILER);
+        cuckoo.vehicleTypes[RETAILER]++;
 
         do {
             constructCandidateList(this->inst, cuckoo.vehicles[k], demandPerRetailer, candidateList, RETAILER);
@@ -318,20 +321,52 @@ void MCS::initPopulation2(){
         }
     }
 
-    exit(1);
+    //exit(1);
 }
 
-cuckoo MCS::applyMoviment(cuckoo c, std::vector<double>iteratorVector){
-   
+cuckoo MCS::applyMovement(cuckoo c, std::vector<double>iteratorVector){
+
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_real_distribution<> dis(0, 1);
     cuckoo newCuckoo = c;
-    for(int i = 0; i < nVehicles; i++){
-        double flight = levyFlight();
-        for(int j = 0; j < iteratorVector.size()-1; j++){
-            if(flight >= iteratorVector[j] && flight < iteratorVector[j+1]){
-                //apply appropriate moviment
+    
+    double flight = levyFlight();
+
+    // for each type of vehicle
+    for (int i = 0; i < 3; i++) {
+
+        int randomRoute1 = -1;
+        int randomRoute2 = -1;
+
+        // choose two random routes of type i
+        if (newCuckoo.vehicleTypes[i] >= 2) {
+            std::uniform_int_distribution<> dis2(0, newCuckoo.vehicleTypes[i]-1);
+            randomRoute1 = dis2(rd);
+
+            do {
+                randomRoute2 = dis2(rd);
+            } while (randomRoute1 == randomRoute2);
+
+            switch (i) {
+                case RETAILER:
+                    break;
+                case OUTLETS:
+                    randomRoute1 = randomRoute1 + newCuckoo.vehicleTypes[RETAILER];
+                    randomRoute2 = randomRoute2 + newCuckoo.vehicleTypes[RETAILER];
+                    break;
+                case SUPPLIER:
+                    randomRoute1 = randomRoute1 + newCuckoo.vehicleTypes[RETAILER] + newCuckoo.vehicleTypes[OUTLETS];
+                    randomRoute2 = randomRoute2 + newCuckoo.vehicleTypes[RETAILER] + newCuckoo.vehicleTypes[OUTLETS];
+                    break;
+            }
+        }
+
+        for (int j = 0; j < iteratorVector.size()-1; j++){
+            if (flight >= iteratorVector[j] && flight < iteratorVector[j+1]){
+                // apply appropriate moviment
+                Neighborhood::shift1_0(newCuckoo.vehicles[randomRoute1], newCuckoo.vehicles[randomRoute2]);
+                break;
             }
         }
     }
@@ -342,12 +377,12 @@ cuckoo MCS::applyMoviment(cuckoo c, std::vector<double>iteratorVector){
 void MCS::search(){
 
     //n movements 
-    int nSteps = 4;
+    int nSteps = 1;
     double iterator = (1/(nSteps+1));
 
     //initialize vector of iterator, ranging from 0 to 1
     std::vector<double> iteratorVector;
-    for(int i = 0; i < nSteps; i++){
+    for (int i = 0; i < nSteps; i++){
         iteratorVector.push_back(iterator);
         iterator += iterator;
     }
@@ -356,7 +391,9 @@ void MCS::search(){
 
     // initPopulation();
     initPopulation2();
+
     std::random_device rd;
+    
     //initial fitness
     std::cout << "Calculating initial fitness" << std::endl;
     for (int i = 0; i < nNests; i++)
@@ -366,7 +403,8 @@ void MCS::search(){
 
     int generation = 1;
     std::cout << "Starting Search" << std::endl;
-    for(int i =0; i < this->nIterations; i++){
+
+    for(int i = 0; i < this->nIterations; i++){
         //choose a random nest
         generation++;
         std::sort(nests.begin(), nests.end(), [](cuckoo &a, cuckoo &b) {return a.fitness < b.fitness;});
@@ -378,10 +416,9 @@ void MCS::search(){
         {
             levyStepSize = maxLevyStepSize/(std::sqrt(generation));
            
-            nests[j]= applyMoviment(nests[j], iteratorVector);
+            nests[j] = applyMovement(nests[j], iteratorVector);
             
             nests[j].fitness = fitness(nests[j].solution);
-            
         }
 
         std::uniform_int_distribution<> dis(0, nNests - s);
@@ -389,10 +426,10 @@ void MCS::search(){
         for(int j = 0; j < nNests - s; j++){
             
             int randomNest = dis(rd);
-            if(randomNest == j){
+            if (randomNest == j) {
                 levyStepSize = maxLevyStepSize/(std::pow(generation, 2));
 
-                cuckoo newCuckoo = applyMoviment(nests[j], iteratorVector);
+                cuckoo newCuckoo = applyMovement(nests[j], iteratorVector);
 
                 int randomNest2 = dis(rd);
                 double newFitness = fitness(newCuckoo.solution);
@@ -403,7 +440,7 @@ void MCS::search(){
             } else {
                 cuckoo cuckooK;
                 
-                //apply big movement
+                // apply big movement
                 
                 cuckooK.fitness = fitness(cuckooK.solution);
                 int randomNest2 = dis(rd);
@@ -412,7 +449,6 @@ void MCS::search(){
                     nests[randomNest2].solution = cuckooK.solution;
                     nests[randomNest2].fitness = cuckooK.fitness;
                 }
-
             }
         }
     }

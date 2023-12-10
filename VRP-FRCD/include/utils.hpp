@@ -16,7 +16,6 @@ namespace fs = std::filesystem;
 
 namespace Util
 {
-
     using namespace std;
 
     bool compareNat(const std::string& a, const std::string& b)

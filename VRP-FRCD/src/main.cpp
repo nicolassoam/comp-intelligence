@@ -9,7 +9,7 @@ int main(int argc, char** argv){
     
     Instance *inst = Util::readInstance(files[0]);
     int nVehicles = inst->nVehicles;
-    int nNests = 4;
+    int nNests = 10;
     int nIterations = 1000;
 
     std::vector<double> lowerBound(nVehicles, -5.12);
