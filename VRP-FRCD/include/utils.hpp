@@ -203,8 +203,8 @@ namespace Util
         
         while (getline(instance, line))
         {
-            if (line.empty())
-                continue;
+            // if (line.empty())
+            //     continue;
 
             if (line.find("=") != string::npos) // Skip lines with matrix names
             {
