@@ -168,7 +168,7 @@ namespace Util
         i = 0;
 
         supplierCrossDockDist.resize(nSuppliers + 1);
-        initVectors(nSuppliers, supplierCrossDockDist);
+        initVectors(nSuppliers+1, supplierCrossDockDist);
 
         supplierCrossDockTime.resize(nSuppliers + 1, vector<double>(nSuppliers + 1));
         initVectors(nSuppliers+1, supplierCrossDockTime);

@@ -162,11 +162,6 @@ void MCS::supplierInit(cuckoo& cuckoo){
     int attended = 0;
     int kSup = 0, iSup = 0, jSup = 0;
 
-    // print demands 
-    for (auto& demand : demandPerProduct)
-        std::cout << demand.first << " " << demand.second << std::endl;
-    std::cout << std::endl;
-
     while (cuckoo.usedVehicles <= this->nVehicles){
         
         if (demandPerProduct.size() == attended) break;
@@ -176,9 +171,8 @@ void MCS::supplierInit(cuckoo& cuckoo){
         do {
             constructSupplierCandidateList(this->inst, cuckoo.vehicles[k], demandPerProduct, candidateList);
             std::sort(candidateList.begin(), candidateList.end(), [](candidate &a, candidate &b) {return std::get<0>(a) < std::get<0>(b);});
-            
-            // char a;
-            // std::cin >> a;
+
+            if (candidateList.empty()) break;
 
             kSup = std::get<1>(candidateList.front());
             iSup = std::get<2>(candidateList.front());
@@ -189,11 +183,8 @@ void MCS::supplierInit(cuckoo& cuckoo){
             if (capacity < 0) {
 
                 demandPerProduct[kSup-1].second = UNAVAILABLE;
-                constructSupplierCandidateList(this->inst, cuckoo.vehicles[k], demandPerProduct, candidateList);
-                std::sort(candidateList.begin(), candidateList.end(), [](candidate &a, candidate &b) {return std::get<0>(a) < std::get<0>(b);});
+                if (attended == demandPerProduct.size()) break;
 
-                if (attended == demandPerProduct.size() - 1) break;
-                
                 continue;
             } 
             
@@ -203,25 +194,14 @@ void MCS::supplierInit(cuckoo& cuckoo){
 
             attended++;
 
-            // print candidate list
-            std::cout << "vehicle " << k << std::endl;
-            
-            for (auto demand : demandPerProduct)
-                std::cout << demand.first << " " << demand.second << std::endl;
-
-            if (demandPerProduct.size() == attended) break;
+            if (demandPerProduct.size()-1 == attended) break;
 
         } while (!candidateList.empty());
         
         for (auto& demand : demandPerProduct) {
-            if (demand.second == UNAVAILABLE) {
-                std::cout << "ending vehicle " << k << std::endl;
-                std::cout << "changing availability of node " << demand.first << std::endl;
+            if (demand.second == UNAVAILABLE)
                 demand.second = AVAILABLE;
-            }
         }
-
-        std::cout << demandPerProduct[0].second << std::endl;
 
         cuckoo.usedVehicles++;
         k++;
