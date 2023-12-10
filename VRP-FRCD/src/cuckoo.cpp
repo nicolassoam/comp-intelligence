@@ -11,9 +11,8 @@ MCS::MCS( int nNests, int nVehicles, int nIterations, solution_t lowerBound, sol
     this->inst = inst;
 }
 
-cuckoo MCS::newCuckoo (int nest){
-    cuckoo newCuckoo;
-    newCuckoo.solution = nests[nest].solution;
+double MCS::levyFlight(){
+    
     //levy distribution
     double lambda = 1.5;
     
@@ -27,14 +26,10 @@ cuckoo MCS::newCuckoo (int nest){
     std::normal_distribution<double> u_n(0, sigma);
     std::normal_distribution<double> v_n(0, 1.0);
 
-    for(int i = 0; i < nVehicles; i++){
-        double u = u_n(gen);
-        double v = v_n(gen);
-        double step = u / std::pow(std::abs(v), (1 / lambda));
-        newCuckoo.solution[i] += levyStepSize * step;
-    }
-
-    return newCuckoo;
+    double u = u_n(gen);
+    double v = v_n(gen);
+    double step = u / std::pow(std::abs(v), (1 / lambda));
+    return levyStepSize * step;
 }
 
 //de jong function
@@ -326,7 +321,36 @@ void MCS::initPopulation2(){
     exit(1);
 }
 
+cuckoo MCS::applyMoviment(cuckoo c, std::vector<double>iteratorVector){
+   
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<> dis(0, 1);
+    cuckoo newCuckoo = c;
+    for(int i = 0; i < nVehicles; i++){
+        double flight = levyFlight();
+        for(int j = 0; j < iteratorVector.size()-1; j++){
+            if(flight >= iteratorVector[j] && flight < iteratorVector[j+1]){
+                //apply appropriate moviment
+            }
+        }
+    }
+
+    return newCuckoo;
+}
+
 void MCS::search(){
+
+    //n movements 
+    int nSteps = 4;
+    double iterator = (1/(nSteps+1));
+
+    //initialize vector of iterator, ranging from 0 to 1
+    std::vector<double> iteratorVector;
+    for(int i = 0; i < nSteps; i++){
+        iteratorVector.push_back(iterator);
+        iterator += iterator;
+    }
 
     std::cout << "Initializing Search" << std::endl;
 
@@ -354,11 +378,9 @@ void MCS::search(){
         {
             levyStepSize = maxLevyStepSize/(std::sqrt(generation));
            
-            cuckoo newCuckoo = this->newCuckoo(j);
-            double newFitness = fitness(newCuckoo.solution);
+            nests[j]= applyMoviment(nests[j], iteratorVector);
             
-            nests[j].solution = newCuckoo.solution;
-            nests[j].fitness = newFitness;
+            nests[j].fitness = fitness(nests[j].solution);
             
         }
 
@@ -369,10 +391,11 @@ void MCS::search(){
             int randomNest = dis(rd);
             if(randomNest == j){
                 levyStepSize = maxLevyStepSize/(std::pow(generation, 2));
-                
-                cuckoo newCuckoo = this->newCuckoo(randomNest);
-                double newFitness = fitness(newCuckoo.solution);
+
+                cuckoo newCuckoo = applyMoviment(nests[j], iteratorVector);
+
                 int randomNest2 = dis(rd);
+                double newFitness = fitness(newCuckoo.solution);
                 if(newFitness < nests[randomNest2].fitness){
                     nests[randomNest2].solution = newCuckoo.solution;
                     nests[randomNest2].fitness = newFitness;
@@ -380,9 +403,8 @@ void MCS::search(){
             } else {
                 cuckoo cuckooK;
                 
-                for(int k = 0; k < nVehicles; k++){
-                    cuckooK.solution.push_back((std::abs(nests[j].solution[k] - nests[randomNest].solution[k]))/phi);
-                }
+                //apply big movement
+                
                 cuckooK.fitness = fitness(cuckooK.solution);
                 int randomNest2 = dis(rd);
 

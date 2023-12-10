@@ -53,7 +53,8 @@ class MCS{
                 double pa = 0.25;
                 nest_t nests;
                 // choose a random cuckoo via levy flight
-                cuckoo newCuckoo(int nest);
+                double levyFlight();
+                cuckoo applyMoviment(cuckoo c, std::vector<double>iteratorVector);
                 void initPopulation();
                 void initPopulation2();
                 void supplierInit(cuckoo& cuckoo);
