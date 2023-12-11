@@ -1,0 +1,183 @@
+Vehicles: 
+----------
+Vehicle: 2480
+id: 2480
+type: RETAILER
+COST: 1000
+capacity: 40
+route: 0 15 11 17 7 10 3 20 5 23 14 16 8 9 1 19 21 4 13 2 18 22 12 0 
+----------
+
+----------
+Vehicle: 2481
+id: 2481
+type: RETAILER
+COST: 1000
+capacity: 145
+route: 0 6 0 
+----------
+
+----------
+Vehicle: 2482
+id: 2482
+type: OUTLET
+COST: 1000
+capacity: 141.654
+route: 0 5 6 7 0 
+----------
+
+----------
+Vehicle: 2483
+id: 2483
+type: OUTLET
+COST: 1000
+capacity: 127.51
+route: 0 4 1 2 3 0 
+----------
+
+----------
+Vehicle: 2484
+id: 2484
+type: SUPPLIER
+COST: 1000
+capacity: 53
+route: 0 7 1 3 5 2 6 0 
+----------
+
+----------
+Vehicle: 2485
+id: 2485
+type: SUPPLIER
+COST: 1000
+capacity: 132
+route: 0 4 0 
+----------
+
+----------
+Vehicle: 2486
+id: 2486
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2487
+id: 2487
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2488
+id: 2488
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2489
+id: 2489
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2490
+id: 2490
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2491
+id: 2491
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2492
+id: 2492
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2493
+id: 2493
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2494
+id: 2494
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2495
+id: 2495
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2496
+id: 2496
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2497
+id: 2497
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2498
+id: 2498
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2499
+id: 2499
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 15504
+15504

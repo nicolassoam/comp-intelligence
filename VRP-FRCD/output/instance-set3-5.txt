@@ -1,0 +1,273 @@
+Vehicles: 
+----------
+Vehicle: 4080
+id: 4080
+type: RETAILER
+COST: 1000
+capacity: 3
+route: 0 3 20 35 28 11 23 10 8 17 33 18 5 15 13 4 26 38 9 21 30 7 16 37 22 0 
+----------
+
+----------
+Vehicle: 4081
+id: 4081
+type: RETAILER
+COST: 1000
+capacity: 64
+route: 0 6 2 14 36 25 19 34 24 12 32 29 27 1 0 
+----------
+
+----------
+Vehicle: 4082
+id: 4082
+type: RETAILER
+COST: 1000
+capacity: 144
+route: 0 31 0 
+----------
+
+----------
+Vehicle: 4083
+id: 4083
+type: OUTLET
+COST: 1000
+capacity: 92.3513
+route: 0 11 4 5 3 1 12 7 2 10 6 9 8 0 
+----------
+
+----------
+Vehicle: 4084
+id: 4084
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4085
+id: 4085
+type: SUPPLIER
+COST: 1000
+capacity: 10
+route: 0 2 7 8 11 9 6 12 10 0 
+----------
+
+----------
+Vehicle: 4086
+id: 4086
+type: SUPPLIER
+COST: 1000
+capacity: 69
+route: 0 4 1 5 0 
+----------
+
+----------
+Vehicle: 4087
+id: 4087
+type: SUPPLIER
+COST: 1000
+capacity: 132
+route: 0 3 0 
+----------
+
+----------
+Vehicle: 4088
+id: 4088
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4089
+id: 4089
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4090
+id: 4090
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4091
+id: 4091
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4092
+id: 4092
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4093
+id: 4093
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4094
+id: 4094
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4095
+id: 4095
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4096
+id: 4096
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4097
+id: 4097
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4098
+id: 4098
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4099
+id: 4099
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4100
+id: 4100
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4101
+id: 4101
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4102
+id: 4102
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4103
+id: 4103
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4104
+id: 4104
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4105
+id: 4105
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4106
+id: 4106
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4107
+id: 4107
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4108
+id: 4108
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4109
+id: 4109
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 26042
+26042

@@ -1,0 +1,273 @@
+Vehicles: 
+----------
+Vehicle: 4410
+id: 4410
+type: RETAILER
+COST: 1000
+capacity: 3
+route: 0 6 31 19 24 17 38 27 14 28 1 18 36 37 33 22 4 16 21 11 8 15 20 32 34 2 26 7 0 
+----------
+
+----------
+Vehicle: 4411
+id: 4411
+type: RETAILER
+COST: 1000
+capacity: 96
+route: 0 10 35 29 9 12 3 13 30 23 5 0 
+----------
+
+----------
+Vehicle: 4412
+id: 4412
+type: RETAILER
+COST: 1000
+capacity: 143
+route: 0 25 0 
+----------
+
+----------
+Vehicle: 4413
+id: 4413
+type: OUTLET
+COST: 1000
+capacity: 105.198
+route: 0 3 12 10 6 4 2 9 8 7 1 11 5 0 
+----------
+
+----------
+Vehicle: 4414
+id: 4414
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4415
+id: 4415
+type: SUPPLIER
+COST: 1000
+capacity: 8
+route: 0 4 7 6 11 12 2 10 1 0 
+----------
+
+----------
+Vehicle: 4416
+id: 4416
+type: SUPPLIER
+COST: 1000
+capacity: 103
+route: 0 9 3 5 0 
+----------
+
+----------
+Vehicle: 4417
+id: 4417
+type: SUPPLIER
+COST: 1000
+capacity: 131
+route: 0 8 0 
+----------
+
+----------
+Vehicle: 4418
+id: 4418
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4419
+id: 4419
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4420
+id: 4420
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4421
+id: 4421
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4422
+id: 4422
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4423
+id: 4423
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4424
+id: 4424
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4425
+id: 4425
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4426
+id: 4426
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4427
+id: 4427
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4428
+id: 4428
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4429
+id: 4429
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4430
+id: 4430
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4431
+id: 4431
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4432
+id: 4432
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4433
+id: 4433
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4434
+id: 4434
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4435
+id: 4435
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4436
+id: 4436
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4437
+id: 4437
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4438
+id: 4438
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 4439
+id: 4439
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 25470
+25470

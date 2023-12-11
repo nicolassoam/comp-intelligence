@@ -1,0 +1,183 @@
+Vehicles: 
+----------
+Vehicle: 3480
+id: 3480
+type: RETAILER
+COST: 1000
+capacity: 40
+route: 0 21 16 2 20 10 9 8 22 7 4 13 14 6 19 12 11 3 23 15 17 18 1 0 
+----------
+
+----------
+Vehicle: 3481
+id: 3481
+type: RETAILER
+COST: 1000
+capacity: 144
+route: 0 5 0 
+----------
+
+----------
+Vehicle: 3482
+id: 3482
+type: OUTLET
+COST: 1000
+capacity: 121.908
+route: 0 1 6 3 7 5 4 2 0 
+----------
+
+----------
+Vehicle: 3483
+id: 3483
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3484
+id: 3484
+type: SUPPLIER
+COST: 1000
+capacity: 46
+route: 0 3 6 5 7 2 4 0 
+----------
+
+----------
+Vehicle: 3485
+id: 3485
+type: SUPPLIER
+COST: 1000
+capacity: 138
+route: 0 1 0 
+----------
+
+----------
+Vehicle: 3486
+id: 3486
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3487
+id: 3487
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3488
+id: 3488
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3489
+id: 3489
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3490
+id: 3490
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3491
+id: 3491
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3492
+id: 3492
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3493
+id: 3493
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3494
+id: 3494
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3495
+id: 3495
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3496
+id: 3496
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3497
+id: 3497
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3498
+id: 3498
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3499
+id: 3499
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 14745
+14745

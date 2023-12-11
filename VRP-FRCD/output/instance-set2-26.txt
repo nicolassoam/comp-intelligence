@@ -1,0 +1,183 @@
+Vehicles: 
+----------
+Vehicle: 3200
+id: 3200
+type: RETAILER
+COST: 1000
+capacity: 34
+route: 0 8 20 10 16 3 13 7 18 22 14 9 2 11 5 15 12 21 1 17 23 19 6 0 
+----------
+
+----------
+Vehicle: 3201
+id: 3201
+type: RETAILER
+COST: 1000
+capacity: 145
+route: 0 4 0 
+----------
+
+----------
+Vehicle: 3202
+id: 3202
+type: OUTLET
+COST: 1000
+capacity: 125.758
+route: 0 5 1 2 4 6 7 3 0 
+----------
+
+----------
+Vehicle: 3203
+id: 3203
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3204
+id: 3204
+type: SUPPLIER
+COST: 1000
+capacity: 49
+route: 0 5 6 1 4 2 7 0 
+----------
+
+----------
+Vehicle: 3205
+id: 3205
+type: SUPPLIER
+COST: 1000
+capacity: 130
+route: 0 3 0 
+----------
+
+----------
+Vehicle: 3206
+id: 3206
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3207
+id: 3207
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3208
+id: 3208
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3209
+id: 3209
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3210
+id: 3210
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3211
+id: 3211
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3212
+id: 3212
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3213
+id: 3213
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3214
+id: 3214
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3215
+id: 3215
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3216
+id: 3216
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3217
+id: 3217
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3218
+id: 3218
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3219
+id: 3219
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 14860
+14860

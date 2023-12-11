@@ -39,6 +39,7 @@ class MCS{
                 void    search();
                 void    printSolution();
                 double  fitness(v vehicles, int usedVehicles);
+                cuckoo  getBestCuckoo();
                 ~MCS();
 
     private:    double phi = std::numbers::phi;

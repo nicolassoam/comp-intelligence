@@ -11,6 +11,7 @@
 #include <cmath>
 #include <filesystem>
 #include "instance.hpp"
+#include "cuckoo.hpp"
 
 namespace fs = std::filesystem;
 
@@ -68,6 +69,18 @@ namespace Util
         for (auto& inner : vec) {
             inner.resize(num, 0);
         }
+    }
+
+    void saveSolution(string file, cuckoo best){
+        ofstream solution;
+        solution.open(file, ios::out);
+        solution << "Vehicles: " <<std::endl;
+        for(auto v : best.vehicles){
+            solution << v << endl;
+            
+        }
+        solution << "Fitness: " << best.fitness << endl;
+        solution << best.fitness << endl;
     }
 
     Instance* readInstance(string file)

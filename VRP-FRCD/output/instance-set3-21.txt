@@ -1,0 +1,273 @@
+Vehicles: 
+----------
+Vehicle: 6060
+id: 6060
+type: RETAILER
+COST: 1000
+capacity: 1
+route: 0 31 35 12 34 10 27 8 26 14 4 29 11 33 2 24 13 7 22 25 23 5 32 3 20 38 16 0 
+----------
+
+----------
+Vehicle: 6061
+id: 6061
+type: RETAILER
+COST: 1000
+capacity: 85
+route: 0 37 17 1 9 19 21 36 28 18 30 15 0 
+----------
+
+----------
+Vehicle: 6062
+id: 6062
+type: RETAILER
+COST: 1000
+capacity: 143
+route: 0 6 0 
+----------
+
+----------
+Vehicle: 6063
+id: 6063
+type: OUTLET
+COST: 1000
+capacity: 102.324
+route: 0 4 11 1 10 2 12 7 8 6 5 9 3 0 
+----------
+
+----------
+Vehicle: 6064
+id: 6064
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6065
+id: 6065
+type: SUPPLIER
+COST: 1000
+capacity: 10
+route: 0 4 3 1 5 11 6 2 9 0 
+----------
+
+----------
+Vehicle: 6066
+id: 6066
+type: SUPPLIER
+COST: 1000
+capacity: 81
+route: 0 10 8 12 0 
+----------
+
+----------
+Vehicle: 6067
+id: 6067
+type: SUPPLIER
+COST: 1000
+capacity: 138
+route: 0 7 0 
+----------
+
+----------
+Vehicle: 6068
+id: 6068
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6069
+id: 6069
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6070
+id: 6070
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6071
+id: 6071
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6072
+id: 6072
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6073
+id: 6073
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6074
+id: 6074
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6075
+id: 6075
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6076
+id: 6076
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6077
+id: 6077
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6078
+id: 6078
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6079
+id: 6079
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6080
+id: 6080
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6081
+id: 6081
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6082
+id: 6082
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6083
+id: 6083
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6084
+id: 6084
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6085
+id: 6085
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6086
+id: 6086
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6087
+id: 6087
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6088
+id: 6088
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 6089
+id: 6089
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 27685
+27685

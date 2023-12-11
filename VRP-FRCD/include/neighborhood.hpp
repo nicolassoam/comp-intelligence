@@ -48,13 +48,13 @@ namespace Neighborhood
 
         switch (r1.getType()) {
             case RETAILER:
-                capacity = inst->demandPerRetailer[r1Routes[pos1]-1].first;
+                capacity = inst->demandPerRetailer[pos1].first;
                 break;
             case OUTLETS:
-                capacity = inst->outletDemand[r1Routes[pos1]-1].first;
+                capacity = inst->outletDemand[pos1].first;
                 break;
             case SUPPLIER:
-                capacity = inst->demandPerProduct[r1Routes[pos1]-1].first;
+                capacity = inst->demandPerProduct[pos1].first;
                 break;
             default:
                 break;
@@ -171,9 +171,9 @@ namespace Neighborhood
         }
         
         //will lose one customer
-        newCapacity1 = v1.getCapacity() + d[r1[pos1+1]-1].first + d[r2[pos1]-1].first - d[r2[pos2]-1].first;
+        newCapacity1 = v1.getCapacity() + d[pos1+1].first + d[pos1].first - d[pos2].first;
         //will gain one customer
-        newCapacity2 = v2.getCapacity() + d[r2[pos2]-1].first - d[r1[pos1]-1].first - d[r1[pos1+1]-1].first;
+        newCapacity2 = v2.getCapacity() + d[pos2].first - d[pos1].first - d[pos1+1].first;
 
         std::cout << "newCapacity2: " << newCapacity2 << std::endl;
         std::cout << "newCapacity1: " << newCapacity1 << std::endl;
@@ -228,8 +228,8 @@ namespace Neighborhood
                 break;
         }
 
-        newCapacity1 = v1.getCapacity() + d[r2[pos1+1]-1].first - d[r1[pos2+1]-1].first;
-        newCapacity2 = v2.getCapacity() + d[r1[pos2+1]-1].first - d[r2[pos1+1]-1].first;
+        newCapacity1 = v1.getCapacity() + d[pos1+1].first - d[pos2+1].first;
+        newCapacity2 = v2.getCapacity() + d[pos2+1].first - d[pos1+1].first;
 
 
         if(newCapacity1 < 0) return;

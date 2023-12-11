@@ -1,0 +1,93 @@
+Vehicles: 
+----------
+Vehicle: 120
+id: 120
+type: RETAILER
+COST: 1000
+capacity: 10
+route: 0 4 5 1 6 0 
+----------
+
+----------
+Vehicle: 121
+id: 121
+type: RETAILER
+COST: 1000
+capacity: 53
+route: 0 3 0 
+----------
+
+----------
+Vehicle: 122
+id: 122
+type: RETAILER
+COST: 1000
+capacity: 53
+route: 0 2 0 
+----------
+
+----------
+Vehicle: 123
+id: 123
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 124
+id: 124
+type: OUTLET
+COST: 1000
+capacity: 33.8484
+route: 0 1 2 4 3 0 
+----------
+
+----------
+Vehicle: 125
+id: 125
+type: SUPPLIER
+COST: 1000
+capacity: 22
+route: 0 2 3 1 0 
+----------
+
+----------
+Vehicle: 126
+id: 126
+type: SUPPLIER
+COST: 1000
+capacity: 24
+route: 0 4 0 
+----------
+
+----------
+Vehicle: 127
+id: 127
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 128
+id: 128
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 129
+id: 129
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 12441
+12441

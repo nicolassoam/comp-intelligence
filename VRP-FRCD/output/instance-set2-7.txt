@@ -1,0 +1,183 @@
+Vehicles: 
+----------
+Vehicle: 1680
+id: 1680
+type: RETAILER
+COST: 1000
+capacity: 38
+route: 0 20 2 18 17 4 12 16 15 23 10 19 5 21 9 3 13 22 6 14 1 11 8 0 
+----------
+
+----------
+Vehicle: 1681
+id: 1681
+type: RETAILER
+COST: 1000
+capacity: 145
+route: 0 7 0 
+----------
+
+----------
+Vehicle: 1682
+id: 1682
+type: OUTLET
+COST: 1000
+capacity: 129.196
+route: 0 5 6 1 7 2 4 3 0 
+----------
+
+----------
+Vehicle: 1683
+id: 1683
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1684
+id: 1684
+type: SUPPLIER
+COST: 1000
+capacity: 45
+route: 0 5 4 7 1 2 6 0 
+----------
+
+----------
+Vehicle: 1685
+id: 1685
+type: SUPPLIER
+COST: 1000
+capacity: 138
+route: 0 3 0 
+----------
+
+----------
+Vehicle: 1686
+id: 1686
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1687
+id: 1687
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1688
+id: 1688
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1689
+id: 1689
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1690
+id: 1690
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1691
+id: 1691
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1692
+id: 1692
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1693
+id: 1693
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1694
+id: 1694
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1695
+id: 1695
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1696
+id: 1696
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1697
+id: 1697
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1698
+id: 1698
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1699
+id: 1699
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 14890
+14890

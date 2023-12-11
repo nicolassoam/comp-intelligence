@@ -1,0 +1,183 @@
+Vehicles: 
+----------
+Vehicle: 1800
+id: 1800
+type: RETAILER
+COST: 1000
+capacity: 37
+route: 0 13 7 22 12 23 10 4 11 2 9 16 20 21 8 5 6 19 3 17 14 15 18 0 
+----------
+
+----------
+Vehicle: 1801
+id: 1801
+type: RETAILER
+COST: 1000
+capacity: 145
+route: 0 1 0 
+----------
+
+----------
+Vehicle: 1802
+id: 1802
+type: OUTLET
+COST: 1000
+capacity: 119.928
+route: 0 5 4 2 7 3 1 6 0 
+----------
+
+----------
+Vehicle: 1803
+id: 1803
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1804
+id: 1804
+type: SUPPLIER
+COST: 1000
+capacity: 45
+route: 0 2 4 3 6 5 1 0 
+----------
+
+----------
+Vehicle: 1805
+id: 1805
+type: SUPPLIER
+COST: 1000
+capacity: 137
+route: 0 7 0 
+----------
+
+----------
+Vehicle: 1806
+id: 1806
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1807
+id: 1807
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1808
+id: 1808
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1809
+id: 1809
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1810
+id: 1810
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1811
+id: 1811
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1812
+id: 1812
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1813
+id: 1813
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1814
+id: 1814
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1815
+id: 1815
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1816
+id: 1816
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1817
+id: 1817
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1818
+id: 1818
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1819
+id: 1819
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 15159
+15159

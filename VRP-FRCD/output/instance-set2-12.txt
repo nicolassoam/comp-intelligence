@@ -1,0 +1,183 @@
+Vehicles: 
+----------
+Vehicle: 2100
+id: 2100
+type: RETAILER
+COST: 1000
+capacity: 35
+route: 0 23 22 11 21 15 19 6 10 2 7 9 16 4 12 18 1 20 3 17 8 13 14 0 
+----------
+
+----------
+Vehicle: 2101
+id: 2101
+type: RETAILER
+COST: 1000
+capacity: 145
+route: 0 5 0 
+----------
+
+----------
+Vehicle: 2102
+id: 2102
+type: OUTLET
+COST: 1000
+capacity: 113.652
+route: 0 2 4 5 6 7 3 1 0 
+----------
+
+----------
+Vehicle: 2103
+id: 2103
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2104
+id: 2104
+type: SUPPLIER
+COST: 1000
+capacity: 35
+route: 0 2 1 4 6 5 3 0 
+----------
+
+----------
+Vehicle: 2105
+id: 2105
+type: SUPPLIER
+COST: 1000
+capacity: 145
+route: 0 7 0 
+----------
+
+----------
+Vehicle: 2106
+id: 2106
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2107
+id: 2107
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2108
+id: 2108
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2109
+id: 2109
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2110
+id: 2110
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2111
+id: 2111
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2112
+id: 2112
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2113
+id: 2113
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2114
+id: 2114
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2115
+id: 2115
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2116
+id: 2116
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2117
+id: 2117
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2118
+id: 2118
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2119
+id: 2119
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 15762
+15762

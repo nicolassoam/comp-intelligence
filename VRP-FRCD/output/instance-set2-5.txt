@@ -1,0 +1,183 @@
+Vehicles: 
+----------
+Vehicle: 1560
+id: 1560
+type: RETAILER
+COST: 1000
+capacity: 39
+route: 0 22 18 21 11 10 8 7 2 3 5 15 19 13 4 16 20 14 17 6 12 9 23 0 
+----------
+
+----------
+Vehicle: 1561
+id: 1561
+type: RETAILER
+COST: 1000
+capacity: 145
+route: 0 1 0 
+----------
+
+----------
+Vehicle: 1562
+id: 1562
+type: OUTLET
+COST: 1000
+capacity: 111.622
+route: 0 3 5 7 1 4 2 6 0 
+----------
+
+----------
+Vehicle: 1563
+id: 1563
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1564
+id: 1564
+type: SUPPLIER
+COST: 1000
+capacity: 48
+route: 0 2 1 7 3 5 6 0 
+----------
+
+----------
+Vehicle: 1565
+id: 1565
+type: SUPPLIER
+COST: 1000
+capacity: 136
+route: 0 4 0 
+----------
+
+----------
+Vehicle: 1566
+id: 1566
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1567
+id: 1567
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1568
+id: 1568
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1569
+id: 1569
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1570
+id: 1570
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1571
+id: 1571
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1572
+id: 1572
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1573
+id: 1573
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1574
+id: 1574
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1575
+id: 1575
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1576
+id: 1576
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1577
+id: 1577
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1578
+id: 1578
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1579
+id: 1579
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 14522
+14522

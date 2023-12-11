@@ -1,0 +1,183 @@
+Vehicles: 
+----------
+Vehicle: 2860
+id: 2860
+type: RETAILER
+COST: 1000
+capacity: 38
+route: 0 7 11 4 18 12 15 10 23 16 1 5 9 22 3 8 13 19 17 6 2 21 14 0 
+----------
+
+----------
+Vehicle: 2861
+id: 2861
+type: RETAILER
+COST: 1000
+capacity: 145
+route: 0 20 0 
+----------
+
+----------
+Vehicle: 2862
+id: 2862
+type: OUTLET
+COST: 1000
+capacity: 117.737
+route: 0 7 2 5 3 1 6 4 0 
+----------
+
+----------
+Vehicle: 2863
+id: 2863
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2864
+id: 2864
+type: SUPPLIER
+COST: 1000
+capacity: 52
+route: 0 7 1 5 2 6 4 0 
+----------
+
+----------
+Vehicle: 2865
+id: 2865
+type: SUPPLIER
+COST: 1000
+capacity: 131
+route: 0 3 0 
+----------
+
+----------
+Vehicle: 2866
+id: 2866
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2867
+id: 2867
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2868
+id: 2868
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2869
+id: 2869
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2870
+id: 2870
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2871
+id: 2871
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2872
+id: 2872
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2873
+id: 2873
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2874
+id: 2874
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2875
+id: 2875
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2876
+id: 2876
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2877
+id: 2877
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2878
+id: 2878
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 2879
+id: 2879
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 16381
+16381

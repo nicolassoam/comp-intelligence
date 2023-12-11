@@ -1,0 +1,183 @@
+Vehicles: 
+----------
+Vehicle: 3160
+id: 3160
+type: RETAILER
+COST: 1000
+capacity: 39
+route: 0 18 5 12 20 19 11 9 23 14 4 7 13 8 10 2 1 17 6 16 21 22 3 0 
+----------
+
+----------
+Vehicle: 3161
+id: 3161
+type: RETAILER
+COST: 1000
+capacity: 145
+route: 0 15 0 
+----------
+
+----------
+Vehicle: 3162
+id: 3162
+type: OUTLET
+COST: 1000
+capacity: 124.455
+route: 0 7 6 2 3 4 5 1 0 
+----------
+
+----------
+Vehicle: 3163
+id: 3163
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3164
+id: 3164
+type: SUPPLIER
+COST: 1000
+capacity: 46
+route: 0 7 3 5 2 4 1 0 
+----------
+
+----------
+Vehicle: 3165
+id: 3165
+type: SUPPLIER
+COST: 1000
+capacity: 138
+route: 0 6 0 
+----------
+
+----------
+Vehicle: 3166
+id: 3166
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3167
+id: 3167
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3168
+id: 3168
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3169
+id: 3169
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3170
+id: 3170
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3171
+id: 3171
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3172
+id: 3172
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3173
+id: 3173
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3174
+id: 3174
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3175
+id: 3175
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3176
+id: 3176
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3177
+id: 3177
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3178
+id: 3178
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 3179
+id: 3179
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 16864
+16864

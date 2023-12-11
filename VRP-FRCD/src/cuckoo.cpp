@@ -483,6 +483,10 @@ void MCS::search(){
     return;
 }
 
+cuckoo MCS::getBestCuckoo(){
+    return nests[0];
+}
+
 void MCS::printSolution(){
     std::cout << "Best Solution: " << std::endl;
     for(int i = 0; i < nVehicles; i++){

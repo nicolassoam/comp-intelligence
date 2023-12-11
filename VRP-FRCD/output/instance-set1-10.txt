@@ -1,0 +1,93 @@
+Vehicles: 
+----------
+Vehicle: 360
+id: 360
+type: RETAILER
+COST: 1000
+capacity: 6
+route: 0 2 1 3 4 6 0 
+----------
+
+----------
+Vehicle: 361
+id: 361
+type: RETAILER
+COST: 1000
+capacity: 56
+route: 0 5 0 
+----------
+
+----------
+Vehicle: 362
+id: 362
+type: OUTLET
+COST: 1000
+capacity: 57.5553
+route: 0 4 3 2 1 0 
+----------
+
+----------
+Vehicle: 363
+id: 363
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 364
+id: 364
+type: SUPPLIER
+COST: 1000
+capacity: 40
+route: 0 3 2 1 0 
+----------
+
+----------
+Vehicle: 365
+id: 365
+type: SUPPLIER
+COST: 1000
+capacity: 22
+route: 0 4 0 
+----------
+
+----------
+Vehicle: 366
+id: 366
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 367
+id: 367
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 368
+id: 368
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 369
+id: 369
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 10041
+10041

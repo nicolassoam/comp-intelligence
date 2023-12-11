@@ -1,0 +1,183 @@
+Vehicles: 
+----------
+Vehicle: 1960
+id: 1960
+type: RETAILER
+COST: 1000
+capacity: 30
+route: 0 23 19 15 9 21 17 13 1 4 10 14 5 22 11 18 3 12 8 6 2 20 16 0 
+----------
+
+----------
+Vehicle: 1961
+id: 1961
+type: RETAILER
+COST: 1000
+capacity: 145
+route: 0 7 0 
+----------
+
+----------
+Vehicle: 1962
+id: 1962
+type: OUTLET
+COST: 1000
+capacity: 135.225
+route: 0 7 3 5 2 4 1 6 0 
+----------
+
+----------
+Vehicle: 1963
+id: 1963
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1964
+id: 1964
+type: SUPPLIER
+COST: 1000
+capacity: 45
+route: 0 3 7 4 6 2 1 0 
+----------
+
+----------
+Vehicle: 1965
+id: 1965
+type: SUPPLIER
+COST: 1000
+capacity: 130
+route: 0 5 0 
+----------
+
+----------
+Vehicle: 1966
+id: 1966
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1967
+id: 1967
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1968
+id: 1968
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1969
+id: 1969
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1970
+id: 1970
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1971
+id: 1971
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1972
+id: 1972
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1973
+id: 1973
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1974
+id: 1974
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1975
+id: 1975
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1976
+id: 1976
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1977
+id: 1977
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1978
+id: 1978
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 1979
+id: 1979
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 14895
+14895
