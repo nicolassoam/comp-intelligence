@@ -6,7 +6,7 @@ MCS::MCS( int nNests, int nVehicles, int nIterations, Instance* inst){
     this->nNests = nNests;
     this->nVehicles = nVehicles;
     this->nIterations = nIterations;
-    this->levyStepSize = maxLevyStepSize;
+    this->levyStepSize = 1;
     this->inst = inst;
 }
 
@@ -27,7 +27,7 @@ double MCS::levyFlight(){
 
     double u = u_n(gen);
     double v = v_n(gen);
-    double step = u / std::pow(std::abs(v), (1 / lambda));
+    double step = std::abs(u) / std::pow(std::abs(v), (1 / lambda));
     
     return levyStepSize * step;
 }
@@ -294,31 +294,22 @@ void MCS::initPopulation(){
     //exit(1);
 }
 
-cuckoo MCS::applyMovement(cuckoo c, std::vector<double>iteratorVector){
-
+void selectRandomRoutes(int &random1,int &random2,cuckoo newCuckoo){
     std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<> dis(0, 1);
-    cuckoo newCuckoo = c;
-    
-    double flight = levyFlight();
-
-    std::cout << "flight: " << flight << std::endl;
-
     // for each type of vehicle
     for (int i = 0; i < 3; i++) {
 
-        int randomRoute1 = -1;
-        int randomRoute2 = -1;
+        random1 = -1;
+        random2 = -1;
 
         // choose two random routes of type i
         if (newCuckoo.vehicleTypes[i] >= 2) {
             std::uniform_int_distribution<> dis2(0, newCuckoo.vehicleTypes[i]-1);
-            randomRoute1 = dis2(rd);
+            random1 = dis2(rd);
 
             do {
-                randomRoute2 = dis2(rd);
-            } while (randomRoute1 == randomRoute2);
+                random2 = dis2(rd);
+            } while (random1 == random2);
             
             switch (i) {
                 case RETAILER:
@@ -326,33 +317,49 @@ cuckoo MCS::applyMovement(cuckoo c, std::vector<double>iteratorVector){
                     break;
                 case OUTLETS:
                     // std::cout << "OUTLETS" << std::endl;
-                    randomRoute1 = randomRoute1 + newCuckoo.vehicleTypes[RETAILER];
-                    randomRoute2 = randomRoute2 + newCuckoo.vehicleTypes[RETAILER];
+                    random1 = random1 + newCuckoo.vehicleTypes[RETAILER];
+                    random2 = random2 + newCuckoo.vehicleTypes[RETAILER];
                     break;
                 case SUPPLIER:
                     // std::cout << "SUPPLIER" << std::endl;
-                    randomRoute1 = randomRoute1 + newCuckoo.vehicleTypes[RETAILER] + newCuckoo.vehicleTypes[OUTLETS];
-                    randomRoute2 = randomRoute2 + newCuckoo.vehicleTypes[RETAILER] + newCuckoo.vehicleTypes[OUTLETS];
+                    random1 = random1 + newCuckoo.vehicleTypes[RETAILER] + newCuckoo.vehicleTypes[OUTLETS];
+                    random2 = random2 + newCuckoo.vehicleTypes[RETAILER] + newCuckoo.vehicleTypes[OUTLETS];
                     break;
             }
         }
-
-        // std::cout << "random routes: " << randomRoute1 << " " << randomRoute2 << std::endl;
-        if(flight>=0 && flight <= iteratorVector[0]){
-            std::cout << "exchange" << std::endl;
-            Neighborhood::exchange(newCuckoo.vehicles[randomRoute1]);
-        } else if(flight >=iteratorVector[1] && flight <= iteratorVector[2]){
-            std::cout << "shift" << std::endl;
-            Neighborhood::shift1_0(newCuckoo.vehicles[randomRoute1], newCuckoo.vehicles[randomRoute2], this->inst);
-        } else if(flight >=iteratorVector[2] && flight <= iteratorVector[3]){
-            std::cout << "swap" << std::endl;
-            Neighborhood::swap2_1(newCuckoo.vehicles[randomRoute1], newCuckoo.vehicles[randomRoute2], this->inst);
-        } else if(flight >=iteratorVector[3] && flight <= iteratorVector[4]){
-            std::cout << "cross" << std::endl;
-            Neighborhood::cross(newCuckoo.vehicles[randomRoute1], newCuckoo.vehicles[randomRoute2], this->inst);
-        } 
-        
     }
+}
+
+cuckoo MCS::applyMovement(cuckoo c, std::vector<double>iteratorVector){
+
+    cuckoo newCuckoo = c;
+    
+    double flight = levyFlight();
+    int random1 = -1, random2 = -1;
+
+    selectRandomRoutes(random1, random2, newCuckoo);
+
+    // std::cout << "random routes: " << random1 << " " << random2 << std::endl;
+    if(flight>=0 && flight <= iteratorVector[0]){
+        // std::cout << "shift" << std::endl;
+        Neighborhood::shift1_0(newCuckoo.vehicles[random1], newCuckoo.vehicles[random2], this->inst);
+    } else if(flight >=iteratorVector[0] && flight <= iteratorVector[1]){
+        // std::cout << "reinsertion"<<std::endl;
+        Neighborhood::reinsertion(newCuckoo.vehicles[random1], this->inst);
+    } else if(flight >=iteratorVector[1] && flight <= iteratorVector[2]){
+        // std::cout << "twopt" << std::endl;
+        Neighborhood::twoOpt(newCuckoo.vehicles[random1], this->inst);
+    } else if(flight >=iteratorVector[2] && flight <= iteratorVector[3]){
+        // std::cout << "exchange" << std::endl;
+        Neighborhood::exchange(newCuckoo.vehicles[random1]);
+    } else if(flight >= iteratorVector[3] && flight <= iteratorVector[4]){
+        // std::cout << "swap" << std::endl;
+        Neighborhood::swap2_1(newCuckoo.vehicles[random1], newCuckoo.vehicles[random2], this->inst);
+    } else if(flight >= iteratorVector[4] && flight <= iteratorVector[5]){
+        // std::cout << "cross" << std::endl;
+        Neighborhood::cross(newCuckoo.vehicles[random1], newCuckoo.vehicles[random2], this->inst);
+    }
+        
 
     return newCuckoo;
 }
@@ -360,19 +367,22 @@ cuckoo MCS::applyMovement(cuckoo c, std::vector<double>iteratorVector){
 void MCS::search(){
 
     // n movements 
-    int nSteps = 4;
-    double iterator = (1/(nSteps+1));
+    int nSteps =0;
+    double num = 1;
+
+    std::cout << "Initializing Search" << std::endl;
+    initPopulation();
+
+    nSteps=6;
+    num /= nSteps+1;
 
     //initialize vector of iterator, ranging from 0 to 1
     std::vector<double> iteratorVector;
     for (int i = 0; i < nSteps; i++){
-        iteratorVector.push_back(iterator);
-        iterator += iterator;
+        iteratorVector.push_back(num);
+        num += num;
     }
 
-    std::cout << "Initializing Search" << std::endl;
-
-    initPopulation();
 
     std::random_device rd;
     
@@ -421,18 +431,47 @@ void MCS::search(){
                     nests[randomNest2].fitness = newFitness;
                 }
             } else {
-                // cuckoo cuckooK;
-                
-                // // apply big movement
-                
-                // cuckooK.fitness = fitness(cuckooK.vehicles, cuckooK.usedVehicles);
-                // int randomNest2 = dis(rd);
+                cuckoo cuckooK = nests[j];
 
-                // if(cuckooK.fitness < nests[randomNest2].fitness){
-                //     nests[randomNest2].vehicles = cuckooK.vehicles;
-                //     nests[randomNest2].usedVehicles = cuckooK.usedVehicles;
-                //     nests[randomNest2].fitness = cuckooK.fitness;
-                // }
+                //random movement
+                std::uniform_int_distribution<> dis2(0, nSteps-1);
+
+                int randomMovement = dis2(rd);
+                int randomVehicle1 = -1, randomVehicle2 = -1;
+
+                selectRandomRoutes(randomVehicle1, randomVehicle2, cuckooK);
+
+
+                switch(randomMovement){
+                    case 0:
+                        Neighborhood::shift1_0(cuckooK.vehicles[randomVehicle1], cuckooK.vehicles[randomVehicle2], this->inst);
+                        break;
+                    case 1:
+                        Neighborhood::reinsertion(cuckooK.vehicles[randomVehicle1], this->inst);
+                        break;
+                    case 2:
+                        Neighborhood::twoOpt(cuckooK.vehicles[randomVehicle1], this->inst);
+                        break;
+                    case 3:
+                        Neighborhood::exchange(cuckooK.vehicles[randomVehicle1]);
+                        break;
+                    case 4:
+                        Neighborhood::swap2_1(cuckooK.vehicles[randomVehicle1], cuckooK.vehicles[randomVehicle2], this->inst);
+                        break;
+                    case 5:
+                        Neighborhood::cross(cuckooK.vehicles[randomVehicle1], cuckooK.vehicles[randomVehicle2], this->inst);
+                        break;
+
+                }
+                
+                cuckooK.fitness = fitness(cuckooK.vehicles, cuckooK.usedVehicles);
+                int randomNest2 = dis(rd);
+
+                if(cuckooK.fitness < nests[randomNest2].fitness){
+                    nests[randomNest2].vehicles = cuckooK.vehicles;
+                    nests[randomNest2].usedVehicles = cuckooK.usedVehicles;
+                    nests[randomNest2].fitness = cuckooK.fitness;
+                }
             }
         }
     }

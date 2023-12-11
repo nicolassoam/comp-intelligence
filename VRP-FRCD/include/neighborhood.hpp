@@ -39,8 +39,7 @@ namespace Neighborhood
         int pos1 = getRandomPosition(1, r1.getRoutes().size() - 2);
         int pos2 = getRandomPosition(1, r2.getRoutes().size() - 2);
 
-        r2Routes.insert(r2Routes.begin() + pos2, r1Routes[pos1]);
-        r1Routes.erase(r1Routes.begin() + pos1);
+        
 
         // verify if the routes are valid
         // check if the capacity is not exceeded
@@ -49,18 +48,19 @@ namespace Neighborhood
 
         switch (r1.getType()) {
             case RETAILER:
-                capacity = inst->demandPerRetailer[pos1-1].first;
+                capacity = inst->demandPerRetailer[r1Routes[pos1]-1].first;
                 break;
             case OUTLETS:
-                capacity = inst->outletDemand[pos1-1].first;
+                capacity = inst->outletDemand[r1Routes[pos1]-1].first;
                 break;
             case SUPPLIER:
-                capacity = inst->demandPerProduct[pos1-1].first;
+                capacity = inst->demandPerProduct[r1Routes[pos1]-1].first;
                 break;
             default:
                 break;
         }
-
+        r2Routes.insert(r2Routes.begin() + pos2, r1Routes[pos1]);
+        r1Routes.erase(r1Routes.begin() + pos1);
         newCapacity = r2.getCapacity() - capacity;
 
         if (newCapacity < 0) return;
@@ -138,21 +138,9 @@ namespace Neighborhood
             pos2 = getRandomPosition(1, routes.size()-2);
         }
 
-        // print routes before shift
-        std::cout << "Before exchange: " << std::endl;
-        std::cout << "r1: ";
-        for (int i = 0; i < routes.size(); i++) {
-            std::cout << routes[i] << " ";
-        }
-        std::cout << std::endl;
+        
         std::swap(routes[pos1], routes[pos2]);
 
-        std::cout << "after exchange: " << std::endl;
-        std::cout << "r1: ";
-        for (int i = 0; i < routes.size(); i++) {
-            std::cout << routes[i] << " ";
-        }
-        std::cout << std::endl;
         v.setRoutes(routes);
     }
 
@@ -190,18 +178,7 @@ namespace Neighborhood
         if(newCapacity2 < 0) return;
 
         // print routes before shift
-        std::cout << "Before swap: " << std::endl;
-        std::cout << "r1: ";
-        for (int i = 0; i < r1.size(); i++) {
-            std::cout << r1[i] << " ";
-        }
-        std::cout << std::endl;
-        std::cout << "r2: ";
-        for (int i = 0; i < r2.size(); i++) {
-            std::cout << r2[i] << " ";
-        }
-        std::cout << std::endl;
-
+    
         r2.insert(r2.begin()+pos2, r1[pos1+1]);
         std::swap(r1[pos1], r2[pos2]);
         r1.erase(r1.begin()+pos1+1);
@@ -209,18 +186,7 @@ namespace Neighborhood
         v1.setCapacity(newCapacity1);
         v2.setCapacity(newCapacity2);
 
-        // print routes before shift
-        std::cout << "after swap: " << std::endl;
-        std::cout << "r1: ";
-        for (int i = 0; i < r1.size(); i++) {
-            std::cout << r1[i] << " ";
-        }
-        std::cout << std::endl;
-        std::cout << "r2: ";
-        for (int i = 0; i < r2.size(); i++) {
-            std::cout << r2[i] << " ";
-        }
-        std::cout << std::endl;
+
         
         v1.setRoutes(r1);
         v2.setRoutes(r2);
@@ -261,18 +227,6 @@ namespace Neighborhood
         newCapacity1 = v1.getCapacity() + d[r2[pos1+1]-1].first - d[r1[pos2+1]-1].first;
         newCapacity2 = v2.getCapacity() + d[r1[pos2+1]-1].first - d[r2[pos1+1]-1].first;
 
-        // print routes before shift
-        std::cout << "Before cross: " << std::endl;
-        std::cout << "r1: ";
-        for (int i = 0; i < r1.size(); i++) {
-            std::cout << r1[i] << " ";
-        }
-        std::cout << std::endl;
-        std::cout << "r2: ";
-        for (int i = 0; i < r2.size(); i++) {
-            std::cout << r2[i] << " ";
-        }
-        std::cout << std::endl;
 
         if(newCapacity1 < 0) return;
         if(newCapacity2 < 0) return;
@@ -291,18 +245,6 @@ namespace Neighborhood
 
         std::swap(r1[pos1+1], r2[pos2+1]);
 
-        // print routes before shift
-        std::cout << "after cross: " << std::endl;
-        std::cout << "r1: ";
-        for (int i = 0; i < r1.size(); i++) {
-            std::cout << r1[i] << " ";
-        }
-        std::cout << std::endl;
-        std::cout << "r2: ";
-        for (int i = 0; i < r2.size(); i++) {
-            std::cout << r2[i] << " ";
-        }
-        std::cout << std::endl;
 
         v1.setCapacity(newCapacity1);
         v2.setCapacity(newCapacity2);
