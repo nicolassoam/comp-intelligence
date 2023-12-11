@@ -339,6 +339,7 @@ cuckoo MCS::applyMovement(cuckoo c, std::vector<double>iteratorVector){
             std::cout << "random routes: " << randomRoute1 << " " << randomRoute2 << std::endl;
             Neighborhood::shift1_0(newCuckoo.vehicles[randomRoute1], newCuckoo.vehicles[randomRoute2], inst);
             Neighborhood::reinsertion(newCuckoo.vehicles[randomRoute1], inst);
+            Neighborhood::twoOpt(newCuckoo.vehicles[randomRoute1], inst);
 
             // if (flight >= iteratorVector[j] && flight < iteratorVector[j+1]){
             //     // apply appropriate moviment

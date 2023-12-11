@@ -73,12 +73,6 @@ namespace Neighborhood
         std::vector<int> rRoutes = r.getRoutes();
 
         if (rRoutes.size() <= 3) return;
-
-        // print route before
-        std::cout << "Route before: " << std::endl;
-        for (auto node : rRoutes)
-            std::cout << node << " ";
-        std::cout << std::endl;
         
         int nodePos = getRandomPosition(1, r.getRoutes().size() - 2);
         int nodeId = rRoutes[nodePos];
@@ -90,19 +84,37 @@ namespace Neighborhood
         rRoutes.erase(rRoutes.begin() + nodePos);
         rRoutes.insert(rRoutes.begin() + newPos, nodeId);
 
-        // print route after
-        std::cout << "Route after: " << std::endl;
-        for (auto node : rRoutes)
-            std::cout << node << " ";
-        std::cout << std::endl;
-
         r.setRoutes(rRoutes);
-
     }
 
-    // 2-OPT
-    void twoOpt(Vehicle& r1, Vehicle& r2, Instance* inst) {
+    // 2-OPT: Two nonadjacent arcs are deleted and later other two are added in such a way that a new route is generated.
+    void twoOpt(Vehicle& r, Instance* inst) {
+        std::vector<int> rRoutes = r.getRoutes();
 
+        // there must be at least four arcs to have two nonadjacent arcs
+        if (rRoutes.size() < 5) return;
+        
+        // arcs can't be adjacent
+        // arc 1 = pos1 -> pos1+1
+        // arc 2 = pos2 -> pos2+1
+
+        int pos1 = getRandomPosition(1, r.getRoutes().size() - 3);
+        int pos2;
+        do {
+            pos2 = getRandomPosition(1, r.getRoutes().size() - 3);
+        } while (pos2 == pos1);
+
+        // pos1 must be smaller than pos2
+        if (pos1 > pos2) {
+            int aux = pos1;
+            pos1 = pos2;
+            pos2 = aux;
+        }
+
+        // reverse the arcs
+        std::reverse(rRoutes.begin() + pos1, rRoutes.begin() + pos2 + 1);
+
+        r.setRoutes(rRoutes);
     }
 
 }
