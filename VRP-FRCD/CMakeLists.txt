@@ -15,8 +15,10 @@ add_library(CI SHARED ${SOURCES})
 
 target_include_directories(CI PUBLIC ${PROJECT_DIR}/include)
 
-add_compile_options(-std=c++20 -Ofast -ltbb -fPIC -march=native -Wall -Wpedantic -Wextra)
+find_package(OpenMP)
+
+add_compile_options(-std=c++20 -Ofast -ltbb -fPIC -march=native -Wall -Wpedantic -Wextra -fopenmp)
 
 add_executable(main src/main.cpp)
 
-target_link_libraries(main CI)
+target_link_libraries(main PUBLIC OpenMP::OpenMP_CXX CI)

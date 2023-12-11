@@ -1,7 +1,7 @@
 Vehicles: 
 ----------
-Vehicle: 600
-id: 600
+Vehicle: 5100
+id: 5100
 type: RETAILER
 COST: 1000
 capacity: 11
@@ -9,8 +9,8 @@ route: 0 1 6 5 0
 ----------
 
 ----------
-Vehicle: 601
-id: 601
+Vehicle: 5101
+id: 5101
 type: RETAILER
 COST: 1000
 capacity: 27
@@ -18,8 +18,8 @@ route: 0 3 4 0
 ----------
 
 ----------
-Vehicle: 602
-id: 602
+Vehicle: 5102
+id: 5102
 type: RETAILER
 COST: 1000
 capacity: 41
@@ -27,8 +27,8 @@ route: 0 2 0
 ----------
 
 ----------
-Vehicle: 603
-id: 603
+Vehicle: 5103
+id: 5103
 type: OUTLET
 COST: 1000
 capacity: 49.6374
@@ -36,8 +36,8 @@ route: 0 1 2 4 3 0
 ----------
 
 ----------
-Vehicle: 604
-id: 604
+Vehicle: 5104
+id: 5104
 type: OUTLET
 COST: 1000
 capacity: 70
@@ -45,8 +45,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 605
-id: 605
+Vehicle: 5105
+id: 5105
 type: SUPPLIER
 COST: 1000
 capacity: 15
@@ -54,8 +54,8 @@ route: 0 2 3 0
 ----------
 
 ----------
-Vehicle: 606
-id: 606
+Vehicle: 5106
+id: 5106
 type: SUPPLIER
 COST: 1000
 capacity: 22
@@ -63,8 +63,8 @@ route: 0 1 0
 ----------
 
 ----------
-Vehicle: 607
-id: 607
+Vehicle: 5107
+id: 5107
 type: SUPPLIER
 COST: 1000
 capacity: 42
@@ -72,8 +72,8 @@ route: 0 4 0
 ----------
 
 ----------
-Vehicle: 608
-id: 608
+Vehicle: 5108
+id: 5108
 type: VEHICLE
 COST: 1000
 capacity: 70
@@ -81,8 +81,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 609
-id: 609
+Vehicle: 5109
+id: 5109
 type: VEHICLE
 COST: 1000
 capacity: 70
@@ -90,4 +90,4 @@ route: 0 0
 ----------
 
 Fitness: 13384
-13384
+Time: 0.448959

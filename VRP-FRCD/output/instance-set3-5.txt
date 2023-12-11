@@ -1,25 +1,25 @@
 Vehicles: 
 ----------
-Vehicle: 4080
-id: 4080
+Vehicle: 2050
+id: 2050
 type: RETAILER
 COST: 1000
 capacity: 3
-route: 0 3 20 35 28 11 23 10 8 17 33 18 5 15 13 4 26 38 9 21 30 7 16 37 22 0 
+route: 0 8 15 21 23 28 35 16 20 5 33 7 22 9 3 13 4 30 11 26 10 18 37 38 17 0 
 ----------
 
 ----------
-Vehicle: 4081
-id: 4081
+Vehicle: 2051
+id: 2051
 type: RETAILER
 COST: 1000
 capacity: 64
-route: 0 6 2 14 36 25 19 34 24 12 32 29 27 1 0 
+route: 0 25 12 1 29 14 36 19 34 32 6 2 27 24 0 
 ----------
 
 ----------
-Vehicle: 4082
-id: 4082
+Vehicle: 2052
+id: 2052
 type: RETAILER
 COST: 1000
 capacity: 144
@@ -27,44 +27,44 @@ route: 0 31 0
 ----------
 
 ----------
-Vehicle: 4083
-id: 4083
+Vehicle: 2053
+id: 2053
 type: OUTLET
 COST: 1000
-capacity: 92.3513
-route: 0 11 4 5 3 1 12 7 2 10 6 9 8 0 
+capacity: 96.9965
+route: 0 11 8 6 5 4 0 
 ----------
 
 ----------
-Vehicle: 4084
-id: 4084
+Vehicle: 2054
+id: 2054
 type: OUTLET
 COST: 1000
-capacity: 150
-route: 0 0 
+capacity: 148.664
+route: 0 10 3 1 7 2 9 12 0 
 ----------
 
 ----------
-Vehicle: 4085
-id: 4085
+Vehicle: 2055
+id: 2055
 type: SUPPLIER
 COST: 1000
 capacity: 10
-route: 0 2 7 8 11 9 6 12 10 0 
+route: 0 6 11 2 12 8 10 7 9 0 
 ----------
 
 ----------
-Vehicle: 4086
-id: 4086
+Vehicle: 2056
+id: 2056
 type: SUPPLIER
 COST: 1000
 capacity: 69
-route: 0 4 1 5 0 
+route: 0 5 4 1 0 
 ----------
 
 ----------
-Vehicle: 4087
-id: 4087
+Vehicle: 2057
+id: 2057
 type: SUPPLIER
 COST: 1000
 capacity: 132
@@ -72,8 +72,8 @@ route: 0 3 0
 ----------
 
 ----------
-Vehicle: 4088
-id: 4088
+Vehicle: 2058
+id: 2058
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -81,8 +81,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4089
-id: 4089
+Vehicle: 2059
+id: 2059
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -90,8 +90,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4090
-id: 4090
+Vehicle: 2060
+id: 2060
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -99,8 +99,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4091
-id: 4091
+Vehicle: 2061
+id: 2061
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -108,8 +108,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4092
-id: 4092
+Vehicle: 2062
+id: 2062
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -117,8 +117,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4093
-id: 4093
+Vehicle: 2063
+id: 2063
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -126,8 +126,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4094
-id: 4094
+Vehicle: 2064
+id: 2064
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -135,8 +135,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4095
-id: 4095
+Vehicle: 2065
+id: 2065
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -144,8 +144,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4096
-id: 4096
+Vehicle: 2066
+id: 2066
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -153,8 +153,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4097
-id: 4097
+Vehicle: 2067
+id: 2067
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -162,8 +162,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4098
-id: 4098
+Vehicle: 2068
+id: 2068
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -171,8 +171,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4099
-id: 4099
+Vehicle: 2069
+id: 2069
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -180,8 +180,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4100
-id: 4100
+Vehicle: 2070
+id: 2070
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -189,8 +189,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4101
-id: 4101
+Vehicle: 2071
+id: 2071
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -198,8 +198,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4102
-id: 4102
+Vehicle: 2072
+id: 2072
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -207,8 +207,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4103
-id: 4103
+Vehicle: 2073
+id: 2073
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -216,8 +216,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4104
-id: 4104
+Vehicle: 2074
+id: 2074
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -225,8 +225,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4105
-id: 4105
+Vehicle: 2075
+id: 2075
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -234,8 +234,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4106
-id: 4106
+Vehicle: 2076
+id: 2076
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -243,8 +243,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4107
-id: 4107
+Vehicle: 2077
+id: 2077
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -252,8 +252,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4108
-id: 4108
+Vehicle: 2078
+id: 2078
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -261,13 +261,13 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 4109
-id: 4109
+Vehicle: 2079
+id: 2079
 type: VEHICLE
 COST: 1000
 capacity: 150
 route: 0 0 
 ----------
 
-Fitness: 26042
-26042
+Fitness: 26606
+Time: 0.542384

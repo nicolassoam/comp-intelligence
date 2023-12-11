@@ -1,7 +1,7 @@
 Vehicles: 
 ----------
-Vehicle: 1040
-id: 1040
+Vehicle: 2320
+id: 2320
 type: RETAILER
 COST: 1000
 capacity: 14
@@ -9,17 +9,17 @@ route: 0 1 4 0
 ----------
 
 ----------
-Vehicle: 1041
-id: 1041
+Vehicle: 2321
+id: 2321
 type: RETAILER
 COST: 1000
 capacity: 0
-route: 0 5 6 2 0 
+route: 0 5 2 6 0 
 ----------
 
 ----------
-Vehicle: 1042
-id: 1042
+Vehicle: 2322
+id: 2322
 type: RETAILER
 COST: 1000
 capacity: 46
@@ -27,8 +27,8 @@ route: 0 3 0
 ----------
 
 ----------
-Vehicle: 1043
-id: 1043
+Vehicle: 2323
+id: 2323
 type: OUTLET
 COST: 1000
 capacity: 39.6048
@@ -36,8 +36,8 @@ route: 0 4 2 3 1 0
 ----------
 
 ----------
-Vehicle: 1044
-id: 1044
+Vehicle: 2324
+id: 2324
 type: OUTLET
 COST: 1000
 capacity: 70
@@ -45,8 +45,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1045
-id: 1045
+Vehicle: 2325
+id: 2325
 type: SUPPLIER
 COST: 1000
 capacity: 11
@@ -54,8 +54,8 @@ route: 0 1 2 0
 ----------
 
 ----------
-Vehicle: 1046
-id: 1046
+Vehicle: 2326
+id: 2326
 type: SUPPLIER
 COST: 1000
 capacity: 23
@@ -63,8 +63,8 @@ route: 0 3 0
 ----------
 
 ----------
-Vehicle: 1047
-id: 1047
+Vehicle: 2327
+id: 2327
 type: SUPPLIER
 COST: 1000
 capacity: 26
@@ -72,8 +72,8 @@ route: 0 4 0
 ----------
 
 ----------
-Vehicle: 1048
-id: 1048
+Vehicle: 2328
+id: 2328
 type: VEHICLE
 COST: 1000
 capacity: 70
@@ -81,13 +81,13 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1049
-id: 1049
+Vehicle: 2329
+id: 2329
 type: VEHICLE
 COST: 1000
 capacity: 70
 route: 0 0 
 ----------
 
-Fitness: 13242
-13242
+Fitness: 13384
+Time: 0.330557

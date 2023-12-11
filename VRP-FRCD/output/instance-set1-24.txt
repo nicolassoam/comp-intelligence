@@ -1,7 +1,7 @@
 Vehicles: 
 ----------
-Vehicle: 940
-id: 940
+Vehicle: 6510
+id: 6510
 type: RETAILER
 COST: 1000
 capacity: 15
@@ -9,17 +9,17 @@ route: 0 4 1 0
 ----------
 
 ----------
-Vehicle: 941
-id: 941
+Vehicle: 6511
+id: 6511
 type: RETAILER
 COST: 1000
 capacity: 10
-route: 0 6 5 0 
+route: 0 5 6 0 
 ----------
 
 ----------
-Vehicle: 942
-id: 942
+Vehicle: 6512
+id: 6512
 type: RETAILER
 COST: 1000
 capacity: 43
@@ -27,8 +27,8 @@ route: 0 2 0
 ----------
 
 ----------
-Vehicle: 943
-id: 943
+Vehicle: 6513
+id: 6513
 type: RETAILER
 COST: 1000
 capacity: 44
@@ -36,8 +36,17 @@ route: 0 3 0
 ----------
 
 ----------
-Vehicle: 944
-id: 944
+Vehicle: 6514
+id: 6514
+type: OUTLET
+COST: 1000
+capacity: 32.4094
+route: 0 4 3 1 2 0 
+----------
+
+----------
+Vehicle: 6515
+id: 6515
 type: OUTLET
 COST: 1000
 capacity: 70
@@ -45,17 +54,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 945
-id: 945
-type: OUTLET
-COST: 1000
-capacity: 33.1976
-route: 0 4 3 1 2 0 
-----------
-
-----------
-Vehicle: 946
-id: 946
+Vehicle: 6516
+id: 6516
 type: SUPPLIER
 COST: 1000
 capacity: 23
@@ -63,8 +63,8 @@ route: 0 4 0
 ----------
 
 ----------
-Vehicle: 947
-id: 947
+Vehicle: 6517
+id: 6517
 type: SUPPLIER
 COST: 1000
 capacity: 21
@@ -72,8 +72,8 @@ route: 0 2 0
 ----------
 
 ----------
-Vehicle: 948
-id: 948
+Vehicle: 6518
+id: 6518
 type: SUPPLIER
 COST: 1000
 capacity: 42
@@ -81,13 +81,13 @@ route: 0 1 0
 ----------
 
 ----------
-Vehicle: 949
-id: 949
+Vehicle: 6519
+id: 6519
 type: SUPPLIER
 COST: 1000
 capacity: 26
 route: 0 3 0 
 ----------
 
-Fitness: 16632
-16632
+Fitness: 16984
+Time: 0.0585095

@@ -1,25 +1,25 @@
 Vehicles: 
 ----------
-Vehicle: 400
-id: 400
+Vehicle: 1940
+id: 1940
 type: RETAILER
 COST: 1000
 capacity: 4
-route: 0 6 3 5 0 
+route: 0 6 5 3 0 
 ----------
 
 ----------
-Vehicle: 401
-id: 401
+Vehicle: 1941
+id: 1941
 type: RETAILER
 COST: 1000
 capacity: 29
-route: 0 2 4 0 
+route: 0 4 2 0 
 ----------
 
 ----------
-Vehicle: 402
-id: 402
+Vehicle: 1942
+id: 1942
 type: RETAILER
 COST: 1000
 capacity: 52
@@ -27,8 +27,8 @@ route: 0 1 0
 ----------
 
 ----------
-Vehicle: 403
-id: 403
+Vehicle: 1943
+id: 1943
 type: OUTLET
 COST: 1000
 capacity: 50.3494
@@ -36,8 +36,8 @@ route: 0 4 3 2 1 0
 ----------
 
 ----------
-Vehicle: 404
-id: 404
+Vehicle: 1944
+id: 1944
 type: OUTLET
 COST: 1000
 capacity: 70
@@ -45,17 +45,17 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 405
-id: 405
+Vehicle: 1945
+id: 1945
 type: SUPPLIER
 COST: 1000
 capacity: 2
-route: 0 2 3 0 
+route: 0 3 2 0 
 ----------
 
 ----------
-Vehicle: 406
-id: 406
+Vehicle: 1946
+id: 1946
 type: SUPPLIER
 COST: 1000
 capacity: 51
@@ -63,8 +63,8 @@ route: 0 1 0
 ----------
 
 ----------
-Vehicle: 407
-id: 407
+Vehicle: 1947
+id: 1947
 type: SUPPLIER
 COST: 1000
 capacity: 32
@@ -72,8 +72,8 @@ route: 0 4 0
 ----------
 
 ----------
-Vehicle: 408
-id: 408
+Vehicle: 1948
+id: 1948
 type: VEHICLE
 COST: 1000
 capacity: 70
@@ -81,13 +81,13 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 409
-id: 409
+Vehicle: 1949
+id: 1949
 type: VEHICLE
 COST: 1000
 capacity: 70
 route: 0 0 
 ----------
 
-Fitness: 13039
-13039
+Fitness: 12489
+Time: 0.30548

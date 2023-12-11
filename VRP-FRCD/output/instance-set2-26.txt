@@ -1,16 +1,16 @@
 Vehicles: 
 ----------
-Vehicle: 3200
-id: 3200
+Vehicle: 300
+id: 300
 type: RETAILER
 COST: 1000
 capacity: 34
-route: 0 8 20 10 16 3 13 7 18 22 14 9 2 11 5 15 12 21 1 17 23 19 6 0 
+route: 0 16 3 17 20 6 11 7 22 13 14 2 18 8 19 12 15 1 9 23 10 21 5 0 
 ----------
 
 ----------
-Vehicle: 3201
-id: 3201
+Vehicle: 301
+id: 301
 type: RETAILER
 COST: 1000
 capacity: 145
@@ -18,17 +18,17 @@ route: 0 4 0
 ----------
 
 ----------
-Vehicle: 3202
-id: 3202
+Vehicle: 302
+id: 302
 type: OUTLET
 COST: 1000
 capacity: 125.758
-route: 0 5 1 2 4 6 7 3 0 
+route: 0 6 2 1 7 3 4 5 0 
 ----------
 
 ----------
-Vehicle: 3203
-id: 3203
+Vehicle: 303
+id: 303
 type: OUTLET
 COST: 1000
 capacity: 150
@@ -36,17 +36,17 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 3204
-id: 3204
+Vehicle: 304
+id: 304
 type: SUPPLIER
 COST: 1000
 capacity: 49
-route: 0 5 6 1 4 2 7 0 
+route: 0 4 7 1 5 2 6 0 
 ----------
 
 ----------
-Vehicle: 3205
-id: 3205
+Vehicle: 305
+id: 305
 type: SUPPLIER
 COST: 1000
 capacity: 130
@@ -54,8 +54,8 @@ route: 0 3 0
 ----------
 
 ----------
-Vehicle: 3206
-id: 3206
+Vehicle: 306
+id: 306
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -63,8 +63,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 3207
-id: 3207
+Vehicle: 307
+id: 307
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -72,8 +72,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 3208
-id: 3208
+Vehicle: 308
+id: 308
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -81,8 +81,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 3209
-id: 3209
+Vehicle: 309
+id: 309
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -90,8 +90,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 3210
-id: 3210
+Vehicle: 310
+id: 310
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -99,8 +99,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 3211
-id: 3211
+Vehicle: 311
+id: 311
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -108,8 +108,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 3212
-id: 3212
+Vehicle: 312
+id: 312
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -117,8 +117,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 3213
-id: 3213
+Vehicle: 313
+id: 313
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -126,8 +126,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 3214
-id: 3214
+Vehicle: 314
+id: 314
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -135,8 +135,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 3215
-id: 3215
+Vehicle: 315
+id: 315
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -144,8 +144,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 3216
-id: 3216
+Vehicle: 316
+id: 316
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -153,8 +153,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 3217
-id: 3217
+Vehicle: 317
+id: 317
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -162,8 +162,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 3218
-id: 3218
+Vehicle: 318
+id: 318
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -171,13 +171,13 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 3219
-id: 3219
+Vehicle: 319
+id: 319
 type: VEHICLE
 COST: 1000
 capacity: 150
 route: 0 0 
 ----------
 
-Fitness: 14860
-14860
+Fitness: 14741
+Time: 0.255088

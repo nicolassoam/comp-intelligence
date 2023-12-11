@@ -1,25 +1,25 @@
 Vehicles: 
 ----------
-Vehicle: 5730
-id: 5730
+Vehicle: 1810
+id: 1810
 type: RETAILER
 COST: 1000
 capacity: 2
-route: 0 32 28 35 15 22 8 20 3 16 27 1 29 36 4 19 6 5 26 38 23 12 33 37 34 30 13 0 
+route: 0 13 12 36 34 27 30 23 35 29 33 4 16 26 20 5 15 6 37 1 38 28 8 19 3 22 32 0 
 ----------
 
 ----------
-Vehicle: 5731
-id: 5731
+Vehicle: 1811
+id: 1811
 type: RETAILER
 COST: 1000
 capacity: 89
-route: 0 18 7 21 24 2 14 10 25 11 9 31 0 
+route: 0 2 31 25 9 24 10 18 14 11 21 7 0 
 ----------
 
 ----------
-Vehicle: 5732
-id: 5732
+Vehicle: 1812
+id: 1812
 type: RETAILER
 COST: 1000
 capacity: 144
@@ -27,17 +27,17 @@ route: 0 17 0
 ----------
 
 ----------
-Vehicle: 5733
-id: 5733
+Vehicle: 1813
+id: 1813
 type: OUTLET
 COST: 1000
-capacity: 90.5346
-route: 0 12 1 11 6 9 8 2 10 7 4 5 3 0 
+capacity: 74.2606
+route: 0 10 12 1 11 6 9 8 5 7 3 4 2 0 
 ----------
 
 ----------
-Vehicle: 5734
-id: 5734
+Vehicle: 1814
+id: 1814
 type: OUTLET
 COST: 1000
 capacity: 150
@@ -45,17 +45,17 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5735
-id: 5735
+Vehicle: 1815
+id: 1815
 type: SUPPLIER
 COST: 1000
 capacity: 4
-route: 0 7 8 3 2 4 6 5 9 11 0 
+route: 0 9 11 4 6 3 7 8 2 5 0 
 ----------
 
 ----------
-Vehicle: 5736
-id: 5736
+Vehicle: 1816
+id: 1816
 type: SUPPLIER
 COST: 1000
 capacity: 104
@@ -63,8 +63,8 @@ route: 0 1 12 0
 ----------
 
 ----------
-Vehicle: 5737
-id: 5737
+Vehicle: 1817
+id: 1817
 type: SUPPLIER
 COST: 1000
 capacity: 127
@@ -72,8 +72,8 @@ route: 0 10 0
 ----------
 
 ----------
-Vehicle: 5738
-id: 5738
+Vehicle: 1818
+id: 1818
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -81,8 +81,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5739
-id: 5739
+Vehicle: 1819
+id: 1819
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -90,8 +90,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5740
-id: 5740
+Vehicle: 1820
+id: 1820
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -99,8 +99,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5741
-id: 5741
+Vehicle: 1821
+id: 1821
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -108,8 +108,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5742
-id: 5742
+Vehicle: 1822
+id: 1822
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -117,8 +117,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5743
-id: 5743
+Vehicle: 1823
+id: 1823
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -126,8 +126,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5744
-id: 5744
+Vehicle: 1824
+id: 1824
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -135,8 +135,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5745
-id: 5745
+Vehicle: 1825
+id: 1825
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -144,8 +144,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5746
-id: 5746
+Vehicle: 1826
+id: 1826
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -153,8 +153,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5747
-id: 5747
+Vehicle: 1827
+id: 1827
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -162,8 +162,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5748
-id: 5748
+Vehicle: 1828
+id: 1828
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -171,8 +171,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5749
-id: 5749
+Vehicle: 1829
+id: 1829
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -180,8 +180,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5750
-id: 5750
+Vehicle: 1830
+id: 1830
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -189,8 +189,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5751
-id: 5751
+Vehicle: 1831
+id: 1831
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -198,8 +198,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5752
-id: 5752
+Vehicle: 1832
+id: 1832
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -207,8 +207,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5753
-id: 5753
+Vehicle: 1833
+id: 1833
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -216,8 +216,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5754
-id: 5754
+Vehicle: 1834
+id: 1834
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -225,8 +225,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5755
-id: 5755
+Vehicle: 1835
+id: 1835
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -234,8 +234,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5756
-id: 5756
+Vehicle: 1836
+id: 1836
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -243,8 +243,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5757
-id: 5757
+Vehicle: 1837
+id: 1837
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -252,8 +252,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5758
-id: 5758
+Vehicle: 1838
+id: 1838
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -261,13 +261,13 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5759
-id: 5759
+Vehicle: 1839
+id: 1839
 type: VEHICLE
 COST: 1000
 capacity: 150
 route: 0 0 
 ----------
 
-Fitness: 25117
-25117
+Fitness: 27314
+Time: 0.564207

@@ -1,7 +1,7 @@
 Vehicles: 
 ----------
-Vehicle: 790
-id: 790
+Vehicle: 3080
+id: 3080
 type: RETAILER
 COST: 1000
 capacity: 14
@@ -9,8 +9,8 @@ route: 0 6 2 0
 ----------
 
 ----------
-Vehicle: 791
-id: 791
+Vehicle: 3081
+id: 3081
 type: RETAILER
 COST: 1000
 capacity: 17
@@ -18,8 +18,8 @@ route: 0 3 1 0
 ----------
 
 ----------
-Vehicle: 792
-id: 792
+Vehicle: 3082
+id: 3082
 type: RETAILER
 COST: 1000
 capacity: 45
@@ -27,8 +27,8 @@ route: 0 5 0
 ----------
 
 ----------
-Vehicle: 793
-id: 793
+Vehicle: 3083
+id: 3083
 type: RETAILER
 COST: 1000
 capacity: 45
@@ -36,8 +36,8 @@ route: 0 4 0
 ----------
 
 ----------
-Vehicle: 794
-id: 794
+Vehicle: 3084
+id: 3084
 type: OUTLET
 COST: 1000
 capacity: 35.166
@@ -45,8 +45,8 @@ route: 0 1 2 4 3 0
 ----------
 
 ----------
-Vehicle: 795
-id: 795
+Vehicle: 3085
+id: 3085
 type: OUTLET
 COST: 1000
 capacity: 70
@@ -54,8 +54,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 796
-id: 796
+Vehicle: 3086
+id: 3086
 type: SUPPLIER
 COST: 1000
 capacity: 24
@@ -63,17 +63,17 @@ route: 0 3 0
 ----------
 
 ----------
-Vehicle: 797
-id: 797
+Vehicle: 3087
+id: 3087
 type: SUPPLIER
 COST: 1000
 capacity: 4
-route: 0 4 2 0 
+route: 0 2 4 0 
 ----------
 
 ----------
-Vehicle: 798
-id: 798
+Vehicle: 3088
+id: 3088
 type: SUPPLIER
 COST: 1000
 capacity: 23
@@ -81,13 +81,13 @@ route: 0 1 0
 ----------
 
 ----------
-Vehicle: 799
-id: 799
+Vehicle: 3089
+id: 3089
 type: VEHICLE
 COST: 1000
 capacity: 70
 route: 0 0 
 ----------
 
-Fitness: 14537
-14537
+Fitness: 14815
+Time: 0.407409

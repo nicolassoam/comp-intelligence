@@ -1,16 +1,16 @@
 Vehicles: 
 ----------
-Vehicle: 1800
-id: 1800
+Vehicle: 4480
+id: 4480
 type: RETAILER
 COST: 1000
 capacity: 37
-route: 0 13 7 22 12 23 10 4 11 2 9 16 20 21 8 5 6 19 3 17 14 15 18 0 
+route: 0 16 21 18 13 23 4 17 14 11 15 9 7 12 20 22 5 3 19 8 2 6 10 0 
 ----------
 
 ----------
-Vehicle: 1801
-id: 1801
+Vehicle: 4481
+id: 4481
 type: RETAILER
 COST: 1000
 capacity: 145
@@ -18,17 +18,17 @@ route: 0 1 0
 ----------
 
 ----------
-Vehicle: 1802
-id: 1802
+Vehicle: 4482
+id: 4482
 type: OUTLET
 COST: 1000
 capacity: 119.928
-route: 0 5 4 2 7 3 1 6 0 
+route: 0 1 6 2 7 3 5 4 0 
 ----------
 
 ----------
-Vehicle: 1803
-id: 1803
+Vehicle: 4483
+id: 4483
 type: OUTLET
 COST: 1000
 capacity: 150
@@ -36,17 +36,17 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1804
-id: 1804
+Vehicle: 4484
+id: 4484
 type: SUPPLIER
 COST: 1000
 capacity: 45
-route: 0 2 4 3 6 5 1 0 
+route: 0 5 2 4 1 3 6 0 
 ----------
 
 ----------
-Vehicle: 1805
-id: 1805
+Vehicle: 4485
+id: 4485
 type: SUPPLIER
 COST: 1000
 capacity: 137
@@ -54,8 +54,8 @@ route: 0 7 0
 ----------
 
 ----------
-Vehicle: 1806
-id: 1806
+Vehicle: 4486
+id: 4486
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -63,8 +63,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1807
-id: 1807
+Vehicle: 4487
+id: 4487
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -72,8 +72,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1808
-id: 1808
+Vehicle: 4488
+id: 4488
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -81,8 +81,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1809
-id: 1809
+Vehicle: 4489
+id: 4489
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -90,8 +90,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1810
-id: 1810
+Vehicle: 4490
+id: 4490
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -99,8 +99,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1811
-id: 1811
+Vehicle: 4491
+id: 4491
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -108,8 +108,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1812
-id: 1812
+Vehicle: 4492
+id: 4492
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -117,8 +117,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1813
-id: 1813
+Vehicle: 4493
+id: 4493
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -126,8 +126,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1814
-id: 1814
+Vehicle: 4494
+id: 4494
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -135,8 +135,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1815
-id: 1815
+Vehicle: 4495
+id: 4495
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -144,8 +144,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1816
-id: 1816
+Vehicle: 4496
+id: 4496
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -153,8 +153,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1817
-id: 1817
+Vehicle: 4497
+id: 4497
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -162,8 +162,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1818
-id: 1818
+Vehicle: 4498
+id: 4498
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -171,13 +171,13 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1819
-id: 1819
+Vehicle: 4499
+id: 4499
 type: VEHICLE
 COST: 1000
 capacity: 150
 route: 0 0 
 ----------
 
-Fitness: 15159
-15159
+Fitness: 14849
+Time: 0.0985252

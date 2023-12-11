@@ -1,16 +1,16 @@
 Vehicles: 
 ----------
-Vehicle: 2880
-id: 2880
+Vehicle: 4180
+id: 4180
 type: RETAILER
 COST: 1000
 capacity: 40
-route: 0 22 19 2 21 11 15 12 3 18 7 1 14 4 6 16 20 10 13 17 5 8 9 0 
+route: 0 5 10 14 16 11 13 17 15 2 19 22 6 21 9 18 3 7 4 8 20 12 1 0 
 ----------
 
 ----------
-Vehicle: 2881
-id: 2881
+Vehicle: 4181
+id: 4181
 type: RETAILER
 COST: 1000
 capacity: 145
@@ -18,8 +18,8 @@ route: 0 23 0
 ----------
 
 ----------
-Vehicle: 2882
-id: 2882
+Vehicle: 4182
+id: 4182
 type: OUTLET
 COST: 1000
 capacity: 122.941
@@ -27,8 +27,8 @@ route: 0 3 4 2 1 6 5 7 0
 ----------
 
 ----------
-Vehicle: 2883
-id: 2883
+Vehicle: 4183
+id: 4183
 type: OUTLET
 COST: 1000
 capacity: 150
@@ -36,17 +36,17 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 2884
-id: 2884
+Vehicle: 4184
+id: 4184
 type: SUPPLIER
 COST: 1000
 capacity: 40
-route: 0 4 2 3 1 7 5 0 
+route: 0 7 3 1 5 2 4 0 
 ----------
 
 ----------
-Vehicle: 2885
-id: 2885
+Vehicle: 4185
+id: 4185
 type: SUPPLIER
 COST: 1000
 capacity: 145
@@ -54,8 +54,8 @@ route: 0 6 0
 ----------
 
 ----------
-Vehicle: 2886
-id: 2886
+Vehicle: 4186
+id: 4186
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -63,8 +63,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 2887
-id: 2887
+Vehicle: 4187
+id: 4187
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -72,8 +72,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 2888
-id: 2888
+Vehicle: 4188
+id: 4188
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -81,8 +81,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 2889
-id: 2889
+Vehicle: 4189
+id: 4189
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -90,8 +90,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 2890
-id: 2890
+Vehicle: 4190
+id: 4190
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -99,8 +99,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 2891
-id: 2891
+Vehicle: 4191
+id: 4191
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -108,8 +108,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 2892
-id: 2892
+Vehicle: 4192
+id: 4192
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -117,8 +117,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 2893
-id: 2893
+Vehicle: 4193
+id: 4193
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -126,8 +126,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 2894
-id: 2894
+Vehicle: 4194
+id: 4194
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -135,8 +135,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 2895
-id: 2895
+Vehicle: 4195
+id: 4195
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -144,8 +144,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 2896
-id: 2896
+Vehicle: 4196
+id: 4196
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -153,8 +153,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 2897
-id: 2897
+Vehicle: 4197
+id: 4197
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -162,8 +162,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 2898
-id: 2898
+Vehicle: 4198
+id: 4198
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -171,13 +171,13 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 2899
-id: 2899
+Vehicle: 4199
+id: 4199
 type: VEHICLE
 COST: 1000
 capacity: 150
 route: 0 0 
 ----------
 
-Fitness: 15657
-15657
+Fitness: 14736
+Time: 0.69664

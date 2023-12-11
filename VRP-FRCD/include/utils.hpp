@@ -71,7 +71,7 @@ namespace Util
         }
     }
 
-    void saveSolution(string file, cuckoo best){
+    void saveSolution(string file, cuckoo best, double time){
         ofstream solution;
         solution.open(file, ios::out);
         solution << "Vehicles: " <<std::endl;
@@ -80,7 +80,8 @@ namespace Util
             
         }
         solution << "Fitness: " << best.fitness << endl;
-        solution << best.fitness << endl;
+        solution << "Time: " << time << endl;
+        solution.close();
     }
 
     Instance* readInstance(string file)

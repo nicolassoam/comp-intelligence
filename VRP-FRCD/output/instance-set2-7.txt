@@ -1,16 +1,16 @@
 Vehicles: 
 ----------
-Vehicle: 1680
-id: 1680
+Vehicle: 3440
+id: 3440
 type: RETAILER
 COST: 1000
 capacity: 38
-route: 0 20 2 18 17 4 12 16 15 23 10 19 5 21 9 3 13 22 6 14 1 11 8 0 
+route: 0 20 16 21 15 4 22 19 13 12 11 6 1 10 9 5 3 14 17 23 8 2 18 0 
 ----------
 
 ----------
-Vehicle: 1681
-id: 1681
+Vehicle: 3441
+id: 3441
 type: RETAILER
 COST: 1000
 capacity: 145
@@ -18,17 +18,17 @@ route: 0 7 0
 ----------
 
 ----------
-Vehicle: 1682
-id: 1682
+Vehicle: 3442
+id: 3442
 type: OUTLET
 COST: 1000
-capacity: 129.196
+capacity: 134.436
 route: 0 5 6 1 7 2 4 3 0 
 ----------
 
 ----------
-Vehicle: 1683
-id: 1683
+Vehicle: 3443
+id: 3443
 type: OUTLET
 COST: 1000
 capacity: 150
@@ -36,17 +36,17 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1684
-id: 1684
+Vehicle: 3444
+id: 3444
 type: SUPPLIER
 COST: 1000
 capacity: 45
-route: 0 5 4 7 1 2 6 0 
+route: 0 5 4 2 6 1 7 0 
 ----------
 
 ----------
-Vehicle: 1685
-id: 1685
+Vehicle: 3445
+id: 3445
 type: SUPPLIER
 COST: 1000
 capacity: 138
@@ -54,8 +54,8 @@ route: 0 3 0
 ----------
 
 ----------
-Vehicle: 1686
-id: 1686
+Vehicle: 3446
+id: 3446
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -63,8 +63,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1687
-id: 1687
+Vehicle: 3447
+id: 3447
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -72,8 +72,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1688
-id: 1688
+Vehicle: 3448
+id: 3448
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -81,8 +81,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1689
-id: 1689
+Vehicle: 3449
+id: 3449
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -90,8 +90,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1690
-id: 1690
+Vehicle: 3450
+id: 3450
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -99,8 +99,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1691
-id: 1691
+Vehicle: 3451
+id: 3451
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -108,8 +108,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1692
-id: 1692
+Vehicle: 3452
+id: 3452
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -117,8 +117,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1693
-id: 1693
+Vehicle: 3453
+id: 3453
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -126,8 +126,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1694
-id: 1694
+Vehicle: 3454
+id: 3454
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -135,8 +135,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1695
-id: 1695
+Vehicle: 3455
+id: 3455
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -144,8 +144,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1696
-id: 1696
+Vehicle: 3456
+id: 3456
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -153,8 +153,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1697
-id: 1697
+Vehicle: 3457
+id: 3457
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -162,8 +162,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1698
-id: 1698
+Vehicle: 3458
+id: 3458
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -171,13 +171,13 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1699
-id: 1699
+Vehicle: 3459
+id: 3459
 type: VEHICLE
 COST: 1000
 capacity: 150
 route: 0 0 
 ----------
 
-Fitness: 14890
-14890
+Fitness: 14668
+Time: 0.607218

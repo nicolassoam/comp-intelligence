@@ -1,16 +1,16 @@
 Vehicles: 
 ----------
-Vehicle: 1100
-id: 1100
+Vehicle: 3060
+id: 3060
 type: RETAILER
 COST: 1000
 capacity: 7
-route: 0 5 1 6 0 
+route: 0 6 1 5 0 
 ----------
 
 ----------
-Vehicle: 1101
-id: 1101
+Vehicle: 3061
+id: 3061
 type: RETAILER
 COST: 1000
 capacity: 27
@@ -18,8 +18,8 @@ route: 0 4 3 0
 ----------
 
 ----------
-Vehicle: 1102
-id: 1102
+Vehicle: 3062
+id: 3062
 type: RETAILER
 COST: 1000
 capacity: 48
@@ -27,8 +27,8 @@ route: 0 2 0
 ----------
 
 ----------
-Vehicle: 1103
-id: 1103
+Vehicle: 3063
+id: 3063
 type: OUTLET
 COST: 1000
 capacity: 27.3369
@@ -36,8 +36,8 @@ route: 0 4 3 1 2 0
 ----------
 
 ----------
-Vehicle: 1104
-id: 1104
+Vehicle: 3064
+id: 3064
 type: OUTLET
 COST: 1000
 capacity: 70
@@ -45,17 +45,17 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1105
-id: 1105
+Vehicle: 3065
+id: 3065
 type: SUPPLIER
 COST: 1000
 capacity: 8
-route: 0 1 2 0 
+route: 0 2 1 0 
 ----------
 
 ----------
-Vehicle: 1106
-id: 1106
+Vehicle: 3066
+id: 3066
 type: SUPPLIER
 COST: 1000
 capacity: 24
@@ -63,8 +63,8 @@ route: 0 3 0
 ----------
 
 ----------
-Vehicle: 1107
-id: 1107
+Vehicle: 3067
+id: 3067
 type: SUPPLIER
 COST: 1000
 capacity: 50
@@ -72,8 +72,8 @@ route: 0 4 0
 ----------
 
 ----------
-Vehicle: 1108
-id: 1108
+Vehicle: 3068
+id: 3068
 type: VEHICLE
 COST: 1000
 capacity: 70
@@ -81,13 +81,13 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1109
-id: 1109
+Vehicle: 3069
+id: 3069
 type: VEHICLE
 COST: 1000
 capacity: 70
 route: 0 0 
 ----------
 
-Fitness: 14065
-14065
+Fitness: 13275
+Time: 0.928892

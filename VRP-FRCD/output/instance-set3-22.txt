@@ -1,25 +1,25 @@
 Vehicles: 
 ----------
-Vehicle: 6150
-id: 6150
+Vehicle: 5720
+id: 5720
 type: RETAILER
 COST: 1000
 capacity: 0
-route: 0 13 14 20 3 19 5 12 36 15 21 17 16 38 6 35 18 32 11 24 7 28 30 0 
+route: 0 3 38 36 12 30 21 5 32 20 15 18 28 11 13 16 7 24 19 14 6 17 35 0 
 ----------
 
 ----------
-Vehicle: 6151
-id: 6151
+Vehicle: 5721
+id: 5721
 type: RETAILER
 COST: 1000
 capacity: 65
-route: 0 25 31 37 2 1 27 23 26 4 33 22 10 29 9 8 0 
+route: 0 33 22 1 31 37 26 27 2 25 10 23 29 8 4 9 0 
 ----------
 
 ----------
-Vehicle: 6152
-id: 6152
+Vehicle: 5722
+id: 5722
 type: RETAILER
 COST: 1000
 capacity: 145
@@ -27,44 +27,44 @@ route: 0 34 0
 ----------
 
 ----------
-Vehicle: 6153
-id: 6153
+Vehicle: 5723
+id: 5723
 type: OUTLET
 COST: 1000
-capacity: 114.937
-route: 0 11 10 5 7 2 0 
+capacity: 80.6105
+route: 0 7 5 10 6 2 4 3 11 1 9 8 12 0 
 ----------
 
 ----------
-Vehicle: 6154
-id: 6154
+Vehicle: 5724
+id: 5724
 type: OUTLET
 COST: 1000
-capacity: 118.823
-route: 0 1 9 8 4 3 6 12 0 
+capacity: 150
+route: 0 0 
 ----------
 
 ----------
-Vehicle: 6155
-id: 6155
+Vehicle: 5725
+id: 5725
 type: SUPPLIER
 COST: 1000
 capacity: 6
-route: 0 1 11 7 10 4 2 6 3 0 
+route: 0 10 7 3 1 2 4 6 11 0 
 ----------
 
 ----------
-Vehicle: 6156
-id: 6156
+Vehicle: 5726
+id: 5726
 type: SUPPLIER
 COST: 1000
 capacity: 82
-route: 0 9 12 8 0 
+route: 0 8 9 12 0 
 ----------
 
 ----------
-Vehicle: 6157
-id: 6157
+Vehicle: 5727
+id: 5727
 type: SUPPLIER
 COST: 1000
 capacity: 122
@@ -72,8 +72,8 @@ route: 0 5 0
 ----------
 
 ----------
-Vehicle: 6158
-id: 6158
+Vehicle: 5728
+id: 5728
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -81,8 +81,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6159
-id: 6159
+Vehicle: 5729
+id: 5729
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -90,8 +90,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6160
-id: 6160
+Vehicle: 5730
+id: 5730
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -99,8 +99,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6161
-id: 6161
+Vehicle: 5731
+id: 5731
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -108,8 +108,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6162
-id: 6162
+Vehicle: 5732
+id: 5732
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -117,8 +117,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6163
-id: 6163
+Vehicle: 5733
+id: 5733
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -126,8 +126,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6164
-id: 6164
+Vehicle: 5734
+id: 5734
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -135,8 +135,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6165
-id: 6165
+Vehicle: 5735
+id: 5735
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -144,8 +144,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6166
-id: 6166
+Vehicle: 5736
+id: 5736
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -153,8 +153,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6167
-id: 6167
+Vehicle: 5737
+id: 5737
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -162,8 +162,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6168
-id: 6168
+Vehicle: 5738
+id: 5738
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -171,8 +171,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6169
-id: 6169
+Vehicle: 5739
+id: 5739
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -180,8 +180,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6170
-id: 6170
+Vehicle: 5740
+id: 5740
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -189,8 +189,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6171
-id: 6171
+Vehicle: 5741
+id: 5741
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -198,8 +198,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6172
-id: 6172
+Vehicle: 5742
+id: 5742
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -207,8 +207,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6173
-id: 6173
+Vehicle: 5743
+id: 5743
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -216,8 +216,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6174
-id: 6174
+Vehicle: 5744
+id: 5744
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -225,8 +225,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6175
-id: 6175
+Vehicle: 5745
+id: 5745
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -234,8 +234,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6176
-id: 6176
+Vehicle: 5746
+id: 5746
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -243,8 +243,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6177
-id: 6177
+Vehicle: 5747
+id: 5747
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -252,8 +252,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6178
-id: 6178
+Vehicle: 5748
+id: 5748
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -261,13 +261,13 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 6179
-id: 6179
+Vehicle: 5749
+id: 5749
 type: VEHICLE
 COST: 1000
 capacity: 150
 route: 0 0 
 ----------
 
-Fitness: 25345
-25345
+Fitness: 24104
+Time: 0.55966

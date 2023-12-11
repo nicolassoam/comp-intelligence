@@ -1,16 +1,16 @@
 Vehicles: 
 ----------
-Vehicle: 1960
-id: 1960
+Vehicle: 6580
+id: 6580
 type: RETAILER
 COST: 1000
 capacity: 30
-route: 0 23 19 15 9 21 17 13 1 4 10 14 5 22 11 18 3 12 8 6 2 20 16 0 
+route: 0 12 17 18 11 20 19 5 23 22 16 21 1 8 13 2 4 14 6 10 9 15 3 0 
 ----------
 
 ----------
-Vehicle: 1961
-id: 1961
+Vehicle: 6581
+id: 6581
 type: RETAILER
 COST: 1000
 capacity: 145
@@ -18,17 +18,17 @@ route: 0 7 0
 ----------
 
 ----------
-Vehicle: 1962
-id: 1962
+Vehicle: 6582
+id: 6582
 type: OUTLET
 COST: 1000
-capacity: 135.225
+capacity: 129.987
 route: 0 7 3 5 2 4 1 6 0 
 ----------
 
 ----------
-Vehicle: 1963
-id: 1963
+Vehicle: 6583
+id: 6583
 type: OUTLET
 COST: 1000
 capacity: 150
@@ -36,17 +36,17 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1964
-id: 1964
+Vehicle: 6584
+id: 6584
 type: SUPPLIER
 COST: 1000
 capacity: 45
-route: 0 3 7 4 6 2 1 0 
+route: 0 4 7 3 6 2 1 0 
 ----------
 
 ----------
-Vehicle: 1965
-id: 1965
+Vehicle: 6585
+id: 6585
 type: SUPPLIER
 COST: 1000
 capacity: 130
@@ -54,8 +54,8 @@ route: 0 5 0
 ----------
 
 ----------
-Vehicle: 1966
-id: 1966
+Vehicle: 6586
+id: 6586
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -63,8 +63,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1967
-id: 1967
+Vehicle: 6587
+id: 6587
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -72,8 +72,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1968
-id: 1968
+Vehicle: 6588
+id: 6588
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -81,8 +81,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1969
-id: 1969
+Vehicle: 6589
+id: 6589
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -90,8 +90,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1970
-id: 1970
+Vehicle: 6590
+id: 6590
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -99,8 +99,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1971
-id: 1971
+Vehicle: 6591
+id: 6591
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -108,8 +108,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1972
-id: 1972
+Vehicle: 6592
+id: 6592
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -117,8 +117,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1973
-id: 1973
+Vehicle: 6593
+id: 6593
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -126,8 +126,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1974
-id: 1974
+Vehicle: 6594
+id: 6594
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -135,8 +135,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1975
-id: 1975
+Vehicle: 6595
+id: 6595
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -144,8 +144,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1976
-id: 1976
+Vehicle: 6596
+id: 6596
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -153,8 +153,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1977
-id: 1977
+Vehicle: 6597
+id: 6597
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -162,8 +162,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1978
-id: 1978
+Vehicle: 6598
+id: 6598
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -171,13 +171,13 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1979
-id: 1979
+Vehicle: 6599
+id: 6599
 type: VEHICLE
 COST: 1000
 capacity: 150
 route: 0 0 
 ----------
 
-Fitness: 14895
-14895
+Fitness: 15166
+Time: 0.332043

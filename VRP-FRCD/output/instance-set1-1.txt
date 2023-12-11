@@ -5,7 +5,7 @@ id: 0
 type: RETAILER
 COST: 1000
 capacity: 11
-route: 0 1 4 6 3 0 
+route: 0 6 1 4 3 0 
 ----------
 
 ----------
@@ -31,8 +31,8 @@ Vehicle: 3
 id: 3
 type: OUTLET
 COST: 1000
-capacity: 17.1338
-route: 0 1 3 4 2 0 
+capacity: 70
+route: 0 0 
 ----------
 
 ----------
@@ -40,8 +40,8 @@ Vehicle: 4
 id: 4
 type: OUTLET
 COST: 1000
-capacity: 70
-route: 0 0 
+capacity: 48.8428
+route: 0 1 3 4 2 0 
 ----------
 
 ----------
@@ -50,7 +50,7 @@ id: 5
 type: SUPPLIER
 COST: 1000
 capacity: 4
-route: 0 4 2 3 0 
+route: 0 4 3 2 0 
 ----------
 
 ----------
@@ -89,5 +89,5 @@ capacity: 70
 route: 0 0 
 ----------
 
-Fitness: 11787
-11787
+Fitness: 11771
+Time: 3.86633
