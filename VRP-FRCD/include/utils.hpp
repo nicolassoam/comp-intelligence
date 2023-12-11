@@ -73,7 +73,7 @@ namespace Util
 
     void saveSolution(string file, cuckoo best, double time){
         ofstream solution;
-        solution.open(file, ios::out);
+        solution.open(file, ios::app);
         solution << "Vehicles: " <<std::endl;
         for(auto v : best.vehicles){
             solution << v << endl;

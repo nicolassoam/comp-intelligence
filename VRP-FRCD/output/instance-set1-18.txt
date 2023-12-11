@@ -1,7 +1,7 @@
 Vehicles: 
 ----------
-Vehicle: 1490
-id: 1490
+Vehicle: 2808
+id: 2808
 type: RETAILER
 COST: 1000
 capacity: 2
@@ -9,8 +9,8 @@ route: 0 1 5 2 3 0
 ----------
 
 ----------
-Vehicle: 1491
-id: 1491
+Vehicle: 2809
+id: 2809
 type: RETAILER
 COST: 1000
 capacity: 52
@@ -18,8 +18,8 @@ route: 0 4 0
 ----------
 
 ----------
-Vehicle: 1492
-id: 1492
+Vehicle: 2810
+id: 2810
 type: RETAILER
 COST: 1000
 capacity: 53
@@ -27,8 +27,8 @@ route: 0 6 0
 ----------
 
 ----------
-Vehicle: 1493
-id: 1493
+Vehicle: 2811
+id: 2811
 type: OUTLET
 COST: 1000
 capacity: 39.017
@@ -36,8 +36,8 @@ route: 0 3 2 1 4 0
 ----------
 
 ----------
-Vehicle: 1494
-id: 1494
+Vehicle: 2812
+id: 2812
 type: OUTLET
 COST: 1000
 capacity: 70
@@ -45,17 +45,17 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1495
-id: 1495
+Vehicle: 2813
+id: 2813
 type: SUPPLIER
 COST: 1000
 capacity: 7
-route: 0 4 3 2 0 
+route: 0 3 4 2 0 
 ----------
 
 ----------
-Vehicle: 1496
-id: 1496
+Vehicle: 2814
+id: 2814
 type: SUPPLIER
 COST: 1000
 capacity: 30
@@ -63,8 +63,8 @@ route: 0 1 0
 ----------
 
 ----------
-Vehicle: 1497
-id: 1497
+Vehicle: 2815
+id: 2815
 type: VEHICLE
 COST: 1000
 capacity: 70
@@ -72,8 +72,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1498
-id: 1498
+Vehicle: 2816
+id: 2816
 type: VEHICLE
 COST: 1000
 capacity: 70
@@ -81,13 +81,385 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 1499
-id: 1499
+Vehicle: 2817
+id: 2817
 type: VEHICLE
 COST: 1000
 capacity: 70
 route: 0 0 
 ----------
 
-Fitness: 11873
-Time: 0.775494
+Fitness: 11789
+Time: 0.99295
+Vehicles: 
+----------
+Vehicle: 19487
+id: 19487
+type: RETAILER
+COST: 1000
+capacity: 2
+route: 0 2 3 5 1 0 
+----------
+
+----------
+Vehicle: 19488
+id: 19488
+type: RETAILER
+COST: 1000
+capacity: 52
+route: 0 4 0 
+----------
+
+----------
+Vehicle: 19489
+id: 19489
+type: RETAILER
+COST: 1000
+capacity: 53
+route: 0 6 0 
+----------
+
+----------
+Vehicle: 19490
+id: 19490
+type: OUTLET
+COST: 1000
+capacity: 39.017
+route: 0 3 2 1 4 0 
+----------
+
+----------
+Vehicle: 19491
+id: 19491
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19492
+id: 19492
+type: SUPPLIER
+COST: 1000
+capacity: 7
+route: 0 3 4 2 0 
+----------
+
+----------
+Vehicle: 19493
+id: 19493
+type: SUPPLIER
+COST: 1000
+capacity: 30
+route: 0 1 0 
+----------
+
+----------
+Vehicle: 19494
+id: 19494
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19495
+id: 19495
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19496
+id: 19496
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 12760
+Time: 0.0649932
+Vehicles: 
+----------
+Vehicle: 34847
+id: 34847
+type: RETAILER
+COST: 1000
+capacity: 2
+route: 0 1 2 3 5 0 
+----------
+
+----------
+Vehicle: 34848
+id: 34848
+type: RETAILER
+COST: 1000
+capacity: 52
+route: 0 4 0 
+----------
+
+----------
+Vehicle: 34849
+id: 34849
+type: RETAILER
+COST: 1000
+capacity: 53
+route: 0 6 0 
+----------
+
+----------
+Vehicle: 34850
+id: 34850
+type: OUTLET
+COST: 1000
+capacity: 39.017
+route: 0 3 2 1 4 0 
+----------
+
+----------
+Vehicle: 34851
+id: 34851
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 34852
+id: 34852
+type: SUPPLIER
+COST: 1000
+capacity: 7
+route: 0 3 2 4 0 
+----------
+
+----------
+Vehicle: 34853
+id: 34853
+type: SUPPLIER
+COST: 1000
+capacity: 30
+route: 0 1 0 
+----------
+
+----------
+Vehicle: 34854
+id: 34854
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 34855
+id: 34855
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 34856
+id: 34856
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 12111
+Time: 0.0083873
+Vehicles: 
+----------
+Vehicle: 51007
+id: 51007
+type: RETAILER
+COST: 1000
+capacity: 2
+route: 0 1 2 3 5 0 
+----------
+
+----------
+Vehicle: 51008
+id: 51008
+type: RETAILER
+COST: 1000
+capacity: 52
+route: 0 4 0 
+----------
+
+----------
+Vehicle: 51009
+id: 51009
+type: RETAILER
+COST: 1000
+capacity: 53
+route: 0 6 0 
+----------
+
+----------
+Vehicle: 51010
+id: 51010
+type: OUTLET
+COST: 1000
+capacity: 39.017
+route: 0 3 2 1 4 0 
+----------
+
+----------
+Vehicle: 51011
+id: 51011
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 51012
+id: 51012
+type: SUPPLIER
+COST: 1000
+capacity: 7
+route: 0 3 2 4 0 
+----------
+
+----------
+Vehicle: 51013
+id: 51013
+type: SUPPLIER
+COST: 1000
+capacity: 30
+route: 0 1 0 
+----------
+
+----------
+Vehicle: 51014
+id: 51014
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 51015
+id: 51015
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 51016
+id: 51016
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 12111
+Time: 1.83344
+Vehicles: 
+----------
+Vehicle: 67937
+id: 67937
+type: RETAILER
+COST: 1000
+capacity: 2
+route: 0 2 3 5 1 0 
+----------
+
+----------
+Vehicle: 67938
+id: 67938
+type: RETAILER
+COST: 1000
+capacity: 52
+route: 0 4 0 
+----------
+
+----------
+Vehicle: 67939
+id: 67939
+type: RETAILER
+COST: 1000
+capacity: 53
+route: 0 6 0 
+----------
+
+----------
+Vehicle: 67940
+id: 67940
+type: OUTLET
+COST: 1000
+capacity: 39.017
+route: 0 3 2 1 4 0 
+----------
+
+----------
+Vehicle: 67941
+id: 67941
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 67942
+id: 67942
+type: SUPPLIER
+COST: 1000
+capacity: 7
+route: 0 4 2 3 0 
+----------
+
+----------
+Vehicle: 67943
+id: 67943
+type: SUPPLIER
+COST: 1000
+capacity: 30
+route: 0 1 0 
+----------
+
+----------
+Vehicle: 67944
+id: 67944
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 67945
+id: 67945
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 67946
+id: 67946
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 12425
+Time: 0.209215

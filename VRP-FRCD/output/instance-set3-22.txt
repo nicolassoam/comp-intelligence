@@ -1,25 +1,25 @@
 Vehicles: 
 ----------
-Vehicle: 5720
-id: 5720
+Vehicle: 9938
+id: 9938
 type: RETAILER
 COST: 1000
 capacity: 0
-route: 0 3 38 36 12 30 21 5 32 20 15 18 28 11 13 16 7 24 19 14 6 17 35 0 
+route: 0 38 16 20 13 7 11 17 12 36 18 15 19 3 28 6 32 5 35 21 14 24 30 0 
 ----------
 
 ----------
-Vehicle: 5721
-id: 5721
+Vehicle: 9939
+id: 9939
 type: RETAILER
 COST: 1000
 capacity: 65
-route: 0 33 22 1 31 37 26 27 2 25 10 23 29 8 4 9 0 
+route: 0 8 10 29 33 37 23 22 9 27 25 2 4 31 26 1 0 
 ----------
 
 ----------
-Vehicle: 5722
-id: 5722
+Vehicle: 9940
+id: 9940
 type: RETAILER
 COST: 1000
 capacity: 145
@@ -27,17 +27,17 @@ route: 0 34 0
 ----------
 
 ----------
-Vehicle: 5723
-id: 5723
+Vehicle: 9941
+id: 9941
 type: OUTLET
 COST: 1000
-capacity: 80.6105
-route: 0 7 5 10 6 2 4 3 11 1 9 8 12 0 
+capacity: 84.0998
+route: 0 11 1 8 4 3 6 9 5 12 7 2 10 0 
 ----------
 
 ----------
-Vehicle: 5724
-id: 5724
+Vehicle: 9942
+id: 9942
 type: OUTLET
 COST: 1000
 capacity: 150
@@ -45,26 +45,26 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5725
-id: 5725
+Vehicle: 9943
+id: 9943
 type: SUPPLIER
 COST: 1000
 capacity: 6
-route: 0 10 7 3 1 2 4 6 11 0 
+route: 0 1 4 11 3 7 2 6 10 0 
 ----------
 
 ----------
-Vehicle: 5726
-id: 5726
+Vehicle: 9944
+id: 9944
 type: SUPPLIER
 COST: 1000
 capacity: 82
-route: 0 8 9 12 0 
+route: 0 12 9 8 0 
 ----------
 
 ----------
-Vehicle: 5727
-id: 5727
+Vehicle: 9945
+id: 9945
 type: SUPPLIER
 COST: 1000
 capacity: 122
@@ -72,8 +72,8 @@ route: 0 5 0
 ----------
 
 ----------
-Vehicle: 5728
-id: 5728
+Vehicle: 9946
+id: 9946
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -81,8 +81,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5729
-id: 5729
+Vehicle: 9947
+id: 9947
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -90,8 +90,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5730
-id: 5730
+Vehicle: 9948
+id: 9948
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -99,8 +99,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5731
-id: 5731
+Vehicle: 9949
+id: 9949
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -108,8 +108,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5732
-id: 5732
+Vehicle: 9950
+id: 9950
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -117,8 +117,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5733
-id: 5733
+Vehicle: 9951
+id: 9951
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -126,8 +126,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5734
-id: 5734
+Vehicle: 9952
+id: 9952
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -135,8 +135,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5735
-id: 5735
+Vehicle: 9953
+id: 9953
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -144,8 +144,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5736
-id: 5736
+Vehicle: 9954
+id: 9954
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -153,8 +153,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5737
-id: 5737
+Vehicle: 9955
+id: 9955
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -162,8 +162,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5738
-id: 5738
+Vehicle: 9956
+id: 9956
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -171,8 +171,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5739
-id: 5739
+Vehicle: 9957
+id: 9957
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -180,8 +180,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5740
-id: 5740
+Vehicle: 9958
+id: 9958
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -189,8 +189,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5741
-id: 5741
+Vehicle: 9959
+id: 9959
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -198,8 +198,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5742
-id: 5742
+Vehicle: 9960
+id: 9960
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -207,8 +207,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5743
-id: 5743
+Vehicle: 9961
+id: 9961
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -216,8 +216,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5744
-id: 5744
+Vehicle: 9962
+id: 9962
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -225,8 +225,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5745
-id: 5745
+Vehicle: 9963
+id: 9963
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -234,8 +234,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5746
-id: 5746
+Vehicle: 9964
+id: 9964
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -243,8 +243,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5747
-id: 5747
+Vehicle: 9965
+id: 9965
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -252,8 +252,8 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5748
-id: 5748
+Vehicle: 9966
+id: 9966
 type: VEHICLE
 COST: 1000
 capacity: 150
@@ -261,13 +261,1105 @@ route: 0 0
 ----------
 
 ----------
-Vehicle: 5749
-id: 5749
+Vehicle: 9967
+id: 9967
 type: VEHICLE
 COST: 1000
 capacity: 150
 route: 0 0 
 ----------
 
-Fitness: 24104
-Time: 0.55966
+Fitness: 26488
+Time: 2.29493
+Vehicles: 
+----------
+Vehicle: 27707
+id: 27707
+type: RETAILER
+COST: 1000
+capacity: 0
+route: 0 21 30 13 15 17 3 5 36 6 20 32 16 35 38 7 11 24 14 12 18 19 28 0 
+----------
+
+----------
+Vehicle: 27708
+id: 27708
+type: RETAILER
+COST: 1000
+capacity: 65
+route: 0 33 29 9 26 4 23 31 37 27 10 1 8 25 2 22 0 
+----------
+
+----------
+Vehicle: 27709
+id: 27709
+type: RETAILER
+COST: 1000
+capacity: 145
+route: 0 34 0 
+----------
+
+----------
+Vehicle: 27710
+id: 27710
+type: OUTLET
+COST: 1000
+capacity: 84.0998
+route: 0 11 1 3 7 5 12 9 8 4 6 2 10 0 
+----------
+
+----------
+Vehicle: 27711
+id: 27711
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27712
+id: 27712
+type: SUPPLIER
+COST: 1000
+capacity: 6
+route: 0 7 4 6 3 2 11 10 1 0 
+----------
+
+----------
+Vehicle: 27713
+id: 27713
+type: SUPPLIER
+COST: 1000
+capacity: 82
+route: 0 9 12 8 0 
+----------
+
+----------
+Vehicle: 27714
+id: 27714
+type: SUPPLIER
+COST: 1000
+capacity: 122
+route: 0 5 0 
+----------
+
+----------
+Vehicle: 27715
+id: 27715
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27716
+id: 27716
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27717
+id: 27717
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27718
+id: 27718
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27719
+id: 27719
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27720
+id: 27720
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27721
+id: 27721
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27722
+id: 27722
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27723
+id: 27723
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27724
+id: 27724
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27725
+id: 27725
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27726
+id: 27726
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27727
+id: 27727
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27728
+id: 27728
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27729
+id: 27729
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27730
+id: 27730
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27731
+id: 27731
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27732
+id: 27732
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27733
+id: 27733
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27734
+id: 27734
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27735
+id: 27735
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 27736
+id: 27736
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 23588
+Time: 4.51035
+Vehicles: 
+----------
+Vehicle: 43697
+id: 43697
+type: RETAILER
+COST: 1000
+capacity: 0
+route: 0 36 6 14 30 17 21 28 5 7 15 20 38 24 16 32 18 19 12 11 13 3 35 0 
+----------
+
+----------
+Vehicle: 43698
+id: 43698
+type: RETAILER
+COST: 1000
+capacity: 65
+route: 0 4 1 31 23 2 29 8 26 37 22 10 9 25 33 27 0 
+----------
+
+----------
+Vehicle: 43699
+id: 43699
+type: RETAILER
+COST: 1000
+capacity: 145
+route: 0 34 0 
+----------
+
+----------
+Vehicle: 43700
+id: 43700
+type: OUTLET
+COST: 1000
+capacity: 94.9533
+route: 0 8 9 11 10 6 2 1 4 3 7 5 12 0 
+----------
+
+----------
+Vehicle: 43701
+id: 43701
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43702
+id: 43702
+type: SUPPLIER
+COST: 1000
+capacity: 6
+route: 0 1 4 2 11 10 7 3 6 0 
+----------
+
+----------
+Vehicle: 43703
+id: 43703
+type: SUPPLIER
+COST: 1000
+capacity: 82
+route: 0 9 12 8 0 
+----------
+
+----------
+Vehicle: 43704
+id: 43704
+type: SUPPLIER
+COST: 1000
+capacity: 122
+route: 0 5 0 
+----------
+
+----------
+Vehicle: 43705
+id: 43705
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43706
+id: 43706
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43707
+id: 43707
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43708
+id: 43708
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43709
+id: 43709
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43710
+id: 43710
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43711
+id: 43711
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43712
+id: 43712
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43713
+id: 43713
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43714
+id: 43714
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43715
+id: 43715
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43716
+id: 43716
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43717
+id: 43717
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43718
+id: 43718
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43719
+id: 43719
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43720
+id: 43720
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43721
+id: 43721
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43722
+id: 43722
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43723
+id: 43723
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43724
+id: 43724
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43725
+id: 43725
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 43726
+id: 43726
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 24642
+Time: 2.74118
+Vehicles: 
+----------
+Vehicle: 61307
+id: 61307
+type: RETAILER
+COST: 1000
+capacity: 0
+route: 0 5 12 32 6 19 21 28 15 11 24 13 17 18 38 7 14 20 3 36 30 16 35 0 
+----------
+
+----------
+Vehicle: 61308
+id: 61308
+type: RETAILER
+COST: 1000
+capacity: 65
+route: 0 37 27 1 26 4 31 8 33 22 9 2 10 25 23 29 0 
+----------
+
+----------
+Vehicle: 61309
+id: 61309
+type: RETAILER
+COST: 1000
+capacity: 145
+route: 0 34 0 
+----------
+
+----------
+Vehicle: 61310
+id: 61310
+type: OUTLET
+COST: 1000
+capacity: 84.2804
+route: 0 11 1 3 7 2 4 6 9 5 10 0 
+----------
+
+----------
+Vehicle: 61311
+id: 61311
+type: OUTLET
+COST: 1000
+capacity: 149.479
+route: 0 8 12 0 
+----------
+
+----------
+Vehicle: 61312
+id: 61312
+type: SUPPLIER
+COST: 1000
+capacity: 6
+route: 0 11 2 3 4 6 7 10 1 0 
+----------
+
+----------
+Vehicle: 61313
+id: 61313
+type: SUPPLIER
+COST: 1000
+capacity: 82
+route: 0 9 12 8 0 
+----------
+
+----------
+Vehicle: 61314
+id: 61314
+type: SUPPLIER
+COST: 1000
+capacity: 122
+route: 0 5 0 
+----------
+
+----------
+Vehicle: 61315
+id: 61315
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61316
+id: 61316
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61317
+id: 61317
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61318
+id: 61318
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61319
+id: 61319
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61320
+id: 61320
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61321
+id: 61321
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61322
+id: 61322
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61323
+id: 61323
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61324
+id: 61324
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61325
+id: 61325
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61326
+id: 61326
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61327
+id: 61327
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61328
+id: 61328
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61329
+id: 61329
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61330
+id: 61330
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61331
+id: 61331
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61332
+id: 61332
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61333
+id: 61333
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61334
+id: 61334
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61335
+id: 61335
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 61336
+id: 61336
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 24063
+Time: 2.70942
+Vehicles: 
+----------
+Vehicle: 75037
+id: 75037
+type: RETAILER
+COST: 1000
+capacity: 0
+route: 0 14 13 15 5 35 19 7 21 24 17 11 20 16 6 30 12 36 38 3 18 32 28 0 
+----------
+
+----------
+Vehicle: 75038
+id: 75038
+type: RETAILER
+COST: 1000
+capacity: 65
+route: 0 31 26 27 1 9 22 10 23 25 4 37 33 2 29 8 0 
+----------
+
+----------
+Vehicle: 75039
+id: 75039
+type: RETAILER
+COST: 1000
+capacity: 145
+route: 0 34 0 
+----------
+
+----------
+Vehicle: 75040
+id: 75040
+type: OUTLET
+COST: 1000
+capacity: 84.0998
+route: 0 8 9 11 1 3 6 12 7 2 4 5 10 0 
+----------
+
+----------
+Vehicle: 75041
+id: 75041
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75042
+id: 75042
+type: SUPPLIER
+COST: 1000
+capacity: 6
+route: 0 4 6 1 3 11 2 7 10 0 
+----------
+
+----------
+Vehicle: 75043
+id: 75043
+type: SUPPLIER
+COST: 1000
+capacity: 82
+route: 0 12 9 8 0 
+----------
+
+----------
+Vehicle: 75044
+id: 75044
+type: SUPPLIER
+COST: 1000
+capacity: 122
+route: 0 5 0 
+----------
+
+----------
+Vehicle: 75045
+id: 75045
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75046
+id: 75046
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75047
+id: 75047
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75048
+id: 75048
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75049
+id: 75049
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75050
+id: 75050
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75051
+id: 75051
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75052
+id: 75052
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75053
+id: 75053
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75054
+id: 75054
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75055
+id: 75055
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75056
+id: 75056
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75057
+id: 75057
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75058
+id: 75058
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75059
+id: 75059
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75060
+id: 75060
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75061
+id: 75061
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75062
+id: 75062
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75063
+id: 75063
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75064
+id: 75064
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75065
+id: 75065
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 75066
+id: 75066
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 23901
+Time: 0.943136
