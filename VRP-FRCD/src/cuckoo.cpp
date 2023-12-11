@@ -317,7 +317,7 @@ cuckoo MCS::applyMovement(cuckoo c, std::vector<double>iteratorVector){
             do {
                 randomRoute2 = dis2(rd);
             } while (randomRoute1 == randomRoute2);
-
+            
             switch (i) {
                 case RETAILER:
                     std::cout << "RETAILER" << std::endl;
@@ -414,25 +414,25 @@ void MCS::search(){
                     nests[randomNest2].fitness = newFitness;
                 }
             } else {
-                cuckoo cuckooK;
+                // cuckoo cuckooK;
                 
-                // apply big movement
+                // // apply big movement
                 
-                cuckooK.fitness = fitness(cuckooK.vehicles, cuckooK.usedVehicles);
-                int randomNest2 = dis(rd);
+                // cuckooK.fitness = fitness(cuckooK.vehicles, cuckooK.usedVehicles);
+                // int randomNest2 = dis(rd);
 
-                if(cuckooK.fitness < nests[randomNest2].fitness){
-                    nests[randomNest2].vehicles = cuckooK.vehicles;
-                    nests[randomNest2].usedVehicles = cuckooK.usedVehicles;
-                    nests[randomNest2].fitness = cuckooK.fitness;
-                }
+                // if(cuckooK.fitness < nests[randomNest2].fitness){
+                //     nests[randomNest2].vehicles = cuckooK.vehicles;
+                //     nests[randomNest2].usedVehicles = cuckooK.usedVehicles;
+                //     nests[randomNest2].fitness = cuckooK.fitness;
+                // }
             }
         }
     }
 
     std::cout << "Search Finished" << std::endl;
     
-    //printSolution();
+    printSolution();
 
     return;
 }
