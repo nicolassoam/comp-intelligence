@@ -1,0 +1,8 @@
+#ifndef CONFIG_HPP_
+#define CONFIG_HPP_
+
+#cmakedefine PROJECT_DIR "@PROJECT_DIR@"
+#cmakedefine INPUT "@INPUT@"
+#cmakedefine OUTPUT "@OUTPUT@"
+
+#endif // CONFIG_HPP_

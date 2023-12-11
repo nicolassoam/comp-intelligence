@@ -38,6 +38,9 @@ namespace Search{
                     void            lastTripConstructor(int iter, trip_matrix &adjMatrix, double avTourLength);
                     void            setToCandidateList(list_t &candidateList, trip_matrix& adjMatrix, int firstHotel);
                     void            updateCandidateList(list_t &candidateList, trip_matrix &adjMatrix, int kNode, Trip* lastTrip);
+                    void            updateCandListForNewTrip(trip_matrix &adjMatrix, Trip* lastTrip, tour_t & removedLocations);
+                    set             insertFirstLocations(solution_t &solution, trip_matrix &adjMatrix, int nHotels);
+                    void            initialHotelSelection();    
                     tour_t          getFullTour();
     };
 }
