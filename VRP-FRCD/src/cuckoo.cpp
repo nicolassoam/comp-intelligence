@@ -12,12 +12,13 @@ MCS::MCS( int nNests, int nVehicles, int nIterations, Instance* inst){
 
 double MCS::levyFlight(){
     
-    //levy distribution
+    // levy distribution
     double lambda = 1.5;
     
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_real_distribution<> dis(0, 1);
+
     double num = std::tgamma(1 + lambda) * std::sin((std::numbers::pi * lambda) / 2);
     double den = std::tgamma((1 + lambda) / 2) * lambda * std::pow(2, ((lambda - 1) / 2));
     double sigma = std::pow((num / den), (1 / lambda));
@@ -28,9 +29,9 @@ double MCS::levyFlight(){
     double u = u_n(gen);
     double v = v_n(gen);
     double step = u / std::pow(std::abs(v), (1 / lambda));
+    
     return levyStepSize * step;
 }
-
 
 // custo de transporte por unidade de distancia, multiplicado pela distancia
 // c * dist + H * V_utilizados
