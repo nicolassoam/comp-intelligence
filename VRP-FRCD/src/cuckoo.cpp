@@ -17,7 +17,6 @@ double MCS::levyFlight(){
     
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_real_distribution<> dis(0, 1);
     std::gamma_distribution<double> gamma(1,2);
     double num = gamma(rd)*(1+lambda) * std::sin((std::numbers::pi * lambda) / 2);
     double den = gamma(rd) * ((1 + lambda) / 2) * lambda * std::pow(2, ((lambda - 1) / 2));
