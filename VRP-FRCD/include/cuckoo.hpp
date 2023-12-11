@@ -46,7 +46,7 @@ class MCS{
                 Instance* inst;
                 int nVehicles;
                 int nIterations;
-                double maxLevyStepSize = 2;
+                double maxLevyStepSize = 10;
                 double levyStepSize;
                 double pa = 0.25;
                 nest_t nests;

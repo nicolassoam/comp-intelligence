@@ -151,7 +151,7 @@ namespace Neighborhood
         if(r1.size() < 4 || r2.size() < 3) return;
         int pos1 = getRandomPosition(1, r1.size()-3);
         int pos2 = getRandomPosition(1, r2.size()-2);
-
+        
         //new capacity
         double newCapacity1 = 0;
         double newCapacity2 = 0;
@@ -174,15 +174,19 @@ namespace Neighborhood
         newCapacity1 = v1.getCapacity() + d[r1[pos1+1]-1].first + d[r2[pos1]-1].first - d[r2[pos2]-1].first;
         //will gain one customer
         newCapacity2 = v2.getCapacity() + d[r2[pos2]-1].first - d[r1[pos1]-1].first - d[r1[pos1+1]-1].first;
+
+        std::cout << "newCapacity2: " << newCapacity2 << std::endl;
+        std::cout << "newCapacity1: " << newCapacity1 << std::endl;
+
         if(newCapacity1 < 0) return;
         if(newCapacity2 < 0) return;
-
+        
         // print routes before shift
     
         r2.insert(r2.begin()+pos2, r1[pos1+1]);
         std::swap(r1[pos1], r2[pos2]);
         r1.erase(r1.begin()+pos1+1);
-
+        
         v1.setCapacity(newCapacity1);
         v2.setCapacity(newCapacity2);
 
