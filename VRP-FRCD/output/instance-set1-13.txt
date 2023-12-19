@@ -463,3 +463,189 @@ route: 0 0
 
 Fitness: 12247
 Time: 0.814077
+Vehicles: 
+----------
+Vehicle: 3840
+id: 3840
+type: RETAILER
+COST: 1000
+capacity: 11
+route: 0 1 4 3 5 0 
+----------
+
+----------
+Vehicle: 3841
+id: 3841
+type: RETAILER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 3842
+id: 3842
+type: RETAILER
+COST: 1000
+capacity: 44
+route: 0 2 6 0 
+----------
+
+----------
+Vehicle: 3843
+id: 3843
+type: OUTLET
+COST: 1000
+capacity: 54.4599
+route: 0 3 2 4 1 0 
+----------
+
+----------
+Vehicle: 3844
+id: 3844
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 3845
+id: 3845
+type: SUPPLIER
+COST: 1000
+capacity: 4
+route: 0 1 3 4 0 
+----------
+
+----------
+Vehicle: 3846
+id: 3846
+type: SUPPLIER
+COST: 1000
+capacity: 50
+route: 0 2 0 
+----------
+
+----------
+Vehicle: 3847
+id: 3847
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 3848
+id: 3848
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 3849
+id: 3849
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 11102
+Time: 0.548841
+Vehicles: 
+----------
+Vehicle: 20440
+id: 20440
+type: RETAILER
+COST: 1000
+capacity: 11
+route: 0 1 4 3 5 0 
+----------
+
+----------
+Vehicle: 20441
+id: 20441
+type: RETAILER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 20442
+id: 20442
+type: RETAILER
+COST: 1000
+capacity: 44
+route: 0 2 6 0 
+----------
+
+----------
+Vehicle: 20443
+id: 20443
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 20444
+id: 20444
+type: OUTLET
+COST: 1000
+capacity: 63.9493
+route: 0 3 2 4 1 0 
+----------
+
+----------
+Vehicle: 20445
+id: 20445
+type: SUPPLIER
+COST: 1000
+capacity: 10
+route: 0 2 1 3 4 0 
+----------
+
+----------
+Vehicle: 20446
+id: 20446
+type: SUPPLIER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 20447
+id: 20447
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 20448
+id: 20448
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 20449
+id: 20449
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 10846
+Time: 1.14963

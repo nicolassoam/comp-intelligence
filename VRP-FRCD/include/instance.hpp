@@ -87,12 +87,14 @@ struct Instance {
     void printSupplierInfo();
     void printRetailerInfo();
     void printOutletInfo();
+
     void calculateProductDemand();                  // returns total quantity of each product
     void calculateTotalDemandPerRetailer();         // returns total demand of each retailer
     void calculateReturnedProductsPerRetailer();    // returns quantity of returned products per retailer
     void calculateOutletDemand();                   // returns total demand of each outlet
     void calculateReturnedProductsPerOutlet();      // returns quantity of returned products per outlet
     void calculateReturnedSupplierProducts();       // returns quantity of returned products per supplier
+
     ~Instance();
 
 };

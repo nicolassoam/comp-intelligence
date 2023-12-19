@@ -913,3 +913,208 @@ route: 0 0
 
 Fitness: 14674
 Time: 1.47698
+Vehicles: 
+----------
+Vehicle: 7720
+id: 7720
+type: RETAILER
+COST: 1000
+capacity: 25
+route: 0 16 11 5 22 6 2 13 7 3 21 4 17 8 14 19 1 18 9 12 20 23 15 10 0 
+----------
+
+----------
+Vehicle: 7721
+id: 7721
+type: RETAILER
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7722
+id: 7722
+type: OUTLET
+COST: 1000
+capacity: 129.987
+route: 0 4 1 6 7 3 5 2 0 
+----------
+
+----------
+Vehicle: 7723
+id: 7723
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7724
+id: 7724
+type: SUPPLIER
+COST: 1000
+capacity: 27
+route: 0 5 3 6 1 4 2 7 0 
+----------
+
+----------
+Vehicle: 7725
+id: 7725
+type: SUPPLIER
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7726
+id: 7726
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7727
+id: 7727
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7728
+id: 7728
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7729
+id: 7729
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7730
+id: 7730
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7731
+id: 7731
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7732
+id: 7732
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7733
+id: 7733
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7734
+id: 7734
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7735
+id: 7735
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7736
+id: 7736
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7737
+id: 7737
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7738
+id: 7738
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 7739
+id: 7739
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 10439
+Time: 1.87872
+Vehicles: 
+----------
+Vehicle: 23580
+id: 23580
+type: RETAILER
+COST: 1000
+capacity: 29
+route: 0 2 10 12 8 16 11 13 7 3 21 18 23 20 1 6 4 9 19 5 22 15 0 
+----------
+
+----------
+Vehicle: 23581
+id: 23581
+type: RETAILER
+COST: 1000
+capacity: 146
+route: 0 17 14 0 
+----------
+
+----------
+Vehicle: 23582
+id: 23582

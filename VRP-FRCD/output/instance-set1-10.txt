@@ -463,3 +463,189 @@ route: 0 0
 
 Fitness: 10194
 Time: 0.829305
+Vehicles: 
+----------
+Vehicle: 2920
+id: 2920
+type: RETAILER
+COST: 1000
+capacity: 33
+route: 0 3 4 6 0 
+----------
+
+----------
+Vehicle: 2921
+id: 2921
+type: RETAILER
+COST: 1000
+capacity: 29
+route: 0 2 5 1 0 
+----------
+
+----------
+Vehicle: 2922
+id: 2922
+type: OUTLET
+COST: 1000
+capacity: 57.5553
+route: 0 4 3 2 1 0 
+----------
+
+----------
+Vehicle: 2923
+id: 2923
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 2924
+id: 2924
+type: SUPPLIER
+COST: 1000
+capacity: 29
+route: 0 2 1 4 3 0 
+----------
+
+----------
+Vehicle: 2925
+id: 2925
+type: SUPPLIER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 2926
+id: 2926
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 2927
+id: 2927
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 2928
+id: 2928
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 2929
+id: 2929
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 8901
+Time: 0.621686
+Vehicles: 
+----------
+Vehicle: 19410
+id: 19410
+type: RETAILER
+COST: 1000
+capacity: 41
+route: 0 3 4 0 
+----------
+
+----------
+Vehicle: 19411
+id: 19411
+type: RETAILER
+COST: 1000
+capacity: 21
+route: 0 1 2 5 6 0 
+----------
+
+----------
+Vehicle: 19412
+id: 19412
+type: OUTLET
+COST: 1000
+capacity: 57.5553
+route: 0 4 3 2 1 0 
+----------
+
+----------
+Vehicle: 19413
+id: 19413
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19414
+id: 19414
+type: SUPPLIER
+COST: 1000
+capacity: 29
+route: 0 2 1 4 3 0 
+----------
+
+----------
+Vehicle: 19415
+id: 19415
+type: SUPPLIER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19416
+id: 19416
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19417
+id: 19417
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19418
+id: 19418
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19419
+id: 19419
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 8803
+Time: 1.29623

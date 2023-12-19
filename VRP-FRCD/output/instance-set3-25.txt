@@ -1363,3 +1363,276 @@ route: 0 0
 
 Fitness: 25156
 Time: 0.707457
+Vehicles: 
+----------
+Vehicle: 14160
+id: 14160
+type: RETAILER
+COST: 1000
+capacity: 19
+route: 0 7 13 17 29 33 18 5 32 6 12 11 25 24 28 31 4 3 36 35 14 15 20 8 10 38 0 
+----------
+
+----------
+Vehicle: 14161
+id: 14161
+type: RETAILER
+COST: 1000
+capacity: 76
+route: 0 21 22 19 2 30 27 37 9 1 23 34 16 26 0 
+----------
+
+----------
+Vehicle: 14162
+id: 14162
+type: RETAILER
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14163
+id: 14163
+type: OUTLET
+COST: 1000
+capacity: 150.44
+route: 0 1 6 2 3 4 7 10 12 11 0 
+----------
+
+----------
+Vehicle: 14164
+id: 14164
+type: OUTLET
+COST: 1000
+capacity: 98.5516
+route: 0 9 8 5 0 
+----------
+
+----------
+Vehicle: 14165
+id: 14165
+type: SUPPLIER
+COST: 1000
+capacity: 2
+route: 0 8 5 1 7 10 12 2 4 3 11 0 
+----------
+
+----------
+Vehicle: 14166
+id: 14166
+type: SUPPLIER
+COST: 1000
+capacity: 99
+route: 0 6 9 0 
+----------
+
+----------
+Vehicle: 14167
+id: 14167
+type: SUPPLIER
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14168
+id: 14168
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14169
+id: 14169
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14170
+id: 14170
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14171
+id: 14171
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14172
+id: 14172
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14173
+id: 14173
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14174
+id: 14174
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14175
+id: 14175
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14176
+id: 14176
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14177
+id: 14177
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14178
+id: 14178
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14179
+id: 14179
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14180
+id: 14180
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14181
+id: 14181
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14182
+id: 14182
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14183
+id: 14183
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14184
+id: 14184
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14185
+id: 14185
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14186
+id: 14186
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14187
+id: 14187
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14188
+id: 14188
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 14189
+id: 14189
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 16625
+Time: 4.09456

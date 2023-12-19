@@ -1363,3 +1363,276 @@ route: 0 0
 
 Fitness: 24646
 Time: 0.481347
+Vehicles: 
+----------
+Vehicle: 8510
+id: 8510
+type: RETAILER
+COST: 1000
+capacity: 30
+route: 0 2 32 5 8 29 36 16 27 3 18 12 28 22 15 4 35 30 6 19 23 13 0 
+----------
+
+----------
+Vehicle: 8511
+id: 8511
+type: RETAILER
+COST: 1000
+capacity: 55
+route: 0 26 11 10 21 7 34 31 25 37 24 1 14 20 33 38 9 17 0 
+----------
+
+----------
+Vehicle: 8512
+id: 8512
+type: RETAILER
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8513
+id: 8513
+type: OUTLET
+COST: 1000
+capacity: 95.3054
+route: 0 6 9 11 5 3 4 2 10 12 1 7 8 0 
+----------
+
+----------
+Vehicle: 8514
+id: 8514
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8515
+id: 8515
+type: SUPPLIER
+COST: 1000
+capacity: 1
+route: 0 3 5 6 2 9 8 7 11 0 
+----------
+
+----------
+Vehicle: 8516
+id: 8516
+type: SUPPLIER
+COST: 1000
+capacity: 92
+route: 0 1 4 12 0 
+----------
+
+----------
+Vehicle: 8517
+id: 8517
+type: SUPPLIER
+COST: 1000
+capacity: 142
+route: 0 10 0 
+----------
+
+----------
+Vehicle: 8518
+id: 8518
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8519
+id: 8519
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8520
+id: 8520
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8521
+id: 8521
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8522
+id: 8522
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8523
+id: 8523
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8524
+id: 8524
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8525
+id: 8525
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8526
+id: 8526
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8527
+id: 8527
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8528
+id: 8528
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8529
+id: 8529
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8530
+id: 8530
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8531
+id: 8531
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8532
+id: 8532
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8533
+id: 8533
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8534
+id: 8534
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8535
+id: 8535
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8536
+id: 8536
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8537
+id: 8537
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8538
+id: 8538
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8539
+id: 8539
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 16676
+Time: 2.00521

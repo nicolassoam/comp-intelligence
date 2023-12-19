@@ -463,3 +463,189 @@ route: 0 0
 
 Fitness: 13470
 Time: 1.95647
+Vehicles: 
+----------
+Vehicle: 3420
+id: 3420
+type: RETAILER
+COST: 1000
+capacity: 1
+route: 0 3 5 4 2 1 0 
+----------
+
+----------
+Vehicle: 3421
+id: 3421
+type: RETAILER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 3422
+id: 3422
+type: RETAILER
+COST: 1000
+capacity: 47
+route: 0 6 0 
+----------
+
+----------
+Vehicle: 3423
+id: 3423
+type: OUTLET
+COST: 1000
+capacity: 49.6693
+route: 0 3 2 4 1 0 
+----------
+
+----------
+Vehicle: 3424
+id: 3424
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 3425
+id: 3425
+type: SUPPLIER
+COST: 1000
+capacity: 18
+route: 0 1 3 0 
+----------
+
+----------
+Vehicle: 3426
+id: 3426
+type: SUPPLIER
+COST: 1000
+capacity: 30
+route: 0 2 4 0 
+----------
+
+----------
+Vehicle: 3427
+id: 3427
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 3428
+id: 3428
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 3429
+id: 3429
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 11657
+Time: 1.40192
+Vehicles: 
+----------
+Vehicle: 19760
+id: 19760
+type: RETAILER
+COST: 1000
+capacity: 16
+route: 0 6 4 2 1 0 
+----------
+
+----------
+Vehicle: 19761
+id: 19761
+type: RETAILER
+COST: 1000
+capacity: 25
+route: 0 3 5 0 
+----------
+
+----------
+Vehicle: 19762
+id: 19762
+type: RETAILER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19763
+id: 19763
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19764
+id: 19764
+type: OUTLET
+COST: 1000
+capacity: 39.1378
+route: 0 3 2 4 1 0 
+----------
+
+----------
+Vehicle: 19765
+id: 19765
+type: SUPPLIER
+COST: 1000
+capacity: 15
+route: 0 1 3 0 
+----------
+
+----------
+Vehicle: 19766
+id: 19766
+type: SUPPLIER
+COST: 1000
+capacity: 33
+route: 0 2 4 0 
+----------
+
+----------
+Vehicle: 19767
+id: 19767
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19768
+id: 19768
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19769
+id: 19769
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 11638
+Time: 0.959033

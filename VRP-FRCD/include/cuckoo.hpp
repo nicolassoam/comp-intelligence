@@ -15,9 +15,6 @@
 /*
     Modified cuckoo search algorithm for the VRP-FRCD problem
 */
-//TODO: adapt the cuckoo struct to the VRP-FRCD problem
-//TODO: adapt the MCS class to the VRP-FRCD problem
-//TODO: adapt the solution_t type to the VRP-FRCD problem
 
 using solution_t = std::vector<double>;
 using v = std::vector<Vehicle>;
@@ -27,12 +24,13 @@ struct cuckoo{
     double      fitness;
     v           vehicles;
     int         usedVehicles = 0;
+    double      currentTime = 0;
     v_int       vehicleTypes = {0,0,0};              // retailer, supplier, outlet
 };
 
-using nest_t = std::vector<cuckoo>;                  // population of cuckoos (one per nest)
-using candidate = std::tuple<double,int,int,int>;    // heuristic, k, i, j
-using list_t = std::vector<candidate>;               // list of candidates (heuristic, k, i, j)
+using nest_t = std::vector<cuckoo>;                             // population of cuckoos (one per nest)
+using candidate = std::tuple<double,int,int,int,TYPE,int>;      // heuristic, k, i, j, TYPE, vehicle
+using list_t = std::vector<candidate>;                          // list of candidates (heuristic, k, i, j, TYPE, vehicle)
 
 class MCS{
     public:     MCS(int nNests, int nVehicles, int nIterations, Instance* inst); 
@@ -56,6 +54,7 @@ class MCS{
                 double levyFlight();
                 cuckoo applyMovement(cuckoo c, std::vector<double>iteratorVector);
                 void initPopulation();
+                void initRoutes(cuckoo& cuckoo);
                 void supplierInit(cuckoo& cuckoo);
                 void retailerInit(cuckoo& cuckoo);
                 void outletInit(cuckoo& cuckoo);

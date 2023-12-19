@@ -463,3 +463,189 @@ route: 0 0
 
 Fitness: 12308
 Time: 0.43242
+Vehicles: 
+----------
+Vehicle: 1600
+id: 1600
+type: RETAILER
+COST: 1000
+capacity: 11
+route: 0 3 2 1 4 0 
+----------
+
+----------
+Vehicle: 1601
+id: 1601
+type: RETAILER
+COST: 1000
+capacity: 30
+route: 0 5 6 0 
+----------
+
+----------
+Vehicle: 1602
+id: 1602
+type: RETAILER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 1603
+id: 1603
+type: OUTLET
+COST: 1000
+capacity: 46.6956
+route: 0 1 2 3 4 0 
+----------
+
+----------
+Vehicle: 1604
+id: 1604
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 1605
+id: 1605
+type: SUPPLIER
+COST: 1000
+capacity: 26
+route: 0 2 4 0 
+----------
+
+----------
+Vehicle: 1606
+id: 1606
+type: SUPPLIER
+COST: 1000
+capacity: 16
+route: 0 3 1 0 
+----------
+
+----------
+Vehicle: 1607
+id: 1607
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 1608
+id: 1608
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 1609
+id: 1609
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 10828
+Time: 0.0038343
+Vehicles: 
+----------
+Vehicle: 17770
+id: 17770
+type: RETAILER
+COST: 1000
+capacity: 0
+route: 0 3 2 1 5 0 
+----------
+
+----------
+Vehicle: 17771
+id: 17771
+type: RETAILER
+COST: 1000
+capacity: 40
+route: 0 4 6 0 
+----------
+
+----------
+Vehicle: 17772
+id: 17772
+type: RETAILER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 17773
+id: 17773
+type: OUTLET
+COST: 1000
+capacity: 53.4968
+route: 0 4 3 2 0 
+----------
+
+----------
+Vehicle: 17774
+id: 17774
+type: OUTLET
+COST: 1000
+capacity: 67.6288
+route: 0 1 0 
+----------
+
+----------
+Vehicle: 17775
+id: 17775
+type: SUPPLIER
+COST: 1000
+capacity: 31
+route: 0 2 4 0 
+----------
+
+----------
+Vehicle: 17776
+id: 17776
+type: SUPPLIER
+COST: 1000
+capacity: 11
+route: 0 3 1 0 
+----------
+
+----------
+Vehicle: 17777
+id: 17777
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 17778
+id: 17778
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 17779
+id: 17779
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 10300
+Time: 0.101444

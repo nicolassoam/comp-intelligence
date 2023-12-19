@@ -463,3 +463,189 @@ route: 0 0
 
 Fitness: 13026
 Time: 2.52569
+Vehicles: 
+----------
+Vehicle: 3130
+id: 3130
+type: RETAILER
+COST: 1000
+capacity: 4
+route: 0 4 5 3 0 
+----------
+
+----------
+Vehicle: 3131
+id: 3131
+type: RETAILER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 3132
+id: 3132
+type: RETAILER
+COST: 1000
+capacity: 10
+route: 0 6 1 2 0 
+----------
+
+----------
+Vehicle: 3133
+id: 3133
+type: OUTLET
+COST: 1000
+capacity: 50.3494
+route: 0 4 3 2 1 0 
+----------
+
+----------
+Vehicle: 3134
+id: 3134
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 3135
+id: 3135
+type: SUPPLIER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 3136
+id: 3136
+type: SUPPLIER
+COST: 1000
+capacity: 10
+route: 0 1 2 0 
+----------
+
+----------
+Vehicle: 3137
+id: 3137
+type: SUPPLIER
+COST: 1000
+capacity: 5
+route: 0 3 4 0 
+----------
+
+----------
+Vehicle: 3138
+id: 3138
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 3139
+id: 3139
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 11815
+Time: 0.580894
+Vehicles: 
+----------
+Vehicle: 19730
+id: 19730
+type: RETAILER
+COST: 1000
+capacity: 4
+route: 0 6 5 3 0 
+----------
+
+----------
+Vehicle: 19731
+id: 19731
+type: RETAILER
+COST: 1000
+capacity: 11
+route: 0 4 2 1 0 
+----------
+
+----------
+Vehicle: 19732
+id: 19732
+type: RETAILER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19733
+id: 19733
+type: OUTLET
+COST: 1000
+capacity: 50.3494
+route: 0 4 3 2 1 0 
+----------
+
+----------
+Vehicle: 19734
+id: 19734
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19735
+id: 19735
+type: SUPPLIER
+COST: 1000
+capacity: 16
+route: 0 3 4 0 
+----------
+
+----------
+Vehicle: 19736
+id: 19736
+type: SUPPLIER
+COST: 1000
+capacity: 10
+route: 0 1 2 0 
+----------
+
+----------
+Vehicle: 19737
+id: 19737
+type: SUPPLIER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19738
+id: 19738
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 19739
+id: 19739
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 11941
+Time: 1.36021

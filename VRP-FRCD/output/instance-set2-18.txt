@@ -913,3 +913,369 @@ route: 0 0
 
 Fitness: 15518
 Time: 2.65535
+Vehicles: 
+----------
+Vehicle: 820
+id: 820
+type: RETAILER
+COST: 1000
+capacity: 42
+route: 0 11 3 13 17 23 20 10 21 16 12 9 6 7 22 1 18 15 4 8 5 0 
+----------
+
+----------
+Vehicle: 821
+id: 821
+type: RETAILER
+COST: 1000
+capacity: 135
+route: 0 14 19 2 0 
+----------
+
+----------
+Vehicle: 822
+id: 822
+type: OUTLET
+COST: 1000
+capacity: 131.592
+route: 0 4 5 7 0 
+----------
+
+----------
+Vehicle: 823
+id: 823
+type: OUTLET
+COST: 1000
+capacity: 135.878
+route: 0 2 1 6 3 0 
+----------
+
+----------
+Vehicle: 824
+id: 824
+type: SUPPLIER
+COST: 1000
+capacity: 25
+route: 0 1 7 5 6 4 3 2 0 
+----------
+
+----------
+Vehicle: 825
+id: 825
+type: SUPPLIER
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 826
+id: 826
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 827
+id: 827
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 828
+id: 828
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 829
+id: 829
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 830
+id: 830
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 831
+id: 831
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 832
+id: 832
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 833
+id: 833
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 834
+id: 834
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 835
+id: 835
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 836
+id: 836
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 837
+id: 837
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 838
+id: 838
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 839
+id: 839
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 11104
+Time: 0.962601
+Vehicles: 
+----------
+Vehicle: 16860
+id: 16860
+type: RETAILER
+COST: 1000
+capacity: 27
+route: 0 8 20 10 17 15 23 7 21 13 6 2 16 12 11 3 22 19 9 18 1 5 14 4 0 
+----------
+
+----------
+Vehicle: 16861
+id: 16861
+type: RETAILER
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16862
+id: 16862
+type: OUTLET
+COST: 1000
+capacity: 128.695
+route: 0 4 5 7 0 
+----------
+
+----------
+Vehicle: 16863
+id: 16863
+type: OUTLET
+COST: 1000
+capacity: 138.775
+route: 0 2 1 6 3 0 
+----------
+
+----------
+Vehicle: 16864
+id: 16864
+type: SUPPLIER
+COST: 1000
+capacity: 20
+route: 0 1 7 5 6 4 3 2 0 
+----------
+
+----------
+Vehicle: 16865
+id: 16865
+type: SUPPLIER
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16866
+id: 16866
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16867
+id: 16867
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16868
+id: 16868
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16869
+id: 16869
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16870
+id: 16870
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16871
+id: 16871
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16872
+id: 16872
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16873
+id: 16873
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16874
+id: 16874
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16875
+id: 16875
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16876
+id: 16876
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16877
+id: 16877
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16878
+id: 16878
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 16879
+id: 16879
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 10868
+Time: 0.966587

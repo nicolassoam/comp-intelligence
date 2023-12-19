@@ -463,3 +463,175 @@ route: 0 0
 
 Fitness: 12613
 Time: 3.22041
+Vehicles: 
+----------
+Vehicle: 6950
+id: 6950
+type: RETAILER
+COST: 1000
+capacity: 16
+route: 0 1 4 6 0 
+----------
+
+----------
+Vehicle: 6951
+id: 6951
+type: RETAILER
+COST: 1000
+capacity: 2
+route: 0 2 3 5 0 
+----------
+
+----------
+Vehicle: 6952
+id: 6952
+type: RETAILER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 6953
+id: 6953
+type: OUTLET
+COST: 1000
+capacity: 59.641
+route: 0 1 2 3 4 0 
+----------
+
+----------
+Vehicle: 6954
+id: 6954
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 6955
+id: 6955
+type: SUPPLIER
+COST: 1000
+capacity: 16
+route: 0 2 3 0 
+----------
+
+----------
+Vehicle: 6956
+id: 6956
+type: SUPPLIER
+COST: 1000
+capacity: 19
+route: 0 1 4 0 
+----------
+
+----------
+Vehicle: 6957
+id: 6957
+type: SUPPLIER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 6958
+id: 6958
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 6959
+id: 6959
+type: VEHICLE
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+Fitness: 12258
+Time: 1.3494
+Vehicles: 
+----------
+Vehicle: 23300
+id: 23300
+type: RETAILER
+COST: 1000
+capacity: 16
+route: 0 1 4 6 0 
+----------
+
+----------
+Vehicle: 23301
+id: 23301
+type: RETAILER
+COST: 1000
+capacity: 2
+route: 0 2 3 5 0 
+----------
+
+----------
+Vehicle: 23302
+id: 23302
+type: RETAILER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 23303
+id: 23303
+type: OUTLET
+COST: 1000
+capacity: 59.3641
+route: 0 1 2 3 4 0 
+----------
+
+----------
+Vehicle: 23304
+id: 23304
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 23305
+id: 23305
+type: SUPPLIER
+COST: 1000
+capacity: 16
+route: 0 2 3 0 
+----------
+
+----------
+Vehicle: 23306
+id: 23306
+type: SUPPLIER
+COST: 1000
+capacity: 19
+route: 0 1 4 0 
+----------
+
+----------
+Vehicle: 23307
+id: 23307
+type: SUPPLIER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 23308
+id: 23308
+type: VEHICLE
+COST: 1000
+capacity: 70

@@ -463,3 +463,189 @@ route: 0 3 0
 
 Fitness: 16632
 Time: 0.826269
+Vehicles: 
+----------
+Vehicle: 560
+id: 560
+type: RETAILER
+COST: 1000
+capacity: 15
+route: 0 4 1 0 
+----------
+
+----------
+Vehicle: 561
+id: 561
+type: RETAILER
+COST: 1000
+capacity: 10
+route: 0 6 5 0 
+----------
+
+----------
+Vehicle: 562
+id: 562
+type: RETAILER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 563
+id: 563
+type: RETAILER
+COST: 1000
+capacity: 17
+route: 0 2 3 0 
+----------
+
+----------
+Vehicle: 564
+id: 564
+type: OUTLET
+COST: 1000
+capacity: 32.4094
+route: 0 4 3 1 2 0 
+----------
+
+----------
+Vehicle: 565
+id: 565
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 566
+id: 566
+type: SUPPLIER
+COST: 1000
+capacity: 23
+route: 0 4 0 
+----------
+
+----------
+Vehicle: 567
+id: 567
+type: SUPPLIER
+COST: 1000
+capacity: 21
+route: 0 2 0 
+----------
+
+----------
+Vehicle: 568
+id: 568
+type: SUPPLIER
+COST: 1000
+capacity: 42
+route: 0 1 0 
+----------
+
+----------
+Vehicle: 569
+id: 569
+type: SUPPLIER
+COST: 1000
+capacity: 26
+route: 0 3 0 
+----------
+
+Fitness: 16258
+Time: 1.287
+Vehicles: 
+----------
+Vehicle: 16260
+id: 16260
+type: RETAILER
+COST: 1000
+capacity: 15
+route: 0 4 1 0 
+----------
+
+----------
+Vehicle: 16261
+id: 16261
+type: RETAILER
+COST: 1000
+capacity: 9
+route: 0 2 6 0 
+----------
+
+----------
+Vehicle: 16262
+id: 16262
+type: RETAILER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 16263
+id: 16263
+type: RETAILER
+COST: 1000
+capacity: 18
+route: 0 3 5 0 
+----------
+
+----------
+Vehicle: 16264
+id: 16264
+type: OUTLET
+COST: 1000
+capacity: 32.4094
+route: 0 4 3 1 2 0 
+----------
+
+----------
+Vehicle: 16265
+id: 16265
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 16266
+id: 16266
+type: SUPPLIER
+COST: 1000
+capacity: 23
+route: 0 4 0 
+----------
+
+----------
+Vehicle: 16267
+id: 16267
+type: SUPPLIER
+COST: 1000
+capacity: 21
+route: 0 2 0 
+----------
+
+----------
+Vehicle: 16268
+id: 16268
+type: SUPPLIER
+COST: 1000
+capacity: 42
+route: 0 1 0 
+----------
+
+----------
+Vehicle: 16269
+id: 16269
+type: SUPPLIER
+COST: 1000
+capacity: 26
+route: 0 3 0 
+----------
+
+Fitness: 16095
+Time: 1.44422

@@ -463,3 +463,189 @@ route: 0 4 0
 
 Fitness: 16021
 Time: 1.68393
+Vehicles: 
+----------
+Vehicle: 2130
+id: 2130
+type: RETAILER
+COST: 1000
+capacity: 1
+route: 0 3 4 0 
+----------
+
+----------
+Vehicle: 2131
+id: 2131
+type: RETAILER
+COST: 1000
+capacity: 5
+route: 0 5 6 0 
+----------
+
+----------
+Vehicle: 2132
+id: 2132
+type: RETAILER
+COST: 1000
+capacity: 14
+route: 0 1 2 0 
+----------
+
+----------
+Vehicle: 2133
+id: 2133
+type: RETAILER
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 2134
+id: 2134
+type: OUTLET
+COST: 1000
+capacity: 53.4905
+route: 0 4 3 2 1 0 
+----------
+
+----------
+Vehicle: 2135
+id: 2135
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 2136
+id: 2136
+type: SUPPLIER
+COST: 1000
+capacity: 27
+route: 0 1 0 
+----------
+
+----------
+Vehicle: 2137
+id: 2137
+type: SUPPLIER
+COST: 1000
+capacity: 26
+route: 0 2 0 
+----------
+
+----------
+Vehicle: 2138
+id: 2138
+type: SUPPLIER
+COST: 1000
+capacity: 22
+route: 0 3 0 
+----------
+
+----------
+Vehicle: 2139
+id: 2139
+type: SUPPLIER
+COST: 1000
+capacity: 20
+route: 0 4 0 
+----------
+
+Fitness: 15627
+Time: 1.28367
+Vehicles: 
+----------
+Vehicle: 18380
+id: 18380
+type: RETAILER
+COST: 1000
+capacity: 27
+route: 0 4 0 
+----------
+
+----------
+Vehicle: 18381
+id: 18381
+type: RETAILER
+COST: 1000
+capacity: 5
+route: 0 5 6 0 
+----------
+
+----------
+Vehicle: 18382
+id: 18382
+type: RETAILER
+COST: 1000
+capacity: 16
+route: 0 3 2 0 
+----------
+
+----------
+Vehicle: 18383
+id: 18383
+type: RETAILER
+COST: 1000
+capacity: 47
+route: 0 1 0 
+----------
+
+----------
+Vehicle: 18384
+id: 18384
+type: OUTLET
+COST: 1000
+capacity: 53.4905
+route: 0 4 3 2 1 0 
+----------
+
+----------
+Vehicle: 18385
+id: 18385
+type: OUTLET
+COST: 1000
+capacity: 70
+route: 0 0 
+----------
+
+----------
+Vehicle: 18386
+id: 18386
+type: SUPPLIER
+COST: 1000
+capacity: 27
+route: 0 1 0 
+----------
+
+----------
+Vehicle: 18387
+id: 18387
+type: SUPPLIER
+COST: 1000
+capacity: 26
+route: 0 2 0 
+----------
+
+----------
+Vehicle: 18388
+id: 18388
+type: SUPPLIER
+COST: 1000
+capacity: 22
+route: 0 3 0 
+----------
+
+----------
+Vehicle: 18389
+id: 18389
+type: SUPPLIER
+COST: 1000
+capacity: 20
+route: 0 4 0 
+----------
+
+Fitness: 16014
+Time: 0.548689

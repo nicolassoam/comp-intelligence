@@ -1363,3 +1363,276 @@ route: 0 0
 
 Fitness: 25786
 Time: 0.06098
+Vehicles: 
+----------
+Vehicle: 8890
+id: 8890
+type: RETAILER
+COST: 1000
+capacity: 39
+route: 0 3 7 29 4 25 20 12 21 26 8 35 17 36 14 23 15 13 22 30 0 
+----------
+
+----------
+Vehicle: 8891
+id: 8891
+type: RETAILER
+COST: 1000
+capacity: 46
+route: 0 38 2 5 31 10 6 11 24 18 37 27 33 32 16 19 1 28 34 9 0 
+----------
+
+----------
+Vehicle: 8892
+id: 8892
+type: RETAILER
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8893
+id: 8893
+type: OUTLET
+COST: 1000
+capacity: 93.9588
+route: 0 2 11 1 5 3 6 7 9 8 12 10 4 0 
+----------
+
+----------
+Vehicle: 8894
+id: 8894
+type: OUTLET
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8895
+id: 8895
+type: SUPPLIER
+COST: 1000
+capacity: 2
+route: 0 11 9 12 6 4 8 2 1 0 
+----------
+
+----------
+Vehicle: 8896
+id: 8896
+type: SUPPLIER
+COST: 1000
+capacity: 93
+route: 0 3 7 10 5 0 
+----------
+
+----------
+Vehicle: 8897
+id: 8897
+type: SUPPLIER
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8898
+id: 8898
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8899
+id: 8899
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8900
+id: 8900
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8901
+id: 8901
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8902
+id: 8902
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8903
+id: 8903
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8904
+id: 8904
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8905
+id: 8905
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8906
+id: 8906
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8907
+id: 8907
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8908
+id: 8908
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8909
+id: 8909
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8910
+id: 8910
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8911
+id: 8911
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8912
+id: 8912
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8913
+id: 8913
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8914
+id: 8914
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8915
+id: 8915
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8916
+id: 8916
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8917
+id: 8917
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8918
+id: 8918
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+----------
+Vehicle: 8919
+id: 8919
+type: VEHICLE
+COST: 1000
+capacity: 150
+route: 0 0 
+----------
+
+Fitness: 15393
+Time: 1.22333
